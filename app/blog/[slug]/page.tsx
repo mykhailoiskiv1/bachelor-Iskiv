@@ -8,7 +8,7 @@ interface PageProps {
   params: { slug: string }
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function BlogPostPage({ params }: Readonly<PageProps>) {
   const post = await prisma.post.findUnique({
     where: { slug: params.slug },
   })
