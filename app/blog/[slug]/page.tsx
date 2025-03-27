@@ -1,14 +1,38 @@
-export const dynamic = 'force-dynamic'
-
 import { prisma } from '@/lib/prisma'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 interface PageProps {
-  params: { slug: string }
+  params: {
+    slug: string
+  }
 }
 
-export default async function BlogPostPage({ params }: Readonly<PageProps>) {
+export async function generateStaticParams() {
+  const posts = await prisma.post.findMany({
+    select: { slug: true },
+  })
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const post = await prisma.post.findUnique({
+    where: { slug: params.slug },
+  })
+
+  if (!post) return {}
+
+  return {
+    title: post.title,
+    description: post.content.slice(0, 150), 
+  }
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
   const post = await prisma.post.findUnique({
     where: { slug: params.slug },
   })
