@@ -2,10 +2,8 @@ import { prisma } from '@/lib/prisma'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-interface PageProps {
-  params: {
-    slug: string
-  }
+type PageProps = {
+  params: { slug: string }
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
