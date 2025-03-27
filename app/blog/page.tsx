@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { prisma } from '@/lib/prisma'
+import { PostWithAuthor } from '@/types/post'
 
 export default async function BlogPage() {
     const posts: PostWithAuthor[] = await prisma.post.findMany({
