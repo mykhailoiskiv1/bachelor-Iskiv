@@ -28,11 +28,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: post.title,
-    description: post.content.slice(0, 150), 
+    description: post.content.slice(0, 150),
   }
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
   const post = await prisma.post.findUnique({
     where: { slug: params.slug },
   })
