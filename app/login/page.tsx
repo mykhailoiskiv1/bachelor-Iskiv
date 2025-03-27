@@ -18,25 +18,28 @@ export default function LoginPage() {
     const onSubmit = async (data: FormData) => {
         setServerError('')
         const res = await signIn('credentials', {
-            ...data,
-            redirect: false,
+          ...data,
+          redirect: false,
         })
-
+      
         if (res?.error) {
-            setServerError('Invalid email or password')
+          setServerError('Invalid email or password')
         } else if (res?.ok) {
-            const sessionRes = await fetch('/api/auth/session')
-            const session = await sessionRes.json()
-
-            const role = session?.user?.role
-
-            if (role === 'ADMIN') {
-                router.push('/admin')
-            } else {
-                router.push('/')
-            }
+          const sessionRes = await fetch('/api/auth/session')
+          const session = await sessionRes.json()
+      
+          const role = session?.user?.role
+      
+          if (role === 'ADMIN') {
+            router.push('/admin')
+          } else if (role === 'CLIENT') {
+            router.push('/client')
+          } else {
+            router.push('/')
+          }
         }
-    }
+      }
+      
 
 
     return (
