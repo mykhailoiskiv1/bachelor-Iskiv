@@ -1,14 +1,16 @@
+export const dynamic = 'force-dynamic'
+
 import { prisma } from '@/lib/prisma'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-export default async function BlogPostPage({
-  params,
-}: {
+interface PageProps {
   params: { slug: string }
-}) {
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
   const post = await prisma.post.findUnique({
-    where: { slug: params.slug }
+    where: { slug: params.slug },
   })
 
   if (!post) return notFound()
