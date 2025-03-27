@@ -2,11 +2,7 @@ import { prisma } from '@/lib/prisma'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-type PageProps = {
-  params: { slug: string }
-}
-
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await prisma.post.findUnique({
     where: { slug: params.slug }
   })
