@@ -1,13 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest) {
   try {
-    const id = parseInt(params.id);
+    const id = req.nextUrl.pathname.split('/').pop();
+    const serviceId = Number(id);
+
+    if (isNaN(serviceId)) {
+      return NextResponse.json({ error: 'Invalid service ID' }, { status: 400 });
+    }
+
     const data = await req.json();
 
     const updatedService = await prisma.service.update({
-      where: { id },
+      where: { id: serviceId },
       data,
     });
 
@@ -18,12 +24,17 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest) {
   try {
-    const id = parseInt(params.id);
+    const id = req.nextUrl.pathname.split('/').pop();
+    const serviceId = Number(id);
+
+    if (isNaN(serviceId)) {
+      return NextResponse.json({ error: 'Invalid service ID' }, { status: 400 });
+    }
 
     await prisma.service.update({
-      where: { id },
+      where: { id: serviceId },
       data: { deletedAt: new Date() },
     });
 
@@ -33,4 +44,3 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
     return NextResponse.json({ error: 'Failed to delete service' }, { status: 500 });
   }
 }
-
