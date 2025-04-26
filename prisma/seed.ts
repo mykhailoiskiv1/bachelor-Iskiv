@@ -1,59 +1,52 @@
-import { prisma } from '@/lib/prisma'
-import { hash } from 'bcryptjs'
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 async function main() {
-  const adminPassword = await hash('adminpass', 10)
-  const clientPassword = await hash('clientpass', 10)
+  await prisma.service.deleteMany(); 
 
-  const admin = await prisma.user.upsert({
-    where: { email: 'admin@example.com' },
-    update: {},
-    create: {
-      email: 'admin@example.com',
-      password: adminPassword,
-      role: 'ADMIN',
-    },
-  })
+  await prisma.service.createMany({
+    data: [
+      {
+        title: 'House Wiring',
+        category: 'Electricity',
+        icon: 'Zap',
+        isFeatured: true,
+        sortOrder: 1,
+        isHot: true,
+      },
+      {
+        title: 'Bathroom Plumbing',
+        category: 'Plumbing',
+        icon: 'Droplet',
+        isFeatured: true,
+        sortOrder: 2,
+      },
+      {
+        title: 'Garage Conversions',
+        category: 'Building',
+        icon: 'Home',
+        isFeatured: true,
+        sortOrder: 3,
+      },
+      {
+        title: 'LED Lighting',
+        category: 'Electricity',
+        icon: 'Sun',
+        isFeatured: false,
+        sortOrder: 4,
+      },
+    ],
+  });
 
-  await prisma.user.upsert({
-    where: { email: 'client1@example.com' },
-    update: {},
-    create: {
-      email: 'client1@example.com',
-      password: clientPassword,
-      role: 'CLIENT',
-    },
-  })
-
-  await prisma.user.upsert({
-    where: { email: 'client2@example.com' },
-    update: {},
-    create: {
-      email: 'client2@example.com',
-      password: clientPassword,
-      role: 'CLIENT',
-    },
-  })
-
-  await prisma.post.upsert({
-    where: { slug: 'welcome-to-our-blog' },
-    update: {},
-    create: {
-      title: 'Welcome to Our Blog',
-      slug: 'welcome-to-our-blog',
-      content: 'This is our first post in the construction company blog. Stay tuned!',
-      imageUrl: '/demo-cover.jpg',
-      authorId: admin.id,
-    },
-  })
-
-  console.log('✅ Admin, Clients, and Demo Blog Post created')
+  console.log('✅ Services seeded successfully!');
 }
 
 main()
-  .then(() => prisma.$disconnect())
-  .catch((e) => {
-    console.error(e)
-    prisma.$disconnect()
-    process.exit(1)
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
   })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

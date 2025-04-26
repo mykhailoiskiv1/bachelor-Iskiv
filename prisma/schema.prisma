@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "./prisma/generated/client"
 }
 
 datasource db {
@@ -8,12 +9,16 @@ datasource db {
 }
 
 model User {
-  id       String  @id @default(cuid())
-  email    String  @unique
-  password String
-  role     Role    @default(CLIENT)
-  posts    Post[]  @relation("UserPosts")
+  id            String   @id @default(cuid())
+  email         String   @unique
+  password      String
+  role          Role     @default(CLIENT)
+  name          String?  // Ім'я клієнта
+  address       String?  // Адреса клієнта
+  isConfirmed   Boolean  @default(false)  // Підтвердження адміністратором
+  posts         Post[]   @relation("UserPosts")
 }
+
 
 model Post {
   id        String   @id @default(cuid())
@@ -32,3 +37,34 @@ enum Role {
   CLIENT
   ADMIN
 }
+
+model Review {
+  id            Int      @id @default(autoincrement())
+  clientName    String
+  rating        Int      
+  content       String
+  status        ReviewStatus @default(PENDING)
+  companyReply  String? 
+  createdAt     DateTime @default(now())
+}
+
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Service {
+  id             Int       @id @default(autoincrement())
+  title          String
+  category       String
+  description    String?
+  icon           String
+  isFeatured     Boolean   @default(false)
+  sortOrder      Int       @default(0)
+  isHot          Boolean   @default(false)
+  createdAt      DateTime  @default(now())
+  deletedAt      DateTime?  // Ось це поле має бути!
+}
+
