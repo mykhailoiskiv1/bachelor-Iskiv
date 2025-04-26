@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
-    const serviceId = Number(params.id);
+export async function PATCH(req: NextRequest) {
+    const id = req.nextUrl.pathname.split('/').pop();
+    const serviceId = Number(id);
 
     if (isNaN(serviceId)) {
         return NextResponse.json({ error: 'Invalid service ID' }, { status: 400 });
@@ -13,7 +14,6 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
             where: { id: serviceId },
             data: { deletedAt: null },
         });
-
 
         return NextResponse.json({ message: 'Service restored', service: restoredService });
     } catch (error) {
