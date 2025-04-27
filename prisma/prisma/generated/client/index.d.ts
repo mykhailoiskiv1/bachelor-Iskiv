@@ -33,6 +33,16 @@ export type Review = $Result.DefaultSelection<Prisma.$ReviewPayload>
  * 
  */
 export type Service = $Result.DefaultSelection<Prisma.$ServicePayload>
+/**
+ * Model Warranty
+ * 
+ */
+export type Warranty = $Result.DefaultSelection<Prisma.$WarrantyPayload>
+/**
+ * Model Certificate
+ * 
+ */
+export type Certificate = $Result.DefaultSelection<Prisma.$CertificatePayload>
 
 /**
  * Enums
@@ -229,6 +239,26 @@ export class PrismaClient<
     * ```
     */
   get service(): Prisma.ServiceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.warranty`: Exposes CRUD operations for the **Warranty** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Warranties
+    * const warranties = await prisma.warranty.findMany()
+    * ```
+    */
+  get warranty(): Prisma.WarrantyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.certificate`: Exposes CRUD operations for the **Certificate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Certificates
+    * const certificates = await prisma.certificate.findMany()
+    * ```
+    */
+  get certificate(): Prisma.CertificateDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -672,7 +702,9 @@ export namespace Prisma {
     User: 'User',
     Post: 'Post',
     Review: 'Review',
-    Service: 'Service'
+    Service: 'Service',
+    Warranty: 'Warranty',
+    Certificate: 'Certificate'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -691,7 +723,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "post" | "review" | "service"
+      modelProps: "user" | "post" | "review" | "service" | "warranty" | "certificate"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -991,6 +1023,154 @@ export namespace Prisma {
           }
         }
       }
+      Warranty: {
+        payload: Prisma.$WarrantyPayload<ExtArgs>
+        fields: Prisma.WarrantyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WarrantyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WarrantyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>
+          }
+          findFirst: {
+            args: Prisma.WarrantyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WarrantyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>
+          }
+          findMany: {
+            args: Prisma.WarrantyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>[]
+          }
+          create: {
+            args: Prisma.WarrantyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>
+          }
+          createMany: {
+            args: Prisma.WarrantyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WarrantyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>[]
+          }
+          delete: {
+            args: Prisma.WarrantyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>
+          }
+          update: {
+            args: Prisma.WarrantyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>
+          }
+          deleteMany: {
+            args: Prisma.WarrantyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WarrantyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WarrantyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>[]
+          }
+          upsert: {
+            args: Prisma.WarrantyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WarrantyPayload>
+          }
+          aggregate: {
+            args: Prisma.WarrantyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWarranty>
+          }
+          groupBy: {
+            args: Prisma.WarrantyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WarrantyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WarrantyCountArgs<ExtArgs>
+            result: $Utils.Optional<WarrantyCountAggregateOutputType> | number
+          }
+        }
+      }
+      Certificate: {
+        payload: Prisma.$CertificatePayload<ExtArgs>
+        fields: Prisma.CertificateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CertificateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CertificateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>
+          }
+          findFirst: {
+            args: Prisma.CertificateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CertificateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>
+          }
+          findMany: {
+            args: Prisma.CertificateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>[]
+          }
+          create: {
+            args: Prisma.CertificateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>
+          }
+          createMany: {
+            args: Prisma.CertificateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CertificateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>[]
+          }
+          delete: {
+            args: Prisma.CertificateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>
+          }
+          update: {
+            args: Prisma.CertificateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>
+          }
+          deleteMany: {
+            args: Prisma.CertificateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CertificateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CertificateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>[]
+          }
+          upsert: {
+            args: Prisma.CertificateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificatePayload>
+          }
+          aggregate: {
+            args: Prisma.CertificateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCertificate>
+          }
+          groupBy: {
+            args: Prisma.CertificateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CertificateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CertificateCountArgs<ExtArgs>
+            result: $Utils.Optional<CertificateCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1079,6 +1259,8 @@ export namespace Prisma {
     post?: PostOmit
     review?: ReviewOmit
     service?: ServiceOmit
+    warranty?: WarrantyOmit
+    certificate?: CertificateOmit
   }
 
   /* Types for Logging */
@@ -1174,10 +1356,14 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     posts: number
+    warranties: number
+    certificates: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     posts?: boolean | UserCountOutputTypeCountPostsArgs
+    warranties?: boolean | UserCountOutputTypeCountWarrantiesArgs
+    certificates?: boolean | UserCountOutputTypeCountCertificatesArgs
   }
 
   // Custom InputTypes
@@ -1196,6 +1382,20 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PostWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountWarrantiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WarrantyWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCertificatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CertificateWhereInput
   }
 
 
@@ -1220,7 +1420,10 @@ export namespace Prisma {
     role: $Enums.Role | null
     name: string | null
     address: string | null
+    phone: string | null
+    lastLogin: Date | null
     isConfirmed: boolean | null
+    isActive: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1230,7 +1433,10 @@ export namespace Prisma {
     role: $Enums.Role | null
     name: string | null
     address: string | null
+    phone: string | null
+    lastLogin: Date | null
     isConfirmed: boolean | null
+    isActive: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1240,7 +1446,10 @@ export namespace Prisma {
     role: number
     name: number
     address: number
+    phone: number
+    lastLogin: number
     isConfirmed: number
+    isActive: number
     _all: number
   }
 
@@ -1252,7 +1461,10 @@ export namespace Prisma {
     role?: true
     name?: true
     address?: true
+    phone?: true
+    lastLogin?: true
     isConfirmed?: true
+    isActive?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1262,7 +1474,10 @@ export namespace Prisma {
     role?: true
     name?: true
     address?: true
+    phone?: true
+    lastLogin?: true
     isConfirmed?: true
+    isActive?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1272,7 +1487,10 @@ export namespace Prisma {
     role?: true
     name?: true
     address?: true
+    phone?: true
+    lastLogin?: true
     isConfirmed?: true
+    isActive?: true
     _all?: true
   }
 
@@ -1355,7 +1573,10 @@ export namespace Prisma {
     role: $Enums.Role
     name: string | null
     address: string | null
+    phone: string | null
+    lastLogin: Date | null
     isConfirmed: boolean
+    isActive: boolean
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1382,8 +1603,13 @@ export namespace Prisma {
     role?: boolean
     name?: boolean
     address?: boolean
+    phone?: boolean
+    lastLogin?: boolean
     isConfirmed?: boolean
+    isActive?: boolean
     posts?: boolean | User$postsArgs<ExtArgs>
+    warranties?: boolean | User$warrantiesArgs<ExtArgs>
+    certificates?: boolean | User$certificatesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1394,7 +1620,10 @@ export namespace Prisma {
     role?: boolean
     name?: boolean
     address?: boolean
+    phone?: boolean
+    lastLogin?: boolean
     isConfirmed?: boolean
+    isActive?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1404,7 +1633,10 @@ export namespace Prisma {
     role?: boolean
     name?: boolean
     address?: boolean
+    phone?: boolean
+    lastLogin?: boolean
     isConfirmed?: boolean
+    isActive?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1414,12 +1646,17 @@ export namespace Prisma {
     role?: boolean
     name?: boolean
     address?: boolean
+    phone?: boolean
+    lastLogin?: boolean
     isConfirmed?: boolean
+    isActive?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "role" | "name" | "address" | "isConfirmed", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "role" | "name" | "address" | "phone" | "lastLogin" | "isConfirmed" | "isActive", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     posts?: boolean | User$postsArgs<ExtArgs>
+    warranties?: boolean | User$warrantiesArgs<ExtArgs>
+    certificates?: boolean | User$certificatesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1429,6 +1666,8 @@ export namespace Prisma {
     name: "User"
     objects: {
       posts: Prisma.$PostPayload<ExtArgs>[]
+      warranties: Prisma.$WarrantyPayload<ExtArgs>[]
+      certificates: Prisma.$CertificatePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1437,7 +1676,10 @@ export namespace Prisma {
       role: $Enums.Role
       name: string | null
       address: string | null
+      phone: string | null
+      lastLogin: Date | null
       isConfirmed: boolean
+      isActive: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1833,6 +2075,8 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    warranties<T extends User$warrantiesArgs<ExtArgs> = {}>(args?: Subset<T, User$warrantiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    certificates<T extends User$certificatesArgs<ExtArgs> = {}>(args?: Subset<T, User$certificatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1868,7 +2112,10 @@ export namespace Prisma {
     readonly role: FieldRef<"User", 'Role'>
     readonly name: FieldRef<"User", 'String'>
     readonly address: FieldRef<"User", 'String'>
+    readonly phone: FieldRef<"User", 'String'>
+    readonly lastLogin: FieldRef<"User", 'DateTime'>
     readonly isConfirmed: FieldRef<"User", 'Boolean'>
+    readonly isActive: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -2278,6 +2525,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+  }
+
+  /**
+   * User.warranties
+   */
+  export type User$warrantiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    where?: WarrantyWhereInput
+    orderBy?: WarrantyOrderByWithRelationInput | WarrantyOrderByWithRelationInput[]
+    cursor?: WarrantyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WarrantyScalarFieldEnum | WarrantyScalarFieldEnum[]
+  }
+
+  /**
+   * User.certificates
+   */
+  export type User$certificatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    where?: CertificateWhereInput
+    orderBy?: CertificateOrderByWithRelationInput | CertificateOrderByWithRelationInput[]
+    cursor?: CertificateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
   }
 
   /**
@@ -5554,6 +5849,2237 @@ export namespace Prisma {
 
 
   /**
+   * Model Warranty
+   */
+
+  export type AggregateWarranty = {
+    _count: WarrantyCountAggregateOutputType | null
+    _avg: WarrantyAvgAggregateOutputType | null
+    _sum: WarrantySumAggregateOutputType | null
+    _min: WarrantyMinAggregateOutputType | null
+    _max: WarrantyMaxAggregateOutputType | null
+  }
+
+  export type WarrantyAvgAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    durationMonths: number | null
+  }
+
+  export type WarrantySumAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    durationMonths: number | null
+  }
+
+  export type WarrantyMinAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    clientId: string | null
+    startDate: Date | null
+    durationMonths: number | null
+    projectName: string | null
+    createdAt: Date | null
+  }
+
+  export type WarrantyMaxAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    clientId: string | null
+    startDate: Date | null
+    durationMonths: number | null
+    projectName: string | null
+    createdAt: Date | null
+  }
+
+  export type WarrantyCountAggregateOutputType = {
+    id: number
+    projectId: number
+    clientId: number
+    startDate: number
+    durationMonths: number
+    projectName: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type WarrantyAvgAggregateInputType = {
+    id?: true
+    projectId?: true
+    durationMonths?: true
+  }
+
+  export type WarrantySumAggregateInputType = {
+    id?: true
+    projectId?: true
+    durationMonths?: true
+  }
+
+  export type WarrantyMinAggregateInputType = {
+    id?: true
+    projectId?: true
+    clientId?: true
+    startDate?: true
+    durationMonths?: true
+    projectName?: true
+    createdAt?: true
+  }
+
+  export type WarrantyMaxAggregateInputType = {
+    id?: true
+    projectId?: true
+    clientId?: true
+    startDate?: true
+    durationMonths?: true
+    projectName?: true
+    createdAt?: true
+  }
+
+  export type WarrantyCountAggregateInputType = {
+    id?: true
+    projectId?: true
+    clientId?: true
+    startDate?: true
+    durationMonths?: true
+    projectName?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type WarrantyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Warranty to aggregate.
+     */
+    where?: WarrantyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Warranties to fetch.
+     */
+    orderBy?: WarrantyOrderByWithRelationInput | WarrantyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WarrantyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Warranties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Warranties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Warranties
+    **/
+    _count?: true | WarrantyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WarrantyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WarrantySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WarrantyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WarrantyMaxAggregateInputType
+  }
+
+  export type GetWarrantyAggregateType<T extends WarrantyAggregateArgs> = {
+        [P in keyof T & keyof AggregateWarranty]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWarranty[P]>
+      : GetScalarType<T[P], AggregateWarranty[P]>
+  }
+
+
+
+
+  export type WarrantyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WarrantyWhereInput
+    orderBy?: WarrantyOrderByWithAggregationInput | WarrantyOrderByWithAggregationInput[]
+    by: WarrantyScalarFieldEnum[] | WarrantyScalarFieldEnum
+    having?: WarrantyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WarrantyCountAggregateInputType | true
+    _avg?: WarrantyAvgAggregateInputType
+    _sum?: WarrantySumAggregateInputType
+    _min?: WarrantyMinAggregateInputType
+    _max?: WarrantyMaxAggregateInputType
+  }
+
+  export type WarrantyGroupByOutputType = {
+    id: number
+    projectId: number | null
+    clientId: string
+    startDate: Date
+    durationMonths: number
+    projectName: string
+    createdAt: Date
+    _count: WarrantyCountAggregateOutputType | null
+    _avg: WarrantyAvgAggregateOutputType | null
+    _sum: WarrantySumAggregateOutputType | null
+    _min: WarrantyMinAggregateOutputType | null
+    _max: WarrantyMaxAggregateOutputType | null
+  }
+
+  type GetWarrantyGroupByPayload<T extends WarrantyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WarrantyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WarrantyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WarrantyGroupByOutputType[P]>
+            : GetScalarType<T[P], WarrantyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WarrantySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    clientId?: boolean
+    startDate?: boolean
+    durationMonths?: boolean
+    projectName?: boolean
+    createdAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["warranty"]>
+
+  export type WarrantySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    clientId?: boolean
+    startDate?: boolean
+    durationMonths?: boolean
+    projectName?: boolean
+    createdAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["warranty"]>
+
+  export type WarrantySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    clientId?: boolean
+    startDate?: boolean
+    durationMonths?: boolean
+    projectName?: boolean
+    createdAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["warranty"]>
+
+  export type WarrantySelectScalar = {
+    id?: boolean
+    projectId?: boolean
+    clientId?: boolean
+    startDate?: boolean
+    durationMonths?: boolean
+    projectName?: boolean
+    createdAt?: boolean
+  }
+
+  export type WarrantyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "clientId" | "startDate" | "durationMonths" | "projectName" | "createdAt", ExtArgs["result"]["warranty"]>
+  export type WarrantyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type WarrantyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type WarrantyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $WarrantyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Warranty"
+    objects: {
+      client: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      projectId: number | null
+      clientId: string
+      startDate: Date
+      durationMonths: number
+      projectName: string
+      createdAt: Date
+    }, ExtArgs["result"]["warranty"]>
+    composites: {}
+  }
+
+  type WarrantyGetPayload<S extends boolean | null | undefined | WarrantyDefaultArgs> = $Result.GetResult<Prisma.$WarrantyPayload, S>
+
+  type WarrantyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WarrantyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WarrantyCountAggregateInputType | true
+    }
+
+  export interface WarrantyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Warranty'], meta: { name: 'Warranty' } }
+    /**
+     * Find zero or one Warranty that matches the filter.
+     * @param {WarrantyFindUniqueArgs} args - Arguments to find a Warranty
+     * @example
+     * // Get one Warranty
+     * const warranty = await prisma.warranty.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WarrantyFindUniqueArgs>(args: SelectSubset<T, WarrantyFindUniqueArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Warranty that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WarrantyFindUniqueOrThrowArgs} args - Arguments to find a Warranty
+     * @example
+     * // Get one Warranty
+     * const warranty = await prisma.warranty.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WarrantyFindUniqueOrThrowArgs>(args: SelectSubset<T, WarrantyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Warranty that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WarrantyFindFirstArgs} args - Arguments to find a Warranty
+     * @example
+     * // Get one Warranty
+     * const warranty = await prisma.warranty.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WarrantyFindFirstArgs>(args?: SelectSubset<T, WarrantyFindFirstArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Warranty that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WarrantyFindFirstOrThrowArgs} args - Arguments to find a Warranty
+     * @example
+     * // Get one Warranty
+     * const warranty = await prisma.warranty.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WarrantyFindFirstOrThrowArgs>(args?: SelectSubset<T, WarrantyFindFirstOrThrowArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Warranties that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WarrantyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Warranties
+     * const warranties = await prisma.warranty.findMany()
+     * 
+     * // Get first 10 Warranties
+     * const warranties = await prisma.warranty.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const warrantyWithIdOnly = await prisma.warranty.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WarrantyFindManyArgs>(args?: SelectSubset<T, WarrantyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Warranty.
+     * @param {WarrantyCreateArgs} args - Arguments to create a Warranty.
+     * @example
+     * // Create one Warranty
+     * const Warranty = await prisma.warranty.create({
+     *   data: {
+     *     // ... data to create a Warranty
+     *   }
+     * })
+     * 
+     */
+    create<T extends WarrantyCreateArgs>(args: SelectSubset<T, WarrantyCreateArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Warranties.
+     * @param {WarrantyCreateManyArgs} args - Arguments to create many Warranties.
+     * @example
+     * // Create many Warranties
+     * const warranty = await prisma.warranty.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WarrantyCreateManyArgs>(args?: SelectSubset<T, WarrantyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Warranties and returns the data saved in the database.
+     * @param {WarrantyCreateManyAndReturnArgs} args - Arguments to create many Warranties.
+     * @example
+     * // Create many Warranties
+     * const warranty = await prisma.warranty.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Warranties and only return the `id`
+     * const warrantyWithIdOnly = await prisma.warranty.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WarrantyCreateManyAndReturnArgs>(args?: SelectSubset<T, WarrantyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Warranty.
+     * @param {WarrantyDeleteArgs} args - Arguments to delete one Warranty.
+     * @example
+     * // Delete one Warranty
+     * const Warranty = await prisma.warranty.delete({
+     *   where: {
+     *     // ... filter to delete one Warranty
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WarrantyDeleteArgs>(args: SelectSubset<T, WarrantyDeleteArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Warranty.
+     * @param {WarrantyUpdateArgs} args - Arguments to update one Warranty.
+     * @example
+     * // Update one Warranty
+     * const warranty = await prisma.warranty.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WarrantyUpdateArgs>(args: SelectSubset<T, WarrantyUpdateArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Warranties.
+     * @param {WarrantyDeleteManyArgs} args - Arguments to filter Warranties to delete.
+     * @example
+     * // Delete a few Warranties
+     * const { count } = await prisma.warranty.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WarrantyDeleteManyArgs>(args?: SelectSubset<T, WarrantyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Warranties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WarrantyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Warranties
+     * const warranty = await prisma.warranty.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WarrantyUpdateManyArgs>(args: SelectSubset<T, WarrantyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Warranties and returns the data updated in the database.
+     * @param {WarrantyUpdateManyAndReturnArgs} args - Arguments to update many Warranties.
+     * @example
+     * // Update many Warranties
+     * const warranty = await prisma.warranty.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Warranties and only return the `id`
+     * const warrantyWithIdOnly = await prisma.warranty.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WarrantyUpdateManyAndReturnArgs>(args: SelectSubset<T, WarrantyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Warranty.
+     * @param {WarrantyUpsertArgs} args - Arguments to update or create a Warranty.
+     * @example
+     * // Update or create a Warranty
+     * const warranty = await prisma.warranty.upsert({
+     *   create: {
+     *     // ... data to create a Warranty
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Warranty we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WarrantyUpsertArgs>(args: SelectSubset<T, WarrantyUpsertArgs<ExtArgs>>): Prisma__WarrantyClient<$Result.GetResult<Prisma.$WarrantyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Warranties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WarrantyCountArgs} args - Arguments to filter Warranties to count.
+     * @example
+     * // Count the number of Warranties
+     * const count = await prisma.warranty.count({
+     *   where: {
+     *     // ... the filter for the Warranties we want to count
+     *   }
+     * })
+    **/
+    count<T extends WarrantyCountArgs>(
+      args?: Subset<T, WarrantyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WarrantyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Warranty.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WarrantyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WarrantyAggregateArgs>(args: Subset<T, WarrantyAggregateArgs>): Prisma.PrismaPromise<GetWarrantyAggregateType<T>>
+
+    /**
+     * Group by Warranty.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WarrantyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WarrantyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WarrantyGroupByArgs['orderBy'] }
+        : { orderBy?: WarrantyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WarrantyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWarrantyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Warranty model
+   */
+  readonly fields: WarrantyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Warranty.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WarrantyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    client<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Warranty model
+   */
+  interface WarrantyFieldRefs {
+    readonly id: FieldRef<"Warranty", 'Int'>
+    readonly projectId: FieldRef<"Warranty", 'Int'>
+    readonly clientId: FieldRef<"Warranty", 'String'>
+    readonly startDate: FieldRef<"Warranty", 'DateTime'>
+    readonly durationMonths: FieldRef<"Warranty", 'Int'>
+    readonly projectName: FieldRef<"Warranty", 'String'>
+    readonly createdAt: FieldRef<"Warranty", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Warranty findUnique
+   */
+  export type WarrantyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * Filter, which Warranty to fetch.
+     */
+    where: WarrantyWhereUniqueInput
+  }
+
+  /**
+   * Warranty findUniqueOrThrow
+   */
+  export type WarrantyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * Filter, which Warranty to fetch.
+     */
+    where: WarrantyWhereUniqueInput
+  }
+
+  /**
+   * Warranty findFirst
+   */
+  export type WarrantyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * Filter, which Warranty to fetch.
+     */
+    where?: WarrantyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Warranties to fetch.
+     */
+    orderBy?: WarrantyOrderByWithRelationInput | WarrantyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Warranties.
+     */
+    cursor?: WarrantyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Warranties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Warranties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Warranties.
+     */
+    distinct?: WarrantyScalarFieldEnum | WarrantyScalarFieldEnum[]
+  }
+
+  /**
+   * Warranty findFirstOrThrow
+   */
+  export type WarrantyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * Filter, which Warranty to fetch.
+     */
+    where?: WarrantyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Warranties to fetch.
+     */
+    orderBy?: WarrantyOrderByWithRelationInput | WarrantyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Warranties.
+     */
+    cursor?: WarrantyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Warranties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Warranties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Warranties.
+     */
+    distinct?: WarrantyScalarFieldEnum | WarrantyScalarFieldEnum[]
+  }
+
+  /**
+   * Warranty findMany
+   */
+  export type WarrantyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * Filter, which Warranties to fetch.
+     */
+    where?: WarrantyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Warranties to fetch.
+     */
+    orderBy?: WarrantyOrderByWithRelationInput | WarrantyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Warranties.
+     */
+    cursor?: WarrantyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Warranties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Warranties.
+     */
+    skip?: number
+    distinct?: WarrantyScalarFieldEnum | WarrantyScalarFieldEnum[]
+  }
+
+  /**
+   * Warranty create
+   */
+  export type WarrantyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Warranty.
+     */
+    data: XOR<WarrantyCreateInput, WarrantyUncheckedCreateInput>
+  }
+
+  /**
+   * Warranty createMany
+   */
+  export type WarrantyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Warranties.
+     */
+    data: WarrantyCreateManyInput | WarrantyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Warranty createManyAndReturn
+   */
+  export type WarrantyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * The data used to create many Warranties.
+     */
+    data: WarrantyCreateManyInput | WarrantyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Warranty update
+   */
+  export type WarrantyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Warranty.
+     */
+    data: XOR<WarrantyUpdateInput, WarrantyUncheckedUpdateInput>
+    /**
+     * Choose, which Warranty to update.
+     */
+    where: WarrantyWhereUniqueInput
+  }
+
+  /**
+   * Warranty updateMany
+   */
+  export type WarrantyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Warranties.
+     */
+    data: XOR<WarrantyUpdateManyMutationInput, WarrantyUncheckedUpdateManyInput>
+    /**
+     * Filter which Warranties to update
+     */
+    where?: WarrantyWhereInput
+    /**
+     * Limit how many Warranties to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Warranty updateManyAndReturn
+   */
+  export type WarrantyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * The data used to update Warranties.
+     */
+    data: XOR<WarrantyUpdateManyMutationInput, WarrantyUncheckedUpdateManyInput>
+    /**
+     * Filter which Warranties to update
+     */
+    where?: WarrantyWhereInput
+    /**
+     * Limit how many Warranties to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Warranty upsert
+   */
+  export type WarrantyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Warranty to update in case it exists.
+     */
+    where: WarrantyWhereUniqueInput
+    /**
+     * In case the Warranty found by the `where` argument doesn't exist, create a new Warranty with this data.
+     */
+    create: XOR<WarrantyCreateInput, WarrantyUncheckedCreateInput>
+    /**
+     * In case the Warranty was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WarrantyUpdateInput, WarrantyUncheckedUpdateInput>
+  }
+
+  /**
+   * Warranty delete
+   */
+  export type WarrantyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+    /**
+     * Filter which Warranty to delete.
+     */
+    where: WarrantyWhereUniqueInput
+  }
+
+  /**
+   * Warranty deleteMany
+   */
+  export type WarrantyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Warranties to delete
+     */
+    where?: WarrantyWhereInput
+    /**
+     * Limit how many Warranties to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Warranty without action
+   */
+  export type WarrantyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warranty
+     */
+    select?: WarrantySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warranty
+     */
+    omit?: WarrantyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WarrantyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Certificate
+   */
+
+  export type AggregateCertificate = {
+    _count: CertificateCountAggregateOutputType | null
+    _avg: CertificateAvgAggregateOutputType | null
+    _sum: CertificateSumAggregateOutputType | null
+    _min: CertificateMinAggregateOutputType | null
+    _max: CertificateMaxAggregateOutputType | null
+  }
+
+  export type CertificateAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type CertificateSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type CertificateMinAggregateOutputType = {
+    id: number | null
+    clientId: string | null
+    fileUrl: string | null
+    title: string | null
+    issuedDate: Date | null
+    createdAt: Date | null
+  }
+
+  export type CertificateMaxAggregateOutputType = {
+    id: number | null
+    clientId: string | null
+    fileUrl: string | null
+    title: string | null
+    issuedDate: Date | null
+    createdAt: Date | null
+  }
+
+  export type CertificateCountAggregateOutputType = {
+    id: number
+    clientId: number
+    fileUrl: number
+    title: number
+    issuedDate: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type CertificateAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type CertificateSumAggregateInputType = {
+    id?: true
+  }
+
+  export type CertificateMinAggregateInputType = {
+    id?: true
+    clientId?: true
+    fileUrl?: true
+    title?: true
+    issuedDate?: true
+    createdAt?: true
+  }
+
+  export type CertificateMaxAggregateInputType = {
+    id?: true
+    clientId?: true
+    fileUrl?: true
+    title?: true
+    issuedDate?: true
+    createdAt?: true
+  }
+
+  export type CertificateCountAggregateInputType = {
+    id?: true
+    clientId?: true
+    fileUrl?: true
+    title?: true
+    issuedDate?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type CertificateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Certificate to aggregate.
+     */
+    where?: CertificateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certificates to fetch.
+     */
+    orderBy?: CertificateOrderByWithRelationInput | CertificateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CertificateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certificates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certificates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Certificates
+    **/
+    _count?: true | CertificateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CertificateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CertificateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CertificateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CertificateMaxAggregateInputType
+  }
+
+  export type GetCertificateAggregateType<T extends CertificateAggregateArgs> = {
+        [P in keyof T & keyof AggregateCertificate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCertificate[P]>
+      : GetScalarType<T[P], AggregateCertificate[P]>
+  }
+
+
+
+
+  export type CertificateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CertificateWhereInput
+    orderBy?: CertificateOrderByWithAggregationInput | CertificateOrderByWithAggregationInput[]
+    by: CertificateScalarFieldEnum[] | CertificateScalarFieldEnum
+    having?: CertificateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CertificateCountAggregateInputType | true
+    _avg?: CertificateAvgAggregateInputType
+    _sum?: CertificateSumAggregateInputType
+    _min?: CertificateMinAggregateInputType
+    _max?: CertificateMaxAggregateInputType
+  }
+
+  export type CertificateGroupByOutputType = {
+    id: number
+    clientId: string
+    fileUrl: string
+    title: string
+    issuedDate: Date
+    createdAt: Date
+    _count: CertificateCountAggregateOutputType | null
+    _avg: CertificateAvgAggregateOutputType | null
+    _sum: CertificateSumAggregateOutputType | null
+    _min: CertificateMinAggregateOutputType | null
+    _max: CertificateMaxAggregateOutputType | null
+  }
+
+  type GetCertificateGroupByPayload<T extends CertificateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CertificateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CertificateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CertificateGroupByOutputType[P]>
+            : GetScalarType<T[P], CertificateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CertificateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    fileUrl?: boolean
+    title?: boolean
+    issuedDate?: boolean
+    createdAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["certificate"]>
+
+  export type CertificateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    fileUrl?: boolean
+    title?: boolean
+    issuedDate?: boolean
+    createdAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["certificate"]>
+
+  export type CertificateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    fileUrl?: boolean
+    title?: boolean
+    issuedDate?: boolean
+    createdAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["certificate"]>
+
+  export type CertificateSelectScalar = {
+    id?: boolean
+    clientId?: boolean
+    fileUrl?: boolean
+    title?: boolean
+    issuedDate?: boolean
+    createdAt?: boolean
+  }
+
+  export type CertificateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "fileUrl" | "title" | "issuedDate" | "createdAt", ExtArgs["result"]["certificate"]>
+  export type CertificateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type CertificateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type CertificateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $CertificatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Certificate"
+    objects: {
+      client: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      clientId: string
+      fileUrl: string
+      title: string
+      issuedDate: Date
+      createdAt: Date
+    }, ExtArgs["result"]["certificate"]>
+    composites: {}
+  }
+
+  type CertificateGetPayload<S extends boolean | null | undefined | CertificateDefaultArgs> = $Result.GetResult<Prisma.$CertificatePayload, S>
+
+  type CertificateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CertificateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CertificateCountAggregateInputType | true
+    }
+
+  export interface CertificateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Certificate'], meta: { name: 'Certificate' } }
+    /**
+     * Find zero or one Certificate that matches the filter.
+     * @param {CertificateFindUniqueArgs} args - Arguments to find a Certificate
+     * @example
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CertificateFindUniqueArgs>(args: SelectSubset<T, CertificateFindUniqueArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Certificate that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CertificateFindUniqueOrThrowArgs} args - Arguments to find a Certificate
+     * @example
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CertificateFindUniqueOrThrowArgs>(args: SelectSubset<T, CertificateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Certificate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificateFindFirstArgs} args - Arguments to find a Certificate
+     * @example
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CertificateFindFirstArgs>(args?: SelectSubset<T, CertificateFindFirstArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Certificate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificateFindFirstOrThrowArgs} args - Arguments to find a Certificate
+     * @example
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CertificateFindFirstOrThrowArgs>(args?: SelectSubset<T, CertificateFindFirstOrThrowArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Certificates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Certificates
+     * const certificates = await prisma.certificate.findMany()
+     * 
+     * // Get first 10 Certificates
+     * const certificates = await prisma.certificate.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const certificateWithIdOnly = await prisma.certificate.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CertificateFindManyArgs>(args?: SelectSubset<T, CertificateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Certificate.
+     * @param {CertificateCreateArgs} args - Arguments to create a Certificate.
+     * @example
+     * // Create one Certificate
+     * const Certificate = await prisma.certificate.create({
+     *   data: {
+     *     // ... data to create a Certificate
+     *   }
+     * })
+     * 
+     */
+    create<T extends CertificateCreateArgs>(args: SelectSubset<T, CertificateCreateArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Certificates.
+     * @param {CertificateCreateManyArgs} args - Arguments to create many Certificates.
+     * @example
+     * // Create many Certificates
+     * const certificate = await prisma.certificate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CertificateCreateManyArgs>(args?: SelectSubset<T, CertificateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Certificates and returns the data saved in the database.
+     * @param {CertificateCreateManyAndReturnArgs} args - Arguments to create many Certificates.
+     * @example
+     * // Create many Certificates
+     * const certificate = await prisma.certificate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Certificates and only return the `id`
+     * const certificateWithIdOnly = await prisma.certificate.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CertificateCreateManyAndReturnArgs>(args?: SelectSubset<T, CertificateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Certificate.
+     * @param {CertificateDeleteArgs} args - Arguments to delete one Certificate.
+     * @example
+     * // Delete one Certificate
+     * const Certificate = await prisma.certificate.delete({
+     *   where: {
+     *     // ... filter to delete one Certificate
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CertificateDeleteArgs>(args: SelectSubset<T, CertificateDeleteArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Certificate.
+     * @param {CertificateUpdateArgs} args - Arguments to update one Certificate.
+     * @example
+     * // Update one Certificate
+     * const certificate = await prisma.certificate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CertificateUpdateArgs>(args: SelectSubset<T, CertificateUpdateArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Certificates.
+     * @param {CertificateDeleteManyArgs} args - Arguments to filter Certificates to delete.
+     * @example
+     * // Delete a few Certificates
+     * const { count } = await prisma.certificate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CertificateDeleteManyArgs>(args?: SelectSubset<T, CertificateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Certificates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Certificates
+     * const certificate = await prisma.certificate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CertificateUpdateManyArgs>(args: SelectSubset<T, CertificateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Certificates and returns the data updated in the database.
+     * @param {CertificateUpdateManyAndReturnArgs} args - Arguments to update many Certificates.
+     * @example
+     * // Update many Certificates
+     * const certificate = await prisma.certificate.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Certificates and only return the `id`
+     * const certificateWithIdOnly = await prisma.certificate.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CertificateUpdateManyAndReturnArgs>(args: SelectSubset<T, CertificateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Certificate.
+     * @param {CertificateUpsertArgs} args - Arguments to update or create a Certificate.
+     * @example
+     * // Update or create a Certificate
+     * const certificate = await prisma.certificate.upsert({
+     *   create: {
+     *     // ... data to create a Certificate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Certificate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CertificateUpsertArgs>(args: SelectSubset<T, CertificateUpsertArgs<ExtArgs>>): Prisma__CertificateClient<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Certificates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificateCountArgs} args - Arguments to filter Certificates to count.
+     * @example
+     * // Count the number of Certificates
+     * const count = await prisma.certificate.count({
+     *   where: {
+     *     // ... the filter for the Certificates we want to count
+     *   }
+     * })
+    **/
+    count<T extends CertificateCountArgs>(
+      args?: Subset<T, CertificateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CertificateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Certificate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CertificateAggregateArgs>(args: Subset<T, CertificateAggregateArgs>): Prisma.PrismaPromise<GetCertificateAggregateType<T>>
+
+    /**
+     * Group by Certificate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CertificateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CertificateGroupByArgs['orderBy'] }
+        : { orderBy?: CertificateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CertificateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCertificateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Certificate model
+   */
+  readonly fields: CertificateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Certificate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CertificateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    client<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Certificate model
+   */
+  interface CertificateFieldRefs {
+    readonly id: FieldRef<"Certificate", 'Int'>
+    readonly clientId: FieldRef<"Certificate", 'String'>
+    readonly fileUrl: FieldRef<"Certificate", 'String'>
+    readonly title: FieldRef<"Certificate", 'String'>
+    readonly issuedDate: FieldRef<"Certificate", 'DateTime'>
+    readonly createdAt: FieldRef<"Certificate", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Certificate findUnique
+   */
+  export type CertificateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * Filter, which Certificate to fetch.
+     */
+    where: CertificateWhereUniqueInput
+  }
+
+  /**
+   * Certificate findUniqueOrThrow
+   */
+  export type CertificateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * Filter, which Certificate to fetch.
+     */
+    where: CertificateWhereUniqueInput
+  }
+
+  /**
+   * Certificate findFirst
+   */
+  export type CertificateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * Filter, which Certificate to fetch.
+     */
+    where?: CertificateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certificates to fetch.
+     */
+    orderBy?: CertificateOrderByWithRelationInput | CertificateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Certificates.
+     */
+    cursor?: CertificateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certificates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certificates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Certificates.
+     */
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
+  }
+
+  /**
+   * Certificate findFirstOrThrow
+   */
+  export type CertificateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * Filter, which Certificate to fetch.
+     */
+    where?: CertificateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certificates to fetch.
+     */
+    orderBy?: CertificateOrderByWithRelationInput | CertificateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Certificates.
+     */
+    cursor?: CertificateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certificates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certificates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Certificates.
+     */
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
+  }
+
+  /**
+   * Certificate findMany
+   */
+  export type CertificateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * Filter, which Certificates to fetch.
+     */
+    where?: CertificateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certificates to fetch.
+     */
+    orderBy?: CertificateOrderByWithRelationInput | CertificateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Certificates.
+     */
+    cursor?: CertificateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certificates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certificates.
+     */
+    skip?: number
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
+  }
+
+  /**
+   * Certificate create
+   */
+  export type CertificateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Certificate.
+     */
+    data: XOR<CertificateCreateInput, CertificateUncheckedCreateInput>
+  }
+
+  /**
+   * Certificate createMany
+   */
+  export type CertificateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Certificates.
+     */
+    data: CertificateCreateManyInput | CertificateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Certificate createManyAndReturn
+   */
+  export type CertificateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * The data used to create many Certificates.
+     */
+    data: CertificateCreateManyInput | CertificateCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Certificate update
+   */
+  export type CertificateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Certificate.
+     */
+    data: XOR<CertificateUpdateInput, CertificateUncheckedUpdateInput>
+    /**
+     * Choose, which Certificate to update.
+     */
+    where: CertificateWhereUniqueInput
+  }
+
+  /**
+   * Certificate updateMany
+   */
+  export type CertificateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Certificates.
+     */
+    data: XOR<CertificateUpdateManyMutationInput, CertificateUncheckedUpdateManyInput>
+    /**
+     * Filter which Certificates to update
+     */
+    where?: CertificateWhereInput
+    /**
+     * Limit how many Certificates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Certificate updateManyAndReturn
+   */
+  export type CertificateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * The data used to update Certificates.
+     */
+    data: XOR<CertificateUpdateManyMutationInput, CertificateUncheckedUpdateManyInput>
+    /**
+     * Filter which Certificates to update
+     */
+    where?: CertificateWhereInput
+    /**
+     * Limit how many Certificates to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Certificate upsert
+   */
+  export type CertificateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Certificate to update in case it exists.
+     */
+    where: CertificateWhereUniqueInput
+    /**
+     * In case the Certificate found by the `where` argument doesn't exist, create a new Certificate with this data.
+     */
+    create: XOR<CertificateCreateInput, CertificateUncheckedCreateInput>
+    /**
+     * In case the Certificate was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CertificateUpdateInput, CertificateUncheckedUpdateInput>
+  }
+
+  /**
+   * Certificate delete
+   */
+  export type CertificateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+    /**
+     * Filter which Certificate to delete.
+     */
+    where: CertificateWhereUniqueInput
+  }
+
+  /**
+   * Certificate deleteMany
+   */
+  export type CertificateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Certificates to delete
+     */
+    where?: CertificateWhereInput
+    /**
+     * Limit how many Certificates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Certificate without action
+   */
+  export type CertificateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificate
+     */
+    select?: CertificateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificate
+     */
+    omit?: CertificateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificateInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5574,7 +8100,10 @@ export namespace Prisma {
     role: 'role',
     name: 'name',
     address: 'address',
-    isConfirmed: 'isConfirmed'
+    phone: 'phone',
+    lastLogin: 'lastLogin',
+    isConfirmed: 'isConfirmed',
+    isActive: 'isActive'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -5621,6 +8150,31 @@ export namespace Prisma {
   };
 
   export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
+  export const WarrantyScalarFieldEnum: {
+    id: 'id',
+    projectId: 'projectId',
+    clientId: 'clientId',
+    startDate: 'startDate',
+    durationMonths: 'durationMonths',
+    projectName: 'projectName',
+    createdAt: 'createdAt'
+  };
+
+  export type WarrantyScalarFieldEnum = (typeof WarrantyScalarFieldEnum)[keyof typeof WarrantyScalarFieldEnum]
+
+
+  export const CertificateScalarFieldEnum: {
+    id: 'id',
+    clientId: 'clientId',
+    fileUrl: 'fileUrl',
+    title: 'title',
+    issuedDate: 'issuedDate',
+    createdAt: 'createdAt'
+  };
+
+  export type CertificateScalarFieldEnum = (typeof CertificateScalarFieldEnum)[keyof typeof CertificateScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5681,13 +8235,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -5698,6 +8245,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -5756,8 +8310,13 @@ export namespace Prisma {
     role?: EnumRoleFilter<"User"> | $Enums.Role
     name?: StringNullableFilter<"User"> | string | null
     address?: StringNullableFilter<"User"> | string | null
+    phone?: StringNullableFilter<"User"> | string | null
+    lastLogin?: DateTimeNullableFilter<"User"> | Date | string | null
     isConfirmed?: BoolFilter<"User"> | boolean
+    isActive?: BoolFilter<"User"> | boolean
     posts?: PostListRelationFilter
+    warranties?: WarrantyListRelationFilter
+    certificates?: CertificateListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5767,8 +8326,13 @@ export namespace Prisma {
     role?: SortOrder
     name?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    lastLogin?: SortOrderInput | SortOrder
     isConfirmed?: SortOrder
+    isActive?: SortOrder
     posts?: PostOrderByRelationAggregateInput
+    warranties?: WarrantyOrderByRelationAggregateInput
+    certificates?: CertificateOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5781,8 +8345,13 @@ export namespace Prisma {
     role?: EnumRoleFilter<"User"> | $Enums.Role
     name?: StringNullableFilter<"User"> | string | null
     address?: StringNullableFilter<"User"> | string | null
+    phone?: StringNullableFilter<"User"> | string | null
+    lastLogin?: DateTimeNullableFilter<"User"> | Date | string | null
     isConfirmed?: BoolFilter<"User"> | boolean
+    isActive?: BoolFilter<"User"> | boolean
     posts?: PostListRelationFilter
+    warranties?: WarrantyListRelationFilter
+    certificates?: CertificateListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -5792,7 +8361,10 @@ export namespace Prisma {
     role?: SortOrder
     name?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    lastLogin?: SortOrderInput | SortOrder
     isConfirmed?: SortOrder
+    isActive?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -5808,7 +8380,10 @@ export namespace Prisma {
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     address?: StringNullableWithAggregatesFilter<"User"> | string | null
+    phone?: StringNullableWithAggregatesFilter<"User"> | string | null
+    lastLogin?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     isConfirmed?: BoolWithAggregatesFilter<"User"> | boolean
+    isActive?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type PostWhereInput = {
@@ -6024,6 +8599,135 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Service"> | Date | string | null
   }
 
+  export type WarrantyWhereInput = {
+    AND?: WarrantyWhereInput | WarrantyWhereInput[]
+    OR?: WarrantyWhereInput[]
+    NOT?: WarrantyWhereInput | WarrantyWhereInput[]
+    id?: IntFilter<"Warranty"> | number
+    projectId?: IntNullableFilter<"Warranty"> | number | null
+    clientId?: StringFilter<"Warranty"> | string
+    startDate?: DateTimeFilter<"Warranty"> | Date | string
+    durationMonths?: IntFilter<"Warranty"> | number
+    projectName?: StringFilter<"Warranty"> | string
+    createdAt?: DateTimeFilter<"Warranty"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type WarrantyOrderByWithRelationInput = {
+    id?: SortOrder
+    projectId?: SortOrderInput | SortOrder
+    clientId?: SortOrder
+    startDate?: SortOrder
+    durationMonths?: SortOrder
+    projectName?: SortOrder
+    createdAt?: SortOrder
+    client?: UserOrderByWithRelationInput
+  }
+
+  export type WarrantyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: WarrantyWhereInput | WarrantyWhereInput[]
+    OR?: WarrantyWhereInput[]
+    NOT?: WarrantyWhereInput | WarrantyWhereInput[]
+    projectId?: IntNullableFilter<"Warranty"> | number | null
+    clientId?: StringFilter<"Warranty"> | string
+    startDate?: DateTimeFilter<"Warranty"> | Date | string
+    durationMonths?: IntFilter<"Warranty"> | number
+    projectName?: StringFilter<"Warranty"> | string
+    createdAt?: DateTimeFilter<"Warranty"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type WarrantyOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectId?: SortOrderInput | SortOrder
+    clientId?: SortOrder
+    startDate?: SortOrder
+    durationMonths?: SortOrder
+    projectName?: SortOrder
+    createdAt?: SortOrder
+    _count?: WarrantyCountOrderByAggregateInput
+    _avg?: WarrantyAvgOrderByAggregateInput
+    _max?: WarrantyMaxOrderByAggregateInput
+    _min?: WarrantyMinOrderByAggregateInput
+    _sum?: WarrantySumOrderByAggregateInput
+  }
+
+  export type WarrantyScalarWhereWithAggregatesInput = {
+    AND?: WarrantyScalarWhereWithAggregatesInput | WarrantyScalarWhereWithAggregatesInput[]
+    OR?: WarrantyScalarWhereWithAggregatesInput[]
+    NOT?: WarrantyScalarWhereWithAggregatesInput | WarrantyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Warranty"> | number
+    projectId?: IntNullableWithAggregatesFilter<"Warranty"> | number | null
+    clientId?: StringWithAggregatesFilter<"Warranty"> | string
+    startDate?: DateTimeWithAggregatesFilter<"Warranty"> | Date | string
+    durationMonths?: IntWithAggregatesFilter<"Warranty"> | number
+    projectName?: StringWithAggregatesFilter<"Warranty"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Warranty"> | Date | string
+  }
+
+  export type CertificateWhereInput = {
+    AND?: CertificateWhereInput | CertificateWhereInput[]
+    OR?: CertificateWhereInput[]
+    NOT?: CertificateWhereInput | CertificateWhereInput[]
+    id?: IntFilter<"Certificate"> | number
+    clientId?: StringFilter<"Certificate"> | string
+    fileUrl?: StringFilter<"Certificate"> | string
+    title?: StringFilter<"Certificate"> | string
+    issuedDate?: DateTimeFilter<"Certificate"> | Date | string
+    createdAt?: DateTimeFilter<"Certificate"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type CertificateOrderByWithRelationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    fileUrl?: SortOrder
+    title?: SortOrder
+    issuedDate?: SortOrder
+    createdAt?: SortOrder
+    client?: UserOrderByWithRelationInput
+  }
+
+  export type CertificateWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CertificateWhereInput | CertificateWhereInput[]
+    OR?: CertificateWhereInput[]
+    NOT?: CertificateWhereInput | CertificateWhereInput[]
+    clientId?: StringFilter<"Certificate"> | string
+    fileUrl?: StringFilter<"Certificate"> | string
+    title?: StringFilter<"Certificate"> | string
+    issuedDate?: DateTimeFilter<"Certificate"> | Date | string
+    createdAt?: DateTimeFilter<"Certificate"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type CertificateOrderByWithAggregationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    fileUrl?: SortOrder
+    title?: SortOrder
+    issuedDate?: SortOrder
+    createdAt?: SortOrder
+    _count?: CertificateCountOrderByAggregateInput
+    _avg?: CertificateAvgOrderByAggregateInput
+    _max?: CertificateMaxOrderByAggregateInput
+    _min?: CertificateMinOrderByAggregateInput
+    _sum?: CertificateSumOrderByAggregateInput
+  }
+
+  export type CertificateScalarWhereWithAggregatesInput = {
+    AND?: CertificateScalarWhereWithAggregatesInput | CertificateScalarWhereWithAggregatesInput[]
+    OR?: CertificateScalarWhereWithAggregatesInput[]
+    NOT?: CertificateScalarWhereWithAggregatesInput | CertificateScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Certificate"> | number
+    clientId?: StringWithAggregatesFilter<"Certificate"> | string
+    fileUrl?: StringWithAggregatesFilter<"Certificate"> | string
+    title?: StringWithAggregatesFilter<"Certificate"> | string
+    issuedDate?: DateTimeWithAggregatesFilter<"Certificate"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Certificate"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -6031,8 +8735,13 @@ export namespace Prisma {
     role?: $Enums.Role
     name?: string | null
     address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
     isConfirmed?: boolean
+    isActive?: boolean
     posts?: PostCreateNestedManyWithoutAuthorInput
+    warranties?: WarrantyCreateNestedManyWithoutClientInput
+    certificates?: CertificateCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6042,8 +8751,13 @@ export namespace Prisma {
     role?: $Enums.Role
     name?: string | null
     address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
     isConfirmed?: boolean
+    isActive?: boolean
     posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
+    certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserUpdateInput = {
@@ -6053,8 +8767,13 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     name?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     posts?: PostUpdateManyWithoutAuthorNestedInput
+    warranties?: WarrantyUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6064,8 +8783,13 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     name?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6075,7 +8799,10 @@ export namespace Prisma {
     role?: $Enums.Role
     name?: string | null
     address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
     isConfirmed?: boolean
+    isActive?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -6085,7 +8812,10 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     name?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -6095,7 +8825,10 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     name?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type PostCreateInput = {
@@ -6329,6 +9062,131 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type WarrantyCreateInput = {
+    projectId?: number | null
+    startDate: Date | string
+    durationMonths: number
+    projectName: string
+    createdAt?: Date | string
+    client: UserCreateNestedOneWithoutWarrantiesInput
+  }
+
+  export type WarrantyUncheckedCreateInput = {
+    id?: number
+    projectId?: number | null
+    clientId: string
+    startDate: Date | string
+    durationMonths: number
+    projectName: string
+    createdAt?: Date | string
+  }
+
+  export type WarrantyUpdateInput = {
+    projectId?: NullableIntFieldUpdateOperationsInput | number | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    durationMonths?: IntFieldUpdateOperationsInput | number
+    projectName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: UserUpdateOneRequiredWithoutWarrantiesNestedInput
+  }
+
+  export type WarrantyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: NullableIntFieldUpdateOperationsInput | number | null
+    clientId?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    durationMonths?: IntFieldUpdateOperationsInput | number
+    projectName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WarrantyCreateManyInput = {
+    id?: number
+    projectId?: number | null
+    clientId: string
+    startDate: Date | string
+    durationMonths: number
+    projectName: string
+    createdAt?: Date | string
+  }
+
+  export type WarrantyUpdateManyMutationInput = {
+    projectId?: NullableIntFieldUpdateOperationsInput | number | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    durationMonths?: IntFieldUpdateOperationsInput | number
+    projectName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WarrantyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: NullableIntFieldUpdateOperationsInput | number | null
+    clientId?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    durationMonths?: IntFieldUpdateOperationsInput | number
+    projectName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificateCreateInput = {
+    fileUrl: string
+    title: string
+    issuedDate: Date | string
+    createdAt?: Date | string
+    client: UserCreateNestedOneWithoutCertificatesInput
+  }
+
+  export type CertificateUncheckedCreateInput = {
+    id?: number
+    clientId: string
+    fileUrl: string
+    title: string
+    issuedDate: Date | string
+    createdAt?: Date | string
+  }
+
+  export type CertificateUpdateInput = {
+    fileUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: UserUpdateOneRequiredWithoutCertificatesNestedInput
+  }
+
+  export type CertificateUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    fileUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificateCreateManyInput = {
+    id?: number
+    clientId: string
+    fileUrl: string
+    title: string
+    issuedDate: Date | string
+    createdAt?: Date | string
+  }
+
+  export type CertificateUpdateManyMutationInput = {
+    fileUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificateUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    fileUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6366,6 +9224,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -6377,12 +9246,32 @@ export namespace Prisma {
     none?: PostWhereInput
   }
 
+  export type WarrantyListRelationFilter = {
+    every?: WarrantyWhereInput
+    some?: WarrantyWhereInput
+    none?: WarrantyWhereInput
+  }
+
+  export type CertificateListRelationFilter = {
+    every?: CertificateWhereInput
+    some?: CertificateWhereInput
+    none?: CertificateWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
   export type PostOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WarrantyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CertificateOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6393,7 +9282,10 @@ export namespace Prisma {
     role?: SortOrder
     name?: SortOrder
     address?: SortOrder
+    phone?: SortOrder
+    lastLogin?: SortOrder
     isConfirmed?: SortOrder
+    isActive?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -6403,7 +9295,10 @@ export namespace Prisma {
     role?: SortOrder
     name?: SortOrder
     address?: SortOrder
+    phone?: SortOrder
+    lastLogin?: SortOrder
     isConfirmed?: SortOrder
+    isActive?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -6413,7 +9308,10 @@ export namespace Prisma {
     role?: SortOrder
     name?: SortOrder
     address?: SortOrder
+    phone?: SortOrder
+    lastLogin?: SortOrder
     isConfirmed?: SortOrder
+    isActive?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -6460,6 +9358,20 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -6617,17 +9529,6 @@ export namespace Prisma {
     _max?: NestedEnumReviewStatusFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type ServiceCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -6677,18 +9578,108 @@ export namespace Prisma {
     sortOrder?: SortOrder
   }
 
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type WarrantyCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    clientId?: SortOrder
+    startDate?: SortOrder
+    durationMonths?: SortOrder
+    projectName?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WarrantyAvgOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    durationMonths?: SortOrder
+  }
+
+  export type WarrantyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    clientId?: SortOrder
+    startDate?: SortOrder
+    durationMonths?: SortOrder
+    projectName?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WarrantyMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    clientId?: SortOrder
+    startDate?: SortOrder
+    durationMonths?: SortOrder
+    projectName?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WarrantySumOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    durationMonths?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type CertificateCountOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    fileUrl?: SortOrder
+    title?: SortOrder
+    issuedDate?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CertificateAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type CertificateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    fileUrl?: SortOrder
+    title?: SortOrder
+    issuedDate?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CertificateMinOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    fileUrl?: SortOrder
+    title?: SortOrder
+    issuedDate?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CertificateSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type PostCreateNestedManyWithoutAuthorInput = {
@@ -6698,11 +9689,39 @@ export namespace Prisma {
     connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
   }
 
+  export type WarrantyCreateNestedManyWithoutClientInput = {
+    create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
+    createMany?: WarrantyCreateManyClientInputEnvelope
+    connect?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+  }
+
+  export type CertificateCreateNestedManyWithoutClientInput = {
+    create?: XOR<CertificateCreateWithoutClientInput, CertificateUncheckedCreateWithoutClientInput> | CertificateCreateWithoutClientInput[] | CertificateUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: CertificateCreateOrConnectWithoutClientInput | CertificateCreateOrConnectWithoutClientInput[]
+    createMany?: CertificateCreateManyClientInputEnvelope
+    connect?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+  }
+
   export type PostUncheckedCreateNestedManyWithoutAuthorInput = {
     create?: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput> | PostCreateWithoutAuthorInput[] | PostUncheckedCreateWithoutAuthorInput[]
     connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | PostCreateOrConnectWithoutAuthorInput[]
     createMany?: PostCreateManyAuthorInputEnvelope
     connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  }
+
+  export type WarrantyUncheckedCreateNestedManyWithoutClientInput = {
+    create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
+    createMany?: WarrantyCreateManyClientInputEnvelope
+    connect?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+  }
+
+  export type CertificateUncheckedCreateNestedManyWithoutClientInput = {
+    create?: XOR<CertificateCreateWithoutClientInput, CertificateUncheckedCreateWithoutClientInput> | CertificateCreateWithoutClientInput[] | CertificateUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: CertificateCreateOrConnectWithoutClientInput | CertificateCreateOrConnectWithoutClientInput[]
+    createMany?: CertificateCreateManyClientInputEnvelope
+    connect?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6715,6 +9734,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -6735,6 +9758,34 @@ export namespace Prisma {
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
   }
 
+  export type WarrantyUpdateManyWithoutClientNestedInput = {
+    create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
+    upsert?: WarrantyUpsertWithWhereUniqueWithoutClientInput | WarrantyUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: WarrantyCreateManyClientInputEnvelope
+    set?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    disconnect?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    delete?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    connect?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    update?: WarrantyUpdateWithWhereUniqueWithoutClientInput | WarrantyUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: WarrantyUpdateManyWithWhereWithoutClientInput | WarrantyUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: WarrantyScalarWhereInput | WarrantyScalarWhereInput[]
+  }
+
+  export type CertificateUpdateManyWithoutClientNestedInput = {
+    create?: XOR<CertificateCreateWithoutClientInput, CertificateUncheckedCreateWithoutClientInput> | CertificateCreateWithoutClientInput[] | CertificateUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: CertificateCreateOrConnectWithoutClientInput | CertificateCreateOrConnectWithoutClientInput[]
+    upsert?: CertificateUpsertWithWhereUniqueWithoutClientInput | CertificateUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: CertificateCreateManyClientInputEnvelope
+    set?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    disconnect?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    delete?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    connect?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    update?: CertificateUpdateWithWhereUniqueWithoutClientInput | CertificateUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: CertificateUpdateManyWithWhereWithoutClientInput | CertificateUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: CertificateScalarWhereInput | CertificateScalarWhereInput[]
+  }
+
   export type PostUncheckedUpdateManyWithoutAuthorNestedInput = {
     create?: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput> | PostCreateWithoutAuthorInput[] | PostUncheckedCreateWithoutAuthorInput[]
     connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | PostCreateOrConnectWithoutAuthorInput[]
@@ -6747,6 +9798,34 @@ export namespace Prisma {
     update?: PostUpdateWithWhereUniqueWithoutAuthorInput | PostUpdateWithWhereUniqueWithoutAuthorInput[]
     updateMany?: PostUpdateManyWithWhereWithoutAuthorInput | PostUpdateManyWithWhereWithoutAuthorInput[]
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  }
+
+  export type WarrantyUncheckedUpdateManyWithoutClientNestedInput = {
+    create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
+    upsert?: WarrantyUpsertWithWhereUniqueWithoutClientInput | WarrantyUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: WarrantyCreateManyClientInputEnvelope
+    set?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    disconnect?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    delete?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    connect?: WarrantyWhereUniqueInput | WarrantyWhereUniqueInput[]
+    update?: WarrantyUpdateWithWhereUniqueWithoutClientInput | WarrantyUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: WarrantyUpdateManyWithWhereWithoutClientInput | WarrantyUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: WarrantyScalarWhereInput | WarrantyScalarWhereInput[]
+  }
+
+  export type CertificateUncheckedUpdateManyWithoutClientNestedInput = {
+    create?: XOR<CertificateCreateWithoutClientInput, CertificateUncheckedCreateWithoutClientInput> | CertificateCreateWithoutClientInput[] | CertificateUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: CertificateCreateOrConnectWithoutClientInput | CertificateCreateOrConnectWithoutClientInput[]
+    upsert?: CertificateUpsertWithWhereUniqueWithoutClientInput | CertificateUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: CertificateCreateManyClientInputEnvelope
+    set?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    disconnect?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    delete?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    connect?: CertificateWhereUniqueInput | CertificateWhereUniqueInput[]
+    update?: CertificateUpdateWithWhereUniqueWithoutClientInput | CertificateUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: CertificateUpdateManyWithWhereWithoutClientInput | CertificateUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: CertificateScalarWhereInput | CertificateScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutPostsInput = {
@@ -6779,8 +9858,40 @@ export namespace Prisma {
     set?: $Enums.ReviewStatus
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
+  export type UserCreateNestedOneWithoutWarrantiesInput = {
+    create?: XOR<UserCreateWithoutWarrantiesInput, UserUncheckedCreateWithoutWarrantiesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWarrantiesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutWarrantiesNestedInput = {
+    create?: XOR<UserCreateWithoutWarrantiesInput, UserUncheckedCreateWithoutWarrantiesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWarrantiesInput
+    upsert?: UserUpsertWithoutWarrantiesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutWarrantiesInput, UserUpdateWithoutWarrantiesInput>, UserUncheckedUpdateWithoutWarrantiesInput>
+  }
+
+  export type UserCreateNestedOneWithoutCertificatesInput = {
+    create?: XOR<UserCreateWithoutCertificatesInput, UserUncheckedCreateWithoutCertificatesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCertificatesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutCertificatesNestedInput = {
+    create?: XOR<UserCreateWithoutCertificatesInput, UserUncheckedCreateWithoutCertificatesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCertificatesInput
+    upsert?: UserUpsertWithoutCertificatesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCertificatesInput, UserUpdateWithoutCertificatesInput>, UserUncheckedUpdateWithoutCertificatesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6816,6 +9927,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -6887,6 +10009,20 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -6966,29 +10102,31 @@ export namespace Prisma {
     _max?: NestedEnumReviewStatusFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type PostCreateWithoutAuthorInput = {
@@ -7018,6 +10156,58 @@ export namespace Prisma {
 
   export type PostCreateManyAuthorInputEnvelope = {
     data: PostCreateManyAuthorInput | PostCreateManyAuthorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WarrantyCreateWithoutClientInput = {
+    projectId?: number | null
+    startDate: Date | string
+    durationMonths: number
+    projectName: string
+    createdAt?: Date | string
+  }
+
+  export type WarrantyUncheckedCreateWithoutClientInput = {
+    id?: number
+    projectId?: number | null
+    startDate: Date | string
+    durationMonths: number
+    projectName: string
+    createdAt?: Date | string
+  }
+
+  export type WarrantyCreateOrConnectWithoutClientInput = {
+    where: WarrantyWhereUniqueInput
+    create: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput>
+  }
+
+  export type WarrantyCreateManyClientInputEnvelope = {
+    data: WarrantyCreateManyClientInput | WarrantyCreateManyClientInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CertificateCreateWithoutClientInput = {
+    fileUrl: string
+    title: string
+    issuedDate: Date | string
+    createdAt?: Date | string
+  }
+
+  export type CertificateUncheckedCreateWithoutClientInput = {
+    id?: number
+    fileUrl: string
+    title: string
+    issuedDate: Date | string
+    createdAt?: Date | string
+  }
+
+  export type CertificateCreateOrConnectWithoutClientInput = {
+    where: CertificateWhereUniqueInput
+    create: XOR<CertificateCreateWithoutClientInput, CertificateUncheckedCreateWithoutClientInput>
+  }
+
+  export type CertificateCreateManyClientInputEnvelope = {
+    data: CertificateCreateManyClientInput | CertificateCreateManyClientInput[]
     skipDuplicates?: boolean
   }
 
@@ -7051,6 +10241,63 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Post"> | Date | string
   }
 
+  export type WarrantyUpsertWithWhereUniqueWithoutClientInput = {
+    where: WarrantyWhereUniqueInput
+    update: XOR<WarrantyUpdateWithoutClientInput, WarrantyUncheckedUpdateWithoutClientInput>
+    create: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput>
+  }
+
+  export type WarrantyUpdateWithWhereUniqueWithoutClientInput = {
+    where: WarrantyWhereUniqueInput
+    data: XOR<WarrantyUpdateWithoutClientInput, WarrantyUncheckedUpdateWithoutClientInput>
+  }
+
+  export type WarrantyUpdateManyWithWhereWithoutClientInput = {
+    where: WarrantyScalarWhereInput
+    data: XOR<WarrantyUpdateManyMutationInput, WarrantyUncheckedUpdateManyWithoutClientInput>
+  }
+
+  export type WarrantyScalarWhereInput = {
+    AND?: WarrantyScalarWhereInput | WarrantyScalarWhereInput[]
+    OR?: WarrantyScalarWhereInput[]
+    NOT?: WarrantyScalarWhereInput | WarrantyScalarWhereInput[]
+    id?: IntFilter<"Warranty"> | number
+    projectId?: IntNullableFilter<"Warranty"> | number | null
+    clientId?: StringFilter<"Warranty"> | string
+    startDate?: DateTimeFilter<"Warranty"> | Date | string
+    durationMonths?: IntFilter<"Warranty"> | number
+    projectName?: StringFilter<"Warranty"> | string
+    createdAt?: DateTimeFilter<"Warranty"> | Date | string
+  }
+
+  export type CertificateUpsertWithWhereUniqueWithoutClientInput = {
+    where: CertificateWhereUniqueInput
+    update: XOR<CertificateUpdateWithoutClientInput, CertificateUncheckedUpdateWithoutClientInput>
+    create: XOR<CertificateCreateWithoutClientInput, CertificateUncheckedCreateWithoutClientInput>
+  }
+
+  export type CertificateUpdateWithWhereUniqueWithoutClientInput = {
+    where: CertificateWhereUniqueInput
+    data: XOR<CertificateUpdateWithoutClientInput, CertificateUncheckedUpdateWithoutClientInput>
+  }
+
+  export type CertificateUpdateManyWithWhereWithoutClientInput = {
+    where: CertificateScalarWhereInput
+    data: XOR<CertificateUpdateManyMutationInput, CertificateUncheckedUpdateManyWithoutClientInput>
+  }
+
+  export type CertificateScalarWhereInput = {
+    AND?: CertificateScalarWhereInput | CertificateScalarWhereInput[]
+    OR?: CertificateScalarWhereInput[]
+    NOT?: CertificateScalarWhereInput | CertificateScalarWhereInput[]
+    id?: IntFilter<"Certificate"> | number
+    clientId?: StringFilter<"Certificate"> | string
+    fileUrl?: StringFilter<"Certificate"> | string
+    title?: StringFilter<"Certificate"> | string
+    issuedDate?: DateTimeFilter<"Certificate"> | Date | string
+    createdAt?: DateTimeFilter<"Certificate"> | Date | string
+  }
+
   export type UserCreateWithoutPostsInput = {
     id?: string
     email: string
@@ -7058,7 +10305,12 @@ export namespace Prisma {
     role?: $Enums.Role
     name?: string | null
     address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
     isConfirmed?: boolean
+    isActive?: boolean
+    warranties?: WarrantyCreateNestedManyWithoutClientInput
+    certificates?: CertificateCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutPostsInput = {
@@ -7068,7 +10320,12 @@ export namespace Prisma {
     role?: $Enums.Role
     name?: string | null
     address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
     isConfirmed?: boolean
+    isActive?: boolean
+    warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
+    certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutPostsInput = {
@@ -7094,7 +10351,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     name?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    warranties?: WarrantyUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostsInput = {
@@ -7104,7 +10366,164 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     name?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserCreateWithoutWarrantiesInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    posts?: PostCreateNestedManyWithoutAuthorInput
+    certificates?: CertificateCreateNestedManyWithoutClientInput
+  }
+
+  export type UserUncheckedCreateWithoutWarrantiesInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
+  }
+
+  export type UserCreateOrConnectWithoutWarrantiesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutWarrantiesInput, UserUncheckedCreateWithoutWarrantiesInput>
+  }
+
+  export type UserUpsertWithoutWarrantiesInput = {
+    update: XOR<UserUpdateWithoutWarrantiesInput, UserUncheckedUpdateWithoutWarrantiesInput>
+    create: XOR<UserCreateWithoutWarrantiesInput, UserUncheckedCreateWithoutWarrantiesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutWarrantiesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutWarrantiesInput, UserUncheckedUpdateWithoutWarrantiesInput>
+  }
+
+  export type UserUpdateWithoutWarrantiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    posts?: PostUpdateManyWithoutAuthorNestedInput
+    certificates?: CertificateUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutWarrantiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserCreateWithoutCertificatesInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    posts?: PostCreateNestedManyWithoutAuthorInput
+    warranties?: WarrantyCreateNestedManyWithoutClientInput
+  }
+
+  export type UserUncheckedCreateWithoutCertificatesInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
+  }
+
+  export type UserCreateOrConnectWithoutCertificatesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCertificatesInput, UserUncheckedCreateWithoutCertificatesInput>
+  }
+
+  export type UserUpsertWithoutCertificatesInput = {
+    update: XOR<UserUpdateWithoutCertificatesInput, UserUncheckedUpdateWithoutCertificatesInput>
+    create: XOR<UserCreateWithoutCertificatesInput, UserUncheckedCreateWithoutCertificatesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCertificatesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCertificatesInput, UserUncheckedUpdateWithoutCertificatesInput>
+  }
+
+  export type UserUpdateWithoutCertificatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    posts?: PostUpdateManyWithoutAuthorNestedInput
+    warranties?: WarrantyUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCertificatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type PostCreateManyAuthorInput = {
@@ -7115,6 +10534,23 @@ export namespace Prisma {
     imageUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type WarrantyCreateManyClientInput = {
+    id?: number
+    projectId?: number | null
+    startDate: Date | string
+    durationMonths: number
+    projectName: string
+    createdAt?: Date | string
+  }
+
+  export type CertificateCreateManyClientInput = {
+    id?: number
+    fileUrl: string
+    title: string
+    issuedDate: Date | string
+    createdAt?: Date | string
   }
 
   export type PostUpdateWithoutAuthorInput = {
@@ -7145,6 +10581,55 @@ export namespace Prisma {
     imageUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WarrantyUpdateWithoutClientInput = {
+    projectId?: NullableIntFieldUpdateOperationsInput | number | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    durationMonths?: IntFieldUpdateOperationsInput | number
+    projectName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WarrantyUncheckedUpdateWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: NullableIntFieldUpdateOperationsInput | number | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    durationMonths?: IntFieldUpdateOperationsInput | number
+    projectName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WarrantyUncheckedUpdateManyWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: NullableIntFieldUpdateOperationsInput | number | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    durationMonths?: IntFieldUpdateOperationsInput | number
+    projectName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificateUpdateWithoutClientInput = {
+    fileUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificateUncheckedUpdateWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fileUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificateUncheckedUpdateManyWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fileUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuedDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

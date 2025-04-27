@@ -124,7 +124,10 @@ exports.Prisma.UserScalarFieldEnum = {
   role: 'role',
   name: 'name',
   address: 'address',
-  isConfirmed: 'isConfirmed'
+  phone: 'phone',
+  lastLogin: 'lastLogin',
+  isConfirmed: 'isConfirmed',
+  isActive: 'isActive'
 };
 
 exports.Prisma.PostScalarFieldEnum = {
@@ -161,6 +164,25 @@ exports.Prisma.ServiceScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.WarrantyScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  clientId: 'clientId',
+  startDate: 'startDate',
+  durationMonths: 'durationMonths',
+  projectName: 'projectName',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CertificateScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  fileUrl: 'fileUrl',
+  title: 'title',
+  issuedDate: 'issuedDate',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -191,7 +213,9 @@ exports.Prisma.ModelName = {
   User: 'User',
   Post: 'Post',
   Review: 'Review',
-  Service: 'Service'
+  Service: 'Service',
+  Warranty: 'Warranty',
+  Certificate: 'Certificate'
 };
 
 /**

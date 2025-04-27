@@ -8,6 +8,9 @@ import AddServiceForm from './components/services/AddServiceForm';
 import ServiceList from './components/services/ServiceList';
 import DeletedServicesList from './components/services/DeletedServicesList';
 import ClientsApproval from './components/ClientsApproval';
+import ClientsManagement from './components/ClientsManagement';
+import AdminCertificatesPage from './certificates/page';
+import AdminWarrantiesPage from './warranties/page';
 
 export default function AdminPage() {
   const { data: session, status } = useSession();
@@ -27,6 +30,9 @@ export default function AdminPage() {
       <AddServiceForm />
       <ServiceList />
       <DeletedServicesList />
+      <ClientsManagement />
+      <AdminCertificatesPage />
+      <AdminWarrantiesPage />
     </main>
   );
 }

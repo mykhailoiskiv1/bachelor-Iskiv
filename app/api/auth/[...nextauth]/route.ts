@@ -2,8 +2,7 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { compare } from 'bcryptjs'
 import { prisma } from '@/lib/prisma'
-import type { NextAuthOptions, Session, User as NextAuthUser } from 'next-auth'
-import type { JWT } from 'next-auth/jwt'
+import type { NextAuthOptions } from 'next-auth'
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -34,14 +33,22 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }: { token: JWT; user?: NextAuthUser & { role?: string } }) {
-      if (user?.role) token.role = user.role
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id
+        token.role = user.role
+        token.email = user.email
+      }
       return token
     },
-    async session({ session, token }: { session: Session; token: JWT }) {
-      if (session.user) session.user.role = token.role as string
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id
+        session.user.role = token.role ?? 'user'
+        session.user.email = token.email
+      }
       return session
-    },
+    }
   },
   pages: {
     signIn: '/login',
@@ -50,4 +57,4 @@ const authOptions: NextAuthOptions = {
 }
 
 const handler = NextAuth(authOptions)
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST, authOptions }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
+import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Link from 'next/link'
@@ -22,7 +22,15 @@ export default function ClientDashboardPage() {
 
     return (
         <div className="p-6 max-w-4xl mx-auto">
-            <h1 className="text-2xl font-bold mb-6">Welcome, {session?.user?.email}</h1>
+            <div className="flex justify-between items-center mb-6">
+                <h1 className="text-2xl font-bold">Welcome, {session?.user?.email}</h1>
+                <button
+                    onClick={() => signOut({ callbackUrl: '/login' })}
+                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                >
+                    Logout
+                </button>
+            </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
                 <Link href="/client/projects" className="block p-4 border rounded hover:bg-gray-50 transition">

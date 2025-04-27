@@ -34,3 +34,24 @@ export async function PATCH(req: NextRequest) {
 
   return NextResponse.json({ message: 'Client confirmed' });
 }
+
+export async function PUT(req: NextRequest) {
+  const session = await getServerSession(authOptions);
+  if (!session || session.user.role !== 'ADMIN') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  const { id, name, address } = await req.json();
+
+  if (!id || !name || !address) {
+    return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
+  }
+
+  const updatedClient = await prisma.user.update({
+    where: { id },
+    data: { name, address },
+    select: { id: true, name: true, address: true, email: true }
+  });
+
+  return NextResponse.json(updatedClient);
+}

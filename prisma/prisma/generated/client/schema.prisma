@@ -9,14 +9,20 @@ datasource db {
 }
 
 model User {
-  id          String  @id @default(cuid())
-  email       String  @unique
+  id          String    @id @default(cuid())
+  email       String    @unique
   password    String
-  role        Role    @default(CLIENT)
-  name        String? // Ім'я клієнта
-  address     String? // Адреса клієнта
-  isConfirmed Boolean @default(false) // Підтвердження адміністратором
-  posts       Post[]  @relation("UserPosts")
+  role        Role      @default(CLIENT)
+  name        String?
+  address     String?
+  phone       String?
+  lastLogin   DateTime?
+  isConfirmed Boolean   @default(false)
+  isActive    Boolean   @default(true)
+
+  posts        Post[]        @relation("UserPosts")
+  warranties   Warranty[]
+  certificates Certificate[]
 }
 
 model Post {
@@ -31,12 +37,6 @@ model Post {
   updatedAt DateTime @updatedAt
 }
 
-enum Role {
-  USER
-  CLIENT
-  ADMIN
-}
-
 model Review {
   id           Int          @id @default(autoincrement())
   clientName   String
@@ -45,12 +45,6 @@ model Review {
   status       ReviewStatus @default(PENDING)
   companyReply String?
   createdAt    DateTime     @default(now())
-}
-
-enum ReviewStatus {
-  PENDING
-  APPROVED
-  REJECTED
 }
 
 model Service {
@@ -63,5 +57,40 @@ model Service {
   sortOrder   Int       @default(0)
   isHot       Boolean   @default(false)
   createdAt   DateTime  @default(now())
-  deletedAt   DateTime? // Ось це поле має бути!
+  deletedAt   DateTime?
+}
+
+enum Role {
+  USER
+  CLIENT
+  ADMIN
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Warranty {
+  id             Int      @id @default(autoincrement())
+  projectId      Int?
+  clientId       String
+  startDate      DateTime
+  durationMonths Int // Наприклад, 12 місяців
+  projectName    String
+  createdAt      DateTime @default(now())
+
+  client User @relation(fields: [clientId], references: [id])
+}
+
+model Certificate {
+  id         Int      @id @default(autoincrement())
+  clientId   String
+  fileUrl    String // Посилання на PDF
+  title      String
+  issuedDate DateTime
+  createdAt  DateTime @default(now())
+
+  client User @relation(fields: [clientId], references: [id])
 }
