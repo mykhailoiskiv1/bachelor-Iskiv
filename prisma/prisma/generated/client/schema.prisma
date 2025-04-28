@@ -20,21 +20,9 @@ model User {
   isConfirmed Boolean   @default(false)
   isActive    Boolean   @default(true)
 
-  posts        Post[]        @relation("UserPosts")
-  warranties   Warranty[]
-  certificates Certificate[]
-}
-
-model Post {
-  id        String   @id @default(cuid())
-  title     String
-  slug      String   @unique
-  content   String
-  imageUrl  String
-  authorId  String
-  author    User     @relation("UserPosts", fields: [authorId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  warranties    Warranty[]
+  certificates  Certificate[]
+  notifications Notification[] // ДОДАЄМО ЦЕ
 }
 
 model Review {
@@ -77,7 +65,7 @@ model Warranty {
   projectId      Int?
   clientId       String
   startDate      DateTime
-  durationMonths Int // Наприклад, 12 місяців
+  durationMonths Int
   projectName    String
   createdAt      DateTime @default(now())
 
@@ -87,10 +75,60 @@ model Warranty {
 model Certificate {
   id         Int      @id @default(autoincrement())
   clientId   String
-  fileUrl    String // Посилання на PDF
+  fileUrl    String
   title      String
   issuedDate DateTime
   createdAt  DateTime @default(now())
 
   client User @relation(fields: [clientId], references: [id])
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  clientId  String
+  client    User     @relation(fields: [clientId], references: [id])
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id             String   @id @default(cuid())
+  title          String
+  slug           String   @unique
+  category       String
+  content        String
+  imagePath      String
+  seoTitle       String?
+  seoDescription String?
+  seoKeywords    String?
+  published      Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model ChatSession {
+  id         Int       @id @default(autoincrement())
+  userId     Int? // Якщо користувач авторизований
+  sessionKey String? // Для гостей (можна зберігати session id)
+  messages   Message[]
+  createdAt  DateTime  @default(now())
+}
+
+model Message {
+  id            Int         @id @default(autoincrement())
+  chatSession   ChatSession @relation(fields: [chatSessionId], references: [id])
+  chatSessionId Int
+  sender        String // 'user', 'bot', 'admin'
+  content       String
+  isTransferred Boolean     @default(false) // Позначка для передачі адміну
+  createdAt     DateTime    @default(now())
+}
+
+model KnowledgeBase {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
 }

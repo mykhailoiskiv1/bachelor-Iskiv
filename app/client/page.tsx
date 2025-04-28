@@ -52,6 +52,10 @@ export default function ClientDashboardPage() {
                     <h2 className="text-lg font-semibold">Profile & Support</h2>
                     <p className="text-sm text-gray-600">Manage your account and contact support</p>
                 </Link>
+                <Link href="/client/notifications" className="block p-4 border rounded hover:bg-gray-50 transition">
+                    <h2 className="text-lg font-semibold">Notifications</h2>
+                    <p className="text-sm text-gray-600">View important updates and messages from the company</p>
+                </Link>
             </div>
         </div>
     )

@@ -130,17 +130,6 @@ exports.Prisma.UserScalarFieldEnum = {
   isActive: 'isActive'
 };
 
-exports.Prisma.PostScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  slug: 'slug',
-  content: 'content',
-  imageUrl: 'imageUrl',
-  authorId: 'authorId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.ReviewScalarFieldEnum = {
   id: 'id',
   clientName: 'clientName',
@@ -183,6 +172,53 @@ exports.Prisma.CertificateScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  title: 'title',
+  message: 'message',
+  isRead: 'isRead',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  slug: 'slug',
+  category: 'category',
+  content: 'content',
+  imagePath: 'imagePath',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
+  seoKeywords: 'seoKeywords',
+  published: 'published',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ChatSessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  sessionKey: 'sessionKey',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.MessageScalarFieldEnum = {
+  id: 'id',
+  chatSessionId: 'chatSessionId',
+  sender: 'sender',
+  content: 'content',
+  isTransferred: 'isTransferred',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.KnowledgeBaseScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -211,11 +247,15 @@ exports.ReviewStatus = exports.$Enums.ReviewStatus = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Post: 'Post',
   Review: 'Review',
   Service: 'Service',
   Warranty: 'Warranty',
-  Certificate: 'Certificate'
+  Certificate: 'Certificate',
+  Notification: 'Notification',
+  Post: 'Post',
+  ChatSession: 'ChatSession',
+  Message: 'Message',
+  KnowledgeBase: 'KnowledgeBase'
 };
 
 /**

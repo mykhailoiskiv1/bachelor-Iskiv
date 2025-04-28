@@ -11,6 +11,7 @@ import ClientsApproval from './components/ClientsApproval';
 import ClientsManagement from './components/ClientsManagement';
 import AdminCertificatesPage from './certificates/page';
 import AdminWarrantiesPage from './warranties/page';
+import AdminNotificationsPage from './notifications/page';
 
 export default function AdminPage() {
   const { data: session, status } = useSession();
@@ -21,6 +22,23 @@ export default function AdminPage() {
     router.push('/');
     return null;
   }
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+  
+    const formData = new FormData();
+    formData.append('file', file);
+  
+    const res = await fetch('/api/admin/blog/upload', {
+      method: 'POST',
+      body: formData,
+    });
+  
+    const data = await res.json();
+    console.log('Uploaded image URL:', data.url);
+  };
+  
 
   return (
     <main className="max-w-4xl mx-auto p-6 space-y-8">
@@ -33,6 +51,9 @@ export default function AdminPage() {
       <ClientsManagement />
       <AdminCertificatesPage />
       <AdminWarrantiesPage />
+      <AdminNotificationsPage />
+      <input type="file" onChange={handleFileChange} />
+
     </main>
   );
 }
