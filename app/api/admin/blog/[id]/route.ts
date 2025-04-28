@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import slugify from 'slugify';
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-  const postId = params.id;
+export async function PUT(req: NextRequest, context: { params: { id: string } }) {
+  const postId = context.params.id;
   const { title, category, content, seoTitle, seoDescription } = await req.json();
 
   if (!title || !category || !content) {
