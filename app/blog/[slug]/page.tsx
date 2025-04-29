@@ -2,11 +2,15 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import { getSignedUrl } from '@/lib/getSignedUrl';
 
-export default async function BlogPostPage({ params }: { readonly params: { readonly slug: string } }) {
-  if (!params.slug) return notFound();
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
 
   const post = await prisma.post.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
 
   if (!post) return notFound();
@@ -16,7 +20,9 @@ export default async function BlogPostPage({ params }: { readonly params: { read
   return (
     <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-      <p className="text-sm text-gray-500 mb-6">{post.category} | {new Date(post.createdAt).toLocaleDateString()}</p>
+      <p className="text-sm text-gray-500 mb-6">
+        {post.category} | {new Date(post.createdAt).toLocaleDateString()}
+      </p>
       <img
         src={signedUrl}
         alt={post.title}
@@ -29,4 +35,3 @@ export default async function BlogPostPage({ params }: { readonly params: { read
     </div>
   );
 }
-

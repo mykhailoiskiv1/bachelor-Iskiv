@@ -3,26 +3,25 @@ import { storage } from '@/lib/gcs';
 
 const bucket = storage.bucket(process.env.GCS_BUCKET_NAME!);
 
-export async function GET(request: NextRequest, context: { params: { path?: string[] } }) {
-  const { params } = context;
-
-  if (!params?.path) {
-    return NextResponse.json({ url: '' });  
-  }
-
-  const filePath = params.path.join('/');
-  const file = bucket.file(filePath);
-
+export async function GET(req: NextRequest) {
   try {
-    const [url] = await file.getSignedUrl({
+    const path = req.nextUrl.pathname.replace(/^\/api\/media\//, '');
+
+    if (!path) {
+      return NextResponse.json({ url: '' });
+    }
+
+    const file = bucket.file(decodeURIComponent(path));
+
+    const [signedUrl] = await file.getSignedUrl({
+      version: 'v4',
       action: 'read',
-      expires: Date.now() + 1000 * 60 * 60 * 24 * 365,
+      expires: Date.now() + 365 * 24 * 60 * 60 * 1000, // 1 рік
     });
 
-    return NextResponse.json({ url });
+    return NextResponse.json({ url: signedUrl });
   } catch (err) {
     console.error('Error generating signed URL:', err);
     return NextResponse.json({ error: 'Failed to generate signed URL' }, { status: 500 });
   }
 }
-

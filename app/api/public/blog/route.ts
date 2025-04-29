@@ -8,10 +8,12 @@ export async function GET() {
     orderBy: { createdAt: 'desc' },
   });
 
-  const postsWithUrls = await Promise.all(posts.map(async (post) => {
-    const signedUrl = await getSignedUrl(post.imagePath);
-    return { ...post, signedUrl };
-  }));
+  const postsWithUrls = await Promise.all(
+    posts.map(async (post) => {
+      const signedUrl = await getSignedUrl(post.imagePath);
+      return { ...post, signedUrl };
+    })
+  );
 
   return NextResponse.json(postsWithUrls);
 }
