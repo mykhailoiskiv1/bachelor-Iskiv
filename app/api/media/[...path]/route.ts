@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
     const [signedUrl] = await file.getSignedUrl({
       version: 'v4',
       action: 'read',
-      expires: Date.now() + 365 * 24 * 60 * 60 * 1000, // 1 рік
+      expires: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 днів
     });
 
     return NextResponse.json({ url: signedUrl });
