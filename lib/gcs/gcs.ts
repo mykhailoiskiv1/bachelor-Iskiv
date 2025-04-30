@@ -22,8 +22,7 @@ export async function uploadImageToGCS(file: Buffer, filename: string, mimetype:
     stream.on('error', (err: Error) => reject(err));
 
     stream.on('finish', () => {
-      // Тепер НЕ робимо makePublic
-      resolve(`blog/${filename}`);   // Зберігаємо шлях до файлу
+      resolve(`blog/${filename}`);
     });
 
     stream.end(file);
