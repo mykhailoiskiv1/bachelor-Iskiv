@@ -47,7 +47,8 @@ export default function EditPostPage() {
           imagePath: post.imagePath,
         });
 
-        const imgRes = await fetch(`/api/media/${post.imagePath}`);
+        const imgRes = await fetch(`/api/media/file/
+${post.imagePath}`);
         const imgData = await imgRes.json();
         setImageUrl(imgData.url);
       } catch (err) {

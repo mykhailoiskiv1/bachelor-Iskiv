@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { getSignedUrl } from '@/lib/getSignedUrl';
+import { getSignedUrl } from '@/lib/gcs/getSignedUrl';
 
 export async function GET() {
   const posts = await prisma.post.findMany({

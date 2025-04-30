@@ -12,7 +12,8 @@ type Post = {
 };
 
 const getSignedUrl = async (imagePath: string) => {
-  const res = await fetch(`/api/media/${imagePath}`);
+  const res = await fetch(`/api/media/file/
+${imagePath}`);
   if (!res.ok) return '';
   const data = await res.json();
   return data.url;

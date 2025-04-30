@@ -4,7 +4,7 @@ import slugify from "slugify";
 
 export async function PUT(req: NextRequest) {
     const url = new URL(req.url);
-    const id = url.pathname.split('/').pop(); // Остання частина URL - твій ID
+    const id = url.pathname.split('/').pop(); 
   
     if (!id) {
       return NextResponse.json({ error: 'ID is missing in URL' }, { status: 400 });

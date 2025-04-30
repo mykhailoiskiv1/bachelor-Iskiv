@@ -1,5 +1,3 @@
-// types/blog.ts
 export type BlogPageParams = {
-    params: { slug: string };
-  };
-  
+  params: { slug: string };
+};

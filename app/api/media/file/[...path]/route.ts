@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { storage } from '@/lib/gcs';
+import { storage } from '@/lib/gcs/gcs';
 
 const bucket = storage.bucket(process.env.GCS_BUCKET_NAME!);
 
 export async function GET(req: NextRequest) {
   try {
-    const path = req.nextUrl.pathname.replace(/^\/api\/media\//, '');
+    const path = req.nextUrl.pathname.replace(/^\/api\/media\/file\//, '');
 
     if (!path) {
       return NextResponse.json({ url: '' });
@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
     const [signedUrl] = await file.getSignedUrl({
       version: 'v4',
       action: 'read',
-      expires: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 днів
+      expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     });
 
     return NextResponse.json({ url: signedUrl });

@@ -2,9 +2,9 @@
 
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import FormInput from '../components/ui/FormInput'
-import { loginWithCredentials } from '@/lib/loginWithCredentials'
-import { useRoleRedirect } from '@/lib/hooks/useRoleRedirect'
+import FormInput from '../../components/ui/FormInput'
+import { loginWithCredentials } from '@/lib/auth/loginWithCredentials'
+import { useRoleRedirect } from '@/hooks/useRoleRedirect'
 
 type FormData = {
   email: string

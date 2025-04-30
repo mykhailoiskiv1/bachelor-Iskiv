@@ -1,11 +1,11 @@
-import ReviewsList from '../app/client/components/reviews/ReviewsList';
-import ReviewForm from '../app/client/components/reviews/ReviewForm';  
-import HeroSection from './components/homepage/HeroSection';
-import PopularServices from './components/homepage/PopularServices';
-import AboutCompany from './components/homepage/AboutCompany';
-import QuickAccessButtons from './components/homepage/QuickAccessButtons';
-import FooterMinimal from './components/homepage/FooterMinimal';
-import Header from './components/layout/Header';
+import ReviewsList from '../components/client/reviews/ReviewsList';
+import ReviewForm from '../components/client/reviews/ReviewForm';  
+import HeroSection from '../components/home/HeroSection';
+import PopularServices from '../components/home/PopularServices';
+import AboutCompany from '../components/home/AboutCompany';
+import QuickAccessButtons from '../components/home/QuickAccessButtons';
+import FooterMinimal from '../components/home/FooterMinimal';
+import Header from '../components/layout/Header';
 
 
 export default function Home() {

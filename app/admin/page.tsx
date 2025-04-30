@@ -1,18 +1,18 @@
 'use client';
 
 import React from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession , signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import ReviewsModeration from './components/reviews/ReviewsModeration';
-import AddServiceForm from './components/services/AddServiceForm';
-import ServiceList from './components/services/ServiceList';
-import DeletedServicesList from './components/services/DeletedServicesList';
-import ClientsApproval from './components/ClientsApproval';
-import ClientsManagement from './components/ClientsManagement';
-import AdminCertificatesPage from './certificates/page';
-import AdminWarrantiesPage from './warranties/page';
-import AdminNotificationsPage from './notifications/page';
-import { signOut } from 'next-auth/react'
+import ReviewsModeration from '../../components/admin/reviews/ReviewsModeration';
+import AddServiceForm from '../../components/admin/services/AddServiceForm';
+import ServiceList from '../../components/admin/services/ServiceList';
+import DeletedServicesList from '../../components/admin/services/DeletedServicesList';
+import ClientsApproval from '../../components/admin/clients/ClientsApproval';
+import ClientsManagement from '../../components/admin/clients/ClientsManagement';
+import AdminCertificatesPage from '../../components/admin/certificates/page';
+import AdminWarrantiesPage from '../../components/admin/warranties/page';
+import AdminNotificationsPage from '../../components/admin/notifications/page';
+
 
 export default function AdminPage() {
   const { data: session, status } = useSession();

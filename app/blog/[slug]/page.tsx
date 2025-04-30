@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-import { getSignedUrl } from '@/lib/getSignedUrl';
+import { getSignedUrl } from '@/lib/gcs/getSignedUrl';
 
 type Props = {
   params: Promise<{ slug: string }>;

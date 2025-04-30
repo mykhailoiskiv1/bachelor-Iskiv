@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import useSWR from 'swr';
 import axios from 'axios';
-import PostItem from './components/PostItem';
+import PostItem from '../../../components/admin/blog/PostItem';
 
 type Post = {
   id: string;

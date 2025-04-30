@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { uploadImageToGCS } from '@/lib/gcs';
+import { uploadImageToGCS } from '@/lib/gcs/gcs';
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
