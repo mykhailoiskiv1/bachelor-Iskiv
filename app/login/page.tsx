@@ -1,9 +1,10 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import FormInput from '../components/ui/FormInput'
+import { loginWithCredentials } from '@/lib/loginWithCredentials'
+import { useRoleRedirect } from '@/lib/hooks/useRoleRedirect'
 
 type FormData = {
   email: string
@@ -13,34 +14,21 @@ type FormData = {
 export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
   const [serverError, setServerError] = useState('')
-  const router = useRouter()
+  const redirectByRole = useRoleRedirect()
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async ({ email, password }: FormData) => {
     setServerError('')
-    const res = await signIn('credentials', {
-      ...data,
-      redirect: false,
-    })
+    const res = await loginWithCredentials(email, password)
 
     if (res?.error) {
       setServerError('Invalid email or password')
     } else if (res?.ok) {
       const sessionRes = await fetch('/api/auth/session')
       const session = await sessionRes.json()
-
       const role = session?.user?.role
-
-      if (role === 'ADMIN') {
-        router.push('/admin')
-      } else if (role === 'CLIENT') {
-        router.push('/client')
-      } else {
-        router.push('/')
-      }
+      redirectByRole(role)
     }
   }
-
-
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -50,27 +38,19 @@ export default function LoginPage() {
       >
         <h1 className="text-2xl font-bold text-center text-black">Login</h1>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-black">Email</label>
-          <input
-            id="email"
-            type="email"
-            {...register('email', { required: 'Email is required' })}
-            className="w-full mt-1 p-2 border rounded"
-          />
-          {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
-        </div>
+        <FormInput
+          label="Email"
+          type="email"
+          register={register('email', { required: 'Email is required' })}
+          error={errors.email}
+        />
 
-        <div>
-          <label htmlFor="password" className="block text-sm font-medium text-black">Password</label>
-          <input
-            id="password"
-            type="password"
-            {...register('password', { required: 'Password is required' })}
-            className="w-full mt-1 p-2 border rounded"
-          />
-          {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>}
-        </div>
+        <FormInput
+          label="Password"
+          type="password"
+          register={register('password', { required: 'Password is required' })}
+          error={errors.password}
+        />
 
         {serverError && <p className="text-sm text-red-500 text-center">{serverError}</p>}
 
@@ -81,10 +61,11 @@ export default function LoginPage() {
           Sign In
         </button>
       </form>
-      <p className="text-center text-sm mt-2">
-        Don`&Apos;t have an account? <a href="/register" className="text-blue-600 hover:underline">Register</a>
-      </p>
 
+      <p className="text-center text-sm mt-2">
+        Don’t have an account?{' '}
+        <a href="/register" className="text-blue-600 hover:underline">Register</a>
+      </p>
     </div>
   )
 }

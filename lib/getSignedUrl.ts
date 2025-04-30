@@ -14,7 +14,7 @@ export async function getSignedUrl(filePath: string): Promise<string> {
   const [url] = await bucket.file(filePath).getSignedUrl({
     version: 'v4',
     action: 'read',
-    expires: Date.now() + 15 * 60 * 1000,  // 15 хвилин
+    expires: Date.now() + 15 * 60 * 1000,
   });
 
   return url;

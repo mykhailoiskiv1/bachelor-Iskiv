@@ -12,6 +12,7 @@ import ClientsManagement from './components/ClientsManagement';
 import AdminCertificatesPage from './certificates/page';
 import AdminWarrantiesPage from './warranties/page';
 import AdminNotificationsPage from './notifications/page';
+import { signOut } from 'next-auth/react'
 
 export default function AdminPage() {
   const { data: session, status } = useSession();
@@ -26,22 +27,31 @@ export default function AdminPage() {
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-  
+
     const formData = new FormData();
     formData.append('file', file);
-  
+
     const res = await fetch('/api/admin/blog/upload', {
       method: 'POST',
       body: formData,
     });
-  
+
     const data = await res.json();
     console.log('Uploaded image URL:', data.url);
   };
-  
+
 
   return (
     <main className="max-w-4xl mx-auto p-6 space-y-8">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Admin Dashboard</h1>
+        <button
+          onClick={() => signOut({ callbackUrl: '/login' })}
+          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+        >
+          Logout
+        </button>
+      </div>
       <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
       <ClientsApproval />
       <ReviewsModeration />

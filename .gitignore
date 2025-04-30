@@ -53,3 +53,5 @@ next-env.d.ts
 
 # VSCode settings
 .vscode
+
+tree.txt 
