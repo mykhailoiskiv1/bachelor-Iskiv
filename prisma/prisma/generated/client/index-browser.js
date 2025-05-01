@@ -137,7 +137,8 @@ exports.Prisma.ReviewScalarFieldEnum = {
   content: 'content',
   status: 'status',
   companyReply: 'companyReply',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  projectId: 'projectId'
 };
 
 exports.Prisma.ServiceScalarFieldEnum = {
@@ -219,6 +220,27 @@ exports.Prisma.KnowledgeBaseScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.ProjectScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  slug: 'slug',
+  description: 'description',
+  content: 'content',
+  imagePaths: 'imagePaths',
+  videoUrl: 'videoUrl',
+  category: 'category',
+  tags: 'tags',
+  location: 'location',
+  completionDate: 'completionDate',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
+  seoKeywords: 'seoKeywords',
+  published: 'published',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -255,7 +277,8 @@ exports.Prisma.ModelName = {
   Post: 'Post',
   ChatSession: 'ChatSession',
   Message: 'Message',
-  KnowledgeBase: 'KnowledgeBase'
+  KnowledgeBase: 'KnowledgeBase',
+  Project: 'Project'
 };
 
 /**

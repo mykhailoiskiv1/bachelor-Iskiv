@@ -33,6 +33,9 @@ model Review {
   status       ReviewStatus @default(PENDING)
   companyReply String?
   createdAt    DateTime     @default(now())
+
+  projectId Int?
+  project   Project? @relation("ProjectReviews", fields: [projectId], references: [id])
 }
 
 model Service {
@@ -131,4 +134,27 @@ model KnowledgeBase {
   title     String
   content   String
   createdAt DateTime @default(now())
+}
+
+model Project {
+  id             Int       @id @default(autoincrement())
+  title          String
+  slug           String    @unique
+  description    String
+  content        String
+  imagePaths     String[]
+  videoUrl       String?
+  category       String
+  tags           String[]
+  location       String?
+  completionDate DateTime?
+  seoTitle       String?
+  seoDescription String?
+  seoKeywords    String?
+  published      Boolean   @default(false)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  reviews Review[] @relation("ProjectReviews")
 }

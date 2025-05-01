@@ -11,10 +11,10 @@ export const storage = new Storage({
 const bucket = storage.bucket(process.env.GCS_BUCKET_NAME!);
 
 export async function uploadImageToGCS(
-  file: Buffer,
+  buffer: Buffer,
   filename: string,
   mimetype: string,
-  folder: 'projects' | 'blog' = 'blog'
+  folder: string = 'uploads'
 ): Promise<string> {
   const fileUpload = bucket.file(`${folder}/${filename}`);
 
@@ -25,11 +25,10 @@ export async function uploadImageToGCS(
 
   return new Promise((resolve, reject) => {
     stream.on('error', (err: Error) => reject(err));
-
-    stream.on('finish', () => {
-      resolve(`${folder}/${filename}`);
+    stream.on('finish', async () => {
+      await fileUpload.makePublic();
+      resolve(`https://storage.googleapis.com/${bucket.name}/${folder}/${filename}`);
     });
-
-    stream.end(file);
+    stream.end(buffer);
   });
 }

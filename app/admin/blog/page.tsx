@@ -17,7 +17,7 @@ type Post = {
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
 export default function AdminBlogPage() {
-  const { data: posts, mutate } = useSWR('/api/admin/blog', fetcher);
+  const { data: posts, mutate } = useSWR('/api/admin/blog/posts', fetcher);
   const [form, setForm] = useState({ title: '', category: '', content: '' });
   const [image, setImage] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ export default function AdminBlogPage() {
     formData.append('image', image);
 
     setLoading(true);
-    const res = await fetch('/api/admin/blog', {
+    const res = await fetch('/api/admin/blog/posts', {
       method: 'POST',
       body: formData,
     });
