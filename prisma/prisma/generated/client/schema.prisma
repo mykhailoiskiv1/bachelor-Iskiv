@@ -158,3 +158,72 @@ model Project {
 
   reviews Review[] @relation("ProjectReviews")
 }
+
+model ProjectType {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  icon        String?
+  steps       Int      @default(3)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  packages WorkPackage[]
+}
+
+model WorkPackage {
+  id            Int         @id @default(autoincrement())
+  projectTypeId Int
+  projectType   ProjectType @relation(fields: [projectTypeId], references: [id])
+  name          String
+  description   String?
+  sortOrder     Int         @default(0)
+  createdAt     DateTime    @default(now())
+
+  services ServiceItem[]
+}
+
+// Конкретні послуги
+model ServiceItem {
+  id               Int         @id @default(autoincrement())
+  packageId        Int
+  package          WorkPackage @relation(fields: [packageId], references: [id])
+  name             String
+  description      String?
+  group            String?
+  unit             String
+  basePrice        Float
+  multiplier       Float?
+  required         Boolean     @default(false)
+  visibleByDefault Boolean     @default(true)
+  aiSuggestible    Boolean     @default(true)
+  additionalNotes  String?
+  sortOrder        Int         @default(0)
+  createdAt        DateTime    @default(now())
+
+  options     ServiceOption[]
+  followUps   FollowUp[]      @relation("FollowUpSource")
+  suggestedBy FollowUp[]      @relation("FollowUpTarget")
+}
+
+model ServiceOption {
+  id          Int         @id @default(autoincrement())
+  serviceId   Int
+  service     ServiceItem @relation(fields: [serviceId], references: [id])
+  name        String
+  priceDelta  Float
+  description String?
+  imageUrl    String?
+  createdAt   DateTime    @default(now())
+}
+
+model FollowUp {
+  id        Int         @id @default(autoincrement())
+  sourceId  Int
+  source    ServiceItem @relation("FollowUpSource", fields: [sourceId], references: [id])
+  targetId  Int
+  target    ServiceItem @relation("FollowUpTarget", fields: [targetId], references: [id])
+  reason    String?
+  condition String?
+}

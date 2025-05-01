@@ -68,6 +68,31 @@ export type KnowledgeBase = $Result.DefaultSelection<Prisma.$KnowledgeBasePayloa
  * 
  */
 export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
+/**
+ * Model ProjectType
+ * 
+ */
+export type ProjectType = $Result.DefaultSelection<Prisma.$ProjectTypePayload>
+/**
+ * Model WorkPackage
+ * 
+ */
+export type WorkPackage = $Result.DefaultSelection<Prisma.$WorkPackagePayload>
+/**
+ * Model ServiceItem
+ * 
+ */
+export type ServiceItem = $Result.DefaultSelection<Prisma.$ServiceItemPayload>
+/**
+ * Model ServiceOption
+ * 
+ */
+export type ServiceOption = $Result.DefaultSelection<Prisma.$ServiceOptionPayload>
+/**
+ * Model FollowUp
+ * 
+ */
+export type FollowUp = $Result.DefaultSelection<Prisma.$FollowUpPayload>
 
 /**
  * Enums
@@ -334,6 +359,56 @@ export class PrismaClient<
     * ```
     */
   get project(): Prisma.ProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.projectType`: Exposes CRUD operations for the **ProjectType** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProjectTypes
+    * const projectTypes = await prisma.projectType.findMany()
+    * ```
+    */
+  get projectType(): Prisma.ProjectTypeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.workPackage`: Exposes CRUD operations for the **WorkPackage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WorkPackages
+    * const workPackages = await prisma.workPackage.findMany()
+    * ```
+    */
+  get workPackage(): Prisma.WorkPackageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.serviceItem`: Exposes CRUD operations for the **ServiceItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ServiceItems
+    * const serviceItems = await prisma.serviceItem.findMany()
+    * ```
+    */
+  get serviceItem(): Prisma.ServiceItemDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.serviceOption`: Exposes CRUD operations for the **ServiceOption** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ServiceOptions
+    * const serviceOptions = await prisma.serviceOption.findMany()
+    * ```
+    */
+  get serviceOption(): Prisma.ServiceOptionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.followUp`: Exposes CRUD operations for the **FollowUp** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FollowUps
+    * const followUps = await prisma.followUp.findMany()
+    * ```
+    */
+  get followUp(): Prisma.FollowUpDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -784,7 +859,12 @@ export namespace Prisma {
     ChatSession: 'ChatSession',
     Message: 'Message',
     KnowledgeBase: 'KnowledgeBase',
-    Project: 'Project'
+    Project: 'Project',
+    ProjectType: 'ProjectType',
+    WorkPackage: 'WorkPackage',
+    ServiceItem: 'ServiceItem',
+    ServiceOption: 'ServiceOption',
+    FollowUp: 'FollowUp'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -803,7 +883,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project"
+      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project" | "projectType" | "workPackage" | "serviceItem" | "serviceOption" | "followUp"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1621,6 +1701,376 @@ export namespace Prisma {
           }
         }
       }
+      ProjectType: {
+        payload: Prisma.$ProjectTypePayload<ExtArgs>
+        fields: Prisma.ProjectTypeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectTypeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectTypeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectTypeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectTypeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>
+          }
+          findMany: {
+            args: Prisma.ProjectTypeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>[]
+          }
+          create: {
+            args: Prisma.ProjectTypeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>
+          }
+          createMany: {
+            args: Prisma.ProjectTypeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectTypeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectTypeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>
+          }
+          update: {
+            args: Prisma.ProjectTypeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectTypeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectTypeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectTypeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectTypeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTypePayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectTypeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProjectType>
+          }
+          groupBy: {
+            args: Prisma.ProjectTypeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectTypeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectTypeCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectTypeCountAggregateOutputType> | number
+          }
+        }
+      }
+      WorkPackage: {
+        payload: Prisma.$WorkPackagePayload<ExtArgs>
+        fields: Prisma.WorkPackageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WorkPackageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WorkPackageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>
+          }
+          findFirst: {
+            args: Prisma.WorkPackageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WorkPackageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>
+          }
+          findMany: {
+            args: Prisma.WorkPackageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>[]
+          }
+          create: {
+            args: Prisma.WorkPackageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>
+          }
+          createMany: {
+            args: Prisma.WorkPackageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WorkPackageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>[]
+          }
+          delete: {
+            args: Prisma.WorkPackageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>
+          }
+          update: {
+            args: Prisma.WorkPackageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>
+          }
+          deleteMany: {
+            args: Prisma.WorkPackageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WorkPackageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WorkPackageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>[]
+          }
+          upsert: {
+            args: Prisma.WorkPackageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkPackagePayload>
+          }
+          aggregate: {
+            args: Prisma.WorkPackageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWorkPackage>
+          }
+          groupBy: {
+            args: Prisma.WorkPackageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WorkPackageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WorkPackageCountArgs<ExtArgs>
+            result: $Utils.Optional<WorkPackageCountAggregateOutputType> | number
+          }
+        }
+      }
+      ServiceItem: {
+        payload: Prisma.$ServiceItemPayload<ExtArgs>
+        fields: Prisma.ServiceItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ServiceItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ServiceItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>
+          }
+          findFirst: {
+            args: Prisma.ServiceItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ServiceItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>
+          }
+          findMany: {
+            args: Prisma.ServiceItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>[]
+          }
+          create: {
+            args: Prisma.ServiceItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>
+          }
+          createMany: {
+            args: Prisma.ServiceItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ServiceItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>[]
+          }
+          delete: {
+            args: Prisma.ServiceItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>
+          }
+          update: {
+            args: Prisma.ServiceItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.ServiceItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ServiceItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ServiceItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>[]
+          }
+          upsert: {
+            args: Prisma.ServiceItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceItemPayload>
+          }
+          aggregate: {
+            args: Prisma.ServiceItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateServiceItem>
+          }
+          groupBy: {
+            args: Prisma.ServiceItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ServiceItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ServiceItemCountArgs<ExtArgs>
+            result: $Utils.Optional<ServiceItemCountAggregateOutputType> | number
+          }
+        }
+      }
+      ServiceOption: {
+        payload: Prisma.$ServiceOptionPayload<ExtArgs>
+        fields: Prisma.ServiceOptionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ServiceOptionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ServiceOptionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>
+          }
+          findFirst: {
+            args: Prisma.ServiceOptionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ServiceOptionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>
+          }
+          findMany: {
+            args: Prisma.ServiceOptionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>[]
+          }
+          create: {
+            args: Prisma.ServiceOptionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>
+          }
+          createMany: {
+            args: Prisma.ServiceOptionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ServiceOptionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>[]
+          }
+          delete: {
+            args: Prisma.ServiceOptionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>
+          }
+          update: {
+            args: Prisma.ServiceOptionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>
+          }
+          deleteMany: {
+            args: Prisma.ServiceOptionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ServiceOptionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ServiceOptionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>[]
+          }
+          upsert: {
+            args: Prisma.ServiceOptionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServiceOptionPayload>
+          }
+          aggregate: {
+            args: Prisma.ServiceOptionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateServiceOption>
+          }
+          groupBy: {
+            args: Prisma.ServiceOptionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ServiceOptionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ServiceOptionCountArgs<ExtArgs>
+            result: $Utils.Optional<ServiceOptionCountAggregateOutputType> | number
+          }
+        }
+      }
+      FollowUp: {
+        payload: Prisma.$FollowUpPayload<ExtArgs>
+        fields: Prisma.FollowUpFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FollowUpFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FollowUpFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>
+          }
+          findFirst: {
+            args: Prisma.FollowUpFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FollowUpFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>
+          }
+          findMany: {
+            args: Prisma.FollowUpFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>[]
+          }
+          create: {
+            args: Prisma.FollowUpCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>
+          }
+          createMany: {
+            args: Prisma.FollowUpCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FollowUpCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>[]
+          }
+          delete: {
+            args: Prisma.FollowUpDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>
+          }
+          update: {
+            args: Prisma.FollowUpUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>
+          }
+          deleteMany: {
+            args: Prisma.FollowUpDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FollowUpUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FollowUpUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>[]
+          }
+          upsert: {
+            args: Prisma.FollowUpUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FollowUpPayload>
+          }
+          aggregate: {
+            args: Prisma.FollowUpAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFollowUp>
+          }
+          groupBy: {
+            args: Prisma.FollowUpGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FollowUpGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FollowUpCountArgs<ExtArgs>
+            result: $Utils.Optional<FollowUpCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1716,6 +2166,11 @@ export namespace Prisma {
     message?: MessageOmit
     knowledgeBase?: KnowledgeBaseOmit
     project?: ProjectOmit
+    projectType?: ProjectTypeOmit
+    workPackage?: WorkPackageOmit
+    serviceItem?: ServiceItemOmit
+    serviceOption?: ServiceOptionOmit
+    followUp?: FollowUpOmit
   }
 
   /* Types for Logging */
@@ -1913,6 +2368,117 @@ export namespace Prisma {
    */
   export type ProjectCountOutputTypeCountReviewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ReviewWhereInput
+  }
+
+
+  /**
+   * Count Type ProjectTypeCountOutputType
+   */
+
+  export type ProjectTypeCountOutputType = {
+    packages: number
+  }
+
+  export type ProjectTypeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    packages?: boolean | ProjectTypeCountOutputTypeCountPackagesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProjectTypeCountOutputType without action
+   */
+  export type ProjectTypeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTypeCountOutputType
+     */
+    select?: ProjectTypeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProjectTypeCountOutputType without action
+   */
+  export type ProjectTypeCountOutputTypeCountPackagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkPackageWhereInput
+  }
+
+
+  /**
+   * Count Type WorkPackageCountOutputType
+   */
+
+  export type WorkPackageCountOutputType = {
+    services: number
+  }
+
+  export type WorkPackageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    services?: boolean | WorkPackageCountOutputTypeCountServicesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * WorkPackageCountOutputType without action
+   */
+  export type WorkPackageCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackageCountOutputType
+     */
+    select?: WorkPackageCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * WorkPackageCountOutputType without action
+   */
+  export type WorkPackageCountOutputTypeCountServicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ServiceItemWhereInput
+  }
+
+
+  /**
+   * Count Type ServiceItemCountOutputType
+   */
+
+  export type ServiceItemCountOutputType = {
+    options: number
+    followUps: number
+    suggestedBy: number
+  }
+
+  export type ServiceItemCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    options?: boolean | ServiceItemCountOutputTypeCountOptionsArgs
+    followUps?: boolean | ServiceItemCountOutputTypeCountFollowUpsArgs
+    suggestedBy?: boolean | ServiceItemCountOutputTypeCountSuggestedByArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ServiceItemCountOutputType without action
+   */
+  export type ServiceItemCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItemCountOutputType
+     */
+    select?: ServiceItemCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ServiceItemCountOutputType without action
+   */
+  export type ServiceItemCountOutputTypeCountOptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ServiceOptionWhereInput
+  }
+
+  /**
+   * ServiceItemCountOutputType without action
+   */
+  export type ServiceItemCountOutputTypeCountFollowUpsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FollowUpWhereInput
+  }
+
+  /**
+   * ServiceItemCountOutputType without action
+   */
+  export type ServiceItemCountOutputTypeCountSuggestedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FollowUpWhereInput
   }
 
 
@@ -14275,6 +14841,5841 @@ export namespace Prisma {
 
 
   /**
+   * Model ProjectType
+   */
+
+  export type AggregateProjectType = {
+    _count: ProjectTypeCountAggregateOutputType | null
+    _avg: ProjectTypeAvgAggregateOutputType | null
+    _sum: ProjectTypeSumAggregateOutputType | null
+    _min: ProjectTypeMinAggregateOutputType | null
+    _max: ProjectTypeMaxAggregateOutputType | null
+  }
+
+  export type ProjectTypeAvgAggregateOutputType = {
+    id: number | null
+    steps: number | null
+  }
+
+  export type ProjectTypeSumAggregateOutputType = {
+    id: number | null
+    steps: number | null
+  }
+
+  export type ProjectTypeMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    slug: string | null
+    description: string | null
+    icon: string | null
+    steps: number | null
+    active: boolean | null
+    createdAt: Date | null
+  }
+
+  export type ProjectTypeMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    slug: string | null
+    description: string | null
+    icon: string | null
+    steps: number | null
+    active: boolean | null
+    createdAt: Date | null
+  }
+
+  export type ProjectTypeCountAggregateOutputType = {
+    id: number
+    name: number
+    slug: number
+    description: number
+    icon: number
+    steps: number
+    active: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ProjectTypeAvgAggregateInputType = {
+    id?: true
+    steps?: true
+  }
+
+  export type ProjectTypeSumAggregateInputType = {
+    id?: true
+    steps?: true
+  }
+
+  export type ProjectTypeMinAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    icon?: true
+    steps?: true
+    active?: true
+    createdAt?: true
+  }
+
+  export type ProjectTypeMaxAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    icon?: true
+    steps?: true
+    active?: true
+    createdAt?: true
+  }
+
+  export type ProjectTypeCountAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    icon?: true
+    steps?: true
+    active?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ProjectTypeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectType to aggregate.
+     */
+    where?: ProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTypes to fetch.
+     */
+    orderBy?: ProjectTypeOrderByWithRelationInput | ProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProjectTypes
+    **/
+    _count?: true | ProjectTypeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectTypeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectTypeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectTypeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectTypeMaxAggregateInputType
+  }
+
+  export type GetProjectTypeAggregateType<T extends ProjectTypeAggregateArgs> = {
+        [P in keyof T & keyof AggregateProjectType]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProjectType[P]>
+      : GetScalarType<T[P], AggregateProjectType[P]>
+  }
+
+
+
+
+  export type ProjectTypeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectTypeWhereInput
+    orderBy?: ProjectTypeOrderByWithAggregationInput | ProjectTypeOrderByWithAggregationInput[]
+    by: ProjectTypeScalarFieldEnum[] | ProjectTypeScalarFieldEnum
+    having?: ProjectTypeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectTypeCountAggregateInputType | true
+    _avg?: ProjectTypeAvgAggregateInputType
+    _sum?: ProjectTypeSumAggregateInputType
+    _min?: ProjectTypeMinAggregateInputType
+    _max?: ProjectTypeMaxAggregateInputType
+  }
+
+  export type ProjectTypeGroupByOutputType = {
+    id: number
+    name: string
+    slug: string
+    description: string | null
+    icon: string | null
+    steps: number
+    active: boolean
+    createdAt: Date
+    _count: ProjectTypeCountAggregateOutputType | null
+    _avg: ProjectTypeAvgAggregateOutputType | null
+    _sum: ProjectTypeSumAggregateOutputType | null
+    _min: ProjectTypeMinAggregateOutputType | null
+    _max: ProjectTypeMaxAggregateOutputType | null
+  }
+
+  type GetProjectTypeGroupByPayload<T extends ProjectTypeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectTypeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectTypeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectTypeGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectTypeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    icon?: boolean
+    steps?: boolean
+    active?: boolean
+    createdAt?: boolean
+    packages?: boolean | ProjectType$packagesArgs<ExtArgs>
+    _count?: boolean | ProjectTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectType"]>
+
+  export type ProjectTypeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    icon?: boolean
+    steps?: boolean
+    active?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["projectType"]>
+
+  export type ProjectTypeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    icon?: boolean
+    steps?: boolean
+    active?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["projectType"]>
+
+  export type ProjectTypeSelectScalar = {
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    icon?: boolean
+    steps?: boolean
+    active?: boolean
+    createdAt?: boolean
+  }
+
+  export type ProjectTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "description" | "icon" | "steps" | "active" | "createdAt", ExtArgs["result"]["projectType"]>
+  export type ProjectTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    packages?: boolean | ProjectType$packagesArgs<ExtArgs>
+    _count?: boolean | ProjectTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProjectTypeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProjectTypeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ProjectTypePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProjectType"
+    objects: {
+      packages: Prisma.$WorkPackagePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      slug: string
+      description: string | null
+      icon: string | null
+      steps: number
+      active: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["projectType"]>
+    composites: {}
+  }
+
+  type ProjectTypeGetPayload<S extends boolean | null | undefined | ProjectTypeDefaultArgs> = $Result.GetResult<Prisma.$ProjectTypePayload, S>
+
+  type ProjectTypeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectTypeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectTypeCountAggregateInputType | true
+    }
+
+  export interface ProjectTypeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectType'], meta: { name: 'ProjectType' } }
+    /**
+     * Find zero or one ProjectType that matches the filter.
+     * @param {ProjectTypeFindUniqueArgs} args - Arguments to find a ProjectType
+     * @example
+     * // Get one ProjectType
+     * const projectType = await prisma.projectType.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectTypeFindUniqueArgs>(args: SelectSubset<T, ProjectTypeFindUniqueArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProjectType that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectTypeFindUniqueOrThrowArgs} args - Arguments to find a ProjectType
+     * @example
+     * // Get one ProjectType
+     * const projectType = await prisma.projectType.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectTypeFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectTypeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectType that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTypeFindFirstArgs} args - Arguments to find a ProjectType
+     * @example
+     * // Get one ProjectType
+     * const projectType = await prisma.projectType.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectTypeFindFirstArgs>(args?: SelectSubset<T, ProjectTypeFindFirstArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectType that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTypeFindFirstOrThrowArgs} args - Arguments to find a ProjectType
+     * @example
+     * // Get one ProjectType
+     * const projectType = await prisma.projectType.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectTypeFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectTypeFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProjectTypes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTypeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProjectTypes
+     * const projectTypes = await prisma.projectType.findMany()
+     * 
+     * // Get first 10 ProjectTypes
+     * const projectTypes = await prisma.projectType.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectTypeWithIdOnly = await prisma.projectType.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectTypeFindManyArgs>(args?: SelectSubset<T, ProjectTypeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProjectType.
+     * @param {ProjectTypeCreateArgs} args - Arguments to create a ProjectType.
+     * @example
+     * // Create one ProjectType
+     * const ProjectType = await prisma.projectType.create({
+     *   data: {
+     *     // ... data to create a ProjectType
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectTypeCreateArgs>(args: SelectSubset<T, ProjectTypeCreateArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProjectTypes.
+     * @param {ProjectTypeCreateManyArgs} args - Arguments to create many ProjectTypes.
+     * @example
+     * // Create many ProjectTypes
+     * const projectType = await prisma.projectType.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectTypeCreateManyArgs>(args?: SelectSubset<T, ProjectTypeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProjectTypes and returns the data saved in the database.
+     * @param {ProjectTypeCreateManyAndReturnArgs} args - Arguments to create many ProjectTypes.
+     * @example
+     * // Create many ProjectTypes
+     * const projectType = await prisma.projectType.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProjectTypes and only return the `id`
+     * const projectTypeWithIdOnly = await prisma.projectType.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectTypeCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectTypeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProjectType.
+     * @param {ProjectTypeDeleteArgs} args - Arguments to delete one ProjectType.
+     * @example
+     * // Delete one ProjectType
+     * const ProjectType = await prisma.projectType.delete({
+     *   where: {
+     *     // ... filter to delete one ProjectType
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectTypeDeleteArgs>(args: SelectSubset<T, ProjectTypeDeleteArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProjectType.
+     * @param {ProjectTypeUpdateArgs} args - Arguments to update one ProjectType.
+     * @example
+     * // Update one ProjectType
+     * const projectType = await prisma.projectType.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectTypeUpdateArgs>(args: SelectSubset<T, ProjectTypeUpdateArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProjectTypes.
+     * @param {ProjectTypeDeleteManyArgs} args - Arguments to filter ProjectTypes to delete.
+     * @example
+     * // Delete a few ProjectTypes
+     * const { count } = await prisma.projectType.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectTypeDeleteManyArgs>(args?: SelectSubset<T, ProjectTypeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTypeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProjectTypes
+     * const projectType = await prisma.projectType.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectTypeUpdateManyArgs>(args: SelectSubset<T, ProjectTypeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectTypes and returns the data updated in the database.
+     * @param {ProjectTypeUpdateManyAndReturnArgs} args - Arguments to update many ProjectTypes.
+     * @example
+     * // Update many ProjectTypes
+     * const projectType = await prisma.projectType.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProjectTypes and only return the `id`
+     * const projectTypeWithIdOnly = await prisma.projectType.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectTypeUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectTypeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProjectType.
+     * @param {ProjectTypeUpsertArgs} args - Arguments to update or create a ProjectType.
+     * @example
+     * // Update or create a ProjectType
+     * const projectType = await prisma.projectType.upsert({
+     *   create: {
+     *     // ... data to create a ProjectType
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProjectType we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectTypeUpsertArgs>(args: SelectSubset<T, ProjectTypeUpsertArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProjectTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTypeCountArgs} args - Arguments to filter ProjectTypes to count.
+     * @example
+     * // Count the number of ProjectTypes
+     * const count = await prisma.projectType.count({
+     *   where: {
+     *     // ... the filter for the ProjectTypes we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectTypeCountArgs>(
+      args?: Subset<T, ProjectTypeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectTypeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProjectType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTypeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectTypeAggregateArgs>(args: Subset<T, ProjectTypeAggregateArgs>): Prisma.PrismaPromise<GetProjectTypeAggregateType<T>>
+
+    /**
+     * Group by ProjectType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTypeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectTypeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectTypeGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectTypeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectTypeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectTypeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProjectType model
+   */
+  readonly fields: ProjectTypeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProjectType.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    packages<T extends ProjectType$packagesArgs<ExtArgs> = {}>(args?: Subset<T, ProjectType$packagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProjectType model
+   */
+  interface ProjectTypeFieldRefs {
+    readonly id: FieldRef<"ProjectType", 'Int'>
+    readonly name: FieldRef<"ProjectType", 'String'>
+    readonly slug: FieldRef<"ProjectType", 'String'>
+    readonly description: FieldRef<"ProjectType", 'String'>
+    readonly icon: FieldRef<"ProjectType", 'String'>
+    readonly steps: FieldRef<"ProjectType", 'Int'>
+    readonly active: FieldRef<"ProjectType", 'Boolean'>
+    readonly createdAt: FieldRef<"ProjectType", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProjectType findUnique
+   */
+  export type ProjectTypeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectType to fetch.
+     */
+    where: ProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ProjectType findUniqueOrThrow
+   */
+  export type ProjectTypeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectType to fetch.
+     */
+    where: ProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ProjectType findFirst
+   */
+  export type ProjectTypeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectType to fetch.
+     */
+    where?: ProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTypes to fetch.
+     */
+    orderBy?: ProjectTypeOrderByWithRelationInput | ProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectTypes.
+     */
+    cursor?: ProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectTypes.
+     */
+    distinct?: ProjectTypeScalarFieldEnum | ProjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectType findFirstOrThrow
+   */
+  export type ProjectTypeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectType to fetch.
+     */
+    where?: ProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTypes to fetch.
+     */
+    orderBy?: ProjectTypeOrderByWithRelationInput | ProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectTypes.
+     */
+    cursor?: ProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectTypes.
+     */
+    distinct?: ProjectTypeScalarFieldEnum | ProjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectType findMany
+   */
+  export type ProjectTypeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectTypes to fetch.
+     */
+    where?: ProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTypes to fetch.
+     */
+    orderBy?: ProjectTypeOrderByWithRelationInput | ProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProjectTypes.
+     */
+    cursor?: ProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTypes.
+     */
+    skip?: number
+    distinct?: ProjectTypeScalarFieldEnum | ProjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectType create
+   */
+  export type ProjectTypeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProjectType.
+     */
+    data: XOR<ProjectTypeCreateInput, ProjectTypeUncheckedCreateInput>
+  }
+
+  /**
+   * ProjectType createMany
+   */
+  export type ProjectTypeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProjectTypes.
+     */
+    data: ProjectTypeCreateManyInput | ProjectTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectType createManyAndReturn
+   */
+  export type ProjectTypeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProjectTypes.
+     */
+    data: ProjectTypeCreateManyInput | ProjectTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectType update
+   */
+  export type ProjectTypeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProjectType.
+     */
+    data: XOR<ProjectTypeUpdateInput, ProjectTypeUncheckedUpdateInput>
+    /**
+     * Choose, which ProjectType to update.
+     */
+    where: ProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ProjectType updateMany
+   */
+  export type ProjectTypeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProjectTypes.
+     */
+    data: XOR<ProjectTypeUpdateManyMutationInput, ProjectTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectTypes to update
+     */
+    where?: ProjectTypeWhereInput
+    /**
+     * Limit how many ProjectTypes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectType updateManyAndReturn
+   */
+  export type ProjectTypeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * The data used to update ProjectTypes.
+     */
+    data: XOR<ProjectTypeUpdateManyMutationInput, ProjectTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectTypes to update
+     */
+    where?: ProjectTypeWhereInput
+    /**
+     * Limit how many ProjectTypes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectType upsert
+   */
+  export type ProjectTypeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProjectType to update in case it exists.
+     */
+    where: ProjectTypeWhereUniqueInput
+    /**
+     * In case the ProjectType found by the `where` argument doesn't exist, create a new ProjectType with this data.
+     */
+    create: XOR<ProjectTypeCreateInput, ProjectTypeUncheckedCreateInput>
+    /**
+     * In case the ProjectType was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectTypeUpdateInput, ProjectTypeUncheckedUpdateInput>
+  }
+
+  /**
+   * ProjectType delete
+   */
+  export type ProjectTypeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter which ProjectType to delete.
+     */
+    where: ProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ProjectType deleteMany
+   */
+  export type ProjectTypeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectTypes to delete
+     */
+    where?: ProjectTypeWhereInput
+    /**
+     * Limit how many ProjectTypes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectType.packages
+   */
+  export type ProjectType$packagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    where?: WorkPackageWhereInput
+    orderBy?: WorkPackageOrderByWithRelationInput | WorkPackageOrderByWithRelationInput[]
+    cursor?: WorkPackageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WorkPackageScalarFieldEnum | WorkPackageScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectType without action
+   */
+  export type ProjectTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectType
+     */
+    select?: ProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectType
+     */
+    omit?: ProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTypeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model WorkPackage
+   */
+
+  export type AggregateWorkPackage = {
+    _count: WorkPackageCountAggregateOutputType | null
+    _avg: WorkPackageAvgAggregateOutputType | null
+    _sum: WorkPackageSumAggregateOutputType | null
+    _min: WorkPackageMinAggregateOutputType | null
+    _max: WorkPackageMaxAggregateOutputType | null
+  }
+
+  export type WorkPackageAvgAggregateOutputType = {
+    id: number | null
+    projectTypeId: number | null
+    sortOrder: number | null
+  }
+
+  export type WorkPackageSumAggregateOutputType = {
+    id: number | null
+    projectTypeId: number | null
+    sortOrder: number | null
+  }
+
+  export type WorkPackageMinAggregateOutputType = {
+    id: number | null
+    projectTypeId: number | null
+    name: string | null
+    description: string | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type WorkPackageMaxAggregateOutputType = {
+    id: number | null
+    projectTypeId: number | null
+    name: string | null
+    description: string | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type WorkPackageCountAggregateOutputType = {
+    id: number
+    projectTypeId: number
+    name: number
+    description: number
+    sortOrder: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type WorkPackageAvgAggregateInputType = {
+    id?: true
+    projectTypeId?: true
+    sortOrder?: true
+  }
+
+  export type WorkPackageSumAggregateInputType = {
+    id?: true
+    projectTypeId?: true
+    sortOrder?: true
+  }
+
+  export type WorkPackageMinAggregateInputType = {
+    id?: true
+    projectTypeId?: true
+    name?: true
+    description?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type WorkPackageMaxAggregateInputType = {
+    id?: true
+    projectTypeId?: true
+    name?: true
+    description?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type WorkPackageCountAggregateInputType = {
+    id?: true
+    projectTypeId?: true
+    name?: true
+    description?: true
+    sortOrder?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type WorkPackageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WorkPackage to aggregate.
+     */
+    where?: WorkPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkPackages to fetch.
+     */
+    orderBy?: WorkPackageOrderByWithRelationInput | WorkPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WorkPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WorkPackages
+    **/
+    _count?: true | WorkPackageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WorkPackageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WorkPackageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WorkPackageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WorkPackageMaxAggregateInputType
+  }
+
+  export type GetWorkPackageAggregateType<T extends WorkPackageAggregateArgs> = {
+        [P in keyof T & keyof AggregateWorkPackage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWorkPackage[P]>
+      : GetScalarType<T[P], AggregateWorkPackage[P]>
+  }
+
+
+
+
+  export type WorkPackageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkPackageWhereInput
+    orderBy?: WorkPackageOrderByWithAggregationInput | WorkPackageOrderByWithAggregationInput[]
+    by: WorkPackageScalarFieldEnum[] | WorkPackageScalarFieldEnum
+    having?: WorkPackageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WorkPackageCountAggregateInputType | true
+    _avg?: WorkPackageAvgAggregateInputType
+    _sum?: WorkPackageSumAggregateInputType
+    _min?: WorkPackageMinAggregateInputType
+    _max?: WorkPackageMaxAggregateInputType
+  }
+
+  export type WorkPackageGroupByOutputType = {
+    id: number
+    projectTypeId: number
+    name: string
+    description: string | null
+    sortOrder: number
+    createdAt: Date
+    _count: WorkPackageCountAggregateOutputType | null
+    _avg: WorkPackageAvgAggregateOutputType | null
+    _sum: WorkPackageSumAggregateOutputType | null
+    _min: WorkPackageMinAggregateOutputType | null
+    _max: WorkPackageMaxAggregateOutputType | null
+  }
+
+  type GetWorkPackageGroupByPayload<T extends WorkPackageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WorkPackageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WorkPackageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WorkPackageGroupByOutputType[P]>
+            : GetScalarType<T[P], WorkPackageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WorkPackageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectTypeId?: boolean
+    name?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    projectType?: boolean | ProjectTypeDefaultArgs<ExtArgs>
+    services?: boolean | WorkPackage$servicesArgs<ExtArgs>
+    _count?: boolean | WorkPackageCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workPackage"]>
+
+  export type WorkPackageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectTypeId?: boolean
+    name?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    projectType?: boolean | ProjectTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workPackage"]>
+
+  export type WorkPackageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectTypeId?: boolean
+    name?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    projectType?: boolean | ProjectTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workPackage"]>
+
+  export type WorkPackageSelectScalar = {
+    id?: boolean
+    projectTypeId?: boolean
+    name?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+  }
+
+  export type WorkPackageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectTypeId" | "name" | "description" | "sortOrder" | "createdAt", ExtArgs["result"]["workPackage"]>
+  export type WorkPackageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projectType?: boolean | ProjectTypeDefaultArgs<ExtArgs>
+    services?: boolean | WorkPackage$servicesArgs<ExtArgs>
+    _count?: boolean | WorkPackageCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type WorkPackageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projectType?: boolean | ProjectTypeDefaultArgs<ExtArgs>
+  }
+  export type WorkPackageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projectType?: boolean | ProjectTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $WorkPackagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WorkPackage"
+    objects: {
+      projectType: Prisma.$ProjectTypePayload<ExtArgs>
+      services: Prisma.$ServiceItemPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      projectTypeId: number
+      name: string
+      description: string | null
+      sortOrder: number
+      createdAt: Date
+    }, ExtArgs["result"]["workPackage"]>
+    composites: {}
+  }
+
+  type WorkPackageGetPayload<S extends boolean | null | undefined | WorkPackageDefaultArgs> = $Result.GetResult<Prisma.$WorkPackagePayload, S>
+
+  type WorkPackageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WorkPackageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WorkPackageCountAggregateInputType | true
+    }
+
+  export interface WorkPackageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WorkPackage'], meta: { name: 'WorkPackage' } }
+    /**
+     * Find zero or one WorkPackage that matches the filter.
+     * @param {WorkPackageFindUniqueArgs} args - Arguments to find a WorkPackage
+     * @example
+     * // Get one WorkPackage
+     * const workPackage = await prisma.workPackage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WorkPackageFindUniqueArgs>(args: SelectSubset<T, WorkPackageFindUniqueArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WorkPackage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WorkPackageFindUniqueOrThrowArgs} args - Arguments to find a WorkPackage
+     * @example
+     * // Get one WorkPackage
+     * const workPackage = await prisma.workPackage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WorkPackageFindUniqueOrThrowArgs>(args: SelectSubset<T, WorkPackageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WorkPackage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkPackageFindFirstArgs} args - Arguments to find a WorkPackage
+     * @example
+     * // Get one WorkPackage
+     * const workPackage = await prisma.workPackage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WorkPackageFindFirstArgs>(args?: SelectSubset<T, WorkPackageFindFirstArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WorkPackage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkPackageFindFirstOrThrowArgs} args - Arguments to find a WorkPackage
+     * @example
+     * // Get one WorkPackage
+     * const workPackage = await prisma.workPackage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WorkPackageFindFirstOrThrowArgs>(args?: SelectSubset<T, WorkPackageFindFirstOrThrowArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WorkPackages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkPackageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WorkPackages
+     * const workPackages = await prisma.workPackage.findMany()
+     * 
+     * // Get first 10 WorkPackages
+     * const workPackages = await prisma.workPackage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const workPackageWithIdOnly = await prisma.workPackage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WorkPackageFindManyArgs>(args?: SelectSubset<T, WorkPackageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WorkPackage.
+     * @param {WorkPackageCreateArgs} args - Arguments to create a WorkPackage.
+     * @example
+     * // Create one WorkPackage
+     * const WorkPackage = await prisma.workPackage.create({
+     *   data: {
+     *     // ... data to create a WorkPackage
+     *   }
+     * })
+     * 
+     */
+    create<T extends WorkPackageCreateArgs>(args: SelectSubset<T, WorkPackageCreateArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WorkPackages.
+     * @param {WorkPackageCreateManyArgs} args - Arguments to create many WorkPackages.
+     * @example
+     * // Create many WorkPackages
+     * const workPackage = await prisma.workPackage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WorkPackageCreateManyArgs>(args?: SelectSubset<T, WorkPackageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WorkPackages and returns the data saved in the database.
+     * @param {WorkPackageCreateManyAndReturnArgs} args - Arguments to create many WorkPackages.
+     * @example
+     * // Create many WorkPackages
+     * const workPackage = await prisma.workPackage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WorkPackages and only return the `id`
+     * const workPackageWithIdOnly = await prisma.workPackage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WorkPackageCreateManyAndReturnArgs>(args?: SelectSubset<T, WorkPackageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WorkPackage.
+     * @param {WorkPackageDeleteArgs} args - Arguments to delete one WorkPackage.
+     * @example
+     * // Delete one WorkPackage
+     * const WorkPackage = await prisma.workPackage.delete({
+     *   where: {
+     *     // ... filter to delete one WorkPackage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WorkPackageDeleteArgs>(args: SelectSubset<T, WorkPackageDeleteArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WorkPackage.
+     * @param {WorkPackageUpdateArgs} args - Arguments to update one WorkPackage.
+     * @example
+     * // Update one WorkPackage
+     * const workPackage = await prisma.workPackage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WorkPackageUpdateArgs>(args: SelectSubset<T, WorkPackageUpdateArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WorkPackages.
+     * @param {WorkPackageDeleteManyArgs} args - Arguments to filter WorkPackages to delete.
+     * @example
+     * // Delete a few WorkPackages
+     * const { count } = await prisma.workPackage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WorkPackageDeleteManyArgs>(args?: SelectSubset<T, WorkPackageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WorkPackages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkPackageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WorkPackages
+     * const workPackage = await prisma.workPackage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WorkPackageUpdateManyArgs>(args: SelectSubset<T, WorkPackageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WorkPackages and returns the data updated in the database.
+     * @param {WorkPackageUpdateManyAndReturnArgs} args - Arguments to update many WorkPackages.
+     * @example
+     * // Update many WorkPackages
+     * const workPackage = await prisma.workPackage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WorkPackages and only return the `id`
+     * const workPackageWithIdOnly = await prisma.workPackage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WorkPackageUpdateManyAndReturnArgs>(args: SelectSubset<T, WorkPackageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WorkPackage.
+     * @param {WorkPackageUpsertArgs} args - Arguments to update or create a WorkPackage.
+     * @example
+     * // Update or create a WorkPackage
+     * const workPackage = await prisma.workPackage.upsert({
+     *   create: {
+     *     // ... data to create a WorkPackage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WorkPackage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WorkPackageUpsertArgs>(args: SelectSubset<T, WorkPackageUpsertArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WorkPackages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkPackageCountArgs} args - Arguments to filter WorkPackages to count.
+     * @example
+     * // Count the number of WorkPackages
+     * const count = await prisma.workPackage.count({
+     *   where: {
+     *     // ... the filter for the WorkPackages we want to count
+     *   }
+     * })
+    **/
+    count<T extends WorkPackageCountArgs>(
+      args?: Subset<T, WorkPackageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WorkPackageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WorkPackage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkPackageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WorkPackageAggregateArgs>(args: Subset<T, WorkPackageAggregateArgs>): Prisma.PrismaPromise<GetWorkPackageAggregateType<T>>
+
+    /**
+     * Group by WorkPackage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkPackageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WorkPackageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WorkPackageGroupByArgs['orderBy'] }
+        : { orderBy?: WorkPackageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WorkPackageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWorkPackageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WorkPackage model
+   */
+  readonly fields: WorkPackageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WorkPackage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WorkPackageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    projectType<T extends ProjectTypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectTypeDefaultArgs<ExtArgs>>): Prisma__ProjectTypeClient<$Result.GetResult<Prisma.$ProjectTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    services<T extends WorkPackage$servicesArgs<ExtArgs> = {}>(args?: Subset<T, WorkPackage$servicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WorkPackage model
+   */
+  interface WorkPackageFieldRefs {
+    readonly id: FieldRef<"WorkPackage", 'Int'>
+    readonly projectTypeId: FieldRef<"WorkPackage", 'Int'>
+    readonly name: FieldRef<"WorkPackage", 'String'>
+    readonly description: FieldRef<"WorkPackage", 'String'>
+    readonly sortOrder: FieldRef<"WorkPackage", 'Int'>
+    readonly createdAt: FieldRef<"WorkPackage", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WorkPackage findUnique
+   */
+  export type WorkPackageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkPackage to fetch.
+     */
+    where: WorkPackageWhereUniqueInput
+  }
+
+  /**
+   * WorkPackage findUniqueOrThrow
+   */
+  export type WorkPackageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkPackage to fetch.
+     */
+    where: WorkPackageWhereUniqueInput
+  }
+
+  /**
+   * WorkPackage findFirst
+   */
+  export type WorkPackageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkPackage to fetch.
+     */
+    where?: WorkPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkPackages to fetch.
+     */
+    orderBy?: WorkPackageOrderByWithRelationInput | WorkPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WorkPackages.
+     */
+    cursor?: WorkPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WorkPackages.
+     */
+    distinct?: WorkPackageScalarFieldEnum | WorkPackageScalarFieldEnum[]
+  }
+
+  /**
+   * WorkPackage findFirstOrThrow
+   */
+  export type WorkPackageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkPackage to fetch.
+     */
+    where?: WorkPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkPackages to fetch.
+     */
+    orderBy?: WorkPackageOrderByWithRelationInput | WorkPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WorkPackages.
+     */
+    cursor?: WorkPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WorkPackages.
+     */
+    distinct?: WorkPackageScalarFieldEnum | WorkPackageScalarFieldEnum[]
+  }
+
+  /**
+   * WorkPackage findMany
+   */
+  export type WorkPackageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkPackages to fetch.
+     */
+    where?: WorkPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkPackages to fetch.
+     */
+    orderBy?: WorkPackageOrderByWithRelationInput | WorkPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WorkPackages.
+     */
+    cursor?: WorkPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkPackages.
+     */
+    skip?: number
+    distinct?: WorkPackageScalarFieldEnum | WorkPackageScalarFieldEnum[]
+  }
+
+  /**
+   * WorkPackage create
+   */
+  export type WorkPackageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a WorkPackage.
+     */
+    data: XOR<WorkPackageCreateInput, WorkPackageUncheckedCreateInput>
+  }
+
+  /**
+   * WorkPackage createMany
+   */
+  export type WorkPackageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WorkPackages.
+     */
+    data: WorkPackageCreateManyInput | WorkPackageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WorkPackage createManyAndReturn
+   */
+  export type WorkPackageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * The data used to create many WorkPackages.
+     */
+    data: WorkPackageCreateManyInput | WorkPackageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WorkPackage update
+   */
+  export type WorkPackageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a WorkPackage.
+     */
+    data: XOR<WorkPackageUpdateInput, WorkPackageUncheckedUpdateInput>
+    /**
+     * Choose, which WorkPackage to update.
+     */
+    where: WorkPackageWhereUniqueInput
+  }
+
+  /**
+   * WorkPackage updateMany
+   */
+  export type WorkPackageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WorkPackages.
+     */
+    data: XOR<WorkPackageUpdateManyMutationInput, WorkPackageUncheckedUpdateManyInput>
+    /**
+     * Filter which WorkPackages to update
+     */
+    where?: WorkPackageWhereInput
+    /**
+     * Limit how many WorkPackages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WorkPackage updateManyAndReturn
+   */
+  export type WorkPackageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * The data used to update WorkPackages.
+     */
+    data: XOR<WorkPackageUpdateManyMutationInput, WorkPackageUncheckedUpdateManyInput>
+    /**
+     * Filter which WorkPackages to update
+     */
+    where?: WorkPackageWhereInput
+    /**
+     * Limit how many WorkPackages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WorkPackage upsert
+   */
+  export type WorkPackageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the WorkPackage to update in case it exists.
+     */
+    where: WorkPackageWhereUniqueInput
+    /**
+     * In case the WorkPackage found by the `where` argument doesn't exist, create a new WorkPackage with this data.
+     */
+    create: XOR<WorkPackageCreateInput, WorkPackageUncheckedCreateInput>
+    /**
+     * In case the WorkPackage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WorkPackageUpdateInput, WorkPackageUncheckedUpdateInput>
+  }
+
+  /**
+   * WorkPackage delete
+   */
+  export type WorkPackageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+    /**
+     * Filter which WorkPackage to delete.
+     */
+    where: WorkPackageWhereUniqueInput
+  }
+
+  /**
+   * WorkPackage deleteMany
+   */
+  export type WorkPackageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WorkPackages to delete
+     */
+    where?: WorkPackageWhereInput
+    /**
+     * Limit how many WorkPackages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WorkPackage.services
+   */
+  export type WorkPackage$servicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    where?: ServiceItemWhereInput
+    orderBy?: ServiceItemOrderByWithRelationInput | ServiceItemOrderByWithRelationInput[]
+    cursor?: ServiceItemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ServiceItemScalarFieldEnum | ServiceItemScalarFieldEnum[]
+  }
+
+  /**
+   * WorkPackage without action
+   */
+  export type WorkPackageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkPackage
+     */
+    select?: WorkPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkPackage
+     */
+    omit?: WorkPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkPackageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ServiceItem
+   */
+
+  export type AggregateServiceItem = {
+    _count: ServiceItemCountAggregateOutputType | null
+    _avg: ServiceItemAvgAggregateOutputType | null
+    _sum: ServiceItemSumAggregateOutputType | null
+    _min: ServiceItemMinAggregateOutputType | null
+    _max: ServiceItemMaxAggregateOutputType | null
+  }
+
+  export type ServiceItemAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+    basePrice: number | null
+    multiplier: number | null
+    sortOrder: number | null
+  }
+
+  export type ServiceItemSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+    basePrice: number | null
+    multiplier: number | null
+    sortOrder: number | null
+  }
+
+  export type ServiceItemMinAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+    name: string | null
+    description: string | null
+    group: string | null
+    unit: string | null
+    basePrice: number | null
+    multiplier: number | null
+    required: boolean | null
+    visibleByDefault: boolean | null
+    aiSuggestible: boolean | null
+    additionalNotes: string | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type ServiceItemMaxAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+    name: string | null
+    description: string | null
+    group: string | null
+    unit: string | null
+    basePrice: number | null
+    multiplier: number | null
+    required: boolean | null
+    visibleByDefault: boolean | null
+    aiSuggestible: boolean | null
+    additionalNotes: string | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type ServiceItemCountAggregateOutputType = {
+    id: number
+    packageId: number
+    name: number
+    description: number
+    group: number
+    unit: number
+    basePrice: number
+    multiplier: number
+    required: number
+    visibleByDefault: number
+    aiSuggestible: number
+    additionalNotes: number
+    sortOrder: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ServiceItemAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+    basePrice?: true
+    multiplier?: true
+    sortOrder?: true
+  }
+
+  export type ServiceItemSumAggregateInputType = {
+    id?: true
+    packageId?: true
+    basePrice?: true
+    multiplier?: true
+    sortOrder?: true
+  }
+
+  export type ServiceItemMinAggregateInputType = {
+    id?: true
+    packageId?: true
+    name?: true
+    description?: true
+    group?: true
+    unit?: true
+    basePrice?: true
+    multiplier?: true
+    required?: true
+    visibleByDefault?: true
+    aiSuggestible?: true
+    additionalNotes?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type ServiceItemMaxAggregateInputType = {
+    id?: true
+    packageId?: true
+    name?: true
+    description?: true
+    group?: true
+    unit?: true
+    basePrice?: true
+    multiplier?: true
+    required?: true
+    visibleByDefault?: true
+    aiSuggestible?: true
+    additionalNotes?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type ServiceItemCountAggregateInputType = {
+    id?: true
+    packageId?: true
+    name?: true
+    description?: true
+    group?: true
+    unit?: true
+    basePrice?: true
+    multiplier?: true
+    required?: true
+    visibleByDefault?: true
+    aiSuggestible?: true
+    additionalNotes?: true
+    sortOrder?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ServiceItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ServiceItem to aggregate.
+     */
+    where?: ServiceItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceItems to fetch.
+     */
+    orderBy?: ServiceItemOrderByWithRelationInput | ServiceItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ServiceItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ServiceItems
+    **/
+    _count?: true | ServiceItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ServiceItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ServiceItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ServiceItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ServiceItemMaxAggregateInputType
+  }
+
+  export type GetServiceItemAggregateType<T extends ServiceItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateServiceItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateServiceItem[P]>
+      : GetScalarType<T[P], AggregateServiceItem[P]>
+  }
+
+
+
+
+  export type ServiceItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ServiceItemWhereInput
+    orderBy?: ServiceItemOrderByWithAggregationInput | ServiceItemOrderByWithAggregationInput[]
+    by: ServiceItemScalarFieldEnum[] | ServiceItemScalarFieldEnum
+    having?: ServiceItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ServiceItemCountAggregateInputType | true
+    _avg?: ServiceItemAvgAggregateInputType
+    _sum?: ServiceItemSumAggregateInputType
+    _min?: ServiceItemMinAggregateInputType
+    _max?: ServiceItemMaxAggregateInputType
+  }
+
+  export type ServiceItemGroupByOutputType = {
+    id: number
+    packageId: number
+    name: string
+    description: string | null
+    group: string | null
+    unit: string
+    basePrice: number
+    multiplier: number | null
+    required: boolean
+    visibleByDefault: boolean
+    aiSuggestible: boolean
+    additionalNotes: string | null
+    sortOrder: number
+    createdAt: Date
+    _count: ServiceItemCountAggregateOutputType | null
+    _avg: ServiceItemAvgAggregateOutputType | null
+    _sum: ServiceItemSumAggregateOutputType | null
+    _min: ServiceItemMinAggregateOutputType | null
+    _max: ServiceItemMaxAggregateOutputType | null
+  }
+
+  type GetServiceItemGroupByPayload<T extends ServiceItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ServiceItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ServiceItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ServiceItemGroupByOutputType[P]>
+            : GetScalarType<T[P], ServiceItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ServiceItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    packageId?: boolean
+    name?: boolean
+    description?: boolean
+    group?: boolean
+    unit?: boolean
+    basePrice?: boolean
+    multiplier?: boolean
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    package?: boolean | WorkPackageDefaultArgs<ExtArgs>
+    options?: boolean | ServiceItem$optionsArgs<ExtArgs>
+    followUps?: boolean | ServiceItem$followUpsArgs<ExtArgs>
+    suggestedBy?: boolean | ServiceItem$suggestedByArgs<ExtArgs>
+    _count?: boolean | ServiceItemCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["serviceItem"]>
+
+  export type ServiceItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    packageId?: boolean
+    name?: boolean
+    description?: boolean
+    group?: boolean
+    unit?: boolean
+    basePrice?: boolean
+    multiplier?: boolean
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    package?: boolean | WorkPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["serviceItem"]>
+
+  export type ServiceItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    packageId?: boolean
+    name?: boolean
+    description?: boolean
+    group?: boolean
+    unit?: boolean
+    basePrice?: boolean
+    multiplier?: boolean
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    package?: boolean | WorkPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["serviceItem"]>
+
+  export type ServiceItemSelectScalar = {
+    id?: boolean
+    packageId?: boolean
+    name?: boolean
+    description?: boolean
+    group?: boolean
+    unit?: boolean
+    basePrice?: boolean
+    multiplier?: boolean
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+  }
+
+  export type ServiceItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "packageId" | "name" | "description" | "group" | "unit" | "basePrice" | "multiplier" | "required" | "visibleByDefault" | "aiSuggestible" | "additionalNotes" | "sortOrder" | "createdAt", ExtArgs["result"]["serviceItem"]>
+  export type ServiceItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    package?: boolean | WorkPackageDefaultArgs<ExtArgs>
+    options?: boolean | ServiceItem$optionsArgs<ExtArgs>
+    followUps?: boolean | ServiceItem$followUpsArgs<ExtArgs>
+    suggestedBy?: boolean | ServiceItem$suggestedByArgs<ExtArgs>
+    _count?: boolean | ServiceItemCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ServiceItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    package?: boolean | WorkPackageDefaultArgs<ExtArgs>
+  }
+  export type ServiceItemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    package?: boolean | WorkPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $ServiceItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ServiceItem"
+    objects: {
+      package: Prisma.$WorkPackagePayload<ExtArgs>
+      options: Prisma.$ServiceOptionPayload<ExtArgs>[]
+      followUps: Prisma.$FollowUpPayload<ExtArgs>[]
+      suggestedBy: Prisma.$FollowUpPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      packageId: number
+      name: string
+      description: string | null
+      group: string | null
+      unit: string
+      basePrice: number
+      multiplier: number | null
+      required: boolean
+      visibleByDefault: boolean
+      aiSuggestible: boolean
+      additionalNotes: string | null
+      sortOrder: number
+      createdAt: Date
+    }, ExtArgs["result"]["serviceItem"]>
+    composites: {}
+  }
+
+  type ServiceItemGetPayload<S extends boolean | null | undefined | ServiceItemDefaultArgs> = $Result.GetResult<Prisma.$ServiceItemPayload, S>
+
+  type ServiceItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ServiceItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ServiceItemCountAggregateInputType | true
+    }
+
+  export interface ServiceItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ServiceItem'], meta: { name: 'ServiceItem' } }
+    /**
+     * Find zero or one ServiceItem that matches the filter.
+     * @param {ServiceItemFindUniqueArgs} args - Arguments to find a ServiceItem
+     * @example
+     * // Get one ServiceItem
+     * const serviceItem = await prisma.serviceItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ServiceItemFindUniqueArgs>(args: SelectSubset<T, ServiceItemFindUniqueArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ServiceItem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ServiceItemFindUniqueOrThrowArgs} args - Arguments to find a ServiceItem
+     * @example
+     * // Get one ServiceItem
+     * const serviceItem = await prisma.serviceItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ServiceItemFindUniqueOrThrowArgs>(args: SelectSubset<T, ServiceItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ServiceItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceItemFindFirstArgs} args - Arguments to find a ServiceItem
+     * @example
+     * // Get one ServiceItem
+     * const serviceItem = await prisma.serviceItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ServiceItemFindFirstArgs>(args?: SelectSubset<T, ServiceItemFindFirstArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ServiceItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceItemFindFirstOrThrowArgs} args - Arguments to find a ServiceItem
+     * @example
+     * // Get one ServiceItem
+     * const serviceItem = await prisma.serviceItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ServiceItemFindFirstOrThrowArgs>(args?: SelectSubset<T, ServiceItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ServiceItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ServiceItems
+     * const serviceItems = await prisma.serviceItem.findMany()
+     * 
+     * // Get first 10 ServiceItems
+     * const serviceItems = await prisma.serviceItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const serviceItemWithIdOnly = await prisma.serviceItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ServiceItemFindManyArgs>(args?: SelectSubset<T, ServiceItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ServiceItem.
+     * @param {ServiceItemCreateArgs} args - Arguments to create a ServiceItem.
+     * @example
+     * // Create one ServiceItem
+     * const ServiceItem = await prisma.serviceItem.create({
+     *   data: {
+     *     // ... data to create a ServiceItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends ServiceItemCreateArgs>(args: SelectSubset<T, ServiceItemCreateArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ServiceItems.
+     * @param {ServiceItemCreateManyArgs} args - Arguments to create many ServiceItems.
+     * @example
+     * // Create many ServiceItems
+     * const serviceItem = await prisma.serviceItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ServiceItemCreateManyArgs>(args?: SelectSubset<T, ServiceItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ServiceItems and returns the data saved in the database.
+     * @param {ServiceItemCreateManyAndReturnArgs} args - Arguments to create many ServiceItems.
+     * @example
+     * // Create many ServiceItems
+     * const serviceItem = await prisma.serviceItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ServiceItems and only return the `id`
+     * const serviceItemWithIdOnly = await prisma.serviceItem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ServiceItemCreateManyAndReturnArgs>(args?: SelectSubset<T, ServiceItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ServiceItem.
+     * @param {ServiceItemDeleteArgs} args - Arguments to delete one ServiceItem.
+     * @example
+     * // Delete one ServiceItem
+     * const ServiceItem = await prisma.serviceItem.delete({
+     *   where: {
+     *     // ... filter to delete one ServiceItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ServiceItemDeleteArgs>(args: SelectSubset<T, ServiceItemDeleteArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ServiceItem.
+     * @param {ServiceItemUpdateArgs} args - Arguments to update one ServiceItem.
+     * @example
+     * // Update one ServiceItem
+     * const serviceItem = await prisma.serviceItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ServiceItemUpdateArgs>(args: SelectSubset<T, ServiceItemUpdateArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ServiceItems.
+     * @param {ServiceItemDeleteManyArgs} args - Arguments to filter ServiceItems to delete.
+     * @example
+     * // Delete a few ServiceItems
+     * const { count } = await prisma.serviceItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ServiceItemDeleteManyArgs>(args?: SelectSubset<T, ServiceItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ServiceItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ServiceItems
+     * const serviceItem = await prisma.serviceItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ServiceItemUpdateManyArgs>(args: SelectSubset<T, ServiceItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ServiceItems and returns the data updated in the database.
+     * @param {ServiceItemUpdateManyAndReturnArgs} args - Arguments to update many ServiceItems.
+     * @example
+     * // Update many ServiceItems
+     * const serviceItem = await prisma.serviceItem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ServiceItems and only return the `id`
+     * const serviceItemWithIdOnly = await prisma.serviceItem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ServiceItemUpdateManyAndReturnArgs>(args: SelectSubset<T, ServiceItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ServiceItem.
+     * @param {ServiceItemUpsertArgs} args - Arguments to update or create a ServiceItem.
+     * @example
+     * // Update or create a ServiceItem
+     * const serviceItem = await prisma.serviceItem.upsert({
+     *   create: {
+     *     // ... data to create a ServiceItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ServiceItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ServiceItemUpsertArgs>(args: SelectSubset<T, ServiceItemUpsertArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ServiceItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceItemCountArgs} args - Arguments to filter ServiceItems to count.
+     * @example
+     * // Count the number of ServiceItems
+     * const count = await prisma.serviceItem.count({
+     *   where: {
+     *     // ... the filter for the ServiceItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends ServiceItemCountArgs>(
+      args?: Subset<T, ServiceItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ServiceItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ServiceItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ServiceItemAggregateArgs>(args: Subset<T, ServiceItemAggregateArgs>): Prisma.PrismaPromise<GetServiceItemAggregateType<T>>
+
+    /**
+     * Group by ServiceItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ServiceItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ServiceItemGroupByArgs['orderBy'] }
+        : { orderBy?: ServiceItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ServiceItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetServiceItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ServiceItem model
+   */
+  readonly fields: ServiceItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ServiceItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ServiceItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    package<T extends WorkPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WorkPackageDefaultArgs<ExtArgs>>): Prisma__WorkPackageClient<$Result.GetResult<Prisma.$WorkPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    options<T extends ServiceItem$optionsArgs<ExtArgs> = {}>(args?: Subset<T, ServiceItem$optionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    followUps<T extends ServiceItem$followUpsArgs<ExtArgs> = {}>(args?: Subset<T, ServiceItem$followUpsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    suggestedBy<T extends ServiceItem$suggestedByArgs<ExtArgs> = {}>(args?: Subset<T, ServiceItem$suggestedByArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ServiceItem model
+   */
+  interface ServiceItemFieldRefs {
+    readonly id: FieldRef<"ServiceItem", 'Int'>
+    readonly packageId: FieldRef<"ServiceItem", 'Int'>
+    readonly name: FieldRef<"ServiceItem", 'String'>
+    readonly description: FieldRef<"ServiceItem", 'String'>
+    readonly group: FieldRef<"ServiceItem", 'String'>
+    readonly unit: FieldRef<"ServiceItem", 'String'>
+    readonly basePrice: FieldRef<"ServiceItem", 'Float'>
+    readonly multiplier: FieldRef<"ServiceItem", 'Float'>
+    readonly required: FieldRef<"ServiceItem", 'Boolean'>
+    readonly visibleByDefault: FieldRef<"ServiceItem", 'Boolean'>
+    readonly aiSuggestible: FieldRef<"ServiceItem", 'Boolean'>
+    readonly additionalNotes: FieldRef<"ServiceItem", 'String'>
+    readonly sortOrder: FieldRef<"ServiceItem", 'Int'>
+    readonly createdAt: FieldRef<"ServiceItem", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ServiceItem findUnique
+   */
+  export type ServiceItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceItem to fetch.
+     */
+    where: ServiceItemWhereUniqueInput
+  }
+
+  /**
+   * ServiceItem findUniqueOrThrow
+   */
+  export type ServiceItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceItem to fetch.
+     */
+    where: ServiceItemWhereUniqueInput
+  }
+
+  /**
+   * ServiceItem findFirst
+   */
+  export type ServiceItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceItem to fetch.
+     */
+    where?: ServiceItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceItems to fetch.
+     */
+    orderBy?: ServiceItemOrderByWithRelationInput | ServiceItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ServiceItems.
+     */
+    cursor?: ServiceItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ServiceItems.
+     */
+    distinct?: ServiceItemScalarFieldEnum | ServiceItemScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceItem findFirstOrThrow
+   */
+  export type ServiceItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceItem to fetch.
+     */
+    where?: ServiceItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceItems to fetch.
+     */
+    orderBy?: ServiceItemOrderByWithRelationInput | ServiceItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ServiceItems.
+     */
+    cursor?: ServiceItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ServiceItems.
+     */
+    distinct?: ServiceItemScalarFieldEnum | ServiceItemScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceItem findMany
+   */
+  export type ServiceItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceItems to fetch.
+     */
+    where?: ServiceItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceItems to fetch.
+     */
+    orderBy?: ServiceItemOrderByWithRelationInput | ServiceItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ServiceItems.
+     */
+    cursor?: ServiceItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceItems.
+     */
+    skip?: number
+    distinct?: ServiceItemScalarFieldEnum | ServiceItemScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceItem create
+   */
+  export type ServiceItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ServiceItem.
+     */
+    data: XOR<ServiceItemCreateInput, ServiceItemUncheckedCreateInput>
+  }
+
+  /**
+   * ServiceItem createMany
+   */
+  export type ServiceItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ServiceItems.
+     */
+    data: ServiceItemCreateManyInput | ServiceItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ServiceItem createManyAndReturn
+   */
+  export type ServiceItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * The data used to create many ServiceItems.
+     */
+    data: ServiceItemCreateManyInput | ServiceItemCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ServiceItem update
+   */
+  export type ServiceItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ServiceItem.
+     */
+    data: XOR<ServiceItemUpdateInput, ServiceItemUncheckedUpdateInput>
+    /**
+     * Choose, which ServiceItem to update.
+     */
+    where: ServiceItemWhereUniqueInput
+  }
+
+  /**
+   * ServiceItem updateMany
+   */
+  export type ServiceItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ServiceItems.
+     */
+    data: XOR<ServiceItemUpdateManyMutationInput, ServiceItemUncheckedUpdateManyInput>
+    /**
+     * Filter which ServiceItems to update
+     */
+    where?: ServiceItemWhereInput
+    /**
+     * Limit how many ServiceItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ServiceItem updateManyAndReturn
+   */
+  export type ServiceItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * The data used to update ServiceItems.
+     */
+    data: XOR<ServiceItemUpdateManyMutationInput, ServiceItemUncheckedUpdateManyInput>
+    /**
+     * Filter which ServiceItems to update
+     */
+    where?: ServiceItemWhereInput
+    /**
+     * Limit how many ServiceItems to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ServiceItem upsert
+   */
+  export type ServiceItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ServiceItem to update in case it exists.
+     */
+    where: ServiceItemWhereUniqueInput
+    /**
+     * In case the ServiceItem found by the `where` argument doesn't exist, create a new ServiceItem with this data.
+     */
+    create: XOR<ServiceItemCreateInput, ServiceItemUncheckedCreateInput>
+    /**
+     * In case the ServiceItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ServiceItemUpdateInput, ServiceItemUncheckedUpdateInput>
+  }
+
+  /**
+   * ServiceItem delete
+   */
+  export type ServiceItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+    /**
+     * Filter which ServiceItem to delete.
+     */
+    where: ServiceItemWhereUniqueInput
+  }
+
+  /**
+   * ServiceItem deleteMany
+   */
+  export type ServiceItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ServiceItems to delete
+     */
+    where?: ServiceItemWhereInput
+    /**
+     * Limit how many ServiceItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ServiceItem.options
+   */
+  export type ServiceItem$optionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    where?: ServiceOptionWhereInput
+    orderBy?: ServiceOptionOrderByWithRelationInput | ServiceOptionOrderByWithRelationInput[]
+    cursor?: ServiceOptionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ServiceOptionScalarFieldEnum | ServiceOptionScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceItem.followUps
+   */
+  export type ServiceItem$followUpsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    where?: FollowUpWhereInput
+    orderBy?: FollowUpOrderByWithRelationInput | FollowUpOrderByWithRelationInput[]
+    cursor?: FollowUpWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FollowUpScalarFieldEnum | FollowUpScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceItem.suggestedBy
+   */
+  export type ServiceItem$suggestedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    where?: FollowUpWhereInput
+    orderBy?: FollowUpOrderByWithRelationInput | FollowUpOrderByWithRelationInput[]
+    cursor?: FollowUpWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FollowUpScalarFieldEnum | FollowUpScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceItem without action
+   */
+  export type ServiceItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceItem
+     */
+    select?: ServiceItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceItem
+     */
+    omit?: ServiceItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceItemInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ServiceOption
+   */
+
+  export type AggregateServiceOption = {
+    _count: ServiceOptionCountAggregateOutputType | null
+    _avg: ServiceOptionAvgAggregateOutputType | null
+    _sum: ServiceOptionSumAggregateOutputType | null
+    _min: ServiceOptionMinAggregateOutputType | null
+    _max: ServiceOptionMaxAggregateOutputType | null
+  }
+
+  export type ServiceOptionAvgAggregateOutputType = {
+    id: number | null
+    serviceId: number | null
+    priceDelta: number | null
+  }
+
+  export type ServiceOptionSumAggregateOutputType = {
+    id: number | null
+    serviceId: number | null
+    priceDelta: number | null
+  }
+
+  export type ServiceOptionMinAggregateOutputType = {
+    id: number | null
+    serviceId: number | null
+    name: string | null
+    priceDelta: number | null
+    description: string | null
+    imageUrl: string | null
+    createdAt: Date | null
+  }
+
+  export type ServiceOptionMaxAggregateOutputType = {
+    id: number | null
+    serviceId: number | null
+    name: string | null
+    priceDelta: number | null
+    description: string | null
+    imageUrl: string | null
+    createdAt: Date | null
+  }
+
+  export type ServiceOptionCountAggregateOutputType = {
+    id: number
+    serviceId: number
+    name: number
+    priceDelta: number
+    description: number
+    imageUrl: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ServiceOptionAvgAggregateInputType = {
+    id?: true
+    serviceId?: true
+    priceDelta?: true
+  }
+
+  export type ServiceOptionSumAggregateInputType = {
+    id?: true
+    serviceId?: true
+    priceDelta?: true
+  }
+
+  export type ServiceOptionMinAggregateInputType = {
+    id?: true
+    serviceId?: true
+    name?: true
+    priceDelta?: true
+    description?: true
+    imageUrl?: true
+    createdAt?: true
+  }
+
+  export type ServiceOptionMaxAggregateInputType = {
+    id?: true
+    serviceId?: true
+    name?: true
+    priceDelta?: true
+    description?: true
+    imageUrl?: true
+    createdAt?: true
+  }
+
+  export type ServiceOptionCountAggregateInputType = {
+    id?: true
+    serviceId?: true
+    name?: true
+    priceDelta?: true
+    description?: true
+    imageUrl?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ServiceOptionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ServiceOption to aggregate.
+     */
+    where?: ServiceOptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceOptions to fetch.
+     */
+    orderBy?: ServiceOptionOrderByWithRelationInput | ServiceOptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ServiceOptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceOptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceOptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ServiceOptions
+    **/
+    _count?: true | ServiceOptionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ServiceOptionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ServiceOptionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ServiceOptionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ServiceOptionMaxAggregateInputType
+  }
+
+  export type GetServiceOptionAggregateType<T extends ServiceOptionAggregateArgs> = {
+        [P in keyof T & keyof AggregateServiceOption]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateServiceOption[P]>
+      : GetScalarType<T[P], AggregateServiceOption[P]>
+  }
+
+
+
+
+  export type ServiceOptionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ServiceOptionWhereInput
+    orderBy?: ServiceOptionOrderByWithAggregationInput | ServiceOptionOrderByWithAggregationInput[]
+    by: ServiceOptionScalarFieldEnum[] | ServiceOptionScalarFieldEnum
+    having?: ServiceOptionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ServiceOptionCountAggregateInputType | true
+    _avg?: ServiceOptionAvgAggregateInputType
+    _sum?: ServiceOptionSumAggregateInputType
+    _min?: ServiceOptionMinAggregateInputType
+    _max?: ServiceOptionMaxAggregateInputType
+  }
+
+  export type ServiceOptionGroupByOutputType = {
+    id: number
+    serviceId: number
+    name: string
+    priceDelta: number
+    description: string | null
+    imageUrl: string | null
+    createdAt: Date
+    _count: ServiceOptionCountAggregateOutputType | null
+    _avg: ServiceOptionAvgAggregateOutputType | null
+    _sum: ServiceOptionSumAggregateOutputType | null
+    _min: ServiceOptionMinAggregateOutputType | null
+    _max: ServiceOptionMaxAggregateOutputType | null
+  }
+
+  type GetServiceOptionGroupByPayload<T extends ServiceOptionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ServiceOptionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ServiceOptionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ServiceOptionGroupByOutputType[P]>
+            : GetScalarType<T[P], ServiceOptionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ServiceOptionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    serviceId?: boolean
+    name?: boolean
+    priceDelta?: boolean
+    description?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    service?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["serviceOption"]>
+
+  export type ServiceOptionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    serviceId?: boolean
+    name?: boolean
+    priceDelta?: boolean
+    description?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    service?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["serviceOption"]>
+
+  export type ServiceOptionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    serviceId?: boolean
+    name?: boolean
+    priceDelta?: boolean
+    description?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    service?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["serviceOption"]>
+
+  export type ServiceOptionSelectScalar = {
+    id?: boolean
+    serviceId?: boolean
+    name?: boolean
+    priceDelta?: boolean
+    description?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+  }
+
+  export type ServiceOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "serviceId" | "name" | "priceDelta" | "description" | "imageUrl" | "createdAt", ExtArgs["result"]["serviceOption"]>
+  export type ServiceOptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    service?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }
+  export type ServiceOptionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    service?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }
+  export type ServiceOptionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    service?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }
+
+  export type $ServiceOptionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ServiceOption"
+    objects: {
+      service: Prisma.$ServiceItemPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      serviceId: number
+      name: string
+      priceDelta: number
+      description: string | null
+      imageUrl: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["serviceOption"]>
+    composites: {}
+  }
+
+  type ServiceOptionGetPayload<S extends boolean | null | undefined | ServiceOptionDefaultArgs> = $Result.GetResult<Prisma.$ServiceOptionPayload, S>
+
+  type ServiceOptionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ServiceOptionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ServiceOptionCountAggregateInputType | true
+    }
+
+  export interface ServiceOptionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ServiceOption'], meta: { name: 'ServiceOption' } }
+    /**
+     * Find zero or one ServiceOption that matches the filter.
+     * @param {ServiceOptionFindUniqueArgs} args - Arguments to find a ServiceOption
+     * @example
+     * // Get one ServiceOption
+     * const serviceOption = await prisma.serviceOption.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ServiceOptionFindUniqueArgs>(args: SelectSubset<T, ServiceOptionFindUniqueArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ServiceOption that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ServiceOptionFindUniqueOrThrowArgs} args - Arguments to find a ServiceOption
+     * @example
+     * // Get one ServiceOption
+     * const serviceOption = await prisma.serviceOption.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ServiceOptionFindUniqueOrThrowArgs>(args: SelectSubset<T, ServiceOptionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ServiceOption that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceOptionFindFirstArgs} args - Arguments to find a ServiceOption
+     * @example
+     * // Get one ServiceOption
+     * const serviceOption = await prisma.serviceOption.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ServiceOptionFindFirstArgs>(args?: SelectSubset<T, ServiceOptionFindFirstArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ServiceOption that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceOptionFindFirstOrThrowArgs} args - Arguments to find a ServiceOption
+     * @example
+     * // Get one ServiceOption
+     * const serviceOption = await prisma.serviceOption.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ServiceOptionFindFirstOrThrowArgs>(args?: SelectSubset<T, ServiceOptionFindFirstOrThrowArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ServiceOptions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceOptionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ServiceOptions
+     * const serviceOptions = await prisma.serviceOption.findMany()
+     * 
+     * // Get first 10 ServiceOptions
+     * const serviceOptions = await prisma.serviceOption.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const serviceOptionWithIdOnly = await prisma.serviceOption.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ServiceOptionFindManyArgs>(args?: SelectSubset<T, ServiceOptionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ServiceOption.
+     * @param {ServiceOptionCreateArgs} args - Arguments to create a ServiceOption.
+     * @example
+     * // Create one ServiceOption
+     * const ServiceOption = await prisma.serviceOption.create({
+     *   data: {
+     *     // ... data to create a ServiceOption
+     *   }
+     * })
+     * 
+     */
+    create<T extends ServiceOptionCreateArgs>(args: SelectSubset<T, ServiceOptionCreateArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ServiceOptions.
+     * @param {ServiceOptionCreateManyArgs} args - Arguments to create many ServiceOptions.
+     * @example
+     * // Create many ServiceOptions
+     * const serviceOption = await prisma.serviceOption.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ServiceOptionCreateManyArgs>(args?: SelectSubset<T, ServiceOptionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ServiceOptions and returns the data saved in the database.
+     * @param {ServiceOptionCreateManyAndReturnArgs} args - Arguments to create many ServiceOptions.
+     * @example
+     * // Create many ServiceOptions
+     * const serviceOption = await prisma.serviceOption.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ServiceOptions and only return the `id`
+     * const serviceOptionWithIdOnly = await prisma.serviceOption.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ServiceOptionCreateManyAndReturnArgs>(args?: SelectSubset<T, ServiceOptionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ServiceOption.
+     * @param {ServiceOptionDeleteArgs} args - Arguments to delete one ServiceOption.
+     * @example
+     * // Delete one ServiceOption
+     * const ServiceOption = await prisma.serviceOption.delete({
+     *   where: {
+     *     // ... filter to delete one ServiceOption
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ServiceOptionDeleteArgs>(args: SelectSubset<T, ServiceOptionDeleteArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ServiceOption.
+     * @param {ServiceOptionUpdateArgs} args - Arguments to update one ServiceOption.
+     * @example
+     * // Update one ServiceOption
+     * const serviceOption = await prisma.serviceOption.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ServiceOptionUpdateArgs>(args: SelectSubset<T, ServiceOptionUpdateArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ServiceOptions.
+     * @param {ServiceOptionDeleteManyArgs} args - Arguments to filter ServiceOptions to delete.
+     * @example
+     * // Delete a few ServiceOptions
+     * const { count } = await prisma.serviceOption.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ServiceOptionDeleteManyArgs>(args?: SelectSubset<T, ServiceOptionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ServiceOptions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceOptionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ServiceOptions
+     * const serviceOption = await prisma.serviceOption.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ServiceOptionUpdateManyArgs>(args: SelectSubset<T, ServiceOptionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ServiceOptions and returns the data updated in the database.
+     * @param {ServiceOptionUpdateManyAndReturnArgs} args - Arguments to update many ServiceOptions.
+     * @example
+     * // Update many ServiceOptions
+     * const serviceOption = await prisma.serviceOption.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ServiceOptions and only return the `id`
+     * const serviceOptionWithIdOnly = await prisma.serviceOption.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ServiceOptionUpdateManyAndReturnArgs>(args: SelectSubset<T, ServiceOptionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ServiceOption.
+     * @param {ServiceOptionUpsertArgs} args - Arguments to update or create a ServiceOption.
+     * @example
+     * // Update or create a ServiceOption
+     * const serviceOption = await prisma.serviceOption.upsert({
+     *   create: {
+     *     // ... data to create a ServiceOption
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ServiceOption we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ServiceOptionUpsertArgs>(args: SelectSubset<T, ServiceOptionUpsertArgs<ExtArgs>>): Prisma__ServiceOptionClient<$Result.GetResult<Prisma.$ServiceOptionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ServiceOptions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceOptionCountArgs} args - Arguments to filter ServiceOptions to count.
+     * @example
+     * // Count the number of ServiceOptions
+     * const count = await prisma.serviceOption.count({
+     *   where: {
+     *     // ... the filter for the ServiceOptions we want to count
+     *   }
+     * })
+    **/
+    count<T extends ServiceOptionCountArgs>(
+      args?: Subset<T, ServiceOptionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ServiceOptionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ServiceOption.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceOptionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ServiceOptionAggregateArgs>(args: Subset<T, ServiceOptionAggregateArgs>): Prisma.PrismaPromise<GetServiceOptionAggregateType<T>>
+
+    /**
+     * Group by ServiceOption.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceOptionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ServiceOptionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ServiceOptionGroupByArgs['orderBy'] }
+        : { orderBy?: ServiceOptionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ServiceOptionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetServiceOptionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ServiceOption model
+   */
+  readonly fields: ServiceOptionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ServiceOption.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ServiceOptionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    service<T extends ServiceItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ServiceItemDefaultArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ServiceOption model
+   */
+  interface ServiceOptionFieldRefs {
+    readonly id: FieldRef<"ServiceOption", 'Int'>
+    readonly serviceId: FieldRef<"ServiceOption", 'Int'>
+    readonly name: FieldRef<"ServiceOption", 'String'>
+    readonly priceDelta: FieldRef<"ServiceOption", 'Float'>
+    readonly description: FieldRef<"ServiceOption", 'String'>
+    readonly imageUrl: FieldRef<"ServiceOption", 'String'>
+    readonly createdAt: FieldRef<"ServiceOption", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ServiceOption findUnique
+   */
+  export type ServiceOptionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceOption to fetch.
+     */
+    where: ServiceOptionWhereUniqueInput
+  }
+
+  /**
+   * ServiceOption findUniqueOrThrow
+   */
+  export type ServiceOptionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceOption to fetch.
+     */
+    where: ServiceOptionWhereUniqueInput
+  }
+
+  /**
+   * ServiceOption findFirst
+   */
+  export type ServiceOptionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceOption to fetch.
+     */
+    where?: ServiceOptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceOptions to fetch.
+     */
+    orderBy?: ServiceOptionOrderByWithRelationInput | ServiceOptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ServiceOptions.
+     */
+    cursor?: ServiceOptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceOptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceOptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ServiceOptions.
+     */
+    distinct?: ServiceOptionScalarFieldEnum | ServiceOptionScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceOption findFirstOrThrow
+   */
+  export type ServiceOptionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceOption to fetch.
+     */
+    where?: ServiceOptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceOptions to fetch.
+     */
+    orderBy?: ServiceOptionOrderByWithRelationInput | ServiceOptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ServiceOptions.
+     */
+    cursor?: ServiceOptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceOptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceOptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ServiceOptions.
+     */
+    distinct?: ServiceOptionScalarFieldEnum | ServiceOptionScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceOption findMany
+   */
+  export type ServiceOptionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * Filter, which ServiceOptions to fetch.
+     */
+    where?: ServiceOptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ServiceOptions to fetch.
+     */
+    orderBy?: ServiceOptionOrderByWithRelationInput | ServiceOptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ServiceOptions.
+     */
+    cursor?: ServiceOptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ServiceOptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ServiceOptions.
+     */
+    skip?: number
+    distinct?: ServiceOptionScalarFieldEnum | ServiceOptionScalarFieldEnum[]
+  }
+
+  /**
+   * ServiceOption create
+   */
+  export type ServiceOptionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ServiceOption.
+     */
+    data: XOR<ServiceOptionCreateInput, ServiceOptionUncheckedCreateInput>
+  }
+
+  /**
+   * ServiceOption createMany
+   */
+  export type ServiceOptionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ServiceOptions.
+     */
+    data: ServiceOptionCreateManyInput | ServiceOptionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ServiceOption createManyAndReturn
+   */
+  export type ServiceOptionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * The data used to create many ServiceOptions.
+     */
+    data: ServiceOptionCreateManyInput | ServiceOptionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ServiceOption update
+   */
+  export type ServiceOptionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ServiceOption.
+     */
+    data: XOR<ServiceOptionUpdateInput, ServiceOptionUncheckedUpdateInput>
+    /**
+     * Choose, which ServiceOption to update.
+     */
+    where: ServiceOptionWhereUniqueInput
+  }
+
+  /**
+   * ServiceOption updateMany
+   */
+  export type ServiceOptionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ServiceOptions.
+     */
+    data: XOR<ServiceOptionUpdateManyMutationInput, ServiceOptionUncheckedUpdateManyInput>
+    /**
+     * Filter which ServiceOptions to update
+     */
+    where?: ServiceOptionWhereInput
+    /**
+     * Limit how many ServiceOptions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ServiceOption updateManyAndReturn
+   */
+  export type ServiceOptionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * The data used to update ServiceOptions.
+     */
+    data: XOR<ServiceOptionUpdateManyMutationInput, ServiceOptionUncheckedUpdateManyInput>
+    /**
+     * Filter which ServiceOptions to update
+     */
+    where?: ServiceOptionWhereInput
+    /**
+     * Limit how many ServiceOptions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ServiceOption upsert
+   */
+  export type ServiceOptionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ServiceOption to update in case it exists.
+     */
+    where: ServiceOptionWhereUniqueInput
+    /**
+     * In case the ServiceOption found by the `where` argument doesn't exist, create a new ServiceOption with this data.
+     */
+    create: XOR<ServiceOptionCreateInput, ServiceOptionUncheckedCreateInput>
+    /**
+     * In case the ServiceOption was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ServiceOptionUpdateInput, ServiceOptionUncheckedUpdateInput>
+  }
+
+  /**
+   * ServiceOption delete
+   */
+  export type ServiceOptionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+    /**
+     * Filter which ServiceOption to delete.
+     */
+    where: ServiceOptionWhereUniqueInput
+  }
+
+  /**
+   * ServiceOption deleteMany
+   */
+  export type ServiceOptionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ServiceOptions to delete
+     */
+    where?: ServiceOptionWhereInput
+    /**
+     * Limit how many ServiceOptions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ServiceOption without action
+   */
+  export type ServiceOptionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceOption
+     */
+    select?: ServiceOptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ServiceOption
+     */
+    omit?: ServiceOptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceOptionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FollowUp
+   */
+
+  export type AggregateFollowUp = {
+    _count: FollowUpCountAggregateOutputType | null
+    _avg: FollowUpAvgAggregateOutputType | null
+    _sum: FollowUpSumAggregateOutputType | null
+    _min: FollowUpMinAggregateOutputType | null
+    _max: FollowUpMaxAggregateOutputType | null
+  }
+
+  export type FollowUpAvgAggregateOutputType = {
+    id: number | null
+    sourceId: number | null
+    targetId: number | null
+  }
+
+  export type FollowUpSumAggregateOutputType = {
+    id: number | null
+    sourceId: number | null
+    targetId: number | null
+  }
+
+  export type FollowUpMinAggregateOutputType = {
+    id: number | null
+    sourceId: number | null
+    targetId: number | null
+    reason: string | null
+    condition: string | null
+  }
+
+  export type FollowUpMaxAggregateOutputType = {
+    id: number | null
+    sourceId: number | null
+    targetId: number | null
+    reason: string | null
+    condition: string | null
+  }
+
+  export type FollowUpCountAggregateOutputType = {
+    id: number
+    sourceId: number
+    targetId: number
+    reason: number
+    condition: number
+    _all: number
+  }
+
+
+  export type FollowUpAvgAggregateInputType = {
+    id?: true
+    sourceId?: true
+    targetId?: true
+  }
+
+  export type FollowUpSumAggregateInputType = {
+    id?: true
+    sourceId?: true
+    targetId?: true
+  }
+
+  export type FollowUpMinAggregateInputType = {
+    id?: true
+    sourceId?: true
+    targetId?: true
+    reason?: true
+    condition?: true
+  }
+
+  export type FollowUpMaxAggregateInputType = {
+    id?: true
+    sourceId?: true
+    targetId?: true
+    reason?: true
+    condition?: true
+  }
+
+  export type FollowUpCountAggregateInputType = {
+    id?: true
+    sourceId?: true
+    targetId?: true
+    reason?: true
+    condition?: true
+    _all?: true
+  }
+
+  export type FollowUpAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FollowUp to aggregate.
+     */
+    where?: FollowUpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FollowUps to fetch.
+     */
+    orderBy?: FollowUpOrderByWithRelationInput | FollowUpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FollowUpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FollowUps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FollowUps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FollowUps
+    **/
+    _count?: true | FollowUpCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FollowUpAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FollowUpSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FollowUpMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FollowUpMaxAggregateInputType
+  }
+
+  export type GetFollowUpAggregateType<T extends FollowUpAggregateArgs> = {
+        [P in keyof T & keyof AggregateFollowUp]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFollowUp[P]>
+      : GetScalarType<T[P], AggregateFollowUp[P]>
+  }
+
+
+
+
+  export type FollowUpGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FollowUpWhereInput
+    orderBy?: FollowUpOrderByWithAggregationInput | FollowUpOrderByWithAggregationInput[]
+    by: FollowUpScalarFieldEnum[] | FollowUpScalarFieldEnum
+    having?: FollowUpScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FollowUpCountAggregateInputType | true
+    _avg?: FollowUpAvgAggregateInputType
+    _sum?: FollowUpSumAggregateInputType
+    _min?: FollowUpMinAggregateInputType
+    _max?: FollowUpMaxAggregateInputType
+  }
+
+  export type FollowUpGroupByOutputType = {
+    id: number
+    sourceId: number
+    targetId: number
+    reason: string | null
+    condition: string | null
+    _count: FollowUpCountAggregateOutputType | null
+    _avg: FollowUpAvgAggregateOutputType | null
+    _sum: FollowUpSumAggregateOutputType | null
+    _min: FollowUpMinAggregateOutputType | null
+    _max: FollowUpMaxAggregateOutputType | null
+  }
+
+  type GetFollowUpGroupByPayload<T extends FollowUpGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FollowUpGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FollowUpGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FollowUpGroupByOutputType[P]>
+            : GetScalarType<T[P], FollowUpGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FollowUpSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sourceId?: boolean
+    targetId?: boolean
+    reason?: boolean
+    condition?: boolean
+    source?: boolean | ServiceItemDefaultArgs<ExtArgs>
+    target?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["followUp"]>
+
+  export type FollowUpSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sourceId?: boolean
+    targetId?: boolean
+    reason?: boolean
+    condition?: boolean
+    source?: boolean | ServiceItemDefaultArgs<ExtArgs>
+    target?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["followUp"]>
+
+  export type FollowUpSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sourceId?: boolean
+    targetId?: boolean
+    reason?: boolean
+    condition?: boolean
+    source?: boolean | ServiceItemDefaultArgs<ExtArgs>
+    target?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["followUp"]>
+
+  export type FollowUpSelectScalar = {
+    id?: boolean
+    sourceId?: boolean
+    targetId?: boolean
+    reason?: boolean
+    condition?: boolean
+  }
+
+  export type FollowUpOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sourceId" | "targetId" | "reason" | "condition", ExtArgs["result"]["followUp"]>
+  export type FollowUpInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    source?: boolean | ServiceItemDefaultArgs<ExtArgs>
+    target?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }
+  export type FollowUpIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    source?: boolean | ServiceItemDefaultArgs<ExtArgs>
+    target?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }
+  export type FollowUpIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    source?: boolean | ServiceItemDefaultArgs<ExtArgs>
+    target?: boolean | ServiceItemDefaultArgs<ExtArgs>
+  }
+
+  export type $FollowUpPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FollowUp"
+    objects: {
+      source: Prisma.$ServiceItemPayload<ExtArgs>
+      target: Prisma.$ServiceItemPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      sourceId: number
+      targetId: number
+      reason: string | null
+      condition: string | null
+    }, ExtArgs["result"]["followUp"]>
+    composites: {}
+  }
+
+  type FollowUpGetPayload<S extends boolean | null | undefined | FollowUpDefaultArgs> = $Result.GetResult<Prisma.$FollowUpPayload, S>
+
+  type FollowUpCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FollowUpFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FollowUpCountAggregateInputType | true
+    }
+
+  export interface FollowUpDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FollowUp'], meta: { name: 'FollowUp' } }
+    /**
+     * Find zero or one FollowUp that matches the filter.
+     * @param {FollowUpFindUniqueArgs} args - Arguments to find a FollowUp
+     * @example
+     * // Get one FollowUp
+     * const followUp = await prisma.followUp.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FollowUpFindUniqueArgs>(args: SelectSubset<T, FollowUpFindUniqueArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FollowUp that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FollowUpFindUniqueOrThrowArgs} args - Arguments to find a FollowUp
+     * @example
+     * // Get one FollowUp
+     * const followUp = await prisma.followUp.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FollowUpFindUniqueOrThrowArgs>(args: SelectSubset<T, FollowUpFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FollowUp that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowUpFindFirstArgs} args - Arguments to find a FollowUp
+     * @example
+     * // Get one FollowUp
+     * const followUp = await prisma.followUp.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FollowUpFindFirstArgs>(args?: SelectSubset<T, FollowUpFindFirstArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FollowUp that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowUpFindFirstOrThrowArgs} args - Arguments to find a FollowUp
+     * @example
+     * // Get one FollowUp
+     * const followUp = await prisma.followUp.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FollowUpFindFirstOrThrowArgs>(args?: SelectSubset<T, FollowUpFindFirstOrThrowArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FollowUps that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowUpFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FollowUps
+     * const followUps = await prisma.followUp.findMany()
+     * 
+     * // Get first 10 FollowUps
+     * const followUps = await prisma.followUp.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const followUpWithIdOnly = await prisma.followUp.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FollowUpFindManyArgs>(args?: SelectSubset<T, FollowUpFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FollowUp.
+     * @param {FollowUpCreateArgs} args - Arguments to create a FollowUp.
+     * @example
+     * // Create one FollowUp
+     * const FollowUp = await prisma.followUp.create({
+     *   data: {
+     *     // ... data to create a FollowUp
+     *   }
+     * })
+     * 
+     */
+    create<T extends FollowUpCreateArgs>(args: SelectSubset<T, FollowUpCreateArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FollowUps.
+     * @param {FollowUpCreateManyArgs} args - Arguments to create many FollowUps.
+     * @example
+     * // Create many FollowUps
+     * const followUp = await prisma.followUp.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FollowUpCreateManyArgs>(args?: SelectSubset<T, FollowUpCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FollowUps and returns the data saved in the database.
+     * @param {FollowUpCreateManyAndReturnArgs} args - Arguments to create many FollowUps.
+     * @example
+     * // Create many FollowUps
+     * const followUp = await prisma.followUp.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FollowUps and only return the `id`
+     * const followUpWithIdOnly = await prisma.followUp.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FollowUpCreateManyAndReturnArgs>(args?: SelectSubset<T, FollowUpCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FollowUp.
+     * @param {FollowUpDeleteArgs} args - Arguments to delete one FollowUp.
+     * @example
+     * // Delete one FollowUp
+     * const FollowUp = await prisma.followUp.delete({
+     *   where: {
+     *     // ... filter to delete one FollowUp
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FollowUpDeleteArgs>(args: SelectSubset<T, FollowUpDeleteArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FollowUp.
+     * @param {FollowUpUpdateArgs} args - Arguments to update one FollowUp.
+     * @example
+     * // Update one FollowUp
+     * const followUp = await prisma.followUp.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FollowUpUpdateArgs>(args: SelectSubset<T, FollowUpUpdateArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FollowUps.
+     * @param {FollowUpDeleteManyArgs} args - Arguments to filter FollowUps to delete.
+     * @example
+     * // Delete a few FollowUps
+     * const { count } = await prisma.followUp.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FollowUpDeleteManyArgs>(args?: SelectSubset<T, FollowUpDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FollowUps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowUpUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FollowUps
+     * const followUp = await prisma.followUp.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FollowUpUpdateManyArgs>(args: SelectSubset<T, FollowUpUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FollowUps and returns the data updated in the database.
+     * @param {FollowUpUpdateManyAndReturnArgs} args - Arguments to update many FollowUps.
+     * @example
+     * // Update many FollowUps
+     * const followUp = await prisma.followUp.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FollowUps and only return the `id`
+     * const followUpWithIdOnly = await prisma.followUp.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FollowUpUpdateManyAndReturnArgs>(args: SelectSubset<T, FollowUpUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FollowUp.
+     * @param {FollowUpUpsertArgs} args - Arguments to update or create a FollowUp.
+     * @example
+     * // Update or create a FollowUp
+     * const followUp = await prisma.followUp.upsert({
+     *   create: {
+     *     // ... data to create a FollowUp
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FollowUp we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FollowUpUpsertArgs>(args: SelectSubset<T, FollowUpUpsertArgs<ExtArgs>>): Prisma__FollowUpClient<$Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FollowUps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowUpCountArgs} args - Arguments to filter FollowUps to count.
+     * @example
+     * // Count the number of FollowUps
+     * const count = await prisma.followUp.count({
+     *   where: {
+     *     // ... the filter for the FollowUps we want to count
+     *   }
+     * })
+    **/
+    count<T extends FollowUpCountArgs>(
+      args?: Subset<T, FollowUpCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FollowUpCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FollowUp.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowUpAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FollowUpAggregateArgs>(args: Subset<T, FollowUpAggregateArgs>): Prisma.PrismaPromise<GetFollowUpAggregateType<T>>
+
+    /**
+     * Group by FollowUp.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowUpGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FollowUpGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FollowUpGroupByArgs['orderBy'] }
+        : { orderBy?: FollowUpGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FollowUpGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFollowUpGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FollowUp model
+   */
+  readonly fields: FollowUpFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FollowUp.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FollowUpClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    source<T extends ServiceItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ServiceItemDefaultArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    target<T extends ServiceItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ServiceItemDefaultArgs<ExtArgs>>): Prisma__ServiceItemClient<$Result.GetResult<Prisma.$ServiceItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FollowUp model
+   */
+  interface FollowUpFieldRefs {
+    readonly id: FieldRef<"FollowUp", 'Int'>
+    readonly sourceId: FieldRef<"FollowUp", 'Int'>
+    readonly targetId: FieldRef<"FollowUp", 'Int'>
+    readonly reason: FieldRef<"FollowUp", 'String'>
+    readonly condition: FieldRef<"FollowUp", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FollowUp findUnique
+   */
+  export type FollowUpFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * Filter, which FollowUp to fetch.
+     */
+    where: FollowUpWhereUniqueInput
+  }
+
+  /**
+   * FollowUp findUniqueOrThrow
+   */
+  export type FollowUpFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * Filter, which FollowUp to fetch.
+     */
+    where: FollowUpWhereUniqueInput
+  }
+
+  /**
+   * FollowUp findFirst
+   */
+  export type FollowUpFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * Filter, which FollowUp to fetch.
+     */
+    where?: FollowUpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FollowUps to fetch.
+     */
+    orderBy?: FollowUpOrderByWithRelationInput | FollowUpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FollowUps.
+     */
+    cursor?: FollowUpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FollowUps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FollowUps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FollowUps.
+     */
+    distinct?: FollowUpScalarFieldEnum | FollowUpScalarFieldEnum[]
+  }
+
+  /**
+   * FollowUp findFirstOrThrow
+   */
+  export type FollowUpFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * Filter, which FollowUp to fetch.
+     */
+    where?: FollowUpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FollowUps to fetch.
+     */
+    orderBy?: FollowUpOrderByWithRelationInput | FollowUpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FollowUps.
+     */
+    cursor?: FollowUpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FollowUps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FollowUps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FollowUps.
+     */
+    distinct?: FollowUpScalarFieldEnum | FollowUpScalarFieldEnum[]
+  }
+
+  /**
+   * FollowUp findMany
+   */
+  export type FollowUpFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * Filter, which FollowUps to fetch.
+     */
+    where?: FollowUpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FollowUps to fetch.
+     */
+    orderBy?: FollowUpOrderByWithRelationInput | FollowUpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FollowUps.
+     */
+    cursor?: FollowUpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FollowUps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FollowUps.
+     */
+    skip?: number
+    distinct?: FollowUpScalarFieldEnum | FollowUpScalarFieldEnum[]
+  }
+
+  /**
+   * FollowUp create
+   */
+  export type FollowUpCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FollowUp.
+     */
+    data: XOR<FollowUpCreateInput, FollowUpUncheckedCreateInput>
+  }
+
+  /**
+   * FollowUp createMany
+   */
+  export type FollowUpCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FollowUps.
+     */
+    data: FollowUpCreateManyInput | FollowUpCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FollowUp createManyAndReturn
+   */
+  export type FollowUpCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * The data used to create many FollowUps.
+     */
+    data: FollowUpCreateManyInput | FollowUpCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FollowUp update
+   */
+  export type FollowUpUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FollowUp.
+     */
+    data: XOR<FollowUpUpdateInput, FollowUpUncheckedUpdateInput>
+    /**
+     * Choose, which FollowUp to update.
+     */
+    where: FollowUpWhereUniqueInput
+  }
+
+  /**
+   * FollowUp updateMany
+   */
+  export type FollowUpUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FollowUps.
+     */
+    data: XOR<FollowUpUpdateManyMutationInput, FollowUpUncheckedUpdateManyInput>
+    /**
+     * Filter which FollowUps to update
+     */
+    where?: FollowUpWhereInput
+    /**
+     * Limit how many FollowUps to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FollowUp updateManyAndReturn
+   */
+  export type FollowUpUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * The data used to update FollowUps.
+     */
+    data: XOR<FollowUpUpdateManyMutationInput, FollowUpUncheckedUpdateManyInput>
+    /**
+     * Filter which FollowUps to update
+     */
+    where?: FollowUpWhereInput
+    /**
+     * Limit how many FollowUps to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FollowUp upsert
+   */
+  export type FollowUpUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FollowUp to update in case it exists.
+     */
+    where: FollowUpWhereUniqueInput
+    /**
+     * In case the FollowUp found by the `where` argument doesn't exist, create a new FollowUp with this data.
+     */
+    create: XOR<FollowUpCreateInput, FollowUpUncheckedCreateInput>
+    /**
+     * In case the FollowUp was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FollowUpUpdateInput, FollowUpUncheckedUpdateInput>
+  }
+
+  /**
+   * FollowUp delete
+   */
+  export type FollowUpDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+    /**
+     * Filter which FollowUp to delete.
+     */
+    where: FollowUpWhereUniqueInput
+  }
+
+  /**
+   * FollowUp deleteMany
+   */
+  export type FollowUpDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FollowUps to delete
+     */
+    where?: FollowUpWhereInput
+    /**
+     * Limit how many FollowUps to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FollowUp without action
+   */
+  export type FollowUpDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FollowUp
+     */
+    select?: FollowUpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FollowUp
+     */
+    omit?: FollowUpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FollowUpInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -14443,6 +20844,76 @@ export namespace Prisma {
   };
 
   export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
+
+
+  export const ProjectTypeScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    description: 'description',
+    icon: 'icon',
+    steps: 'steps',
+    active: 'active',
+    createdAt: 'createdAt'
+  };
+
+  export type ProjectTypeScalarFieldEnum = (typeof ProjectTypeScalarFieldEnum)[keyof typeof ProjectTypeScalarFieldEnum]
+
+
+  export const WorkPackageScalarFieldEnum: {
+    id: 'id',
+    projectTypeId: 'projectTypeId',
+    name: 'name',
+    description: 'description',
+    sortOrder: 'sortOrder',
+    createdAt: 'createdAt'
+  };
+
+  export type WorkPackageScalarFieldEnum = (typeof WorkPackageScalarFieldEnum)[keyof typeof WorkPackageScalarFieldEnum]
+
+
+  export const ServiceItemScalarFieldEnum: {
+    id: 'id',
+    packageId: 'packageId',
+    name: 'name',
+    description: 'description',
+    group: 'group',
+    unit: 'unit',
+    basePrice: 'basePrice',
+    multiplier: 'multiplier',
+    required: 'required',
+    visibleByDefault: 'visibleByDefault',
+    aiSuggestible: 'aiSuggestible',
+    additionalNotes: 'additionalNotes',
+    sortOrder: 'sortOrder',
+    createdAt: 'createdAt'
+  };
+
+  export type ServiceItemScalarFieldEnum = (typeof ServiceItemScalarFieldEnum)[keyof typeof ServiceItemScalarFieldEnum]
+
+
+  export const ServiceOptionScalarFieldEnum: {
+    id: 'id',
+    serviceId: 'serviceId',
+    name: 'name',
+    priceDelta: 'priceDelta',
+    description: 'description',
+    imageUrl: 'imageUrl',
+    createdAt: 'createdAt'
+  };
+
+  export type ServiceOptionScalarFieldEnum = (typeof ServiceOptionScalarFieldEnum)[keyof typeof ServiceOptionScalarFieldEnum]
+
+
+  export const FollowUpScalarFieldEnum: {
+    id: 'id',
+    sourceId: 'sourceId',
+    targetId: 'targetId',
+    reason: 'reason',
+    condition: 'condition'
+  };
+
+  export type FollowUpScalarFieldEnum = (typeof FollowUpScalarFieldEnum)[keyof typeof FollowUpScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -15368,6 +21839,381 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
   }
 
+  export type ProjectTypeWhereInput = {
+    AND?: ProjectTypeWhereInput | ProjectTypeWhereInput[]
+    OR?: ProjectTypeWhereInput[]
+    NOT?: ProjectTypeWhereInput | ProjectTypeWhereInput[]
+    id?: IntFilter<"ProjectType"> | number
+    name?: StringFilter<"ProjectType"> | string
+    slug?: StringFilter<"ProjectType"> | string
+    description?: StringNullableFilter<"ProjectType"> | string | null
+    icon?: StringNullableFilter<"ProjectType"> | string | null
+    steps?: IntFilter<"ProjectType"> | number
+    active?: BoolFilter<"ProjectType"> | boolean
+    createdAt?: DateTimeFilter<"ProjectType"> | Date | string
+    packages?: WorkPackageListRelationFilter
+  }
+
+  export type ProjectTypeOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrderInput | SortOrder
+    icon?: SortOrderInput | SortOrder
+    steps?: SortOrder
+    active?: SortOrder
+    createdAt?: SortOrder
+    packages?: WorkPackageOrderByRelationAggregateInput
+  }
+
+  export type ProjectTypeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    slug?: string
+    AND?: ProjectTypeWhereInput | ProjectTypeWhereInput[]
+    OR?: ProjectTypeWhereInput[]
+    NOT?: ProjectTypeWhereInput | ProjectTypeWhereInput[]
+    name?: StringFilter<"ProjectType"> | string
+    description?: StringNullableFilter<"ProjectType"> | string | null
+    icon?: StringNullableFilter<"ProjectType"> | string | null
+    steps?: IntFilter<"ProjectType"> | number
+    active?: BoolFilter<"ProjectType"> | boolean
+    createdAt?: DateTimeFilter<"ProjectType"> | Date | string
+    packages?: WorkPackageListRelationFilter
+  }, "id" | "slug">
+
+  export type ProjectTypeOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrderInput | SortOrder
+    icon?: SortOrderInput | SortOrder
+    steps?: SortOrder
+    active?: SortOrder
+    createdAt?: SortOrder
+    _count?: ProjectTypeCountOrderByAggregateInput
+    _avg?: ProjectTypeAvgOrderByAggregateInput
+    _max?: ProjectTypeMaxOrderByAggregateInput
+    _min?: ProjectTypeMinOrderByAggregateInput
+    _sum?: ProjectTypeSumOrderByAggregateInput
+  }
+
+  export type ProjectTypeScalarWhereWithAggregatesInput = {
+    AND?: ProjectTypeScalarWhereWithAggregatesInput | ProjectTypeScalarWhereWithAggregatesInput[]
+    OR?: ProjectTypeScalarWhereWithAggregatesInput[]
+    NOT?: ProjectTypeScalarWhereWithAggregatesInput | ProjectTypeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProjectType"> | number
+    name?: StringWithAggregatesFilter<"ProjectType"> | string
+    slug?: StringWithAggregatesFilter<"ProjectType"> | string
+    description?: StringNullableWithAggregatesFilter<"ProjectType"> | string | null
+    icon?: StringNullableWithAggregatesFilter<"ProjectType"> | string | null
+    steps?: IntWithAggregatesFilter<"ProjectType"> | number
+    active?: BoolWithAggregatesFilter<"ProjectType"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"ProjectType"> | Date | string
+  }
+
+  export type WorkPackageWhereInput = {
+    AND?: WorkPackageWhereInput | WorkPackageWhereInput[]
+    OR?: WorkPackageWhereInput[]
+    NOT?: WorkPackageWhereInput | WorkPackageWhereInput[]
+    id?: IntFilter<"WorkPackage"> | number
+    projectTypeId?: IntFilter<"WorkPackage"> | number
+    name?: StringFilter<"WorkPackage"> | string
+    description?: StringNullableFilter<"WorkPackage"> | string | null
+    sortOrder?: IntFilter<"WorkPackage"> | number
+    createdAt?: DateTimeFilter<"WorkPackage"> | Date | string
+    projectType?: XOR<ProjectTypeScalarRelationFilter, ProjectTypeWhereInput>
+    services?: ServiceItemListRelationFilter
+  }
+
+  export type WorkPackageOrderByWithRelationInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    projectType?: ProjectTypeOrderByWithRelationInput
+    services?: ServiceItemOrderByRelationAggregateInput
+  }
+
+  export type WorkPackageWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: WorkPackageWhereInput | WorkPackageWhereInput[]
+    OR?: WorkPackageWhereInput[]
+    NOT?: WorkPackageWhereInput | WorkPackageWhereInput[]
+    projectTypeId?: IntFilter<"WorkPackage"> | number
+    name?: StringFilter<"WorkPackage"> | string
+    description?: StringNullableFilter<"WorkPackage"> | string | null
+    sortOrder?: IntFilter<"WorkPackage"> | number
+    createdAt?: DateTimeFilter<"WorkPackage"> | Date | string
+    projectType?: XOR<ProjectTypeScalarRelationFilter, ProjectTypeWhereInput>
+    services?: ServiceItemListRelationFilter
+  }, "id">
+
+  export type WorkPackageOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    _count?: WorkPackageCountOrderByAggregateInput
+    _avg?: WorkPackageAvgOrderByAggregateInput
+    _max?: WorkPackageMaxOrderByAggregateInput
+    _min?: WorkPackageMinOrderByAggregateInput
+    _sum?: WorkPackageSumOrderByAggregateInput
+  }
+
+  export type WorkPackageScalarWhereWithAggregatesInput = {
+    AND?: WorkPackageScalarWhereWithAggregatesInput | WorkPackageScalarWhereWithAggregatesInput[]
+    OR?: WorkPackageScalarWhereWithAggregatesInput[]
+    NOT?: WorkPackageScalarWhereWithAggregatesInput | WorkPackageScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"WorkPackage"> | number
+    projectTypeId?: IntWithAggregatesFilter<"WorkPackage"> | number
+    name?: StringWithAggregatesFilter<"WorkPackage"> | string
+    description?: StringNullableWithAggregatesFilter<"WorkPackage"> | string | null
+    sortOrder?: IntWithAggregatesFilter<"WorkPackage"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"WorkPackage"> | Date | string
+  }
+
+  export type ServiceItemWhereInput = {
+    AND?: ServiceItemWhereInput | ServiceItemWhereInput[]
+    OR?: ServiceItemWhereInput[]
+    NOT?: ServiceItemWhereInput | ServiceItemWhereInput[]
+    id?: IntFilter<"ServiceItem"> | number
+    packageId?: IntFilter<"ServiceItem"> | number
+    name?: StringFilter<"ServiceItem"> | string
+    description?: StringNullableFilter<"ServiceItem"> | string | null
+    group?: StringNullableFilter<"ServiceItem"> | string | null
+    unit?: StringFilter<"ServiceItem"> | string
+    basePrice?: FloatFilter<"ServiceItem"> | number
+    multiplier?: FloatNullableFilter<"ServiceItem"> | number | null
+    required?: BoolFilter<"ServiceItem"> | boolean
+    visibleByDefault?: BoolFilter<"ServiceItem"> | boolean
+    aiSuggestible?: BoolFilter<"ServiceItem"> | boolean
+    additionalNotes?: StringNullableFilter<"ServiceItem"> | string | null
+    sortOrder?: IntFilter<"ServiceItem"> | number
+    createdAt?: DateTimeFilter<"ServiceItem"> | Date | string
+    package?: XOR<WorkPackageScalarRelationFilter, WorkPackageWhereInput>
+    options?: ServiceOptionListRelationFilter
+    followUps?: FollowUpListRelationFilter
+    suggestedBy?: FollowUpListRelationFilter
+  }
+
+  export type ServiceItemOrderByWithRelationInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    group?: SortOrderInput | SortOrder
+    unit?: SortOrder
+    basePrice?: SortOrder
+    multiplier?: SortOrderInput | SortOrder
+    required?: SortOrder
+    visibleByDefault?: SortOrder
+    aiSuggestible?: SortOrder
+    additionalNotes?: SortOrderInput | SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    package?: WorkPackageOrderByWithRelationInput
+    options?: ServiceOptionOrderByRelationAggregateInput
+    followUps?: FollowUpOrderByRelationAggregateInput
+    suggestedBy?: FollowUpOrderByRelationAggregateInput
+  }
+
+  export type ServiceItemWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ServiceItemWhereInput | ServiceItemWhereInput[]
+    OR?: ServiceItemWhereInput[]
+    NOT?: ServiceItemWhereInput | ServiceItemWhereInput[]
+    packageId?: IntFilter<"ServiceItem"> | number
+    name?: StringFilter<"ServiceItem"> | string
+    description?: StringNullableFilter<"ServiceItem"> | string | null
+    group?: StringNullableFilter<"ServiceItem"> | string | null
+    unit?: StringFilter<"ServiceItem"> | string
+    basePrice?: FloatFilter<"ServiceItem"> | number
+    multiplier?: FloatNullableFilter<"ServiceItem"> | number | null
+    required?: BoolFilter<"ServiceItem"> | boolean
+    visibleByDefault?: BoolFilter<"ServiceItem"> | boolean
+    aiSuggestible?: BoolFilter<"ServiceItem"> | boolean
+    additionalNotes?: StringNullableFilter<"ServiceItem"> | string | null
+    sortOrder?: IntFilter<"ServiceItem"> | number
+    createdAt?: DateTimeFilter<"ServiceItem"> | Date | string
+    package?: XOR<WorkPackageScalarRelationFilter, WorkPackageWhereInput>
+    options?: ServiceOptionListRelationFilter
+    followUps?: FollowUpListRelationFilter
+    suggestedBy?: FollowUpListRelationFilter
+  }, "id">
+
+  export type ServiceItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    group?: SortOrderInput | SortOrder
+    unit?: SortOrder
+    basePrice?: SortOrder
+    multiplier?: SortOrderInput | SortOrder
+    required?: SortOrder
+    visibleByDefault?: SortOrder
+    aiSuggestible?: SortOrder
+    additionalNotes?: SortOrderInput | SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    _count?: ServiceItemCountOrderByAggregateInput
+    _avg?: ServiceItemAvgOrderByAggregateInput
+    _max?: ServiceItemMaxOrderByAggregateInput
+    _min?: ServiceItemMinOrderByAggregateInput
+    _sum?: ServiceItemSumOrderByAggregateInput
+  }
+
+  export type ServiceItemScalarWhereWithAggregatesInput = {
+    AND?: ServiceItemScalarWhereWithAggregatesInput | ServiceItemScalarWhereWithAggregatesInput[]
+    OR?: ServiceItemScalarWhereWithAggregatesInput[]
+    NOT?: ServiceItemScalarWhereWithAggregatesInput | ServiceItemScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ServiceItem"> | number
+    packageId?: IntWithAggregatesFilter<"ServiceItem"> | number
+    name?: StringWithAggregatesFilter<"ServiceItem"> | string
+    description?: StringNullableWithAggregatesFilter<"ServiceItem"> | string | null
+    group?: StringNullableWithAggregatesFilter<"ServiceItem"> | string | null
+    unit?: StringWithAggregatesFilter<"ServiceItem"> | string
+    basePrice?: FloatWithAggregatesFilter<"ServiceItem"> | number
+    multiplier?: FloatNullableWithAggregatesFilter<"ServiceItem"> | number | null
+    required?: BoolWithAggregatesFilter<"ServiceItem"> | boolean
+    visibleByDefault?: BoolWithAggregatesFilter<"ServiceItem"> | boolean
+    aiSuggestible?: BoolWithAggregatesFilter<"ServiceItem"> | boolean
+    additionalNotes?: StringNullableWithAggregatesFilter<"ServiceItem"> | string | null
+    sortOrder?: IntWithAggregatesFilter<"ServiceItem"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"ServiceItem"> | Date | string
+  }
+
+  export type ServiceOptionWhereInput = {
+    AND?: ServiceOptionWhereInput | ServiceOptionWhereInput[]
+    OR?: ServiceOptionWhereInput[]
+    NOT?: ServiceOptionWhereInput | ServiceOptionWhereInput[]
+    id?: IntFilter<"ServiceOption"> | number
+    serviceId?: IntFilter<"ServiceOption"> | number
+    name?: StringFilter<"ServiceOption"> | string
+    priceDelta?: FloatFilter<"ServiceOption"> | number
+    description?: StringNullableFilter<"ServiceOption"> | string | null
+    imageUrl?: StringNullableFilter<"ServiceOption"> | string | null
+    createdAt?: DateTimeFilter<"ServiceOption"> | Date | string
+    service?: XOR<ServiceItemScalarRelationFilter, ServiceItemWhereInput>
+  }
+
+  export type ServiceOptionOrderByWithRelationInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    name?: SortOrder
+    priceDelta?: SortOrder
+    description?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    service?: ServiceItemOrderByWithRelationInput
+  }
+
+  export type ServiceOptionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ServiceOptionWhereInput | ServiceOptionWhereInput[]
+    OR?: ServiceOptionWhereInput[]
+    NOT?: ServiceOptionWhereInput | ServiceOptionWhereInput[]
+    serviceId?: IntFilter<"ServiceOption"> | number
+    name?: StringFilter<"ServiceOption"> | string
+    priceDelta?: FloatFilter<"ServiceOption"> | number
+    description?: StringNullableFilter<"ServiceOption"> | string | null
+    imageUrl?: StringNullableFilter<"ServiceOption"> | string | null
+    createdAt?: DateTimeFilter<"ServiceOption"> | Date | string
+    service?: XOR<ServiceItemScalarRelationFilter, ServiceItemWhereInput>
+  }, "id">
+
+  export type ServiceOptionOrderByWithAggregationInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    name?: SortOrder
+    priceDelta?: SortOrder
+    description?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: ServiceOptionCountOrderByAggregateInput
+    _avg?: ServiceOptionAvgOrderByAggregateInput
+    _max?: ServiceOptionMaxOrderByAggregateInput
+    _min?: ServiceOptionMinOrderByAggregateInput
+    _sum?: ServiceOptionSumOrderByAggregateInput
+  }
+
+  export type ServiceOptionScalarWhereWithAggregatesInput = {
+    AND?: ServiceOptionScalarWhereWithAggregatesInput | ServiceOptionScalarWhereWithAggregatesInput[]
+    OR?: ServiceOptionScalarWhereWithAggregatesInput[]
+    NOT?: ServiceOptionScalarWhereWithAggregatesInput | ServiceOptionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ServiceOption"> | number
+    serviceId?: IntWithAggregatesFilter<"ServiceOption"> | number
+    name?: StringWithAggregatesFilter<"ServiceOption"> | string
+    priceDelta?: FloatWithAggregatesFilter<"ServiceOption"> | number
+    description?: StringNullableWithAggregatesFilter<"ServiceOption"> | string | null
+    imageUrl?: StringNullableWithAggregatesFilter<"ServiceOption"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ServiceOption"> | Date | string
+  }
+
+  export type FollowUpWhereInput = {
+    AND?: FollowUpWhereInput | FollowUpWhereInput[]
+    OR?: FollowUpWhereInput[]
+    NOT?: FollowUpWhereInput | FollowUpWhereInput[]
+    id?: IntFilter<"FollowUp"> | number
+    sourceId?: IntFilter<"FollowUp"> | number
+    targetId?: IntFilter<"FollowUp"> | number
+    reason?: StringNullableFilter<"FollowUp"> | string | null
+    condition?: StringNullableFilter<"FollowUp"> | string | null
+    source?: XOR<ServiceItemScalarRelationFilter, ServiceItemWhereInput>
+    target?: XOR<ServiceItemScalarRelationFilter, ServiceItemWhereInput>
+  }
+
+  export type FollowUpOrderByWithRelationInput = {
+    id?: SortOrder
+    sourceId?: SortOrder
+    targetId?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    condition?: SortOrderInput | SortOrder
+    source?: ServiceItemOrderByWithRelationInput
+    target?: ServiceItemOrderByWithRelationInput
+  }
+
+  export type FollowUpWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: FollowUpWhereInput | FollowUpWhereInput[]
+    OR?: FollowUpWhereInput[]
+    NOT?: FollowUpWhereInput | FollowUpWhereInput[]
+    sourceId?: IntFilter<"FollowUp"> | number
+    targetId?: IntFilter<"FollowUp"> | number
+    reason?: StringNullableFilter<"FollowUp"> | string | null
+    condition?: StringNullableFilter<"FollowUp"> | string | null
+    source?: XOR<ServiceItemScalarRelationFilter, ServiceItemWhereInput>
+    target?: XOR<ServiceItemScalarRelationFilter, ServiceItemWhereInput>
+  }, "id">
+
+  export type FollowUpOrderByWithAggregationInput = {
+    id?: SortOrder
+    sourceId?: SortOrder
+    targetId?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    condition?: SortOrderInput | SortOrder
+    _count?: FollowUpCountOrderByAggregateInput
+    _avg?: FollowUpAvgOrderByAggregateInput
+    _max?: FollowUpMaxOrderByAggregateInput
+    _min?: FollowUpMinOrderByAggregateInput
+    _sum?: FollowUpSumOrderByAggregateInput
+  }
+
+  export type FollowUpScalarWhereWithAggregatesInput = {
+    AND?: FollowUpScalarWhereWithAggregatesInput | FollowUpScalarWhereWithAggregatesInput[]
+    OR?: FollowUpScalarWhereWithAggregatesInput[]
+    NOT?: FollowUpScalarWhereWithAggregatesInput | FollowUpScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"FollowUp"> | number
+    sourceId?: IntWithAggregatesFilter<"FollowUp"> | number
+    targetId?: IntWithAggregatesFilter<"FollowUp"> | number
+    reason?: StringNullableWithAggregatesFilter<"FollowUp"> | string | null
+    condition?: StringNullableWithAggregatesFilter<"FollowUp"> | string | null
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -16224,6 +23070,391 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type ProjectTypeCreateInput = {
+    name: string
+    slug: string
+    description?: string | null
+    icon?: string | null
+    steps?: number
+    active?: boolean
+    createdAt?: Date | string
+    packages?: WorkPackageCreateNestedManyWithoutProjectTypeInput
+  }
+
+  export type ProjectTypeUncheckedCreateInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    icon?: string | null
+    steps?: number
+    active?: boolean
+    createdAt?: Date | string
+    packages?: WorkPackageUncheckedCreateNestedManyWithoutProjectTypeInput
+  }
+
+  export type ProjectTypeUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    steps?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packages?: WorkPackageUpdateManyWithoutProjectTypeNestedInput
+  }
+
+  export type ProjectTypeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    steps?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packages?: WorkPackageUncheckedUpdateManyWithoutProjectTypeNestedInput
+  }
+
+  export type ProjectTypeCreateManyInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    icon?: string | null
+    steps?: number
+    active?: boolean
+    createdAt?: Date | string
+  }
+
+  export type ProjectTypeUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    steps?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectTypeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    steps?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkPackageCreateInput = {
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    projectType: ProjectTypeCreateNestedOneWithoutPackagesInput
+    services?: ServiceItemCreateNestedManyWithoutPackageInput
+  }
+
+  export type WorkPackageUncheckedCreateInput = {
+    id?: number
+    projectTypeId: number
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    services?: ServiceItemUncheckedCreateNestedManyWithoutPackageInput
+  }
+
+  export type WorkPackageUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projectType?: ProjectTypeUpdateOneRequiredWithoutPackagesNestedInput
+    services?: ServiceItemUpdateManyWithoutPackageNestedInput
+  }
+
+  export type WorkPackageUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectTypeId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    services?: ServiceItemUncheckedUpdateManyWithoutPackageNestedInput
+  }
+
+  export type WorkPackageCreateManyInput = {
+    id?: number
+    projectTypeId: number
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type WorkPackageUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkPackageUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectTypeId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceItemCreateInput = {
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    package: WorkPackageCreateNestedOneWithoutServicesInput
+    options?: ServiceOptionCreateNestedManyWithoutServiceInput
+    followUps?: FollowUpCreateNestedManyWithoutSourceInput
+    suggestedBy?: FollowUpCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemUncheckedCreateInput = {
+    id?: number
+    packageId: number
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    options?: ServiceOptionUncheckedCreateNestedManyWithoutServiceInput
+    followUps?: FollowUpUncheckedCreateNestedManyWithoutSourceInput
+    suggestedBy?: FollowUpUncheckedCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    package?: WorkPackageUpdateOneRequiredWithoutServicesNestedInput
+    options?: ServiceOptionUpdateManyWithoutServiceNestedInput
+    followUps?: FollowUpUpdateManyWithoutSourceNestedInput
+    suggestedBy?: FollowUpUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    packageId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    options?: ServiceOptionUncheckedUpdateManyWithoutServiceNestedInput
+    followUps?: FollowUpUncheckedUpdateManyWithoutSourceNestedInput
+    suggestedBy?: FollowUpUncheckedUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemCreateManyInput = {
+    id?: number
+    packageId: number
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type ServiceItemUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceItemUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    packageId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceOptionCreateInput = {
+    name: string
+    priceDelta: number
+    description?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+    service: ServiceItemCreateNestedOneWithoutOptionsInput
+  }
+
+  export type ServiceOptionUncheckedCreateInput = {
+    id?: number
+    serviceId: number
+    name: string
+    priceDelta: number
+    description?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ServiceOptionUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    priceDelta?: FloatFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    service?: ServiceItemUpdateOneRequiredWithoutOptionsNestedInput
+  }
+
+  export type ServiceOptionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    serviceId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    priceDelta?: FloatFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceOptionCreateManyInput = {
+    id?: number
+    serviceId: number
+    name: string
+    priceDelta: number
+    description?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ServiceOptionUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    priceDelta?: FloatFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceOptionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    serviceId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    priceDelta?: FloatFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FollowUpCreateInput = {
+    reason?: string | null
+    condition?: string | null
+    source: ServiceItemCreateNestedOneWithoutFollowUpsInput
+    target: ServiceItemCreateNestedOneWithoutSuggestedByInput
+  }
+
+  export type FollowUpUncheckedCreateInput = {
+    id?: number
+    sourceId: number
+    targetId: number
+    reason?: string | null
+    condition?: string | null
+  }
+
+  export type FollowUpUpdateInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: ServiceItemUpdateOneRequiredWithoutFollowUpsNestedInput
+    target?: ServiceItemUpdateOneRequiredWithoutSuggestedByNestedInput
+  }
+
+  export type FollowUpUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sourceId?: IntFieldUpdateOperationsInput | number
+    targetId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FollowUpCreateManyInput = {
+    id?: number
+    sourceId: number
+    targetId: number
+    reason?: string | null
+    condition?: string | null
+  }
+
+  export type FollowUpUpdateManyMutationInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FollowUpUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sourceId?: IntFieldUpdateOperationsInput | number
+    targetId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -16973,6 +24204,342 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type WorkPackageListRelationFilter = {
+    every?: WorkPackageWhereInput
+    some?: WorkPackageWhereInput
+    none?: WorkPackageWhereInput
+  }
+
+  export type WorkPackageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectTypeCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    icon?: SortOrder
+    steps?: SortOrder
+    active?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ProjectTypeAvgOrderByAggregateInput = {
+    id?: SortOrder
+    steps?: SortOrder
+  }
+
+  export type ProjectTypeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    icon?: SortOrder
+    steps?: SortOrder
+    active?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ProjectTypeMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    icon?: SortOrder
+    steps?: SortOrder
+    active?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ProjectTypeSumOrderByAggregateInput = {
+    id?: SortOrder
+    steps?: SortOrder
+  }
+
+  export type ProjectTypeScalarRelationFilter = {
+    is?: ProjectTypeWhereInput
+    isNot?: ProjectTypeWhereInput
+  }
+
+  export type ServiceItemListRelationFilter = {
+    every?: ServiceItemWhereInput
+    some?: ServiceItemWhereInput
+    none?: ServiceItemWhereInput
+  }
+
+  export type ServiceItemOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WorkPackageCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WorkPackageAvgOrderByAggregateInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type WorkPackageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WorkPackageMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WorkPackageSumOrderByAggregateInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type WorkPackageScalarRelationFilter = {
+    is?: WorkPackageWhereInput
+    isNot?: WorkPackageWhereInput
+  }
+
+  export type ServiceOptionListRelationFilter = {
+    every?: ServiceOptionWhereInput
+    some?: ServiceOptionWhereInput
+    none?: ServiceOptionWhereInput
+  }
+
+  export type FollowUpListRelationFilter = {
+    every?: FollowUpWhereInput
+    some?: FollowUpWhereInput
+    none?: FollowUpWhereInput
+  }
+
+  export type ServiceOptionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FollowUpOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ServiceItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    group?: SortOrder
+    unit?: SortOrder
+    basePrice?: SortOrder
+    multiplier?: SortOrder
+    required?: SortOrder
+    visibleByDefault?: SortOrder
+    aiSuggestible?: SortOrder
+    additionalNotes?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ServiceItemAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+    basePrice?: SortOrder
+    multiplier?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type ServiceItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    group?: SortOrder
+    unit?: SortOrder
+    basePrice?: SortOrder
+    multiplier?: SortOrder
+    required?: SortOrder
+    visibleByDefault?: SortOrder
+    aiSuggestible?: SortOrder
+    additionalNotes?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ServiceItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    group?: SortOrder
+    unit?: SortOrder
+    basePrice?: SortOrder
+    multiplier?: SortOrder
+    required?: SortOrder
+    visibleByDefault?: SortOrder
+    aiSuggestible?: SortOrder
+    additionalNotes?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ServiceItemSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+    basePrice?: SortOrder
+    multiplier?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type ServiceItemScalarRelationFilter = {
+    is?: ServiceItemWhereInput
+    isNot?: ServiceItemWhereInput
+  }
+
+  export type ServiceOptionCountOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    name?: SortOrder
+    priceDelta?: SortOrder
+    description?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ServiceOptionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    priceDelta?: SortOrder
+  }
+
+  export type ServiceOptionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    name?: SortOrder
+    priceDelta?: SortOrder
+    description?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ServiceOptionMinOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    name?: SortOrder
+    priceDelta?: SortOrder
+    description?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ServiceOptionSumOrderByAggregateInput = {
+    id?: SortOrder
+    serviceId?: SortOrder
+    priceDelta?: SortOrder
+  }
+
+  export type FollowUpCountOrderByAggregateInput = {
+    id?: SortOrder
+    sourceId?: SortOrder
+    targetId?: SortOrder
+    reason?: SortOrder
+    condition?: SortOrder
+  }
+
+  export type FollowUpAvgOrderByAggregateInput = {
+    id?: SortOrder
+    sourceId?: SortOrder
+    targetId?: SortOrder
+  }
+
+  export type FollowUpMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sourceId?: SortOrder
+    targetId?: SortOrder
+    reason?: SortOrder
+    condition?: SortOrder
+  }
+
+  export type FollowUpMinOrderByAggregateInput = {
+    id?: SortOrder
+    sourceId?: SortOrder
+    targetId?: SortOrder
+    reason?: SortOrder
+    condition?: SortOrder
+  }
+
+  export type FollowUpSumOrderByAggregateInput = {
+    id?: SortOrder
+    sourceId?: SortOrder
+    targetId?: SortOrder
+  }
+
   export type WarrantyCreateNestedManyWithoutClientInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -17317,6 +24884,302 @@ export namespace Prisma {
     deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
   }
 
+  export type WorkPackageCreateNestedManyWithoutProjectTypeInput = {
+    create?: XOR<WorkPackageCreateWithoutProjectTypeInput, WorkPackageUncheckedCreateWithoutProjectTypeInput> | WorkPackageCreateWithoutProjectTypeInput[] | WorkPackageUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: WorkPackageCreateOrConnectWithoutProjectTypeInput | WorkPackageCreateOrConnectWithoutProjectTypeInput[]
+    createMany?: WorkPackageCreateManyProjectTypeInputEnvelope
+    connect?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+  }
+
+  export type WorkPackageUncheckedCreateNestedManyWithoutProjectTypeInput = {
+    create?: XOR<WorkPackageCreateWithoutProjectTypeInput, WorkPackageUncheckedCreateWithoutProjectTypeInput> | WorkPackageCreateWithoutProjectTypeInput[] | WorkPackageUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: WorkPackageCreateOrConnectWithoutProjectTypeInput | WorkPackageCreateOrConnectWithoutProjectTypeInput[]
+    createMany?: WorkPackageCreateManyProjectTypeInputEnvelope
+    connect?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+  }
+
+  export type WorkPackageUpdateManyWithoutProjectTypeNestedInput = {
+    create?: XOR<WorkPackageCreateWithoutProjectTypeInput, WorkPackageUncheckedCreateWithoutProjectTypeInput> | WorkPackageCreateWithoutProjectTypeInput[] | WorkPackageUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: WorkPackageCreateOrConnectWithoutProjectTypeInput | WorkPackageCreateOrConnectWithoutProjectTypeInput[]
+    upsert?: WorkPackageUpsertWithWhereUniqueWithoutProjectTypeInput | WorkPackageUpsertWithWhereUniqueWithoutProjectTypeInput[]
+    createMany?: WorkPackageCreateManyProjectTypeInputEnvelope
+    set?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    disconnect?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    delete?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    connect?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    update?: WorkPackageUpdateWithWhereUniqueWithoutProjectTypeInput | WorkPackageUpdateWithWhereUniqueWithoutProjectTypeInput[]
+    updateMany?: WorkPackageUpdateManyWithWhereWithoutProjectTypeInput | WorkPackageUpdateManyWithWhereWithoutProjectTypeInput[]
+    deleteMany?: WorkPackageScalarWhereInput | WorkPackageScalarWhereInput[]
+  }
+
+  export type WorkPackageUncheckedUpdateManyWithoutProjectTypeNestedInput = {
+    create?: XOR<WorkPackageCreateWithoutProjectTypeInput, WorkPackageUncheckedCreateWithoutProjectTypeInput> | WorkPackageCreateWithoutProjectTypeInput[] | WorkPackageUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: WorkPackageCreateOrConnectWithoutProjectTypeInput | WorkPackageCreateOrConnectWithoutProjectTypeInput[]
+    upsert?: WorkPackageUpsertWithWhereUniqueWithoutProjectTypeInput | WorkPackageUpsertWithWhereUniqueWithoutProjectTypeInput[]
+    createMany?: WorkPackageCreateManyProjectTypeInputEnvelope
+    set?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    disconnect?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    delete?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    connect?: WorkPackageWhereUniqueInput | WorkPackageWhereUniqueInput[]
+    update?: WorkPackageUpdateWithWhereUniqueWithoutProjectTypeInput | WorkPackageUpdateWithWhereUniqueWithoutProjectTypeInput[]
+    updateMany?: WorkPackageUpdateManyWithWhereWithoutProjectTypeInput | WorkPackageUpdateManyWithWhereWithoutProjectTypeInput[]
+    deleteMany?: WorkPackageScalarWhereInput | WorkPackageScalarWhereInput[]
+  }
+
+  export type ProjectTypeCreateNestedOneWithoutPackagesInput = {
+    create?: XOR<ProjectTypeCreateWithoutPackagesInput, ProjectTypeUncheckedCreateWithoutPackagesInput>
+    connectOrCreate?: ProjectTypeCreateOrConnectWithoutPackagesInput
+    connect?: ProjectTypeWhereUniqueInput
+  }
+
+  export type ServiceItemCreateNestedManyWithoutPackageInput = {
+    create?: XOR<ServiceItemCreateWithoutPackageInput, ServiceItemUncheckedCreateWithoutPackageInput> | ServiceItemCreateWithoutPackageInput[] | ServiceItemUncheckedCreateWithoutPackageInput[]
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutPackageInput | ServiceItemCreateOrConnectWithoutPackageInput[]
+    createMany?: ServiceItemCreateManyPackageInputEnvelope
+    connect?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+  }
+
+  export type ServiceItemUncheckedCreateNestedManyWithoutPackageInput = {
+    create?: XOR<ServiceItemCreateWithoutPackageInput, ServiceItemUncheckedCreateWithoutPackageInput> | ServiceItemCreateWithoutPackageInput[] | ServiceItemUncheckedCreateWithoutPackageInput[]
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutPackageInput | ServiceItemCreateOrConnectWithoutPackageInput[]
+    createMany?: ServiceItemCreateManyPackageInputEnvelope
+    connect?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+  }
+
+  export type ProjectTypeUpdateOneRequiredWithoutPackagesNestedInput = {
+    create?: XOR<ProjectTypeCreateWithoutPackagesInput, ProjectTypeUncheckedCreateWithoutPackagesInput>
+    connectOrCreate?: ProjectTypeCreateOrConnectWithoutPackagesInput
+    upsert?: ProjectTypeUpsertWithoutPackagesInput
+    connect?: ProjectTypeWhereUniqueInput
+    update?: XOR<XOR<ProjectTypeUpdateToOneWithWhereWithoutPackagesInput, ProjectTypeUpdateWithoutPackagesInput>, ProjectTypeUncheckedUpdateWithoutPackagesInput>
+  }
+
+  export type ServiceItemUpdateManyWithoutPackageNestedInput = {
+    create?: XOR<ServiceItemCreateWithoutPackageInput, ServiceItemUncheckedCreateWithoutPackageInput> | ServiceItemCreateWithoutPackageInput[] | ServiceItemUncheckedCreateWithoutPackageInput[]
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutPackageInput | ServiceItemCreateOrConnectWithoutPackageInput[]
+    upsert?: ServiceItemUpsertWithWhereUniqueWithoutPackageInput | ServiceItemUpsertWithWhereUniqueWithoutPackageInput[]
+    createMany?: ServiceItemCreateManyPackageInputEnvelope
+    set?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    disconnect?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    delete?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    connect?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    update?: ServiceItemUpdateWithWhereUniqueWithoutPackageInput | ServiceItemUpdateWithWhereUniqueWithoutPackageInput[]
+    updateMany?: ServiceItemUpdateManyWithWhereWithoutPackageInput | ServiceItemUpdateManyWithWhereWithoutPackageInput[]
+    deleteMany?: ServiceItemScalarWhereInput | ServiceItemScalarWhereInput[]
+  }
+
+  export type ServiceItemUncheckedUpdateManyWithoutPackageNestedInput = {
+    create?: XOR<ServiceItemCreateWithoutPackageInput, ServiceItemUncheckedCreateWithoutPackageInput> | ServiceItemCreateWithoutPackageInput[] | ServiceItemUncheckedCreateWithoutPackageInput[]
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutPackageInput | ServiceItemCreateOrConnectWithoutPackageInput[]
+    upsert?: ServiceItemUpsertWithWhereUniqueWithoutPackageInput | ServiceItemUpsertWithWhereUniqueWithoutPackageInput[]
+    createMany?: ServiceItemCreateManyPackageInputEnvelope
+    set?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    disconnect?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    delete?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    connect?: ServiceItemWhereUniqueInput | ServiceItemWhereUniqueInput[]
+    update?: ServiceItemUpdateWithWhereUniqueWithoutPackageInput | ServiceItemUpdateWithWhereUniqueWithoutPackageInput[]
+    updateMany?: ServiceItemUpdateManyWithWhereWithoutPackageInput | ServiceItemUpdateManyWithWhereWithoutPackageInput[]
+    deleteMany?: ServiceItemScalarWhereInput | ServiceItemScalarWhereInput[]
+  }
+
+  export type WorkPackageCreateNestedOneWithoutServicesInput = {
+    create?: XOR<WorkPackageCreateWithoutServicesInput, WorkPackageUncheckedCreateWithoutServicesInput>
+    connectOrCreate?: WorkPackageCreateOrConnectWithoutServicesInput
+    connect?: WorkPackageWhereUniqueInput
+  }
+
+  export type ServiceOptionCreateNestedManyWithoutServiceInput = {
+    create?: XOR<ServiceOptionCreateWithoutServiceInput, ServiceOptionUncheckedCreateWithoutServiceInput> | ServiceOptionCreateWithoutServiceInput[] | ServiceOptionUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: ServiceOptionCreateOrConnectWithoutServiceInput | ServiceOptionCreateOrConnectWithoutServiceInput[]
+    createMany?: ServiceOptionCreateManyServiceInputEnvelope
+    connect?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+  }
+
+  export type FollowUpCreateNestedManyWithoutSourceInput = {
+    create?: XOR<FollowUpCreateWithoutSourceInput, FollowUpUncheckedCreateWithoutSourceInput> | FollowUpCreateWithoutSourceInput[] | FollowUpUncheckedCreateWithoutSourceInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutSourceInput | FollowUpCreateOrConnectWithoutSourceInput[]
+    createMany?: FollowUpCreateManySourceInputEnvelope
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+  }
+
+  export type FollowUpCreateNestedManyWithoutTargetInput = {
+    create?: XOR<FollowUpCreateWithoutTargetInput, FollowUpUncheckedCreateWithoutTargetInput> | FollowUpCreateWithoutTargetInput[] | FollowUpUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutTargetInput | FollowUpCreateOrConnectWithoutTargetInput[]
+    createMany?: FollowUpCreateManyTargetInputEnvelope
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+  }
+
+  export type ServiceOptionUncheckedCreateNestedManyWithoutServiceInput = {
+    create?: XOR<ServiceOptionCreateWithoutServiceInput, ServiceOptionUncheckedCreateWithoutServiceInput> | ServiceOptionCreateWithoutServiceInput[] | ServiceOptionUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: ServiceOptionCreateOrConnectWithoutServiceInput | ServiceOptionCreateOrConnectWithoutServiceInput[]
+    createMany?: ServiceOptionCreateManyServiceInputEnvelope
+    connect?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+  }
+
+  export type FollowUpUncheckedCreateNestedManyWithoutSourceInput = {
+    create?: XOR<FollowUpCreateWithoutSourceInput, FollowUpUncheckedCreateWithoutSourceInput> | FollowUpCreateWithoutSourceInput[] | FollowUpUncheckedCreateWithoutSourceInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutSourceInput | FollowUpCreateOrConnectWithoutSourceInput[]
+    createMany?: FollowUpCreateManySourceInputEnvelope
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+  }
+
+  export type FollowUpUncheckedCreateNestedManyWithoutTargetInput = {
+    create?: XOR<FollowUpCreateWithoutTargetInput, FollowUpUncheckedCreateWithoutTargetInput> | FollowUpCreateWithoutTargetInput[] | FollowUpUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutTargetInput | FollowUpCreateOrConnectWithoutTargetInput[]
+    createMany?: FollowUpCreateManyTargetInputEnvelope
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type WorkPackageUpdateOneRequiredWithoutServicesNestedInput = {
+    create?: XOR<WorkPackageCreateWithoutServicesInput, WorkPackageUncheckedCreateWithoutServicesInput>
+    connectOrCreate?: WorkPackageCreateOrConnectWithoutServicesInput
+    upsert?: WorkPackageUpsertWithoutServicesInput
+    connect?: WorkPackageWhereUniqueInput
+    update?: XOR<XOR<WorkPackageUpdateToOneWithWhereWithoutServicesInput, WorkPackageUpdateWithoutServicesInput>, WorkPackageUncheckedUpdateWithoutServicesInput>
+  }
+
+  export type ServiceOptionUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<ServiceOptionCreateWithoutServiceInput, ServiceOptionUncheckedCreateWithoutServiceInput> | ServiceOptionCreateWithoutServiceInput[] | ServiceOptionUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: ServiceOptionCreateOrConnectWithoutServiceInput | ServiceOptionCreateOrConnectWithoutServiceInput[]
+    upsert?: ServiceOptionUpsertWithWhereUniqueWithoutServiceInput | ServiceOptionUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: ServiceOptionCreateManyServiceInputEnvelope
+    set?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    disconnect?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    delete?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    connect?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    update?: ServiceOptionUpdateWithWhereUniqueWithoutServiceInput | ServiceOptionUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: ServiceOptionUpdateManyWithWhereWithoutServiceInput | ServiceOptionUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: ServiceOptionScalarWhereInput | ServiceOptionScalarWhereInput[]
+  }
+
+  export type FollowUpUpdateManyWithoutSourceNestedInput = {
+    create?: XOR<FollowUpCreateWithoutSourceInput, FollowUpUncheckedCreateWithoutSourceInput> | FollowUpCreateWithoutSourceInput[] | FollowUpUncheckedCreateWithoutSourceInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutSourceInput | FollowUpCreateOrConnectWithoutSourceInput[]
+    upsert?: FollowUpUpsertWithWhereUniqueWithoutSourceInput | FollowUpUpsertWithWhereUniqueWithoutSourceInput[]
+    createMany?: FollowUpCreateManySourceInputEnvelope
+    set?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    disconnect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    delete?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    update?: FollowUpUpdateWithWhereUniqueWithoutSourceInput | FollowUpUpdateWithWhereUniqueWithoutSourceInput[]
+    updateMany?: FollowUpUpdateManyWithWhereWithoutSourceInput | FollowUpUpdateManyWithWhereWithoutSourceInput[]
+    deleteMany?: FollowUpScalarWhereInput | FollowUpScalarWhereInput[]
+  }
+
+  export type FollowUpUpdateManyWithoutTargetNestedInput = {
+    create?: XOR<FollowUpCreateWithoutTargetInput, FollowUpUncheckedCreateWithoutTargetInput> | FollowUpCreateWithoutTargetInput[] | FollowUpUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutTargetInput | FollowUpCreateOrConnectWithoutTargetInput[]
+    upsert?: FollowUpUpsertWithWhereUniqueWithoutTargetInput | FollowUpUpsertWithWhereUniqueWithoutTargetInput[]
+    createMany?: FollowUpCreateManyTargetInputEnvelope
+    set?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    disconnect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    delete?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    update?: FollowUpUpdateWithWhereUniqueWithoutTargetInput | FollowUpUpdateWithWhereUniqueWithoutTargetInput[]
+    updateMany?: FollowUpUpdateManyWithWhereWithoutTargetInput | FollowUpUpdateManyWithWhereWithoutTargetInput[]
+    deleteMany?: FollowUpScalarWhereInput | FollowUpScalarWhereInput[]
+  }
+
+  export type ServiceOptionUncheckedUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<ServiceOptionCreateWithoutServiceInput, ServiceOptionUncheckedCreateWithoutServiceInput> | ServiceOptionCreateWithoutServiceInput[] | ServiceOptionUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: ServiceOptionCreateOrConnectWithoutServiceInput | ServiceOptionCreateOrConnectWithoutServiceInput[]
+    upsert?: ServiceOptionUpsertWithWhereUniqueWithoutServiceInput | ServiceOptionUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: ServiceOptionCreateManyServiceInputEnvelope
+    set?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    disconnect?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    delete?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    connect?: ServiceOptionWhereUniqueInput | ServiceOptionWhereUniqueInput[]
+    update?: ServiceOptionUpdateWithWhereUniqueWithoutServiceInput | ServiceOptionUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: ServiceOptionUpdateManyWithWhereWithoutServiceInput | ServiceOptionUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: ServiceOptionScalarWhereInput | ServiceOptionScalarWhereInput[]
+  }
+
+  export type FollowUpUncheckedUpdateManyWithoutSourceNestedInput = {
+    create?: XOR<FollowUpCreateWithoutSourceInput, FollowUpUncheckedCreateWithoutSourceInput> | FollowUpCreateWithoutSourceInput[] | FollowUpUncheckedCreateWithoutSourceInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutSourceInput | FollowUpCreateOrConnectWithoutSourceInput[]
+    upsert?: FollowUpUpsertWithWhereUniqueWithoutSourceInput | FollowUpUpsertWithWhereUniqueWithoutSourceInput[]
+    createMany?: FollowUpCreateManySourceInputEnvelope
+    set?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    disconnect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    delete?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    update?: FollowUpUpdateWithWhereUniqueWithoutSourceInput | FollowUpUpdateWithWhereUniqueWithoutSourceInput[]
+    updateMany?: FollowUpUpdateManyWithWhereWithoutSourceInput | FollowUpUpdateManyWithWhereWithoutSourceInput[]
+    deleteMany?: FollowUpScalarWhereInput | FollowUpScalarWhereInput[]
+  }
+
+  export type FollowUpUncheckedUpdateManyWithoutTargetNestedInput = {
+    create?: XOR<FollowUpCreateWithoutTargetInput, FollowUpUncheckedCreateWithoutTargetInput> | FollowUpCreateWithoutTargetInput[] | FollowUpUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: FollowUpCreateOrConnectWithoutTargetInput | FollowUpCreateOrConnectWithoutTargetInput[]
+    upsert?: FollowUpUpsertWithWhereUniqueWithoutTargetInput | FollowUpUpsertWithWhereUniqueWithoutTargetInput[]
+    createMany?: FollowUpCreateManyTargetInputEnvelope
+    set?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    disconnect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    delete?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    connect?: FollowUpWhereUniqueInput | FollowUpWhereUniqueInput[]
+    update?: FollowUpUpdateWithWhereUniqueWithoutTargetInput | FollowUpUpdateWithWhereUniqueWithoutTargetInput[]
+    updateMany?: FollowUpUpdateManyWithWhereWithoutTargetInput | FollowUpUpdateManyWithWhereWithoutTargetInput[]
+    deleteMany?: FollowUpScalarWhereInput | FollowUpScalarWhereInput[]
+  }
+
+  export type ServiceItemCreateNestedOneWithoutOptionsInput = {
+    create?: XOR<ServiceItemCreateWithoutOptionsInput, ServiceItemUncheckedCreateWithoutOptionsInput>
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutOptionsInput
+    connect?: ServiceItemWhereUniqueInput
+  }
+
+  export type ServiceItemUpdateOneRequiredWithoutOptionsNestedInput = {
+    create?: XOR<ServiceItemCreateWithoutOptionsInput, ServiceItemUncheckedCreateWithoutOptionsInput>
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutOptionsInput
+    upsert?: ServiceItemUpsertWithoutOptionsInput
+    connect?: ServiceItemWhereUniqueInput
+    update?: XOR<XOR<ServiceItemUpdateToOneWithWhereWithoutOptionsInput, ServiceItemUpdateWithoutOptionsInput>, ServiceItemUncheckedUpdateWithoutOptionsInput>
+  }
+
+  export type ServiceItemCreateNestedOneWithoutFollowUpsInput = {
+    create?: XOR<ServiceItemCreateWithoutFollowUpsInput, ServiceItemUncheckedCreateWithoutFollowUpsInput>
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutFollowUpsInput
+    connect?: ServiceItemWhereUniqueInput
+  }
+
+  export type ServiceItemCreateNestedOneWithoutSuggestedByInput = {
+    create?: XOR<ServiceItemCreateWithoutSuggestedByInput, ServiceItemUncheckedCreateWithoutSuggestedByInput>
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutSuggestedByInput
+    connect?: ServiceItemWhereUniqueInput
+  }
+
+  export type ServiceItemUpdateOneRequiredWithoutFollowUpsNestedInput = {
+    create?: XOR<ServiceItemCreateWithoutFollowUpsInput, ServiceItemUncheckedCreateWithoutFollowUpsInput>
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutFollowUpsInput
+    upsert?: ServiceItemUpsertWithoutFollowUpsInput
+    connect?: ServiceItemWhereUniqueInput
+    update?: XOR<XOR<ServiceItemUpdateToOneWithWhereWithoutFollowUpsInput, ServiceItemUpdateWithoutFollowUpsInput>, ServiceItemUncheckedUpdateWithoutFollowUpsInput>
+  }
+
+  export type ServiceItemUpdateOneRequiredWithoutSuggestedByNestedInput = {
+    create?: XOR<ServiceItemCreateWithoutSuggestedByInput, ServiceItemUncheckedCreateWithoutSuggestedByInput>
+    connectOrCreate?: ServiceItemCreateOrConnectWithoutSuggestedByInput
+    upsert?: ServiceItemUpsertWithoutSuggestedByInput
+    connect?: ServiceItemWhereUniqueInput
+    update?: XOR<XOR<ServiceItemUpdateToOneWithWhereWithoutSuggestedByInput, ServiceItemUpdateWithoutSuggestedByInput>, ServiceItemUncheckedUpdateWithoutSuggestedByInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -17550,6 +25413,38 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type WarrantyCreateWithoutClientInput = {
@@ -18194,6 +26089,667 @@ export namespace Prisma {
     projectId?: IntNullableFilter<"Review"> | number | null
   }
 
+  export type WorkPackageCreateWithoutProjectTypeInput = {
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    services?: ServiceItemCreateNestedManyWithoutPackageInput
+  }
+
+  export type WorkPackageUncheckedCreateWithoutProjectTypeInput = {
+    id?: number
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    services?: ServiceItemUncheckedCreateNestedManyWithoutPackageInput
+  }
+
+  export type WorkPackageCreateOrConnectWithoutProjectTypeInput = {
+    where: WorkPackageWhereUniqueInput
+    create: XOR<WorkPackageCreateWithoutProjectTypeInput, WorkPackageUncheckedCreateWithoutProjectTypeInput>
+  }
+
+  export type WorkPackageCreateManyProjectTypeInputEnvelope = {
+    data: WorkPackageCreateManyProjectTypeInput | WorkPackageCreateManyProjectTypeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WorkPackageUpsertWithWhereUniqueWithoutProjectTypeInput = {
+    where: WorkPackageWhereUniqueInput
+    update: XOR<WorkPackageUpdateWithoutProjectTypeInput, WorkPackageUncheckedUpdateWithoutProjectTypeInput>
+    create: XOR<WorkPackageCreateWithoutProjectTypeInput, WorkPackageUncheckedCreateWithoutProjectTypeInput>
+  }
+
+  export type WorkPackageUpdateWithWhereUniqueWithoutProjectTypeInput = {
+    where: WorkPackageWhereUniqueInput
+    data: XOR<WorkPackageUpdateWithoutProjectTypeInput, WorkPackageUncheckedUpdateWithoutProjectTypeInput>
+  }
+
+  export type WorkPackageUpdateManyWithWhereWithoutProjectTypeInput = {
+    where: WorkPackageScalarWhereInput
+    data: XOR<WorkPackageUpdateManyMutationInput, WorkPackageUncheckedUpdateManyWithoutProjectTypeInput>
+  }
+
+  export type WorkPackageScalarWhereInput = {
+    AND?: WorkPackageScalarWhereInput | WorkPackageScalarWhereInput[]
+    OR?: WorkPackageScalarWhereInput[]
+    NOT?: WorkPackageScalarWhereInput | WorkPackageScalarWhereInput[]
+    id?: IntFilter<"WorkPackage"> | number
+    projectTypeId?: IntFilter<"WorkPackage"> | number
+    name?: StringFilter<"WorkPackage"> | string
+    description?: StringNullableFilter<"WorkPackage"> | string | null
+    sortOrder?: IntFilter<"WorkPackage"> | number
+    createdAt?: DateTimeFilter<"WorkPackage"> | Date | string
+  }
+
+  export type ProjectTypeCreateWithoutPackagesInput = {
+    name: string
+    slug: string
+    description?: string | null
+    icon?: string | null
+    steps?: number
+    active?: boolean
+    createdAt?: Date | string
+  }
+
+  export type ProjectTypeUncheckedCreateWithoutPackagesInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    icon?: string | null
+    steps?: number
+    active?: boolean
+    createdAt?: Date | string
+  }
+
+  export type ProjectTypeCreateOrConnectWithoutPackagesInput = {
+    where: ProjectTypeWhereUniqueInput
+    create: XOR<ProjectTypeCreateWithoutPackagesInput, ProjectTypeUncheckedCreateWithoutPackagesInput>
+  }
+
+  export type ServiceItemCreateWithoutPackageInput = {
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    options?: ServiceOptionCreateNestedManyWithoutServiceInput
+    followUps?: FollowUpCreateNestedManyWithoutSourceInput
+    suggestedBy?: FollowUpCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemUncheckedCreateWithoutPackageInput = {
+    id?: number
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    options?: ServiceOptionUncheckedCreateNestedManyWithoutServiceInput
+    followUps?: FollowUpUncheckedCreateNestedManyWithoutSourceInput
+    suggestedBy?: FollowUpUncheckedCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemCreateOrConnectWithoutPackageInput = {
+    where: ServiceItemWhereUniqueInput
+    create: XOR<ServiceItemCreateWithoutPackageInput, ServiceItemUncheckedCreateWithoutPackageInput>
+  }
+
+  export type ServiceItemCreateManyPackageInputEnvelope = {
+    data: ServiceItemCreateManyPackageInput | ServiceItemCreateManyPackageInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectTypeUpsertWithoutPackagesInput = {
+    update: XOR<ProjectTypeUpdateWithoutPackagesInput, ProjectTypeUncheckedUpdateWithoutPackagesInput>
+    create: XOR<ProjectTypeCreateWithoutPackagesInput, ProjectTypeUncheckedCreateWithoutPackagesInput>
+    where?: ProjectTypeWhereInput
+  }
+
+  export type ProjectTypeUpdateToOneWithWhereWithoutPackagesInput = {
+    where?: ProjectTypeWhereInput
+    data: XOR<ProjectTypeUpdateWithoutPackagesInput, ProjectTypeUncheckedUpdateWithoutPackagesInput>
+  }
+
+  export type ProjectTypeUpdateWithoutPackagesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    steps?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectTypeUncheckedUpdateWithoutPackagesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    steps?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceItemUpsertWithWhereUniqueWithoutPackageInput = {
+    where: ServiceItemWhereUniqueInput
+    update: XOR<ServiceItemUpdateWithoutPackageInput, ServiceItemUncheckedUpdateWithoutPackageInput>
+    create: XOR<ServiceItemCreateWithoutPackageInput, ServiceItemUncheckedCreateWithoutPackageInput>
+  }
+
+  export type ServiceItemUpdateWithWhereUniqueWithoutPackageInput = {
+    where: ServiceItemWhereUniqueInput
+    data: XOR<ServiceItemUpdateWithoutPackageInput, ServiceItemUncheckedUpdateWithoutPackageInput>
+  }
+
+  export type ServiceItemUpdateManyWithWhereWithoutPackageInput = {
+    where: ServiceItemScalarWhereInput
+    data: XOR<ServiceItemUpdateManyMutationInput, ServiceItemUncheckedUpdateManyWithoutPackageInput>
+  }
+
+  export type ServiceItemScalarWhereInput = {
+    AND?: ServiceItemScalarWhereInput | ServiceItemScalarWhereInput[]
+    OR?: ServiceItemScalarWhereInput[]
+    NOT?: ServiceItemScalarWhereInput | ServiceItemScalarWhereInput[]
+    id?: IntFilter<"ServiceItem"> | number
+    packageId?: IntFilter<"ServiceItem"> | number
+    name?: StringFilter<"ServiceItem"> | string
+    description?: StringNullableFilter<"ServiceItem"> | string | null
+    group?: StringNullableFilter<"ServiceItem"> | string | null
+    unit?: StringFilter<"ServiceItem"> | string
+    basePrice?: FloatFilter<"ServiceItem"> | number
+    multiplier?: FloatNullableFilter<"ServiceItem"> | number | null
+    required?: BoolFilter<"ServiceItem"> | boolean
+    visibleByDefault?: BoolFilter<"ServiceItem"> | boolean
+    aiSuggestible?: BoolFilter<"ServiceItem"> | boolean
+    additionalNotes?: StringNullableFilter<"ServiceItem"> | string | null
+    sortOrder?: IntFilter<"ServiceItem"> | number
+    createdAt?: DateTimeFilter<"ServiceItem"> | Date | string
+  }
+
+  export type WorkPackageCreateWithoutServicesInput = {
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    projectType: ProjectTypeCreateNestedOneWithoutPackagesInput
+  }
+
+  export type WorkPackageUncheckedCreateWithoutServicesInput = {
+    id?: number
+    projectTypeId: number
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type WorkPackageCreateOrConnectWithoutServicesInput = {
+    where: WorkPackageWhereUniqueInput
+    create: XOR<WorkPackageCreateWithoutServicesInput, WorkPackageUncheckedCreateWithoutServicesInput>
+  }
+
+  export type ServiceOptionCreateWithoutServiceInput = {
+    name: string
+    priceDelta: number
+    description?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ServiceOptionUncheckedCreateWithoutServiceInput = {
+    id?: number
+    name: string
+    priceDelta: number
+    description?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ServiceOptionCreateOrConnectWithoutServiceInput = {
+    where: ServiceOptionWhereUniqueInput
+    create: XOR<ServiceOptionCreateWithoutServiceInput, ServiceOptionUncheckedCreateWithoutServiceInput>
+  }
+
+  export type ServiceOptionCreateManyServiceInputEnvelope = {
+    data: ServiceOptionCreateManyServiceInput | ServiceOptionCreateManyServiceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FollowUpCreateWithoutSourceInput = {
+    reason?: string | null
+    condition?: string | null
+    target: ServiceItemCreateNestedOneWithoutSuggestedByInput
+  }
+
+  export type FollowUpUncheckedCreateWithoutSourceInput = {
+    id?: number
+    targetId: number
+    reason?: string | null
+    condition?: string | null
+  }
+
+  export type FollowUpCreateOrConnectWithoutSourceInput = {
+    where: FollowUpWhereUniqueInput
+    create: XOR<FollowUpCreateWithoutSourceInput, FollowUpUncheckedCreateWithoutSourceInput>
+  }
+
+  export type FollowUpCreateManySourceInputEnvelope = {
+    data: FollowUpCreateManySourceInput | FollowUpCreateManySourceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FollowUpCreateWithoutTargetInput = {
+    reason?: string | null
+    condition?: string | null
+    source: ServiceItemCreateNestedOneWithoutFollowUpsInput
+  }
+
+  export type FollowUpUncheckedCreateWithoutTargetInput = {
+    id?: number
+    sourceId: number
+    reason?: string | null
+    condition?: string | null
+  }
+
+  export type FollowUpCreateOrConnectWithoutTargetInput = {
+    where: FollowUpWhereUniqueInput
+    create: XOR<FollowUpCreateWithoutTargetInput, FollowUpUncheckedCreateWithoutTargetInput>
+  }
+
+  export type FollowUpCreateManyTargetInputEnvelope = {
+    data: FollowUpCreateManyTargetInput | FollowUpCreateManyTargetInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WorkPackageUpsertWithoutServicesInput = {
+    update: XOR<WorkPackageUpdateWithoutServicesInput, WorkPackageUncheckedUpdateWithoutServicesInput>
+    create: XOR<WorkPackageCreateWithoutServicesInput, WorkPackageUncheckedCreateWithoutServicesInput>
+    where?: WorkPackageWhereInput
+  }
+
+  export type WorkPackageUpdateToOneWithWhereWithoutServicesInput = {
+    where?: WorkPackageWhereInput
+    data: XOR<WorkPackageUpdateWithoutServicesInput, WorkPackageUncheckedUpdateWithoutServicesInput>
+  }
+
+  export type WorkPackageUpdateWithoutServicesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projectType?: ProjectTypeUpdateOneRequiredWithoutPackagesNestedInput
+  }
+
+  export type WorkPackageUncheckedUpdateWithoutServicesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectTypeId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceOptionUpsertWithWhereUniqueWithoutServiceInput = {
+    where: ServiceOptionWhereUniqueInput
+    update: XOR<ServiceOptionUpdateWithoutServiceInput, ServiceOptionUncheckedUpdateWithoutServiceInput>
+    create: XOR<ServiceOptionCreateWithoutServiceInput, ServiceOptionUncheckedCreateWithoutServiceInput>
+  }
+
+  export type ServiceOptionUpdateWithWhereUniqueWithoutServiceInput = {
+    where: ServiceOptionWhereUniqueInput
+    data: XOR<ServiceOptionUpdateWithoutServiceInput, ServiceOptionUncheckedUpdateWithoutServiceInput>
+  }
+
+  export type ServiceOptionUpdateManyWithWhereWithoutServiceInput = {
+    where: ServiceOptionScalarWhereInput
+    data: XOR<ServiceOptionUpdateManyMutationInput, ServiceOptionUncheckedUpdateManyWithoutServiceInput>
+  }
+
+  export type ServiceOptionScalarWhereInput = {
+    AND?: ServiceOptionScalarWhereInput | ServiceOptionScalarWhereInput[]
+    OR?: ServiceOptionScalarWhereInput[]
+    NOT?: ServiceOptionScalarWhereInput | ServiceOptionScalarWhereInput[]
+    id?: IntFilter<"ServiceOption"> | number
+    serviceId?: IntFilter<"ServiceOption"> | number
+    name?: StringFilter<"ServiceOption"> | string
+    priceDelta?: FloatFilter<"ServiceOption"> | number
+    description?: StringNullableFilter<"ServiceOption"> | string | null
+    imageUrl?: StringNullableFilter<"ServiceOption"> | string | null
+    createdAt?: DateTimeFilter<"ServiceOption"> | Date | string
+  }
+
+  export type FollowUpUpsertWithWhereUniqueWithoutSourceInput = {
+    where: FollowUpWhereUniqueInput
+    update: XOR<FollowUpUpdateWithoutSourceInput, FollowUpUncheckedUpdateWithoutSourceInput>
+    create: XOR<FollowUpCreateWithoutSourceInput, FollowUpUncheckedCreateWithoutSourceInput>
+  }
+
+  export type FollowUpUpdateWithWhereUniqueWithoutSourceInput = {
+    where: FollowUpWhereUniqueInput
+    data: XOR<FollowUpUpdateWithoutSourceInput, FollowUpUncheckedUpdateWithoutSourceInput>
+  }
+
+  export type FollowUpUpdateManyWithWhereWithoutSourceInput = {
+    where: FollowUpScalarWhereInput
+    data: XOR<FollowUpUpdateManyMutationInput, FollowUpUncheckedUpdateManyWithoutSourceInput>
+  }
+
+  export type FollowUpScalarWhereInput = {
+    AND?: FollowUpScalarWhereInput | FollowUpScalarWhereInput[]
+    OR?: FollowUpScalarWhereInput[]
+    NOT?: FollowUpScalarWhereInput | FollowUpScalarWhereInput[]
+    id?: IntFilter<"FollowUp"> | number
+    sourceId?: IntFilter<"FollowUp"> | number
+    targetId?: IntFilter<"FollowUp"> | number
+    reason?: StringNullableFilter<"FollowUp"> | string | null
+    condition?: StringNullableFilter<"FollowUp"> | string | null
+  }
+
+  export type FollowUpUpsertWithWhereUniqueWithoutTargetInput = {
+    where: FollowUpWhereUniqueInput
+    update: XOR<FollowUpUpdateWithoutTargetInput, FollowUpUncheckedUpdateWithoutTargetInput>
+    create: XOR<FollowUpCreateWithoutTargetInput, FollowUpUncheckedCreateWithoutTargetInput>
+  }
+
+  export type FollowUpUpdateWithWhereUniqueWithoutTargetInput = {
+    where: FollowUpWhereUniqueInput
+    data: XOR<FollowUpUpdateWithoutTargetInput, FollowUpUncheckedUpdateWithoutTargetInput>
+  }
+
+  export type FollowUpUpdateManyWithWhereWithoutTargetInput = {
+    where: FollowUpScalarWhereInput
+    data: XOR<FollowUpUpdateManyMutationInput, FollowUpUncheckedUpdateManyWithoutTargetInput>
+  }
+
+  export type ServiceItemCreateWithoutOptionsInput = {
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    package: WorkPackageCreateNestedOneWithoutServicesInput
+    followUps?: FollowUpCreateNestedManyWithoutSourceInput
+    suggestedBy?: FollowUpCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemUncheckedCreateWithoutOptionsInput = {
+    id?: number
+    packageId: number
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    followUps?: FollowUpUncheckedCreateNestedManyWithoutSourceInput
+    suggestedBy?: FollowUpUncheckedCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemCreateOrConnectWithoutOptionsInput = {
+    where: ServiceItemWhereUniqueInput
+    create: XOR<ServiceItemCreateWithoutOptionsInput, ServiceItemUncheckedCreateWithoutOptionsInput>
+  }
+
+  export type ServiceItemUpsertWithoutOptionsInput = {
+    update: XOR<ServiceItemUpdateWithoutOptionsInput, ServiceItemUncheckedUpdateWithoutOptionsInput>
+    create: XOR<ServiceItemCreateWithoutOptionsInput, ServiceItemUncheckedCreateWithoutOptionsInput>
+    where?: ServiceItemWhereInput
+  }
+
+  export type ServiceItemUpdateToOneWithWhereWithoutOptionsInput = {
+    where?: ServiceItemWhereInput
+    data: XOR<ServiceItemUpdateWithoutOptionsInput, ServiceItemUncheckedUpdateWithoutOptionsInput>
+  }
+
+  export type ServiceItemUpdateWithoutOptionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    package?: WorkPackageUpdateOneRequiredWithoutServicesNestedInput
+    followUps?: FollowUpUpdateManyWithoutSourceNestedInput
+    suggestedBy?: FollowUpUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemUncheckedUpdateWithoutOptionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    packageId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    followUps?: FollowUpUncheckedUpdateManyWithoutSourceNestedInput
+    suggestedBy?: FollowUpUncheckedUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemCreateWithoutFollowUpsInput = {
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    package: WorkPackageCreateNestedOneWithoutServicesInput
+    options?: ServiceOptionCreateNestedManyWithoutServiceInput
+    suggestedBy?: FollowUpCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemUncheckedCreateWithoutFollowUpsInput = {
+    id?: number
+    packageId: number
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    options?: ServiceOptionUncheckedCreateNestedManyWithoutServiceInput
+    suggestedBy?: FollowUpUncheckedCreateNestedManyWithoutTargetInput
+  }
+
+  export type ServiceItemCreateOrConnectWithoutFollowUpsInput = {
+    where: ServiceItemWhereUniqueInput
+    create: XOR<ServiceItemCreateWithoutFollowUpsInput, ServiceItemUncheckedCreateWithoutFollowUpsInput>
+  }
+
+  export type ServiceItemCreateWithoutSuggestedByInput = {
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    package: WorkPackageCreateNestedOneWithoutServicesInput
+    options?: ServiceOptionCreateNestedManyWithoutServiceInput
+    followUps?: FollowUpCreateNestedManyWithoutSourceInput
+  }
+
+  export type ServiceItemUncheckedCreateWithoutSuggestedByInput = {
+    id?: number
+    packageId: number
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    options?: ServiceOptionUncheckedCreateNestedManyWithoutServiceInput
+    followUps?: FollowUpUncheckedCreateNestedManyWithoutSourceInput
+  }
+
+  export type ServiceItemCreateOrConnectWithoutSuggestedByInput = {
+    where: ServiceItemWhereUniqueInput
+    create: XOR<ServiceItemCreateWithoutSuggestedByInput, ServiceItemUncheckedCreateWithoutSuggestedByInput>
+  }
+
+  export type ServiceItemUpsertWithoutFollowUpsInput = {
+    update: XOR<ServiceItemUpdateWithoutFollowUpsInput, ServiceItemUncheckedUpdateWithoutFollowUpsInput>
+    create: XOR<ServiceItemCreateWithoutFollowUpsInput, ServiceItemUncheckedCreateWithoutFollowUpsInput>
+    where?: ServiceItemWhereInput
+  }
+
+  export type ServiceItemUpdateToOneWithWhereWithoutFollowUpsInput = {
+    where?: ServiceItemWhereInput
+    data: XOR<ServiceItemUpdateWithoutFollowUpsInput, ServiceItemUncheckedUpdateWithoutFollowUpsInput>
+  }
+
+  export type ServiceItemUpdateWithoutFollowUpsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    package?: WorkPackageUpdateOneRequiredWithoutServicesNestedInput
+    options?: ServiceOptionUpdateManyWithoutServiceNestedInput
+    suggestedBy?: FollowUpUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemUncheckedUpdateWithoutFollowUpsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    packageId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    options?: ServiceOptionUncheckedUpdateManyWithoutServiceNestedInput
+    suggestedBy?: FollowUpUncheckedUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemUpsertWithoutSuggestedByInput = {
+    update: XOR<ServiceItemUpdateWithoutSuggestedByInput, ServiceItemUncheckedUpdateWithoutSuggestedByInput>
+    create: XOR<ServiceItemCreateWithoutSuggestedByInput, ServiceItemUncheckedCreateWithoutSuggestedByInput>
+    where?: ServiceItemWhereInput
+  }
+
+  export type ServiceItemUpdateToOneWithWhereWithoutSuggestedByInput = {
+    where?: ServiceItemWhereInput
+    data: XOR<ServiceItemUpdateWithoutSuggestedByInput, ServiceItemUncheckedUpdateWithoutSuggestedByInput>
+  }
+
+  export type ServiceItemUpdateWithoutSuggestedByInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    package?: WorkPackageUpdateOneRequiredWithoutServicesNestedInput
+    options?: ServiceOptionUpdateManyWithoutServiceNestedInput
+    followUps?: FollowUpUpdateManyWithoutSourceNestedInput
+  }
+
+  export type ServiceItemUncheckedUpdateWithoutSuggestedByInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    packageId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    options?: ServiceOptionUncheckedUpdateManyWithoutServiceNestedInput
+    followUps?: FollowUpUncheckedUpdateManyWithoutSourceNestedInput
+  }
+
   export type WarrantyCreateManyClientInput = {
     id?: number
     projectId?: number | null
@@ -18359,6 +26915,197 @@ export namespace Prisma {
     status?: EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
     companyReply?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkPackageCreateManyProjectTypeInput = {
+    id?: number
+    name: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type WorkPackageUpdateWithoutProjectTypeInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    services?: ServiceItemUpdateManyWithoutPackageNestedInput
+  }
+
+  export type WorkPackageUncheckedUpdateWithoutProjectTypeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    services?: ServiceItemUncheckedUpdateManyWithoutPackageNestedInput
+  }
+
+  export type WorkPackageUncheckedUpdateManyWithoutProjectTypeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceItemCreateManyPackageInput = {
+    id?: number
+    name: string
+    description?: string | null
+    group?: string | null
+    unit: string
+    basePrice: number
+    multiplier?: number | null
+    required?: boolean
+    visibleByDefault?: boolean
+    aiSuggestible?: boolean
+    additionalNotes?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type ServiceItemUpdateWithoutPackageInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    options?: ServiceOptionUpdateManyWithoutServiceNestedInput
+    followUps?: FollowUpUpdateManyWithoutSourceNestedInput
+    suggestedBy?: FollowUpUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemUncheckedUpdateWithoutPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    options?: ServiceOptionUncheckedUpdateManyWithoutServiceNestedInput
+    followUps?: FollowUpUncheckedUpdateManyWithoutSourceNestedInput
+    suggestedBy?: FollowUpUncheckedUpdateManyWithoutTargetNestedInput
+  }
+
+  export type ServiceItemUncheckedUpdateManyWithoutPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    unit?: StringFieldUpdateOperationsInput | string
+    basePrice?: FloatFieldUpdateOperationsInput | number
+    multiplier?: NullableFloatFieldUpdateOperationsInput | number | null
+    required?: BoolFieldUpdateOperationsInput | boolean
+    visibleByDefault?: BoolFieldUpdateOperationsInput | boolean
+    aiSuggestible?: BoolFieldUpdateOperationsInput | boolean
+    additionalNotes?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceOptionCreateManyServiceInput = {
+    id?: number
+    name: string
+    priceDelta: number
+    description?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type FollowUpCreateManySourceInput = {
+    id?: number
+    targetId: number
+    reason?: string | null
+    condition?: string | null
+  }
+
+  export type FollowUpCreateManyTargetInput = {
+    id?: number
+    sourceId: number
+    reason?: string | null
+    condition?: string | null
+  }
+
+  export type ServiceOptionUpdateWithoutServiceInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    priceDelta?: FloatFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceOptionUncheckedUpdateWithoutServiceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    priceDelta?: FloatFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ServiceOptionUncheckedUpdateManyWithoutServiceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    priceDelta?: FloatFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FollowUpUpdateWithoutSourceInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    target?: ServiceItemUpdateOneRequiredWithoutSuggestedByNestedInput
+  }
+
+  export type FollowUpUncheckedUpdateWithoutSourceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    targetId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FollowUpUncheckedUpdateManyWithoutSourceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    targetId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FollowUpUpdateWithoutTargetInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: ServiceItemUpdateOneRequiredWithoutFollowUpsNestedInput
+  }
+
+  export type FollowUpUncheckedUpdateWithoutTargetInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sourceId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FollowUpUncheckedUpdateManyWithoutTargetInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sourceId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

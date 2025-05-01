@@ -225,7 +225,7 @@ model FollowUp {
   source     ServiceItem  @relation("FollowUpSource", fields: [sourceId], references: [id])
   targetId   Int
   target     ServiceItem  @relation("FollowUpTarget", fields: [targetId], references: [id])
-  reason     String?      "Bathroom selected — suggest plumbing"
+  reason     String?
   condition  String?
 }
 

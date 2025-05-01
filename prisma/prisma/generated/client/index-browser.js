@@ -241,6 +241,61 @@ exports.Prisma.ProjectScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.ProjectTypeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  icon: 'icon',
+  steps: 'steps',
+  active: 'active',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.WorkPackageScalarFieldEnum = {
+  id: 'id',
+  projectTypeId: 'projectTypeId',
+  name: 'name',
+  description: 'description',
+  sortOrder: 'sortOrder',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.ServiceItemScalarFieldEnum = {
+  id: 'id',
+  packageId: 'packageId',
+  name: 'name',
+  description: 'description',
+  group: 'group',
+  unit: 'unit',
+  basePrice: 'basePrice',
+  multiplier: 'multiplier',
+  required: 'required',
+  visibleByDefault: 'visibleByDefault',
+  aiSuggestible: 'aiSuggestible',
+  additionalNotes: 'additionalNotes',
+  sortOrder: 'sortOrder',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.ServiceOptionScalarFieldEnum = {
+  id: 'id',
+  serviceId: 'serviceId',
+  name: 'name',
+  priceDelta: 'priceDelta',
+  description: 'description',
+  imageUrl: 'imageUrl',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.FollowUpScalarFieldEnum = {
+  id: 'id',
+  sourceId: 'sourceId',
+  targetId: 'targetId',
+  reason: 'reason',
+  condition: 'condition'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -278,7 +333,12 @@ exports.Prisma.ModelName = {
   ChatSession: 'ChatSession',
   Message: 'Message',
   KnowledgeBase: 'KnowledgeBase',
-  Project: 'Project'
+  Project: 'Project',
+  ProjectType: 'ProjectType',
+  WorkPackage: 'WorkPackage',
+  ServiceItem: 'ServiceItem',
+  ServiceOption: 'ServiceOption',
+  FollowUp: 'FollowUp'
 };
 
 /**
