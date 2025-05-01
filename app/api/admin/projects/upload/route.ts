@@ -1,34 +1,24 @@
-import { Storage } from '@google-cloud/storage';
+import { NextRequest, NextResponse } from 'next/server';
+import { uploadImageToGCS } from '@/lib/gcs/gcs';
 
-export const storage = new Storage({
-  projectId: process.env.GCS_PROJECT_ID,
-  credentials: {
-    client_email: process.env.GCS_CLIENT_EMAIL,
-    private_key: process.env.GCS_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-  },
-});
+export async function POST(req: NextRequest) {
+  try {
+    const formData = await req.formData();
+    const file = formData.get('file') as File;
 
-const bucket = storage.bucket(process.env.GCS_BUCKET_NAME!);
+    if (!file) {
+      return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
+    }
 
-export async function uploadImageToGCS(
-  buffer: Buffer,
-  filename: string,
-  mimetype: string,
-  folder: string = 'uploads'
-): Promise<string> {
-  const fileUpload = bucket.file(`${folder}/${filename}`);
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    const filename = `${Date.now()}-${file.name}`;
 
-  const stream = fileUpload.createWriteStream({
-    metadata: { contentType: mimetype },
-    resumable: false,
-  });
+    const url = await uploadImageToGCS(buffer, filename, file.type, 'projects');
 
-  return new Promise((resolve, reject) => {
-    stream.on('error', (err: Error) => reject(err));
-    stream.on('finish', async () => {
-      await fileUpload.makePublic();
-      resolve(`https://storage.googleapis.com/${bucket.name}/${folder}/${filename}`);
-    });
-    stream.end(buffer);
-  });
+    return NextResponse.json({ url }, { status: 200 });
+  } catch (error) {
+    console.error('[UPLOAD_PROJECT_IMAGE_ERROR]', error);
+    return NextResponse.json({ error: 'Failed to upload image' }, { status: 500 });
+  }
 }
