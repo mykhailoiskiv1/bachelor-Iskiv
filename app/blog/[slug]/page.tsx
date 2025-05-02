@@ -1,6 +1,5 @@
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-import { getSignedUrl } from '@/lib/gcs/getSignedUrl';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -15,8 +14,6 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!post) return notFound();
 
-  const signedUrl = await getSignedUrl(post.imagePath);
-
   return (
     <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
@@ -24,7 +21,7 @@ export default async function BlogPostPage({ params }: Props) {
         {post.category} | {new Date(post.createdAt).toLocaleDateString()}
       </p>
       <img
-        src={signedUrl}
+        src={post.imagePath}
         alt={post.title}
         className="w-full h-64 object-cover rounded mb-6"
       />

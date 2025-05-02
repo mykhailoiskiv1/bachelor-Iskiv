@@ -2,7 +2,8 @@
 
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import FormInput from '../../components/ui/FormInput'
+import Header from '@/components/layout/Header'
+import FormInput from '@/components/ui/FormInput'
 import { loginWithCredentials } from '@/lib/auth/loginWithCredentials'
 import { useRoleRedirect } from '@/hooks/useRoleRedirect'
 
@@ -31,41 +32,58 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="bg-white p-8 rounded-xl shadow-md w-full max-w-sm space-y-5"
-      >
-        <h1 className="text-2xl font-bold text-center text-black">Login</h1>
+    <>
+      <Header />
 
-        <FormInput
-          label="Email"
-          type="email"
-          register={register('email', { required: 'Email is required' })}
-          error={errors.email}
-        />
+      <div className="relative min-h-[calc(100vh-80px)] bg-[var(--color-background)] px-4 py-12 sm:py-20 flex flex-col items-center justify-start">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[var(--color-accent)]/10 via-white to-[var(--color-footer-bg)] clip-skew" />
 
-        <FormInput
-          label="Password"
-          type="password"
-          register={register('password', { required: 'Password is required' })}
-          error={errors.password}
-        />
+        <header className="mb-10 text-center px-2">
+          <h1 className="text-3xl font-semibold text-[var(--color-text-primary)] tracking-tight leading-snug">
+            Sign In
+          </h1>
+          <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+            Access your account to manage services and view updates.
+          </p>
+        </header>
 
-        {serverError && <p className="text-sm text-red-500 text-center">{serverError}</p>}
-
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-full max-w-sm space-y-6"
         >
-          Sign In
-        </button>
-      </form>
+          <FormInput
+            label="Email"
+            type="email"
+            register={register('email', { required: 'Email is required' })}
+            error={errors.email}
+          />
 
-      <p className="text-center text-sm mt-2">
-        Don’t have an account?{' '}
-        <a href="/register" className="text-blue-600 hover:underline">Register</a>
-      </p>
-    </div>
+          <FormInput
+            label="Password"
+            type="password"
+            register={register('password', { required: 'Password is required' })}
+            error={errors.password}
+          />
+
+          {serverError && (
+            <p className="text-sm text-red-500 text-center">{serverError}</p>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-[var(--color-button-bg)] text-[var(--color-button-text)] py-3 rounded-full text-base font-medium hover:bg-[var(--color-button-hover-bg)] transition"
+          >
+            Sign In
+          </button>
+
+          <p className="text-sm text-center text-[var(--color-text-secondary)]">
+            Don’t have an account?{' '}
+            <a href="/register" className="text-[var(--color-accent)] hover:underline">
+              Register
+            </a>
+          </p>
+        </form>
+      </div>
+    </>
   )
 }

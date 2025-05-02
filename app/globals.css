@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+:root {
+    --color-background: #ffffff;
+    --color-header-bg: #ffffff;
+    --color-footer-bg: #f8f9fa;
+    --color-background-alt: #f4f4f4;
+
+    --color-text-primary: #1e1e1e;
+    --color-text-secondary: #6c6c6c;
+
+    --color-accent: #c92127;
+    --color-highlight: #222831;
+
+    --color-border: #e5e5e5;
+
+    --color-link: #1e1e1e;
+    --color-link-hover: #c92127;
+
+    --color-button-text: #ffffff;
+    --color-button-bg: #c92127;
+    --color-button-hover-bg: #222831;
+
+    --color-overlay: rgba(0, 0, 0, 0.03);
+    --color-gradient-light: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+}
+
+
+.clip-diagonal {
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+}
+
+.clip-skew {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+

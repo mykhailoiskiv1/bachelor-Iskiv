@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { uploadImageToGCS } from '@/lib/gcs/gcs';
 import slugify from 'slugify';
-import { getSignedUrl } from '@/lib/gcs/getSignedUrl';
 
 export async function GET() {
   try {
@@ -13,7 +12,7 @@ export async function GET() {
         id: true,
         title: true,
         category: true,
-        imagePaths: true, // Already full URLs
+        imagePaths: true,
         published: true,
         createdAt: true,
       },
@@ -44,8 +43,7 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(await file.arrayBuffer());
     const filename = `${Date.now()}-${file.name}`;
 
-    const rawPath = await uploadImageToGCS(buffer, filename, file.type, 'projects'); // returns "projects/filename.jpg"
-    const signedUrl = await getSignedUrl(rawPath); // returns full temp URL
+    const filePath = await uploadImageToGCS(buffer, filename, file.type, 'projects');
 
     const newProject = await prisma.project.create({
       data: {
@@ -54,7 +52,7 @@ export async function POST(req: NextRequest) {
         description,
         content,
         category,
-        imagePaths: [signedUrl],
+        imagePaths: [filePath],
         published: false,
       },
     });
@@ -65,4 +63,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to create project' }, { status: 500 });
   }
 }
-

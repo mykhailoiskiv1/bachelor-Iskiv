@@ -1,27 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { storage } from '@/lib/gcs/gcs';
-
-const bucket = storage.bucket(process.env.GCS_BUCKET_NAME!);
 
 export async function GET(req: NextRequest) {
   try {
     const path = req.nextUrl.pathname.replace(/^\/api\/media\/file\//, '');
 
     if (!path) {
-      return NextResponse.json({ url: '' });
+      return NextResponse.json({ url: '' }, { status: 400 });
     }
 
-    const file = bucket.file(decodeURIComponent(path));
+    const decodedPath = decodeURIComponent(path);
+    const publicUrl = `https://storage.googleapis.com/${process.env.GCS_BUCKET_NAME}/${decodedPath}`;
 
-    const [signedUrl] = await file.getSignedUrl({
-      version: 'v4',
-      action: 'read',
-      expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-    });
-
-    return NextResponse.json({ url: signedUrl });
+    return NextResponse.json({ url: publicUrl });
   } catch (err) {
-    console.error('Error generating signed URL:', err);
-    return NextResponse.json({ error: 'Failed to generate signed URL' }, { status: 500 });
+    console.error('Error generating public URL:', err);
+    return NextResponse.json({ error: 'Failed to generate URL' }, { status: 500 });
   }
 }

@@ -1,14 +1,18 @@
 export default function HeroSection() {
-    return (
-      <section className="flex flex-col items-center text-center bg-gradient-to-b from-blue-500 to-blue-700 text-white p-6 rounded-b-3xl">
-        <h1 className="text-3xl font-bold mb-4">Welcome to Dream Construction</h1>
-        <p className="mb-6 max-w-xs">
-          Quality renovations, electrical works, and plumbing — all in one place.
+  return (
+    <section className="bg-[var(--color-header-bg)] text-[var(--color-text-primary)] py-32 px-6 border-b border-[var(--color-border)] relative isolate overflow-hidden">
+      <div className="absolute inset-0 -z-10 opacity-5 bg-gradient-to-br from-[var(--color-accent)] to-white pointer-events-none" />
+      <div className="max-w-5xl mx-auto text-center">
+        <h1 className="text-4xl sm:text-5xl font-light tracking-tight leading-snug mb-6">
+          Welcome to <span className="font-semibold">Dream Construction</span>
+        </h1>
+        <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-10">
+          Premium renovations, electrical installations, and plumbing — all under one roof.
         </p>
-        <button className="bg-white text-blue-700 font-semibold px-6 py-2 rounded-full shadow-md hover:bg-gray-100 transition">
+        <button className="inline-block bg-[var(--color-button-bg)] text-[var(--color-button-text)] px-8 py-3 rounded-full font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:bg-[var(--color-button-hover-bg)] transition-all duration-300">
           Calculate Your Project
         </button>
-      </section>
-    );
-  }
-  
+      </div>
+    </section>
+  );
+}

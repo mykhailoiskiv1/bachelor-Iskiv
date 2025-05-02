@@ -11,7 +11,7 @@ export default function BlogPageWrapper() {
     seoDescription?: string;
     content: string;
     slug: string;
-    signedUrl: string;
+    imagePath: string;
   }
 
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -67,7 +67,7 @@ export default function BlogPageWrapper() {
             className="border rounded hover:shadow-lg transition overflow-hidden"
           >
             <img
-              src={post.signedUrl}
+              src={post.imagePath}
               alt={post.title}
               className="w-full h-48 object-cover"
             />

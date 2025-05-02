@@ -1,76 +1,106 @@
-'use client';
+'use client'
 
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import axios from 'axios';
+import { useForm } from 'react-hook-form'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
+import Header from '@/components/layout/Header'
+import FormInput from '@/components/ui/FormInput'
 
 type RegisterForm = {
-  email: string;
-  password: string;
-  name: string;
-  address: string;
-};
+  email: string
+  password: string
+  name: string
+  address: string
+}
 
 export default function RegisterPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm<RegisterForm>();
-  const [serverError, setServerError] = useState('');
-  const [successMsg, setSuccessMsg] = useState('');
-  const router = useRouter();
+  const { register, handleSubmit, formState: { errors } } = useForm<RegisterForm>()
+  const [serverError, setServerError] = useState('')
+  const [successMsg, setSuccessMsg] = useState('')
+  const router = useRouter()
 
   const onSubmit = async (data: RegisterForm) => {
-    setServerError('');
-    setSuccessMsg('');
+    setServerError('')
+    setSuccessMsg('')
 
     try {
-      const res = await axios.post('/api/auth/register', data);
-      setSuccessMsg(res.data.message);
-      setTimeout(() => router.push('/login'), 2000);
+      const res = await axios.post('/api/auth/register', data)
+      setSuccessMsg(res.data.message)
+      setTimeout(() => router.push('/login'), 2000)
     } catch (err: unknown) {
       if (axios.isAxiosError(err) && err.response?.data?.error) {
-        setServerError(err.response.data.error);
+        setServerError(err.response.data.error)
       } else {
-        setServerError('Registration failed');
+        setServerError('Registration failed')
       }
     }
-  };
+  }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-xl shadow-md w-full max-w-sm space-y-5">
-        <h1 className="text-2xl font-bold text-center text-black">Register</h1>
+    <>
+      <Header />
 
-        <div>
-          <label className="block text-sm font-medium text-black">Name</label>
-          <input {...register('name', { required: 'Name is required' })} className="w-full mt-1 p-2 border rounded" />
-          {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
-        </div>
+      <div className="relative min-h-[calc(100vh-80px)] bg-[var(--color-background)] px-4 py-12 sm:py-20 flex flex-col items-center justify-start">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[var(--color-accent)]/10 via-white to-[var(--color-footer-bg)] clip-skew" />
 
-        <div>
-          <label className="block text-sm font-medium text-black">Address</label>
-          <input {...register('address', { required: 'Address is required' })} className="w-full mt-1 p-2 border rounded" />
-          {errors.address && <p className="text-sm text-red-500">{errors.address.message}</p>}
-        </div>
+        <header className="mb-10 text-center px-2">
+          <h1 className="text-3xl font-semibold text-[var(--color-text-primary)] tracking-tight leading-snug">
+            Create an Account
+          </h1>
+          <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+            Join us to manage your projects and services.
+          </p>
+        </header>
 
-        <div>
-          <label className="block text-sm font-medium text-black">Email</label>
-          <input type="email" {...register('email', { required: 'Email is required' })} className="w-full mt-1 p-2 border rounded" />
-          {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
-        </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-full max-w-sm space-y-6"
+        >
+          <FormInput
+            label="Full Name"
+            register={register('name', { required: 'Name is required' })}
+            error={errors.name}
+          />
 
-        <div>
-          <label className="block text-sm font-medium text-black">Password</label>
-          <input type="password" {...register('password', { required: 'Password is required' })} className="w-full mt-1 p-2 border rounded" />
-          {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
-        </div>
+          <FormInput
+            label="Address"
+            register={register('address', { required: 'Address is required' })}
+            error={errors.address}
+          />
 
-        {serverError && <p className="text-sm text-red-500 text-center">{serverError}</p>}
-        {successMsg && <p className="text-sm text-green-600 text-center">{successMsg}</p>}
+          <FormInput
+            label="Email"
+            type="email"
+            register={register('email', { required: 'Email is required' })}
+            error={errors.email}
+          />
 
-        <button type="submit" className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition">
-          Register
-        </button>
-      </form>
-    </div>
-  );
+          <FormInput
+            label="Password"
+            type="password"
+            register={register('password', { required: 'Password is required' })}
+            error={errors.password}
+          />
+
+          {serverError && <p className="text-sm text-red-500 text-center">{serverError}</p>}
+          {successMsg && <p className="text-sm text-green-600 text-center">{successMsg}</p>}
+
+          <button
+            type="submit"
+            className="w-full bg-[var(--color-button-bg)] text-[var(--color-button-text)] py-3 rounded-full text-base font-medium hover:bg-[var(--color-button-hover-bg)] transition"
+          >
+            Register
+          </button>
+
+          <p className="text-sm text-center text-[var(--color-text-secondary)]">
+            Already have an account?{' '}
+            <a href="/login" className="text-[var(--color-accent)] hover:underline">
+              Sign in
+            </a>
+          </p>
+        </form>
+      </div>
+    </>
+  )
 }
