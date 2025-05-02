@@ -12,11 +12,16 @@ type Post = {
 };
 
 const getSignedUrl = async (imagePath: string) => {
-  const res = await fetch(`/api/media/file/
-${imagePath}`);
-  if (!res.ok) return '';
-  const data = await res.json();
-  return data.url;
+  try {
+    const gcsPath = imagePath.replace(/^.*\/(blog|projects)\//, '$1/');
+    const res = await fetch(`/api/media/file/${encodeURIComponent(gcsPath)}`);
+    if (!res.ok) return '';
+    const data = await res.json();
+    return data.url;
+  } catch (err) {
+    console.error('Signed URL fetch error:', err);
+    return '';
+  }
 };
 
 export default function PostItem({ post }: { post: Post }) {
@@ -34,14 +39,22 @@ export default function PostItem({ post }: { post: Post }) {
     <div className="border p-4 rounded flex items-center justify-between gap-4">
       <div className="flex items-center gap-4">
         {imageUrl ? (
-          <img src={imageUrl} alt={post.title} className="w-24 h-24 object-cover rounded" />
+          <img
+            src={imageUrl}
+            alt={post.title}
+            className="w-24 h-24 object-cover rounded"
+          />
         ) : (
-          <div className="w-24 h-24 bg-gray-200 flex items-center justify-center text-xs">No Image</div>
+          <div className="w-24 h-24 bg-gray-200 flex items-center justify-center text-xs">
+            No Image
+          </div>
         )}
         <div>
           <h3 className="font-bold">{post.title}</h3>
           <p className="text-sm text-gray-500">{post.category}</p>
-          <p className="text-xs text-gray-400">Created: {new Date(post.createdAt).toLocaleDateString()}</p>
+          <p className="text-xs text-gray-400">
+            Created: {new Date(post.createdAt).toLocaleDateString()}
+          </p>
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import AboutCompany from '../components/home/AboutCompany';
 import QuickAccessButtons from '../components/home/QuickAccessButtons';
 import FooterMinimal from '../components/home/FooterMinimal';
 import Header from '../components/layout/Header';
+import ProjectPreview from '@/components/home/ProjectPreview';
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <ReviewForm />
       <ReviewsList />
       <FooterMinimal />
+      <ProjectPreview />
     </div>
   );
 }

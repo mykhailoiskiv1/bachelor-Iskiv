@@ -47,8 +47,8 @@ export default function EditPostPage() {
           imagePath: post.imagePath,
         });
 
-        const imgRes = await fetch(`/api/media/file/
-${post.imagePath}`);
+        const imagePath = post.imagePath.replace(/^.*\/(blog|projects)\//, '$1/');
+        const imgRes = await fetch(`/api/media/file/${encodeURIComponent(imagePath)}`);
         const imgData = await imgRes.json();
         setImageUrl(imgData.url);
       } catch (err) {
@@ -133,9 +133,8 @@ ${post.imagePath}`);
 
         <button
           type="submit"
-          className={`w-full bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition ${
-            saving ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
+          className={`w-full bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition ${saving ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           disabled={saving}
         >
           {saving ? 'Updating...' : 'Update Post'}

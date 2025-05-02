@@ -1,24 +1,42 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { uploadImageToGCS } from '@/lib/gcs/gcs';
+import { prisma } from '@/lib/prisma';
+import slugify from 'slugify';
 
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    const file = formData.get('file') as File;
 
-    if (!file) {
-      return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
+    const title = formData.get('title') as string;
+    const category = formData.get('category') as string;
+    const content = formData.get('content') as string;
+    const description = formData.get('description') as string;
+    const file = formData.get('image') as File;
+
+    if (!title || !category || !content || !description || !file) {
+      return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    const buffer = Buffer.from(await file.arrayBuffer());
     const filename = `${Date.now()}-${file.name}`;
 
-    const url = await uploadImageToGCS(buffer, filename, file.type, 'projects');
+    const imageUrl = await uploadImageToGCS(buffer, filename, file.type, 'projects');
 
-    return NextResponse.json({ url }, { status: 200 });
+    const newProject = await prisma.project.create({
+      data: {
+        title,
+        slug: slugify(title, { lower: true }),
+        description,
+        content,
+        category,
+        imagePaths: [imageUrl],
+        published: false,
+      },
+    });
+
+    return NextResponse.json(newProject, { status: 201 });
   } catch (error) {
-    console.error('[UPLOAD_PROJECT_IMAGE_ERROR]', error);
-    return NextResponse.json({ error: 'Failed to upload image' }, { status: 500 });
+    console.error('[PROJECTS_POST_ERROR]', error);
+    return NextResponse.json({ error: 'Failed to create project' }, { status: 500 });
   }
 }
