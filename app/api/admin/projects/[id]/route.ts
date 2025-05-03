@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import slugify from 'slugify';
-import { getSignedUrl } from '@/lib/gcs/getSignedUrl';
 
 export async function GET(
   _req: NextRequest,
@@ -20,11 +19,8 @@ export async function GET(
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    const signedImagePaths = await Promise.all(
-      project.imagePaths.map((path) => getSignedUrl(path))
-    );
+    return NextResponse.json(project);
 
-    return NextResponse.json({ ...project, imagePaths: signedImagePaths });
   } catch (error) {
     console.error('[PROJECT_GET_ERROR]', error);
     return NextResponse.json({ error: 'Error fetching project' }, { status: 500 });

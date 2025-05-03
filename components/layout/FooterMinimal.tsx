@@ -9,7 +9,7 @@ export default function FooterMinimal() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left">
 
         <div className="flex flex-col items-center md:items-start gap-2">
-          <h4 className="text-2xl font-light text-[var(--color-text-primary)] tracking-wide">DreamBuild</h4>
+          <h4 className="text-2xl font-light text-[var(--color-text-primary)] tracking-wide">Dream Construction</h4>
           <p className="text-xs text-[var(--color-text-secondary)]">Crafting better spaces, one detail at a time.</p>
         </div>
 
@@ -35,7 +35,7 @@ export default function FooterMinimal() {
           </div>
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4" />
-            <span>hello@dreambuild.com</span>
+            <span>hello@dreamconstruction.co.uk</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
@@ -45,7 +45,7 @@ export default function FooterMinimal() {
       </div>
 
       <div className="text-center text-xs text-[var(--color-text-secondary)] mt-16">
-        © 2024 DreamBuild. All rights reserved.
+        © 2024 Dream Construction. All rights reserved.
       </div>
     </footer>
   );

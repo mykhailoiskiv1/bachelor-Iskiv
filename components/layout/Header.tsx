@@ -16,7 +16,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-[var(--color-header-bg)] border-b border-[var(--color-border)] shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold text-[var(--color-highlight)] tracking-wide">
-          TEST COMPANY
+          Dream Construction
         </Link>
 
         <button
@@ -57,7 +57,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-[var(--color-header-bg)] border-t border-[var(--color-border)] px-4 pb-4">
           <nav className="flex flex-col gap-4 py-4 text-sm text-[var(--color-link)] font-medium">

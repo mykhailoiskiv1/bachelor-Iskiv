@@ -15,6 +15,7 @@ export async function GET() {
         imagePaths: true,
         published: true,
         createdAt: true,
+        deletedAt: true,
       },
     });
 

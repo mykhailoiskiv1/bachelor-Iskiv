@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import Header from '@/components/layout/Header'
+import FooterMinimal from '@/components/layout/FooterMinimal'
 import FormInput from '@/components/ui/FormInput'
 
 type RegisterForm = {
@@ -101,6 +102,8 @@ export default function RegisterPage() {
           </p>
         </form>
       </div>
+
+      <FooterMinimal />
     </>
   )
 }

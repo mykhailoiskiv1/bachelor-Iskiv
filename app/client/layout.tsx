@@ -1,9 +1,15 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from 'react';
+import ClientHeader from '@/components/layout/ClientHeader';
+import ClientFooter from '@/components/layout/ClientFooter';
+import Breadcrumbs from '@/components/shared/Breadcrumbs';
 
-export default function ClientLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function ClientLayout({ children }: { children: ReactNode }) {
   return (
-    <section className="p-4">
-      {children}
-    </section>
-  )
+    <div className="flex flex-col min-h-screen">
+      <ClientHeader />
+      <Breadcrumbs />
+      <main className="flex-1">{children}</main>
+      <ClientFooter />
+    </div>
+  );
 }

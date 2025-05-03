@@ -3,18 +3,19 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import { useState } from 'react'
+import { Loader2, Pencil, Check, X } from 'lucide-react'
 
 interface Client {
   id: string
-  name: string
+  name: string | null
   email: string
-  address: string
+  address: string | null
 }
 
 const fetcher = (url: string) => axios.get<Client[]>(url).then(res => res.data)
 
 export default function ClientsApproval() {
-  const { data: clients, error, mutate } = useSWR('/api/admin/clients', fetcher)
+  const { data: clients, mutate } = useSWR('/api/admin/clients', fetcher)
   const [loadingId, setLoadingId] = useState<string | null>(null)
   const [editingClient, setEditingClient] = useState<Client | null>(null)
 
@@ -37,63 +38,82 @@ export default function ClientsApproval() {
     }
   }
 
-  if (error) return <p className="text-red-600">Failed to load clients.</p>
-  if (!clients) return <p>Loading clients...</p>
+  if (!clients) return <div className="text-center py-10">Loading clients...</div>
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-bold mb-4">Pending Client Approvals</h2>
+    <div className="max-w-5xl mx-auto py-10">
+      <h1 className="text-xl sm:text-2xl font-semibold text-[var(--color-text-primary)] mb-6 text-center sm:text-left">
+        Pending Client Approvals
+      </h1>
+
       {clients.length === 0 ? (
-        <p>All clients confirmed 🎉</p>
+        <p className="text-center text-gray-500">All clients confirmed 🎉</p>
       ) : (
-        clients.map((client: Client) => (
-          <div key={client.id} className="border p-4 rounded mb-3">
-            {editingClient?.id === client.id ? (
-              <div className="space-y-2">
-                <input
-                  type="text"
-                  value={editingClient.name}
-                  onChange={(e) => setEditingClient({ ...editingClient, name: e.target.value })}
-                  className="border p-1 rounded w-full"
-                />
-                <input
-                  type="text"
-                  value={editingClient.address}
-                  onChange={(e) => setEditingClient({ ...editingClient, address: e.target.value })}
-                  className="border p-1 rounded w-full"
-                />
-                <button onClick={handleEditSubmit} className="bg-blue-500 text-white px-3 py-1 rounded mr-2">
-                  Save
-                </button>
-                <button onClick={() => setEditingClient(null)} className="bg-gray-500 text-white px-3 py-1 rounded">
-                  Cancel
-                </button>
-              </div>
-            ) : (
-              <div className="flex justify-between items-center">
-                <div>
-                  <p><strong>{client.name}</strong> ({client.email})</p>
-                  <p className="text-sm text-gray-500">{client.address}</p>
+        <ul className="grid gap-4">
+          {clients.map(client => (
+            <li
+              key={client.id}
+              className="bg-white rounded-xl shadow-sm p-5 flex flex-col gap-3 hover:shadow-md transition"
+            >
+              {editingClient?.id === client.id ? (
+                <div className="grid gap-3">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    value={editingClient.name || ''}
+                    onChange={(e) => setEditingClient({ ...editingClient, name: e.target.value })}
+                    className="border border-gray-300 px-3 py-2 rounded text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    value={editingClient.address || ''}
+                    onChange={(e) => setEditingClient({ ...editingClient, address: e.target.value })}
+                    className="border border-gray-300 px-3 py-2 rounded text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  />
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleEditSubmit}
+                      className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm flex items-center gap-2"
+                    >
+                      <Check size={16} /> Save
+                    </button>
+                    <button
+                      onClick={() => setEditingClient(null)}
+                      className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 text-sm flex items-center gap-2"
+                    >
+                      <X size={16} /> Cancel
+                    </button>
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => approveClient(client.id)}
-                    disabled={loadingId === client.id}
-                    className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
-                  >
-                    {loadingId === client.id ? 'Confirming...' : 'Confirm'}
-                  </button>
-                  <button
-                    onClick={() => setEditingClient(client)}
-                    className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
-                  >
-                    Edit
-                  </button>
+              ) : (
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+                  <div className="text-sm">
+                    <p className="font-medium text-gray-800">
+                      {client.name || 'No name'} <span className="text-gray-500">({client.email})</span>
+                    </p>
+                    <p className="text-gray-500">{client.address || 'No address'}</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => approveClient(client.id)}
+                      disabled={loadingId === client.id}
+                      className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm flex items-center gap-2"
+                    >
+                      {loadingId === client.id ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Confirm'}
+                    </button>
+                    <button
+                      onClick={() => setEditingClient(client)}
+                      className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded text-sm flex items-center gap-2"
+                    >
+                      <Pencil size={16} /> Edit
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        ))
+              )}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   )

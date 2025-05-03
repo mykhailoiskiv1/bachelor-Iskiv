@@ -1,46 +1,22 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import Link from 'next/link'
 
 type Post = {
-  id: string;
-  title: string;
-  category: string;
-  imagePath: string;
-  createdAt: string;
-};
-
-const getSignedUrl = async (imagePath: string) => {
-  try {
-    const gcsPath = imagePath.replace(/^.*\/(blog|projects)\//, '$1/');
-    const res = await fetch(`/api/media/file/${encodeURIComponent(gcsPath)}`);
-    if (!res.ok) return '';
-    const data = await res.json();
-    return data.url;
-  } catch (err) {
-    console.error('Signed URL fetch error:', err);
-    return '';
-  }
-};
+  id: string
+  title: string
+  category: string
+  imagePath: string
+  createdAt: string
+}
 
 export default function PostItem({ post }: { post: Post }) {
-  const [imageUrl, setImageUrl] = useState<string>('');
-
-  useEffect(() => {
-    const fetchUrl = async () => {
-      const url = await getSignedUrl(post.imagePath);
-      setImageUrl(url);
-    };
-    fetchUrl();
-  }, [post.imagePath]);
-
   return (
     <div className="border p-4 rounded flex items-center justify-between gap-4">
       <div className="flex items-center gap-4">
-        {imageUrl ? (
+        {post.imagePath ? (
           <img
-            src={imageUrl}
+            src={post.imagePath}
             alt={post.title}
             className="w-24 h-24 object-cover rounded"
           />
@@ -65,5 +41,5 @@ export default function PostItem({ post }: { post: Post }) {
         Edit
       </Link>
     </div>
-  );
+  )
 }

@@ -1,69 +1,80 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { useSession , signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import ReviewsModeration from '../../components/admin/reviews/ReviewsModeration';
-import AddServiceForm from '../../components/admin/services/AddServiceForm';
-import ServiceList from '../../components/admin/services/ServiceList';
-import DeletedServicesList from '../../components/admin/services/DeletedServicesList';
-import ClientsApproval from '../../components/admin/clients/ClientsApproval';
-import ClientsManagement from '../../components/admin/clients/ClientsManagement';
-import AdminCertificatesPage from '../../components/admin/certificates/page';
-import AdminWarrantiesPage from '../../components/admin/warranties/page';
-import AdminNotificationsPage from '../../components/admin/notifications/page';
+import useSWR from 'swr'
+import axios from 'axios'
+import Link from 'next/link'
+import {
+  Newspaper,
+  Folder,
+  Settings,
+  Bell,
+  CheckCircle,
+  UserCog,
+  FileCheck,
+  ShieldCheck,
+  MessageSquare
+} from 'lucide-react'
 
+const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
-export default function AdminPage() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  if (status === 'loading') return <div>Loading...</div>;
-  if (!session || session.user.role !== 'ADMIN') {
-    router.push('/');
-    return null;
-  }
-
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    const res = await fetch('/api/admin/blog/upload', {
-      method: 'POST',
-      body: formData,
-    });
-
-    const data = await res.json();
-    console.log('Uploaded image URL:', data.url);
-  };
-
+export default function AdminDashboardPage() {
+  const { data: pending } = useSWR('/api/admin/clients', fetcher)
 
   return (
-    <main className="max-w-4xl mx-auto p-6 space-y-8">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-        <button
-          onClick={() => signOut({ callbackUrl: '/login' })}
-          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-        >
-          Logout
-        </button>
-      </div>
-      <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
-      <ClientsApproval />
-      <ReviewsModeration />
-      <AddServiceForm />
-      <ServiceList />
-      <DeletedServicesList />
-      <ClientsManagement />
-      <AdminCertificatesPage />
-      <AdminWarrantiesPage />
-      <AdminNotificationsPage />
-      <input type="file" onChange={handleFileChange} />
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <h1 className="text-3xl font-semibold mb-10 text-[var(--color-text-primary)]">Welcome, Admin</h1>
 
-    </main>
-  );
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Link href="/admin/blog" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <Newspaper className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Manage Blog</span>
+        </Link>
+
+        <Link href="/admin/projects" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <Folder className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Manage Projects</span>
+        </Link>
+
+        <Link href="/admin/clients-approval" className="relative bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <CheckCircle className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Client Approvals</span>
+          {pending?.length > 0 && (
+            <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold rounded-full w-6 h-6 flex items-center justify-center">
+              {pending.length}
+            </span>
+          )}
+        </Link>
+
+        <Link href="/admin/manage-clients" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <UserCog className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Manage Clients</span>
+        </Link>
+
+        <Link href="/admin/services" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <Settings className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Services</span>
+        </Link>
+
+        <Link href="/admin/notifications" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <Bell className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Notifications</span>
+        </Link>
+
+        <Link href="/admin/certificates" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <FileCheck className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Certificates</span>
+        </Link>
+
+        <Link href="/admin/warranties" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <ShieldCheck className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Warranties</span>
+        </Link>
+
+        <Link href="/admin/reviews" className="bg-white shadow hover:shadow-md border rounded-xl p-6 flex items-center gap-4 transition-all group">
+          <MessageSquare className="w-8 h-8 text-[var(--color-accent)] group-hover:scale-110 transition-transform" />
+          <span className="text-lg font-medium text-[var(--color-text-primary)]">Moderate Reviews</span>
+        </Link>
+      </div>
+    </div>
+  )
 }

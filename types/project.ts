@@ -14,5 +14,6 @@ export type Project = {
     imagePaths: string[];
     createdAt?: string;
     updatedAt?: string;
+    deletedAt?: string | null;
   };
   

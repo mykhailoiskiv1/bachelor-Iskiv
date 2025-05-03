@@ -3,6 +3,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import { useState } from 'react'
+import { Edit, Ban, Check, RotateCcw, Save, X } from 'lucide-react'
 
 interface Client {
   id: string
@@ -54,72 +55,88 @@ export default function ClientsManagement() {
   if (!clients) return <p>Loading clients...</p>
 
   return (
-    <div className="mt-8">
-      <h2 className="text-2xl font-bold mb-4">Clients Management</h2>
+    <div className="max-w-6xl mx-auto py-10 px-4">
+      
+
       <input
         type="text"
         placeholder="Search by name or email"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border p-2 rounded mb-4 w-full max-w-md"
+        className="border border-gray-300 rounded px-4 py-2 mb-6 w-full max-w-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
       />
-      {filteredClients!.map(client => (
-        <div key={client.id} className="border p-4 rounded mb-3">
-          {editingClient?.id === client.id ? (
-            <div className="space-y-2">
-              <input
-                type="text"
-                value={editingClient.name || ''}
-                onChange={(e) => setEditingClient({ ...editingClient, name: e.target.value })}
-                className="border p-1 rounded w-full"
-              />
-              <input
-                type="text"
-                value={editingClient.address || ''}
-                onChange={(e) => setEditingClient({ ...editingClient, address: e.target.value })}
-                className="border p-1 rounded w-full"
-              />
-              <button onClick={handleEditSubmit} className="bg-blue-500 text-white px-3 py-1 rounded mr-2">
-                Save
-              </button>
-              <button onClick={() => setEditingClient(null)} className="bg-gray-500 text-white px-3 py-1 rounded">
-                Cancel
-              </button>
-            </div>
-          ) : (
-            <div className="flex justify-between items-center">
-              <div>
-                <p><strong>{client.name || 'No Name'}</strong> ({client.email})</p>
-                <p className="text-sm text-gray-500">{client.address || 'No Address'}</p>
-                <p className="text-sm">
-                  Status: {client.isConfirmed ? '✅ Confirmed' : '⏳ Pending'} | 
-                  {client.isActive ? ' 🟢 Active' : ' 🔴 Blocked'}
-                </p>
+
+      <ul className="grid gap-4">
+        {filteredClients!.map(client => (
+          <li
+            key={client.id}
+            className="bg-white rounded-xl shadow-sm p-5 flex flex-col gap-4 hover:shadow-md transition"
+          >
+            {editingClient?.id === client.id ? (
+              <div className="grid gap-3">
+                <input
+                  type="text"
+                  value={editingClient.name || ''}
+                  onChange={(e) => setEditingClient({ ...editingClient, name: e.target.value })}
+                  className="border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+                <input
+                  type="text"
+                  value={editingClient.address || ''}
+                  onChange={(e) => setEditingClient({ ...editingClient, address: e.target.value })}
+                  className="border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+                <div className="flex gap-2">
+                  <button
+                    onClick={handleEditSubmit}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm flex items-center gap-2"
+                  >
+                    <Save size={16} /> Save
+                  </button>
+                  <button
+                    onClick={() => setEditingClient(null)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm flex items-center gap-2"
+                  >
+                    <X size={16} /> Cancel
+                  </button>
+                </div>
               </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setEditingClient(client)}
-                  className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleBlockToggle(client)}
-                  className={`px-3 py-1 rounded text-white ${client.isActive ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'}`}
-                >
-                  {client.isActive ? 'Block' : 'Unblock'}
-                </button>
-                <button
-                  onClick={() => handleResetPassword(client.id)}
-                  className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700"
-                >
-                  Reset Password
-                </button>
+            ) : (
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+                <div className="text-sm">
+                  <p className="font-medium text-gray-800">
+                    {client.name || 'No Name'} <span className="text-gray-500">({client.email})</span>
+                  </p>
+                  <p className="text-gray-500">{client.address || 'No Address'}</p>
+                  <p className="text-xs mt-1 text-gray-500">
+                    Status: {client.isConfirmed ? '✅ Confirmed' : '⏳ Pending'} | {client.isActive ? '🟢 Active' : '🔴 Blocked'}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setEditingClient(client)}
+                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm flex items-center gap-1"
+                  >
+                    <Edit size={14} /> Edit
+                  </button>
+                  <button
+                    onClick={() => handleBlockToggle(client)}
+                    className={`px-3 py-1 rounded text-sm flex items-center gap-1 text-white ${client.isActive ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'}`}
+                  >
+                    {client.isActive ? <Ban size={14} /> : <Check size={14} />} {client.isActive ? 'Block' : 'Unblock'}
+                  </button>
+                  <button
+                    onClick={() => handleResetPassword(client.id)}
+                    className="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded text-sm flex items-center gap-1"
+                  >
+                    <RotateCcw size={14} /> Reset Password
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      ))}
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

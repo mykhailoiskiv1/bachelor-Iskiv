@@ -5,7 +5,7 @@ import PopularServices from '../components/home/PopularServices';
 import ProjectPreview from '@/components/home/ProjectPreview';
 import QuickAccessButtons from '../components/home/QuickAccessButtons';
 import ReviewsList from '../components/client/reviews/ReviewsList';
-import FooterMinimal from '../components/home/FooterMinimal';
+import FooterMinimal from '../components/layout/FooterMinimal';
 
 export default function Home() {
   return (

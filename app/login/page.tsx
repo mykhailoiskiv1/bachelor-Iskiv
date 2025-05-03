@@ -3,6 +3,7 @@
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import Header from '@/components/layout/Header'
+import FooterMinimal from '@/components/layout/FooterMinimal'
 import FormInput from '@/components/ui/FormInput'
 import { loginWithCredentials } from '@/lib/auth/loginWithCredentials'
 import { useRoleRedirect } from '@/hooks/useRoleRedirect'
@@ -84,6 +85,8 @@ export default function LoginPage() {
           </p>
         </form>
       </div>
+
+      <FooterMinimal />
     </>
   )
 }
