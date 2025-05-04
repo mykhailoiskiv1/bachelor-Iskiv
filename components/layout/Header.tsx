@@ -30,7 +30,7 @@ export default function Header() {
         <nav className="hidden md:flex gap-6 text-sm text-[var(--color-link)] font-medium">
           <Link href="/" className="hover:text-[var(--color-link-hover)] transition">Home</Link>
           <Link href="/services" className="hover:text-[var(--color-link-hover)] transition">Services</Link>
-          <Link href="/gallery" className="hover:text-[var(--color-link-hover)] transition">Gallery</Link>
+          <Link href="/projects" className="hover:text-[var(--color-link-hover)] transition">Gallery</Link>
           <Link href="/blog" className="hover:text-[var(--color-link-hover)] transition">Blog</Link>
           <Link href="/contact" className="hover:text-[var(--color-link-hover)] transition">Contact</Link>
         </nav>

@@ -44,70 +44,81 @@ export default function ServiceList({ search, category }: ServiceListProps) {
     }
   }
 
-  const filtered = services?.filter(service => {
-    const matchesSearch = service.title.toLowerCase().includes(search.toLowerCase())
-    const matchesCategory = category ? service.category === category : true
-    return matchesSearch && matchesCategory
-  }) || []
-
   if (error) return <div className="text-red-500">Failed to load services</div>
   if (!services) return <div>Loading...</div>
 
+  const filtered = services.filter(service =>
+    service.title.toLowerCase().includes(search.toLowerCase()) &&
+    (category ? service.category === category : true)
+  )
+
+  const grouped = filtered.reduce((acc, service) => {
+    if (!acc[service.category]) acc[service.category] = []
+    acc[service.category].push(service)
+    return acc
+  }, {} as Record<string, Service[]>)
+
   return (
-    <div className="mt-10">
-      <h2 className="text-xl font-semibold mb-4 text-[var(--color-text-primary)]">Services</h2>
-      {filtered.length === 0 ? (
-        <p className="text-sm text-gray-500">No services found.</p>
-      ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map(service => (
-            <div
-              key={service.id}
-              className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer flex flex-col justify-between"
-              onClick={() => setEditingService(service)}
-            >
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800">{service.title}</h3>
-                <p className="text-sm text-gray-500 mb-1">{service.category}</p>
-                <p className="text-xs text-gray-400">{service.description}</p>
+    <div className="space-y-12">
+      {Object.entries(grouped).map(([cat, items]) => (
+        <section key={cat}>
+          <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3 border-b pb-1">{cat}</h3>
 
-                <div className="mt-2 space-x-2 text-xs">
-                  {service.isFeatured && (
-                    <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-full">Featured</span>
-                  )}
-                  {service.isHot && (
-                    <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full">🔥 Hot</span>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex justify-end gap-2 mt-4">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setEditingService(service)
-                  }}
-                  className="text-yellow-600 hover:text-yellow-700"
-                  title="Edit"
-                >
-                  <Pencil size={18} />
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    handleDelete(service.id)
-                  }}
-                  className="text-red-600 hover:text-red-700"
-                  disabled={loadingId === service.id}
-                  title="Delete"
-                >
-                  <Trash2 size={18} />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-gray-50 text-gray-700 font-medium">
+                <tr>
+                  <th className="px-4 py-2">Title</th>
+                  <th className="px-4 py-2 hidden sm:table-cell">Description</th>
+                  <th className="px-4 py-2 hidden md:table-cell">Flags</th>
+                  <th className="px-4 py-2 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {items.map(service => (
+                  <tr
+                    key={service.id}
+                    className="hover:bg-gray-50 border-t border-gray-100 transition"
+                  >
+                    <td className="px-4 py-2 text-[var(--color-text-primary)] font-medium">
+                      {service.title}
+                      {service.isHot && <span className="ml-1 text-[var(--color-accent)]">🔥</span>}
+                    </td>
+                    <td className="px-4 py-2 text-gray-600 hidden sm:table-cell">{service.description}</td>
+                    <td className="px-4 py-2 hidden md:table-cell">
+                      <div className="flex flex-wrap gap-1 text-xs text-gray-600">
+                        {service.isFeatured && (
+                          <span className="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">Featured</span>
+                        )}
+                        <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">Order: {service.sortOrder}</span>
+                      </div>
+                    </td>
+                    <td className="px-4 py-2 text-right">
+                      <div className="flex justify-end gap-3">
+                        <button
+                          onClick={() => setEditingService(service)}
+                          className="text-yellow-600 hover:text-yellow-700"
+                          title="Edit"
+                        >
+                          <Pencil size={16} />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(service.id)}
+                          className="text-red-600 hover:text-red-700"
+                          disabled={loadingId === service.id}
+                          title="Delete"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
 
       {editingService && (
         <EditServiceModal

@@ -36,7 +36,6 @@ export default function DeletedServicesList() {
 
   return (
     <div className="mt-10">
-      <h2 className="text-xl font-semibold text-red-600 mb-4">Deleted Services</h2>
 
       {services.length === 0 ? (
         <p className="text-gray-500">No deleted services.</p>

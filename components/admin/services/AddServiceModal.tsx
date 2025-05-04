@@ -25,7 +25,12 @@ export default function AddServiceModal({ onClose, onCreated }: AddServiceModalP
     const { name, value, type, checked } = e.target as HTMLInputElement
     setForm(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]:
+        type === 'checkbox'
+          ? checked
+          : type === 'number'
+            ? Number(value)
+            : value,
     }))
   }
 
