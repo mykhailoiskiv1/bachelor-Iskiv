@@ -1,83 +1,92 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import Header from '@/components/layout/Header'
+import FooterMinimal from '@/components/layout/FooterMinimal'
+import FormInput from '@/components/ui/FormInput'
+import { loginWithCredentials } from '@/lib/auth/loginWithCredentials'
+import { useRoleRedirect } from '@/hooks/useRoleRedirect'
 
 type FormData = {
-    email: string
-    password: string
+  email: string
+  password: string
 }
 
 export default function LoginPage() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
-    const [serverError, setServerError] = useState('')
-    const router = useRouter()
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
+  const [serverError, setServerError] = useState('')
+  const redirectByRole = useRoleRedirect()
 
-    const onSubmit = async (data: FormData) => {
-        setServerError('')
-        const res = await signIn('credentials', {
-            ...data,
-            redirect: false,
-        })
+  const onSubmit = async ({ email, password }: FormData) => {
+    setServerError('')
+    const res = await loginWithCredentials(email, password)
 
-        if (res?.error) {
-            setServerError('Invalid email or password')
-        } else if (res?.ok) {
-            const sessionRes = await fetch('/api/auth/session')
-            const session = await sessionRes.json()
-
-            const role = session?.user?.role
-
-            if (role === 'ADMIN') {
-                router.push('/admin')
-            } else {
-                router.push('/')
-            }
-        }
+    if (res?.error) {
+      setServerError('Invalid email or password')
+    } else if (res?.ok) {
+      const sessionRes = await fetch('/api/auth/session')
+      const session = await sessionRes.json()
+      const role = session?.user?.role
+      redirectByRole(role)
     }
+  }
 
+  return (
+    <>
+      <Header />
 
-    return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="bg-white p-8 rounded-xl shadow-md w-full max-w-sm space-y-5"
-            >
-                <h1 className="text-2xl font-bold text-center text-black">Login</h1>
+      <div className="relative min-h-[calc(100vh-80px)] bg-[var(--color-background)] px-4 py-12 sm:py-20 flex flex-col items-center justify-start">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[var(--color-accent)]/10 via-white to-[var(--color-footer-bg)] clip-skew" />
 
-                <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-black">Email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        {...register('email', { required: 'Email is required' })}
-                        className="w-full mt-1 p-2 border rounded"
-                    />
-                    {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
-                </div>
+        <header className="mb-10 text-center px-2">
+          <h1 className="text-3xl font-semibold text-[var(--color-text-primary)] tracking-tight leading-snug">
+            Sign In
+          </h1>
+          <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+            Access your account to manage services and view updates.
+          </p>
+        </header>
 
-                <div>
-                    <label htmlFor="password" className="block text-sm font-medium text-black">Password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        {...register('password', { required: 'Password is required' })}
-                        className="w-full mt-1 p-2 border rounded"
-                    />
-                    {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>}
-                </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-full max-w-sm space-y-6"
+        >
+          <FormInput
+            label="Email"
+            type="email"
+            register={register('email', { required: 'Email is required' })}
+            error={errors.email}
+          />
 
-                {serverError && <p className="text-sm text-red-500 text-center">{serverError}</p>}
+          <FormInput
+            label="Password"
+            type="password"
+            register={register('password', { required: 'Password is required' })}
+            error={errors.password}
+          />
 
-                <button
-                    type="submit"
-                    className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
-                >
-                    Sign In
-                </button>
-            </form>
-        </div>
-    )
+          {serverError && (
+            <p className="text-sm text-red-500 text-center">{serverError}</p>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-[var(--color-button-bg)] text-[var(--color-button-text)] py-3 rounded-full text-base font-medium hover:bg-[var(--color-button-hover-bg)] transition"
+          >
+            Sign In
+          </button>
+
+          <p className="text-sm text-center text-[var(--color-text-secondary)]">
+            Don’t have an account?{' '}
+            <a href="/register" className="text-[var(--color-accent)] hover:underline">
+              Register
+            </a>
+          </p>
+        </form>
+      </div>
+
+      <FooterMinimal />
+    </>
+  )
 }

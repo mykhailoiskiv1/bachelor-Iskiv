@@ -1,0 +1,243 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./prisma/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  password    String
+  role        Role      @default(CLIENT)
+  name        String?
+  address     String?
+  phone       String?
+  lastLogin   DateTime?
+  isConfirmed Boolean   @default(false)
+  isActive    Boolean   @default(true)
+
+  warranties    Warranty[]
+  certificates  Certificate[]
+  notifications Notification[]
+  invoices      Invoice[]
+}
+
+model Review {
+  id           Int          @id @default(autoincrement())
+  clientName   String
+  rating       Int
+  content      String
+  status       ReviewStatus @default(PENDING)
+  companyReply String?
+  createdAt    DateTime     @default(now())
+
+  projectId Int?
+  project   Project? @relation("ProjectReviews", fields: [projectId], references: [id])
+}
+
+model Service {
+  id          Int       @id @default(autoincrement())
+  title       String
+  category    String
+  description String?
+  icon        String
+  isFeatured  Boolean   @default(false)
+  sortOrder   Int       @default(0)
+  isHot       Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+}
+
+enum Role {
+  USER
+  CLIENT
+  ADMIN
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Warranty {
+  id             Int      @id @default(autoincrement())
+  projectId      Int?
+  clientId       String
+  startDate      DateTime
+  durationMonths Int
+  projectName    String
+  createdAt      DateTime @default(now())
+
+  client User @relation(fields: [clientId], references: [id])
+}
+
+model Certificate {
+  id         Int      @id @default(autoincrement())
+  clientId   String
+  fileUrl    String
+  title      String
+  issuedDate DateTime
+  createdAt  DateTime @default(now())
+
+  client User @relation(fields: [clientId], references: [id])
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  clientId  String
+  client    User     @relation(fields: [clientId], references: [id])
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id             String   @id @default(cuid())
+  title          String
+  slug           String   @unique
+  category       String
+  content        String
+  imagePath      String
+  seoTitle       String?
+  seoDescription String?
+  seoKeywords    String?
+  published      Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model ChatSession {
+  id         Int       @id @default(autoincrement())
+  userId     Int? // Якщо користувач авторизований
+  sessionKey String? // Для гостей (можна зберігати session id)
+  messages   Message[]
+  createdAt  DateTime  @default(now())
+}
+
+model Message {
+  id            Int         @id @default(autoincrement())
+  chatSession   ChatSession @relation(fields: [chatSessionId], references: [id])
+  chatSessionId Int
+  sender        String // 'user', 'bot', 'admin'
+  content       String
+  isTransferred Boolean     @default(false) // Позначка для передачі адміну
+  createdAt     DateTime    @default(now())
+}
+
+model KnowledgeBase {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+}
+
+model Project {
+  id             Int       @id @default(autoincrement())
+  title          String
+  slug           String    @unique
+  description    String
+  content        String
+  imagePaths     String[]
+  videoUrl       String?
+  category       String
+  tags           String[]
+  location       String?
+  completionDate DateTime?
+  seoTitle       String?
+  seoDescription String?
+  seoKeywords    String?
+  published      Boolean   @default(false)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  reviews Review[] @relation("ProjectReviews")
+}
+
+model ProjectType {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  icon        String?
+  steps       Int      @default(3)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  packages WorkPackage[]
+}
+
+model WorkPackage {
+  id            Int         @id @default(autoincrement())
+  projectTypeId Int
+  projectType   ProjectType @relation(fields: [projectTypeId], references: [id])
+  name          String
+  description   String?
+  sortOrder     Int         @default(0)
+  createdAt     DateTime    @default(now())
+
+  services ServiceItem[]
+}
+
+model ServiceItem {
+  id               Int         @id @default(autoincrement())
+  packageId        Int
+  package          WorkPackage @relation(fields: [packageId], references: [id])
+  name             String
+  description      String?
+  group            String?
+  unit             String
+  basePrice        Float
+  multiplier       Float?
+  required         Boolean     @default(false)
+  visibleByDefault Boolean     @default(true)
+  aiSuggestible    Boolean     @default(true)
+  additionalNotes  String?
+  sortOrder        Int         @default(0)
+  createdAt        DateTime    @default(now())
+
+  options     ServiceOption[]
+  followUps   FollowUp[]      @relation("FollowUpSource")
+  suggestedBy FollowUp[]      @relation("FollowUpTarget")
+}
+
+model ServiceOption {
+  id          Int         @id @default(autoincrement())
+  serviceId   Int
+  service     ServiceItem @relation(fields: [serviceId], references: [id])
+  name        String
+  priceDelta  Float
+  description String?
+  imageUrl    String?
+  createdAt   DateTime    @default(now())
+}
+
+model FollowUp {
+  id        Int         @id @default(autoincrement())
+  sourceId  Int
+  source    ServiceItem @relation("FollowUpSource", fields: [sourceId], references: [id])
+  targetId  Int
+  target    ServiceItem @relation("FollowUpTarget", fields: [targetId], references: [id])
+  reason    String?
+  condition String?
+}
+
+model Invoice {
+  id          Int       @id @default(autoincrement())
+  clientId    String
+  title       String
+  fileUrl     String
+  issuedDate  DateTime  @default(now())
+  totalAmount Float
+  projectName String
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  client User @relation(fields: [clientId], references: [id])
+}
