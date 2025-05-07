@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Review } from '@/types/review'
-import ReviewFormModal from '@/components/client/reviews/ReviewFormModal.tsx'
+import ReviewFormModal from '@/components/client/reviews/ReviewFormModal'
 
 const REVIEWS_PER_PAGE = 3
 

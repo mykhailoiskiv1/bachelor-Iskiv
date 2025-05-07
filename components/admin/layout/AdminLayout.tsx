@@ -1,5 +1,8 @@
+'use client'
+
 import AdminHeader from './AdminHeader'
 import AdminBreadcrumbs from '../AdminBreadcrumbs'
+import { Toaster } from 'react-hot-toast'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,6 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <AdminBreadcrumbs />
         {children}
       </main>
+      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
     </div>
   )
 }

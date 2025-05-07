@@ -6,3 +6,4 @@ export * from './post';
 export * from './review';
 export * from './service';
 export * from './warranty';
+export * from './invoice';

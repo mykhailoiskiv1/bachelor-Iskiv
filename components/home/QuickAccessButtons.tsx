@@ -2,7 +2,7 @@ import { GalleryHorizontalEnd, Calculator, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 
 const buttons = [
-  { label: 'Gallery', href: '/gallery', icon: GalleryHorizontalEnd },
+  { label: 'Gallery', href: '/projects', icon: GalleryHorizontalEnd },
   { label: 'Calculator', href: '/calculator', icon: Calculator },
   { label: 'Blog', href: '/blog', icon: Newspaper },
 ];

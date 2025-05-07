@@ -22,7 +22,8 @@ model User {
 
   warranties    Warranty[]
   certificates  Certificate[]
-  notifications Notification[] // ДОДАЄМО ЦЕ
+  notifications Notification[]
+  invoices      Invoice[]
 }
 
 model Review {
@@ -184,7 +185,6 @@ model WorkPackage {
   services ServiceItem[]
 }
 
-// Конкретні послуги
 model ServiceItem {
   id               Int         @id @default(autoincrement())
   packageId        Int
@@ -226,4 +226,18 @@ model FollowUp {
   target    ServiceItem @relation("FollowUpTarget", fields: [targetId], references: [id])
   reason    String?
   condition String?
+}
+
+model Invoice {
+  id          Int       @id @default(autoincrement())
+  clientId    String
+  title       String
+  fileUrl     String
+  issuedDate  DateTime  @default(now())
+  totalAmount Float
+  projectName String
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  client User @relation(fields: [clientId], references: [id])
 }

@@ -296,6 +296,18 @@ exports.Prisma.FollowUpScalarFieldEnum = {
   condition: 'condition'
 };
 
+exports.Prisma.InvoiceScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  title: 'title',
+  fileUrl: 'fileUrl',
+  issuedDate: 'issuedDate',
+  totalAmount: 'totalAmount',
+  projectName: 'projectName',
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -338,7 +350,8 @@ exports.Prisma.ModelName = {
   WorkPackage: 'WorkPackage',
   ServiceItem: 'ServiceItem',
   ServiceOption: 'ServiceOption',
-  FollowUp: 'FollowUp'
+  FollowUp: 'FollowUp',
+  Invoice: 'Invoice'
 };
 
 /**
