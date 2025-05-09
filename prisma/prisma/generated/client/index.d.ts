@@ -98,6 +98,16 @@ export type FollowUp = $Result.DefaultSelection<Prisma.$FollowUpPayload>
  * 
  */
 export type Invoice = $Result.DefaultSelection<Prisma.$InvoicePayload>
+/**
+ * Model ClientProject
+ * 
+ */
+export type ClientProject = $Result.DefaultSelection<Prisma.$ClientProjectPayload>
+/**
+ * Model ClientProjectHistory
+ * 
+ */
+export type ClientProjectHistory = $Result.DefaultSelection<Prisma.$ClientProjectHistoryPayload>
 
 /**
  * Enums
@@ -424,6 +434,26 @@ export class PrismaClient<
     * ```
     */
   get invoice(): Prisma.InvoiceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clientProject`: Exposes CRUD operations for the **ClientProject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClientProjects
+    * const clientProjects = await prisma.clientProject.findMany()
+    * ```
+    */
+  get clientProject(): Prisma.ClientProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clientProjectHistory`: Exposes CRUD operations for the **ClientProjectHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClientProjectHistories
+    * const clientProjectHistories = await prisma.clientProjectHistory.findMany()
+    * ```
+    */
+  get clientProjectHistory(): Prisma.ClientProjectHistoryDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -880,7 +910,9 @@ export namespace Prisma {
     ServiceItem: 'ServiceItem',
     ServiceOption: 'ServiceOption',
     FollowUp: 'FollowUp',
-    Invoice: 'Invoice'
+    Invoice: 'Invoice',
+    ClientProject: 'ClientProject',
+    ClientProjectHistory: 'ClientProjectHistory'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -899,7 +931,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project" | "projectType" | "workPackage" | "serviceItem" | "serviceOption" | "followUp" | "invoice"
+      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project" | "projectType" | "workPackage" | "serviceItem" | "serviceOption" | "followUp" | "invoice" | "clientProject" | "clientProjectHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2161,6 +2193,154 @@ export namespace Prisma {
           }
         }
       }
+      ClientProject: {
+        payload: Prisma.$ClientProjectPayload<ExtArgs>
+        fields: Prisma.ClientProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClientProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClientProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.ClientProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClientProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          findMany: {
+            args: Prisma.ClientProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>[]
+          }
+          create: {
+            args: Prisma.ClientProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          createMany: {
+            args: Prisma.ClientProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClientProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>[]
+          }
+          delete: {
+            args: Prisma.ClientProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          update: {
+            args: Prisma.ClientProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClientProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClientProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClientProjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClientProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.ClientProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClientProject>
+          }
+          groupBy: {
+            args: Prisma.ClientProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClientProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      ClientProjectHistory: {
+        payload: Prisma.$ClientProjectHistoryPayload<ExtArgs>
+        fields: Prisma.ClientProjectHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClientProjectHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClientProjectHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.ClientProjectHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClientProjectHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.ClientProjectHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.ClientProjectHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.ClientProjectHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClientProjectHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.ClientProjectHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          update: {
+            args: Prisma.ClientProjectHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClientProjectHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClientProjectHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClientProjectHistoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClientProjectHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.ClientProjectHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClientProjectHistory>
+          }
+          groupBy: {
+            args: Prisma.ClientProjectHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClientProjectHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2262,6 +2442,8 @@ export namespace Prisma {
     serviceOption?: ServiceOptionOmit
     followUp?: FollowUpOmit
     invoice?: InvoiceOmit
+    clientProject?: ClientProjectOmit
+    clientProjectHistory?: ClientProjectHistoryOmit
   }
 
   /* Types for Logging */
@@ -2360,6 +2542,7 @@ export namespace Prisma {
     certificates: number
     notifications: number
     invoices: number
+    clientProjects: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2367,6 +2550,7 @@ export namespace Prisma {
     certificates?: boolean | UserCountOutputTypeCountCertificatesArgs
     notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
     invoices?: boolean | UserCountOutputTypeCountInvoicesArgs
+    clientProjects?: boolean | UserCountOutputTypeCountClientProjectsArgs
   }
 
   // Custom InputTypes
@@ -2406,6 +2590,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountInvoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InvoiceWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountClientProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectWhereInput
   }
 
 
@@ -2579,6 +2770,37 @@ export namespace Prisma {
    */
   export type ServiceItemCountOutputTypeCountSuggestedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FollowUpWhereInput
+  }
+
+
+  /**
+   * Count Type ClientProjectCountOutputType
+   */
+
+  export type ClientProjectCountOutputType = {
+    history: number
+  }
+
+  export type ClientProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    history?: boolean | ClientProjectCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ClientProjectCountOutputType without action
+   */
+  export type ClientProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectCountOutputType
+     */
+    select?: ClientProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ClientProjectCountOutputType without action
+   */
+  export type ClientProjectCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectHistoryWhereInput
   }
 
 
@@ -2794,6 +3016,7 @@ export namespace Prisma {
     certificates?: boolean | User$certificatesArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     invoices?: boolean | User$invoicesArgs<ExtArgs>
+    clientProjects?: boolean | User$clientProjectsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2842,6 +3065,7 @@ export namespace Prisma {
     certificates?: boolean | User$certificatesArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     invoices?: boolean | User$invoicesArgs<ExtArgs>
+    clientProjects?: boolean | User$clientProjectsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2854,6 +3078,7 @@ export namespace Prisma {
       certificates: Prisma.$CertificatePayload<ExtArgs>[]
       notifications: Prisma.$NotificationPayload<ExtArgs>[]
       invoices: Prisma.$InvoicePayload<ExtArgs>[]
+      clientProjects: Prisma.$ClientProjectPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3264,6 +3489,7 @@ export namespace Prisma {
     certificates<T extends User$certificatesArgs<ExtArgs> = {}>(args?: Subset<T, User$certificatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     invoices<T extends User$invoicesArgs<ExtArgs> = {}>(args?: Subset<T, User$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    clientProjects<T extends User$clientProjectsArgs<ExtArgs> = {}>(args?: Subset<T, User$clientProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3784,6 +4010,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * User.clientProjects
+   */
+  export type User$clientProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    where?: ClientProjectWhereInput
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    cursor?: ClientProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
   }
 
   /**
@@ -21952,6 +22202,2302 @@ export namespace Prisma {
 
 
   /**
+   * Model ClientProject
+   */
+
+  export type AggregateClientProject = {
+    _count: ClientProjectCountAggregateOutputType | null
+    _avg: ClientProjectAvgAggregateOutputType | null
+    _sum: ClientProjectSumAggregateOutputType | null
+    _min: ClientProjectMinAggregateOutputType | null
+    _max: ClientProjectMaxAggregateOutputType | null
+  }
+
+  export type ClientProjectAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ClientProjectSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ClientProjectMinAggregateOutputType = {
+    id: number | null
+    clientId: string | null
+    name: string | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClientProjectMaxAggregateOutputType = {
+    id: number | null
+    clientId: string | null
+    name: string | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClientProjectCountAggregateOutputType = {
+    id: number
+    clientId: number
+    name: number
+    status: number
+    startDate: number
+    endDate: number
+    deletedAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ClientProjectAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ClientProjectSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ClientProjectMinAggregateInputType = {
+    id?: true
+    clientId?: true
+    name?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClientProjectMaxAggregateInputType = {
+    id?: true
+    clientId?: true
+    name?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClientProjectCountAggregateInputType = {
+    id?: true
+    clientId?: true
+    name?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ClientProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProject to aggregate.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClientProjects
+    **/
+    _count?: true | ClientProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClientProjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClientProjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClientProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClientProjectMaxAggregateInputType
+  }
+
+  export type GetClientProjectAggregateType<T extends ClientProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateClientProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClientProject[P]>
+      : GetScalarType<T[P], AggregateClientProject[P]>
+  }
+
+
+
+
+  export type ClientProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectWhereInput
+    orderBy?: ClientProjectOrderByWithAggregationInput | ClientProjectOrderByWithAggregationInput[]
+    by: ClientProjectScalarFieldEnum[] | ClientProjectScalarFieldEnum
+    having?: ClientProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClientProjectCountAggregateInputType | true
+    _avg?: ClientProjectAvgAggregateInputType
+    _sum?: ClientProjectSumAggregateInputType
+    _min?: ClientProjectMinAggregateInputType
+    _max?: ClientProjectMaxAggregateInputType
+  }
+
+  export type ClientProjectGroupByOutputType = {
+    id: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ClientProjectCountAggregateOutputType | null
+    _avg: ClientProjectAvgAggregateOutputType | null
+    _sum: ClientProjectSumAggregateOutputType | null
+    _min: ClientProjectMinAggregateOutputType | null
+    _max: ClientProjectMaxAggregateOutputType | null
+  }
+
+  type GetClientProjectGroupByPayload<T extends ClientProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClientProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClientProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClientProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], ClientProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClientProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+    history?: boolean | ClientProject$historyArgs<ExtArgs>
+    _count?: boolean | ClientProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProject"]>
+
+  export type ClientProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProject"]>
+
+  export type ClientProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProject"]>
+
+  export type ClientProjectSelectScalar = {
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ClientProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "name" | "status" | "startDate" | "endDate" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["clientProject"]>
+  export type ClientProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+    history?: boolean | ClientProject$historyArgs<ExtArgs>
+    _count?: boolean | ClientProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ClientProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClientProject"
+    objects: {
+      client: Prisma.$UserPayload<ExtArgs>
+      history: Prisma.$ClientProjectHistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      clientId: string
+      name: string
+      status: string
+      startDate: Date
+      endDate: Date | null
+      deletedAt: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["clientProject"]>
+    composites: {}
+  }
+
+  type ClientProjectGetPayload<S extends boolean | null | undefined | ClientProjectDefaultArgs> = $Result.GetResult<Prisma.$ClientProjectPayload, S>
+
+  type ClientProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClientProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClientProjectCountAggregateInputType | true
+    }
+
+  export interface ClientProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClientProject'], meta: { name: 'ClientProject' } }
+    /**
+     * Find zero or one ClientProject that matches the filter.
+     * @param {ClientProjectFindUniqueArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClientProjectFindUniqueArgs>(args: SelectSubset<T, ClientProjectFindUniqueArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClientProject that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClientProjectFindUniqueOrThrowArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClientProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, ClientProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectFindFirstArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClientProjectFindFirstArgs>(args?: SelectSubset<T, ClientProjectFindFirstArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectFindFirstOrThrowArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClientProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, ClientProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClientProjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClientProjects
+     * const clientProjects = await prisma.clientProject.findMany()
+     * 
+     * // Get first 10 ClientProjects
+     * const clientProjects = await prisma.clientProject.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clientProjectWithIdOnly = await prisma.clientProject.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClientProjectFindManyArgs>(args?: SelectSubset<T, ClientProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClientProject.
+     * @param {ClientProjectCreateArgs} args - Arguments to create a ClientProject.
+     * @example
+     * // Create one ClientProject
+     * const ClientProject = await prisma.clientProject.create({
+     *   data: {
+     *     // ... data to create a ClientProject
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClientProjectCreateArgs>(args: SelectSubset<T, ClientProjectCreateArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClientProjects.
+     * @param {ClientProjectCreateManyArgs} args - Arguments to create many ClientProjects.
+     * @example
+     * // Create many ClientProjects
+     * const clientProject = await prisma.clientProject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClientProjectCreateManyArgs>(args?: SelectSubset<T, ClientProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClientProjects and returns the data saved in the database.
+     * @param {ClientProjectCreateManyAndReturnArgs} args - Arguments to create many ClientProjects.
+     * @example
+     * // Create many ClientProjects
+     * const clientProject = await prisma.clientProject.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClientProjects and only return the `id`
+     * const clientProjectWithIdOnly = await prisma.clientProject.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClientProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, ClientProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClientProject.
+     * @param {ClientProjectDeleteArgs} args - Arguments to delete one ClientProject.
+     * @example
+     * // Delete one ClientProject
+     * const ClientProject = await prisma.clientProject.delete({
+     *   where: {
+     *     // ... filter to delete one ClientProject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClientProjectDeleteArgs>(args: SelectSubset<T, ClientProjectDeleteArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClientProject.
+     * @param {ClientProjectUpdateArgs} args - Arguments to update one ClientProject.
+     * @example
+     * // Update one ClientProject
+     * const clientProject = await prisma.clientProject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClientProjectUpdateArgs>(args: SelectSubset<T, ClientProjectUpdateArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClientProjects.
+     * @param {ClientProjectDeleteManyArgs} args - Arguments to filter ClientProjects to delete.
+     * @example
+     * // Delete a few ClientProjects
+     * const { count } = await prisma.clientProject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClientProjectDeleteManyArgs>(args?: SelectSubset<T, ClientProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClientProjects
+     * const clientProject = await prisma.clientProject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClientProjectUpdateManyArgs>(args: SelectSubset<T, ClientProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjects and returns the data updated in the database.
+     * @param {ClientProjectUpdateManyAndReturnArgs} args - Arguments to update many ClientProjects.
+     * @example
+     * // Update many ClientProjects
+     * const clientProject = await prisma.clientProject.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClientProjects and only return the `id`
+     * const clientProjectWithIdOnly = await prisma.clientProject.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClientProjectUpdateManyAndReturnArgs>(args: SelectSubset<T, ClientProjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClientProject.
+     * @param {ClientProjectUpsertArgs} args - Arguments to update or create a ClientProject.
+     * @example
+     * // Update or create a ClientProject
+     * const clientProject = await prisma.clientProject.upsert({
+     *   create: {
+     *     // ... data to create a ClientProject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClientProject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClientProjectUpsertArgs>(args: SelectSubset<T, ClientProjectUpsertArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClientProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectCountArgs} args - Arguments to filter ClientProjects to count.
+     * @example
+     * // Count the number of ClientProjects
+     * const count = await prisma.clientProject.count({
+     *   where: {
+     *     // ... the filter for the ClientProjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClientProjectCountArgs>(
+      args?: Subset<T, ClientProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClientProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClientProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClientProjectAggregateArgs>(args: Subset<T, ClientProjectAggregateArgs>): Prisma.PrismaPromise<GetClientProjectAggregateType<T>>
+
+    /**
+     * Group by ClientProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClientProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClientProjectGroupByArgs['orderBy'] }
+        : { orderBy?: ClientProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClientProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClientProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClientProject model
+   */
+  readonly fields: ClientProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClientProject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClientProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    client<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    history<T extends ClientProject$historyArgs<ExtArgs> = {}>(args?: Subset<T, ClientProject$historyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClientProject model
+   */
+  interface ClientProjectFieldRefs {
+    readonly id: FieldRef<"ClientProject", 'Int'>
+    readonly clientId: FieldRef<"ClientProject", 'String'>
+    readonly name: FieldRef<"ClientProject", 'String'>
+    readonly status: FieldRef<"ClientProject", 'String'>
+    readonly startDate: FieldRef<"ClientProject", 'DateTime'>
+    readonly endDate: FieldRef<"ClientProject", 'DateTime'>
+    readonly deletedAt: FieldRef<"ClientProject", 'DateTime'>
+    readonly createdAt: FieldRef<"ClientProject", 'DateTime'>
+    readonly updatedAt: FieldRef<"ClientProject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClientProject findUnique
+   */
+  export type ClientProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject findUniqueOrThrow
+   */
+  export type ClientProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject findFirst
+   */
+  export type ClientProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjects.
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjects.
+     */
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject findFirstOrThrow
+   */
+  export type ClientProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjects.
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjects.
+     */
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject findMany
+   */
+  export type ClientProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjects to fetch.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClientProjects.
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject create
+   */
+  export type ClientProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ClientProject.
+     */
+    data: XOR<ClientProjectCreateInput, ClientProjectUncheckedCreateInput>
+  }
+
+  /**
+   * ClientProject createMany
+   */
+  export type ClientProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClientProjects.
+     */
+    data: ClientProjectCreateManyInput | ClientProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClientProject createManyAndReturn
+   */
+  export type ClientProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClientProjects.
+     */
+    data: ClientProjectCreateManyInput | ClientProjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProject update
+   */
+  export type ClientProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ClientProject.
+     */
+    data: XOR<ClientProjectUpdateInput, ClientProjectUncheckedUpdateInput>
+    /**
+     * Choose, which ClientProject to update.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject updateMany
+   */
+  export type ClientProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClientProjects.
+     */
+    data: XOR<ClientProjectUpdateManyMutationInput, ClientProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjects to update
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * Limit how many ClientProjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProject updateManyAndReturn
+   */
+  export type ClientProjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * The data used to update ClientProjects.
+     */
+    data: XOR<ClientProjectUpdateManyMutationInput, ClientProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjects to update
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * Limit how many ClientProjects to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProject upsert
+   */
+  export type ClientProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ClientProject to update in case it exists.
+     */
+    where: ClientProjectWhereUniqueInput
+    /**
+     * In case the ClientProject found by the `where` argument doesn't exist, create a new ClientProject with this data.
+     */
+    create: XOR<ClientProjectCreateInput, ClientProjectUncheckedCreateInput>
+    /**
+     * In case the ClientProject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClientProjectUpdateInput, ClientProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * ClientProject delete
+   */
+  export type ClientProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter which ClientProject to delete.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject deleteMany
+   */
+  export type ClientProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProjects to delete
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * Limit how many ClientProjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProject.history
+   */
+  export type ClientProject$historyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    where?: ClientProjectHistoryWhereInput
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject without action
+   */
+  export type ClientProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ClientProjectHistory
+   */
+
+  export type AggregateClientProjectHistory = {
+    _count: ClientProjectHistoryCountAggregateOutputType | null
+    _avg: ClientProjectHistoryAvgAggregateOutputType | null
+    _sum: ClientProjectHistorySumAggregateOutputType | null
+    _min: ClientProjectHistoryMinAggregateOutputType | null
+    _max: ClientProjectHistoryMaxAggregateOutputType | null
+  }
+
+  export type ClientProjectHistoryAvgAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+  }
+
+  export type ClientProjectHistorySumAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+  }
+
+  export type ClientProjectHistoryMinAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type ClientProjectHistoryMaxAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type ClientProjectHistoryCountAggregateOutputType = {
+    id: number
+    clientProjectId: number
+    status: number
+    startDate: number
+    endDate: number
+    deletedAt: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ClientProjectHistoryAvgAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+  }
+
+  export type ClientProjectHistorySumAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+  }
+
+  export type ClientProjectHistoryMinAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+  }
+
+  export type ClientProjectHistoryMaxAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+  }
+
+  export type ClientProjectHistoryCountAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ClientProjectHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProjectHistory to aggregate.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClientProjectHistories
+    **/
+    _count?: true | ClientProjectHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClientProjectHistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClientProjectHistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClientProjectHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClientProjectHistoryMaxAggregateInputType
+  }
+
+  export type GetClientProjectHistoryAggregateType<T extends ClientProjectHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateClientProjectHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClientProjectHistory[P]>
+      : GetScalarType<T[P], AggregateClientProjectHistory[P]>
+  }
+
+
+
+
+  export type ClientProjectHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectHistoryWhereInput
+    orderBy?: ClientProjectHistoryOrderByWithAggregationInput | ClientProjectHistoryOrderByWithAggregationInput[]
+    by: ClientProjectHistoryScalarFieldEnum[] | ClientProjectHistoryScalarFieldEnum
+    having?: ClientProjectHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClientProjectHistoryCountAggregateInputType | true
+    _avg?: ClientProjectHistoryAvgAggregateInputType
+    _sum?: ClientProjectHistorySumAggregateInputType
+    _min?: ClientProjectHistoryMinAggregateInputType
+    _max?: ClientProjectHistoryMaxAggregateInputType
+  }
+
+  export type ClientProjectHistoryGroupByOutputType = {
+    id: number
+    clientProjectId: number
+    status: string
+    startDate: Date
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date
+    _count: ClientProjectHistoryCountAggregateOutputType | null
+    _avg: ClientProjectHistoryAvgAggregateOutputType | null
+    _sum: ClientProjectHistorySumAggregateOutputType | null
+    _min: ClientProjectHistoryMinAggregateOutputType | null
+    _max: ClientProjectHistoryMaxAggregateOutputType | null
+  }
+
+  type GetClientProjectHistoryGroupByPayload<T extends ClientProjectHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClientProjectHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClientProjectHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClientProjectHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], ClientProjectHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClientProjectHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProjectHistory"]>
+
+  export type ClientProjectHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProjectHistory"]>
+
+  export type ClientProjectHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProjectHistory"]>
+
+  export type ClientProjectHistorySelectScalar = {
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+  }
+
+  export type ClientProjectHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientProjectId" | "status" | "startDate" | "endDate" | "deletedAt" | "createdAt", ExtArgs["result"]["clientProjectHistory"]>
+  export type ClientProjectHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $ClientProjectHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClientProjectHistory"
+    objects: {
+      clientProject: Prisma.$ClientProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      clientProjectId: number
+      status: string
+      startDate: Date
+      endDate: Date | null
+      deletedAt: Date | null
+      createdAt: Date
+    }, ExtArgs["result"]["clientProjectHistory"]>
+    composites: {}
+  }
+
+  type ClientProjectHistoryGetPayload<S extends boolean | null | undefined | ClientProjectHistoryDefaultArgs> = $Result.GetResult<Prisma.$ClientProjectHistoryPayload, S>
+
+  type ClientProjectHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClientProjectHistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClientProjectHistoryCountAggregateInputType | true
+    }
+
+  export interface ClientProjectHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClientProjectHistory'], meta: { name: 'ClientProjectHistory' } }
+    /**
+     * Find zero or one ClientProjectHistory that matches the filter.
+     * @param {ClientProjectHistoryFindUniqueArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClientProjectHistoryFindUniqueArgs>(args: SelectSubset<T, ClientProjectHistoryFindUniqueArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClientProjectHistory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClientProjectHistoryFindUniqueOrThrowArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClientProjectHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, ClientProjectHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProjectHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryFindFirstArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClientProjectHistoryFindFirstArgs>(args?: SelectSubset<T, ClientProjectHistoryFindFirstArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProjectHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryFindFirstOrThrowArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClientProjectHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, ClientProjectHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClientProjectHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClientProjectHistories
+     * const clientProjectHistories = await prisma.clientProjectHistory.findMany()
+     * 
+     * // Get first 10 ClientProjectHistories
+     * const clientProjectHistories = await prisma.clientProjectHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clientProjectHistoryWithIdOnly = await prisma.clientProjectHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClientProjectHistoryFindManyArgs>(args?: SelectSubset<T, ClientProjectHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClientProjectHistory.
+     * @param {ClientProjectHistoryCreateArgs} args - Arguments to create a ClientProjectHistory.
+     * @example
+     * // Create one ClientProjectHistory
+     * const ClientProjectHistory = await prisma.clientProjectHistory.create({
+     *   data: {
+     *     // ... data to create a ClientProjectHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClientProjectHistoryCreateArgs>(args: SelectSubset<T, ClientProjectHistoryCreateArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClientProjectHistories.
+     * @param {ClientProjectHistoryCreateManyArgs} args - Arguments to create many ClientProjectHistories.
+     * @example
+     * // Create many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClientProjectHistoryCreateManyArgs>(args?: SelectSubset<T, ClientProjectHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClientProjectHistories and returns the data saved in the database.
+     * @param {ClientProjectHistoryCreateManyAndReturnArgs} args - Arguments to create many ClientProjectHistories.
+     * @example
+     * // Create many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClientProjectHistories and only return the `id`
+     * const clientProjectHistoryWithIdOnly = await prisma.clientProjectHistory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClientProjectHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, ClientProjectHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClientProjectHistory.
+     * @param {ClientProjectHistoryDeleteArgs} args - Arguments to delete one ClientProjectHistory.
+     * @example
+     * // Delete one ClientProjectHistory
+     * const ClientProjectHistory = await prisma.clientProjectHistory.delete({
+     *   where: {
+     *     // ... filter to delete one ClientProjectHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClientProjectHistoryDeleteArgs>(args: SelectSubset<T, ClientProjectHistoryDeleteArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClientProjectHistory.
+     * @param {ClientProjectHistoryUpdateArgs} args - Arguments to update one ClientProjectHistory.
+     * @example
+     * // Update one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClientProjectHistoryUpdateArgs>(args: SelectSubset<T, ClientProjectHistoryUpdateArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClientProjectHistories.
+     * @param {ClientProjectHistoryDeleteManyArgs} args - Arguments to filter ClientProjectHistories to delete.
+     * @example
+     * // Delete a few ClientProjectHistories
+     * const { count } = await prisma.clientProjectHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClientProjectHistoryDeleteManyArgs>(args?: SelectSubset<T, ClientProjectHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjectHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClientProjectHistoryUpdateManyArgs>(args: SelectSubset<T, ClientProjectHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjectHistories and returns the data updated in the database.
+     * @param {ClientProjectHistoryUpdateManyAndReturnArgs} args - Arguments to update many ClientProjectHistories.
+     * @example
+     * // Update many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClientProjectHistories and only return the `id`
+     * const clientProjectHistoryWithIdOnly = await prisma.clientProjectHistory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClientProjectHistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, ClientProjectHistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClientProjectHistory.
+     * @param {ClientProjectHistoryUpsertArgs} args - Arguments to update or create a ClientProjectHistory.
+     * @example
+     * // Update or create a ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.upsert({
+     *   create: {
+     *     // ... data to create a ClientProjectHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClientProjectHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClientProjectHistoryUpsertArgs>(args: SelectSubset<T, ClientProjectHistoryUpsertArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClientProjectHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryCountArgs} args - Arguments to filter ClientProjectHistories to count.
+     * @example
+     * // Count the number of ClientProjectHistories
+     * const count = await prisma.clientProjectHistory.count({
+     *   where: {
+     *     // ... the filter for the ClientProjectHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClientProjectHistoryCountArgs>(
+      args?: Subset<T, ClientProjectHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClientProjectHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClientProjectHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClientProjectHistoryAggregateArgs>(args: Subset<T, ClientProjectHistoryAggregateArgs>): Prisma.PrismaPromise<GetClientProjectHistoryAggregateType<T>>
+
+    /**
+     * Group by ClientProjectHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClientProjectHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClientProjectHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: ClientProjectHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClientProjectHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClientProjectHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClientProjectHistory model
+   */
+  readonly fields: ClientProjectHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClientProjectHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClientProjectHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    clientProject<T extends ClientProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClientProjectDefaultArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClientProjectHistory model
+   */
+  interface ClientProjectHistoryFieldRefs {
+    readonly id: FieldRef<"ClientProjectHistory", 'Int'>
+    readonly clientProjectId: FieldRef<"ClientProjectHistory", 'Int'>
+    readonly status: FieldRef<"ClientProjectHistory", 'String'>
+    readonly startDate: FieldRef<"ClientProjectHistory", 'DateTime'>
+    readonly endDate: FieldRef<"ClientProjectHistory", 'DateTime'>
+    readonly deletedAt: FieldRef<"ClientProjectHistory", 'DateTime'>
+    readonly createdAt: FieldRef<"ClientProjectHistory", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClientProjectHistory findUnique
+   */
+  export type ClientProjectHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory findUniqueOrThrow
+   */
+  export type ClientProjectHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory findFirst
+   */
+  export type ClientProjectHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjectHistories.
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjectHistories.
+     */
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProjectHistory findFirstOrThrow
+   */
+  export type ClientProjectHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjectHistories.
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjectHistories.
+     */
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProjectHistory findMany
+   */
+  export type ClientProjectHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistories to fetch.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClientProjectHistories.
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProjectHistory create
+   */
+  export type ClientProjectHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ClientProjectHistory.
+     */
+    data: XOR<ClientProjectHistoryCreateInput, ClientProjectHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * ClientProjectHistory createMany
+   */
+  export type ClientProjectHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClientProjectHistories.
+     */
+    data: ClientProjectHistoryCreateManyInput | ClientProjectHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClientProjectHistory createManyAndReturn
+   */
+  export type ClientProjectHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClientProjectHistories.
+     */
+    data: ClientProjectHistoryCreateManyInput | ClientProjectHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProjectHistory update
+   */
+  export type ClientProjectHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ClientProjectHistory.
+     */
+    data: XOR<ClientProjectHistoryUpdateInput, ClientProjectHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which ClientProjectHistory to update.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory updateMany
+   */
+  export type ClientProjectHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClientProjectHistories.
+     */
+    data: XOR<ClientProjectHistoryUpdateManyMutationInput, ClientProjectHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjectHistories to update
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * Limit how many ClientProjectHistories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProjectHistory updateManyAndReturn
+   */
+  export type ClientProjectHistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to update ClientProjectHistories.
+     */
+    data: XOR<ClientProjectHistoryUpdateManyMutationInput, ClientProjectHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjectHistories to update
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * Limit how many ClientProjectHistories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProjectHistory upsert
+   */
+  export type ClientProjectHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ClientProjectHistory to update in case it exists.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+    /**
+     * In case the ClientProjectHistory found by the `where` argument doesn't exist, create a new ClientProjectHistory with this data.
+     */
+    create: XOR<ClientProjectHistoryCreateInput, ClientProjectHistoryUncheckedCreateInput>
+    /**
+     * In case the ClientProjectHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClientProjectHistoryUpdateInput, ClientProjectHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * ClientProjectHistory delete
+   */
+  export type ClientProjectHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter which ClientProjectHistory to delete.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory deleteMany
+   */
+  export type ClientProjectHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProjectHistories to delete
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * Limit how many ClientProjectHistories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProjectHistory without action
+   */
+  export type ClientProjectHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -22207,6 +24753,34 @@ export namespace Prisma {
   export type InvoiceScalarFieldEnum = (typeof InvoiceScalarFieldEnum)[keyof typeof InvoiceScalarFieldEnum]
 
 
+  export const ClientProjectScalarFieldEnum: {
+    id: 'id',
+    clientId: 'clientId',
+    name: 'name',
+    status: 'status',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    deletedAt: 'deletedAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ClientProjectScalarFieldEnum = (typeof ClientProjectScalarFieldEnum)[keyof typeof ClientProjectScalarFieldEnum]
+
+
+  export const ClientProjectHistoryScalarFieldEnum: {
+    id: 'id',
+    clientProjectId: 'clientProjectId',
+    status: 'status',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    deletedAt: 'deletedAt',
+    createdAt: 'createdAt'
+  };
+
+  export type ClientProjectHistoryScalarFieldEnum = (typeof ClientProjectHistoryScalarFieldEnum)[keyof typeof ClientProjectHistoryScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -22348,6 +24922,7 @@ export namespace Prisma {
     certificates?: CertificateListRelationFilter
     notifications?: NotificationListRelationFilter
     invoices?: InvoiceListRelationFilter
+    clientProjects?: ClientProjectListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -22365,6 +24940,7 @@ export namespace Prisma {
     certificates?: CertificateOrderByRelationAggregateInput
     notifications?: NotificationOrderByRelationAggregateInput
     invoices?: InvoiceOrderByRelationAggregateInput
+    clientProjects?: ClientProjectOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -22385,6 +24961,7 @@ export namespace Prisma {
     certificates?: CertificateListRelationFilter
     notifications?: NotificationListRelationFilter
     invoices?: InvoiceListRelationFilter
+    clientProjects?: ClientProjectListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -23585,6 +26162,153 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Invoice"> | Date | string | null
   }
 
+  export type ClientProjectWhereInput = {
+    AND?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    OR?: ClientProjectWhereInput[]
+    NOT?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    id?: IntFilter<"ClientProject"> | number
+    clientId?: StringFilter<"ClientProject"> | string
+    name?: StringFilter<"ClientProject"> | string
+    status?: StringFilter<"ClientProject"> | string
+    startDate?: DateTimeFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientProject"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+    history?: ClientProjectHistoryListRelationFilter
+  }
+
+  export type ClientProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    client?: UserOrderByWithRelationInput
+    history?: ClientProjectHistoryOrderByRelationAggregateInput
+  }
+
+  export type ClientProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    OR?: ClientProjectWhereInput[]
+    NOT?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    clientId?: StringFilter<"ClientProject"> | string
+    name?: StringFilter<"ClientProject"> | string
+    status?: StringFilter<"ClientProject"> | string
+    startDate?: DateTimeFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientProject"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+    history?: ClientProjectHistoryListRelationFilter
+  }, "id">
+
+  export type ClientProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ClientProjectCountOrderByAggregateInput
+    _avg?: ClientProjectAvgOrderByAggregateInput
+    _max?: ClientProjectMaxOrderByAggregateInput
+    _min?: ClientProjectMinOrderByAggregateInput
+    _sum?: ClientProjectSumOrderByAggregateInput
+  }
+
+  export type ClientProjectScalarWhereWithAggregatesInput = {
+    AND?: ClientProjectScalarWhereWithAggregatesInput | ClientProjectScalarWhereWithAggregatesInput[]
+    OR?: ClientProjectScalarWhereWithAggregatesInput[]
+    NOT?: ClientProjectScalarWhereWithAggregatesInput | ClientProjectScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ClientProject"> | number
+    clientId?: StringWithAggregatesFilter<"ClientProject"> | string
+    name?: StringWithAggregatesFilter<"ClientProject"> | string
+    status?: StringWithAggregatesFilter<"ClientProject"> | string
+    startDate?: DateTimeWithAggregatesFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ClientProject"> | Date | string
+  }
+
+  export type ClientProjectHistoryWhereInput = {
+    AND?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    OR?: ClientProjectHistoryWhereInput[]
+    NOT?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    id?: IntFilter<"ClientProjectHistory"> | number
+    clientProjectId?: IntFilter<"ClientProjectHistory"> | number
+    status?: StringFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    clientProject?: XOR<ClientProjectScalarRelationFilter, ClientProjectWhereInput>
+  }
+
+  export type ClientProjectHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    clientProject?: ClientProjectOrderByWithRelationInput
+  }
+
+  export type ClientProjectHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    OR?: ClientProjectHistoryWhereInput[]
+    NOT?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    clientProjectId?: IntFilter<"ClientProjectHistory"> | number
+    status?: StringFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    clientProject?: XOR<ClientProjectScalarRelationFilter, ClientProjectWhereInput>
+  }, "id">
+
+  export type ClientProjectHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: ClientProjectHistoryCountOrderByAggregateInput
+    _avg?: ClientProjectHistoryAvgOrderByAggregateInput
+    _max?: ClientProjectHistoryMaxOrderByAggregateInput
+    _min?: ClientProjectHistoryMinOrderByAggregateInput
+    _sum?: ClientProjectHistorySumOrderByAggregateInput
+  }
+
+  export type ClientProjectHistoryScalarWhereWithAggregatesInput = {
+    AND?: ClientProjectHistoryScalarWhereWithAggregatesInput | ClientProjectHistoryScalarWhereWithAggregatesInput[]
+    OR?: ClientProjectHistoryScalarWhereWithAggregatesInput[]
+    NOT?: ClientProjectHistoryScalarWhereWithAggregatesInput | ClientProjectHistoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ClientProjectHistory"> | number
+    clientProjectId?: IntWithAggregatesFilter<"ClientProjectHistory"> | number
+    status?: StringWithAggregatesFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeWithAggregatesFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ClientProjectHistory"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -23600,6 +26324,7 @@ export namespace Prisma {
     certificates?: CertificateCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -23617,6 +26342,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserUpdateInput = {
@@ -23634,6 +26360,7 @@ export namespace Prisma {
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -23651,6 +26378,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -24910,6 +27638,156 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type ClientProjectCreateInput = {
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    client: UserCreateNestedOneWithoutClientProjectsInput
+    history?: ClientProjectHistoryCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectUncheckedCreateInput = {
+    id?: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: ClientProjectHistoryUncheckedCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: UserUpdateOneRequiredWithoutClientProjectsNestedInput
+    history?: ClientProjectHistoryUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectCreateManyInput = {
+    id?: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientProjectUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryCreateInput = {
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    clientProject: ClientProjectCreateNestedOneWithoutHistoryInput
+  }
+
+  export type ClientProjectHistoryUncheckedCreateInput = {
+    id?: number
+    clientProjectId: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUpdateInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clientProject?: ClientProjectUpdateOneRequiredWithoutHistoryNestedInput
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientProjectId?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryCreateManyInput = {
+    id?: number
+    clientProjectId: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUpdateManyMutationInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientProjectId?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -24987,6 +27865,12 @@ export namespace Prisma {
     none?: InvoiceWhereInput
   }
 
+  export type ClientProjectListRelationFilter = {
+    every?: ClientProjectWhereInput
+    some?: ClientProjectWhereInput
+    none?: ClientProjectWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -25005,6 +27889,10 @@ export namespace Prisma {
   }
 
   export type InvoiceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClientProjectOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -26051,6 +28939,105 @@ export namespace Prisma {
     totalAmount?: SortOrder
   }
 
+  export type ClientProjectHistoryListRelationFilter = {
+    every?: ClientProjectHistoryWhereInput
+    some?: ClientProjectHistoryWhereInput
+    none?: ClientProjectHistoryWhereInput
+  }
+
+  export type ClientProjectHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClientProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientProjectAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ClientProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientProjectSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ClientProjectScalarRelationFilter = {
+    is?: ClientProjectWhereInput
+    isNot?: ClientProjectWhereInput
+  }
+
+  export type ClientProjectHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ClientProjectHistoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+  }
+
+  export type ClientProjectHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ClientProjectHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ClientProjectHistorySumOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+  }
+
   export type WarrantyCreateNestedManyWithoutClientInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -26079,6 +29066,13 @@ export namespace Prisma {
     connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
   }
 
+  export type ClientProjectCreateNestedManyWithoutClientInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+  }
+
   export type WarrantyUncheckedCreateNestedManyWithoutClientInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -26105,6 +29099,13 @@ export namespace Prisma {
     connectOrCreate?: InvoiceCreateOrConnectWithoutClientInput | InvoiceCreateOrConnectWithoutClientInput[]
     createMany?: InvoiceCreateManyClientInputEnvelope
     connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+  }
+
+  export type ClientProjectUncheckedCreateNestedManyWithoutClientInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -26183,6 +29184,20 @@ export namespace Prisma {
     deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
   }
 
+  export type ClientProjectUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    upsert?: ClientProjectUpsertWithWhereUniqueWithoutClientInput | ClientProjectUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    set?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    disconnect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    delete?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    update?: ClientProjectUpdateWithWhereUniqueWithoutClientInput | ClientProjectUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ClientProjectUpdateManyWithWhereWithoutClientInput | ClientProjectUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
+  }
+
   export type WarrantyUncheckedUpdateManyWithoutClientNestedInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -26237,6 +29252,20 @@ export namespace Prisma {
     update?: InvoiceUpdateWithWhereUniqueWithoutClientInput | InvoiceUpdateWithWhereUniqueWithoutClientInput[]
     updateMany?: InvoiceUpdateManyWithWhereWithoutClientInput | InvoiceUpdateManyWithWhereWithoutClientInput[]
     deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  }
+
+  export type ClientProjectUncheckedUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    upsert?: ClientProjectUpsertWithWhereUniqueWithoutClientInput | ClientProjectUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    set?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    disconnect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    delete?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    update?: ClientProjectUpdateWithWhereUniqueWithoutClientInput | ClientProjectUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ClientProjectUpdateManyWithWhereWithoutClientInput | ClientProjectUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
   }
 
   export type ProjectCreateNestedOneWithoutReviewsInput = {
@@ -26747,6 +29776,76 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutInvoicesInput, UserUpdateWithoutInvoicesInput>, UserUncheckedUpdateWithoutInvoicesInput>
   }
 
+  export type UserCreateNestedOneWithoutClientProjectsInput = {
+    create?: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutClientProjectsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ClientProjectHistoryCreateNestedManyWithoutClientProjectInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+  }
+
+  export type ClientProjectHistoryUncheckedCreateNestedManyWithoutClientProjectInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutClientProjectsNestedInput = {
+    create?: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutClientProjectsInput
+    upsert?: UserUpsertWithoutClientProjectsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutClientProjectsInput, UserUpdateWithoutClientProjectsInput>, UserUncheckedUpdateWithoutClientProjectsInput>
+  }
+
+  export type ClientProjectHistoryUpdateManyWithoutClientProjectNestedInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    upsert?: ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    set?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    disconnect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    delete?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    update?: ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput[]
+    updateMany?: ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput | ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput[]
+    deleteMany?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectNestedInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    upsert?: ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    set?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    disconnect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    delete?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    update?: ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput[]
+    updateMany?: ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput | ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput[]
+    deleteMany?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+  }
+
+  export type ClientProjectCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutHistoryInput
+    connect?: ClientProjectWhereUniqueInput
+  }
+
+  export type ClientProjectUpdateOneRequiredWithoutHistoryNestedInput = {
+    create?: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutHistoryInput
+    upsert?: ClientProjectUpsertWithoutHistoryInput
+    connect?: ClientProjectWhereUniqueInput
+    update?: XOR<XOR<ClientProjectUpdateToOneWithWhereWithoutHistoryInput, ClientProjectUpdateWithoutHistoryInput>, ClientProjectUncheckedUpdateWithoutHistoryInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -27122,6 +30221,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ClientProjectCreateWithoutClientInput = {
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: ClientProjectHistoryCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectUncheckedCreateWithoutClientInput = {
+    id?: number
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: ClientProjectHistoryUncheckedCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectCreateOrConnectWithoutClientInput = {
+    where: ClientProjectWhereUniqueInput
+    create: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput>
+  }
+
+  export type ClientProjectCreateManyClientInputEnvelope = {
+    data: ClientProjectCreateManyClientInput | ClientProjectCreateManyClientInput[]
+    skipDuplicates?: boolean
+  }
+
   export type WarrantyUpsertWithWhereUniqueWithoutClientInput = {
     where: WarrantyWhereUniqueInput
     update: XOR<WarrantyUpdateWithoutClientInput, WarrantyUncheckedUpdateWithoutClientInput>
@@ -27238,6 +30370,37 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"Invoice"> | Date | string | null
   }
 
+  export type ClientProjectUpsertWithWhereUniqueWithoutClientInput = {
+    where: ClientProjectWhereUniqueInput
+    update: XOR<ClientProjectUpdateWithoutClientInput, ClientProjectUncheckedUpdateWithoutClientInput>
+    create: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput>
+  }
+
+  export type ClientProjectUpdateWithWhereUniqueWithoutClientInput = {
+    where: ClientProjectWhereUniqueInput
+    data: XOR<ClientProjectUpdateWithoutClientInput, ClientProjectUncheckedUpdateWithoutClientInput>
+  }
+
+  export type ClientProjectUpdateManyWithWhereWithoutClientInput = {
+    where: ClientProjectScalarWhereInput
+    data: XOR<ClientProjectUpdateManyMutationInput, ClientProjectUncheckedUpdateManyWithoutClientInput>
+  }
+
+  export type ClientProjectScalarWhereInput = {
+    AND?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
+    OR?: ClientProjectScalarWhereInput[]
+    NOT?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
+    id?: IntFilter<"ClientProject"> | number
+    clientId?: StringFilter<"ClientProject"> | string
+    name?: StringFilter<"ClientProject"> | string
+    status?: StringFilter<"ClientProject"> | string
+    startDate?: DateTimeFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientProject"> | Date | string
+  }
+
   export type ProjectCreateWithoutReviewsInput = {
     title: string
     slug: string
@@ -27350,6 +30513,7 @@ export namespace Prisma {
     certificates?: CertificateCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutWarrantiesInput = {
@@ -27366,6 +30530,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutWarrantiesInput = {
@@ -27398,6 +30563,7 @@ export namespace Prisma {
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutWarrantiesInput = {
@@ -27414,6 +30580,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type UserCreateWithoutCertificatesInput = {
@@ -27430,6 +30597,7 @@ export namespace Prisma {
     warranties?: WarrantyCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutCertificatesInput = {
@@ -27446,6 +30614,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutCertificatesInput = {
@@ -27478,6 +30647,7 @@ export namespace Prisma {
     warranties?: WarrantyUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCertificatesInput = {
@@ -27494,6 +30664,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type UserCreateWithoutNotificationsInput = {
@@ -27510,6 +30681,7 @@ export namespace Prisma {
     warranties?: WarrantyCreateNestedManyWithoutClientInput
     certificates?: CertificateCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutNotificationsInput = {
@@ -27526,6 +30698,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutNotificationsInput = {
@@ -27558,6 +30731,7 @@ export namespace Prisma {
     warranties?: WarrantyUpdateManyWithoutClientNestedInput
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNotificationsInput = {
@@ -27574,6 +30748,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type MessageCreateWithoutChatSessionInput = {
@@ -28405,6 +31580,7 @@ export namespace Prisma {
     warranties?: WarrantyCreateNestedManyWithoutClientInput
     certificates?: CertificateCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutInvoicesInput = {
@@ -28421,6 +31597,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutInvoicesInput = {
@@ -28453,6 +31630,7 @@ export namespace Prisma {
     warranties?: WarrantyUpdateManyWithoutClientNestedInput
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutInvoicesInput = {
@@ -28469,6 +31647,209 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserCreateWithoutClientProjectsInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    warranties?: WarrantyCreateNestedManyWithoutClientInput
+    certificates?: CertificateCreateNestedManyWithoutClientInput
+    notifications?: NotificationCreateNestedManyWithoutClientInput
+    invoices?: InvoiceCreateNestedManyWithoutClientInput
+  }
+
+  export type UserUncheckedCreateWithoutClientProjectsInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
+    certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+  }
+
+  export type UserCreateOrConnectWithoutClientProjectsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+  }
+
+  export type ClientProjectHistoryCreateWithoutClientProjectInput = {
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedCreateWithoutClientProjectInput = {
+    id?: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryCreateOrConnectWithoutClientProjectInput = {
+    where: ClientProjectHistoryWhereUniqueInput
+    create: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryCreateManyClientProjectInputEnvelope = {
+    data: ClientProjectHistoryCreateManyClientProjectInput | ClientProjectHistoryCreateManyClientProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutClientProjectsInput = {
+    update: XOR<UserUpdateWithoutClientProjectsInput, UserUncheckedUpdateWithoutClientProjectsInput>
+    create: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutClientProjectsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutClientProjectsInput, UserUncheckedUpdateWithoutClientProjectsInput>
+  }
+
+  export type UserUpdateWithoutClientProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    warranties?: WarrantyUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUpdateManyWithoutClientNestedInput
+    notifications?: NotificationUpdateManyWithoutClientNestedInput
+    invoices?: InvoiceUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutClientProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput = {
+    where: ClientProjectHistoryWhereUniqueInput
+    update: XOR<ClientProjectHistoryUpdateWithoutClientProjectInput, ClientProjectHistoryUncheckedUpdateWithoutClientProjectInput>
+    create: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput = {
+    where: ClientProjectHistoryWhereUniqueInput
+    data: XOR<ClientProjectHistoryUpdateWithoutClientProjectInput, ClientProjectHistoryUncheckedUpdateWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput = {
+    where: ClientProjectHistoryScalarWhereInput
+    data: XOR<ClientProjectHistoryUpdateManyMutationInput, ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryScalarWhereInput = {
+    AND?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+    OR?: ClientProjectHistoryScalarWhereInput[]
+    NOT?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+    id?: IntFilter<"ClientProjectHistory"> | number
+    clientProjectId?: IntFilter<"ClientProjectHistory"> | number
+    status?: StringFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+  }
+
+  export type ClientProjectCreateWithoutHistoryInput = {
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    client: UserCreateNestedOneWithoutClientProjectsInput
+  }
+
+  export type ClientProjectUncheckedCreateWithoutHistoryInput = {
+    id?: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientProjectCreateOrConnectWithoutHistoryInput = {
+    where: ClientProjectWhereUniqueInput
+    create: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type ClientProjectUpsertWithoutHistoryInput = {
+    update: XOR<ClientProjectUpdateWithoutHistoryInput, ClientProjectUncheckedUpdateWithoutHistoryInput>
+    create: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+    where?: ClientProjectWhereInput
+  }
+
+  export type ClientProjectUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: ClientProjectWhereInput
+    data: XOR<ClientProjectUpdateWithoutHistoryInput, ClientProjectUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type ClientProjectUpdateWithoutHistoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: UserUpdateOneRequiredWithoutClientProjectsNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateWithoutHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type WarrantyCreateManyClientInput = {
@@ -28505,6 +31886,17 @@ export namespace Prisma {
     projectName: string
     createdAt?: Date | string
     deletedAt?: Date | string | null
+  }
+
+  export type ClientProjectCreateManyClientInput = {
+    id?: number
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type WarrantyUpdateWithoutClientInput = {
@@ -28609,6 +32001,40 @@ export namespace Prisma {
     projectName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ClientProjectUpdateWithoutClientInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: ClientProjectHistoryUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateManyWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MessageCreateManyChatSessionInput = {
@@ -28870,6 +32296,41 @@ export namespace Prisma {
     sourceId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClientProjectHistoryCreateManyClientProjectInput = {
+    id?: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUpdateWithoutClientProjectInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateWithoutClientProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

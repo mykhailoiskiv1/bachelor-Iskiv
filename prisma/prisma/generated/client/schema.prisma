@@ -20,10 +20,11 @@ model User {
   isConfirmed Boolean   @default(false)
   isActive    Boolean   @default(true)
 
-  warranties    Warranty[]
-  certificates  Certificate[]
-  notifications Notification[]
-  invoices      Invoice[]
+  warranties     Warranty[]
+  certificates   Certificate[]
+  notifications  Notification[]
+  invoices       Invoice[]
+  clientProjects ClientProject[]
 }
 
 model Review {
@@ -114,8 +115,8 @@ model Post {
 
 model ChatSession {
   id         Int       @id @default(autoincrement())
-  userId     Int? // Якщо користувач авторизований
-  sessionKey String? // Для гостей (можна зберігати session id)
+  userId     Int?
+  sessionKey String?
   messages   Message[]
   createdAt  DateTime  @default(now())
 }
@@ -124,9 +125,9 @@ model Message {
   id            Int         @id @default(autoincrement())
   chatSession   ChatSession @relation(fields: [chatSessionId], references: [id])
   chatSessionId Int
-  sender        String // 'user', 'bot', 'admin'
+  sender        String
   content       String
-  isTransferred Boolean     @default(false) // Позначка для передачі адміну
+  isTransferred Boolean     @default(false)
   createdAt     DateTime    @default(now())
 }
 
@@ -240,4 +241,41 @@ model Invoice {
   deletedAt   DateTime?
 
   client User @relation(fields: [clientId], references: [id])
+}
+
+model ClientProject {
+  id       Int    @id @default(autoincrement())
+  client   User   @relation(fields: [clientId], references: [id])
+  clientId String
+
+  name      String
+  status    String
+  startDate DateTime
+  endDate   DateTime?
+
+  deletedAt DateTime?
+  history   ClientProjectHistory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clientId])
+  @@index([deletedAt])
+}
+
+model ClientProjectHistory {
+  id              Int           @id @default(autoincrement())
+  clientProject   ClientProject @relation(fields: [clientProjectId], references: [id])
+  clientProjectId Int
+
+  status    String
+  startDate DateTime
+  endDate   DateTime?
+
+  deletedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([clientProjectId])
+  @@index([deletedAt])
 }

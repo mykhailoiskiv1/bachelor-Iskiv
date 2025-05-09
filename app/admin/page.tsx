@@ -56,6 +56,7 @@ export default function AdminDashboardPage() {
         <Tile href="/admin/blog" icon={Newspaper} label="Manage Blog" />
         <Tile href="/admin/projects" icon={Folder} label="Manage Projects" />
         <Tile href="/admin/invoices" icon={FileText} label="Invoices" />
+        <Tile href="/admin/client-projects" icon={Folder} label="Client Projects" />
       </div>
 
       <h2 className="text-lg font-semibold text-[var(--color-text-secondary)] mb-3">Clients & Moderation</h2>

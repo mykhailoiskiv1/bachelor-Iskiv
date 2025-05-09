@@ -308,6 +308,28 @@ exports.Prisma.InvoiceScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.ClientProjectScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  name: 'name',
+  status: 'status',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ClientProjectHistoryScalarFieldEnum = {
+  id: 'id',
+  clientProjectId: 'clientProjectId',
+  status: 'status',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -351,7 +373,9 @@ exports.Prisma.ModelName = {
   ServiceItem: 'ServiceItem',
   ServiceOption: 'ServiceOption',
   FollowUp: 'FollowUp',
-  Invoice: 'Invoice'
+  Invoice: 'Invoice',
+  ClientProject: 'ClientProject',
+  ClientProjectHistory: 'ClientProjectHistory'
 };
 
 /**
