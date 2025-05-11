@@ -43,6 +43,13 @@ export default function ClientProjectDetailPage() {
       .finally(() => setLoading(false))
   }, [id, router])
 
+  const formatDate = (dateStr: string) =>
+    new Date(dateStr).toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    })
+
   if (loading) return <p className="p-6">Loading...</p>
   if (error || !project) return <p className="p-6 text-red-600">{error || 'Project not found'}</p>
 
@@ -60,8 +67,8 @@ export default function ClientProjectDetailPage() {
 
       <div className="mb-6 space-y-1 text-sm text-gray-700">
         <p><strong>Status:</strong> {project.status}</p>
-        <p><strong>Start:</strong> {project.startDate}</p>
-        <p><strong>End:</strong> {project.endDate ?? 'Ongoing'}</p>
+        <p><strong>Start:</strong> {formatDate(project.startDate)}</p>
+        <p><strong>End:</strong> {project.endDate ? formatDate(project.endDate) : 'Ongoing'}</p>
       </div>
 
       <div>
@@ -77,7 +84,7 @@ export default function ClientProjectDetailPage() {
               >
                 <p className="font-semibold">{entry.status}</p>
                 <p className="text-sm text-gray-600">
-                  {entry.startDate} → {entry.endDate ?? 'Present'}
+                  {formatDate(entry.startDate)} → {entry.endDate ? formatDate(entry.endDate) : 'Present'}
                 </p>
               </li>
             ))}

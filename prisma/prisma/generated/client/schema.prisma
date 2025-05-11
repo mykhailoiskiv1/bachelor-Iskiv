@@ -279,3 +279,33 @@ model ClientProjectHistory {
   @@index([clientProjectId])
   @@index([deletedAt])
 }
+
+model AiChatThread {
+  id          String          @id @default(cuid())
+  sessionKey  String          @unique
+  isEscalated Boolean         @default(false)
+  createdAt   DateTime        @default(now())
+  messages    AiChatMessage[]
+
+  escalation AiChatEscalation?
+}
+
+model AiChatMessage {
+  id        String       @id @default(cuid())
+  threadId  String
+  thread    AiChatThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  sender    String
+  content   String
+  createdAt DateTime     @default(now())
+}
+
+model AiChatEscalation {
+  id         Int      @id @default(autoincrement())
+  sessionKey String   @unique
+  name       String?
+  email      String
+  message    String?
+  createdAt  DateTime @default(now())
+
+  thread AiChatThread @relation(fields: [sessionKey], references: [sessionKey])
+}
