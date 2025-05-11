@@ -14,7 +14,9 @@ import {
   FileCheck,
   ShieldCheck,
   Bell,
+  BookOpen,
 } from 'lucide-react'
+
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
@@ -45,7 +47,18 @@ const Tile = ({
 )
 
 export default function AdminDashboardPage() {
-  const { data: pending } = useSWR('/api/admin/clients', fetcher)
+  const { data: pendingClients } = useSWR('/api/admin/clients', fetcher)
+  interface ChatThread {
+    isEscalated: boolean
+    hasAdminReply: boolean
+  }
+
+  const { data: chatThreads } = useSWR<ChatThread[]>('/api/admin/chat-threads', fetcher)
+
+  const pendingCount = pendingClients?.length ?? 0
+  const unansweredChats = chatThreads?.filter(
+    (t: ChatThread) => t.isEscalated && !t.hasAdminReply
+  ).length ?? 0
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
@@ -56,11 +69,18 @@ export default function AdminDashboardPage() {
         <Tile href="/admin/blog" icon={Newspaper} label="Manage Blog" />
         <Tile href="/admin/projects" icon={Folder} label="Manage Projects" />
         <Tile href="/admin/invoices" icon={FileText} label="Invoices" />
+        <Tile href="/admin/client-projects" icon={Folder} label="Client Projects" />
+        <Tile href="/admin/knowledge" icon={BookOpen} label="Knowledge For AI-Chat" />
       </div>
 
       <h2 className="text-lg font-semibold text-[var(--color-text-secondary)] mb-3">Clients & Moderation</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-        <Tile href="/admin/clients-approval" icon={CheckCircle} label="Client Approvals" notificationCount={pending?.length} />
+        <Tile
+          href="/admin/clients-approval"
+          icon={CheckCircle}
+          label="Client Approvals"
+          notificationCount={pendingCount}
+        />
         <Tile href="/admin/manage-clients" icon={UserCog} label="Manage Clients" />
         <Tile href="/admin/reviews" icon={MessageSquare} label="Moderate Reviews" />
       </div>
@@ -75,6 +95,12 @@ export default function AdminDashboardPage() {
       <h2 className="text-lg font-semibold text-[var(--color-text-secondary)] mb-3">Communication</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <Tile href="/admin/notifications" icon={Bell} label="Notifications" />
+        <Tile
+          href="/admin/chat-threads"
+          icon={MessageSquare}
+          label="Escalated Chats"
+          notificationCount={unansweredChats}
+        />
       </div>
     </div>
   )

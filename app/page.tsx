@@ -6,6 +6,7 @@ import ProjectPreview from '@/components/home/ProjectPreview';
 import QuickAccessButtons from '../components/home/QuickAccessButtons';
 import ReviewsList from '../components/client/reviews/ReviewsList';
 import FooterMinimal from '../components/layout/FooterMinimal';
+import ChatButton from '@/components/home/ChatButton';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <PopularServices />
         <ProjectPreview />
         <ReviewsList />
+        <ChatButton />
       </main>
       <FooterMinimal />
     </>

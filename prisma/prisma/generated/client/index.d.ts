@@ -98,6 +98,31 @@ export type FollowUp = $Result.DefaultSelection<Prisma.$FollowUpPayload>
  * 
  */
 export type Invoice = $Result.DefaultSelection<Prisma.$InvoicePayload>
+/**
+ * Model ClientProject
+ * 
+ */
+export type ClientProject = $Result.DefaultSelection<Prisma.$ClientProjectPayload>
+/**
+ * Model ClientProjectHistory
+ * 
+ */
+export type ClientProjectHistory = $Result.DefaultSelection<Prisma.$ClientProjectHistoryPayload>
+/**
+ * Model AiChatThread
+ * 
+ */
+export type AiChatThread = $Result.DefaultSelection<Prisma.$AiChatThreadPayload>
+/**
+ * Model AiChatMessage
+ * 
+ */
+export type AiChatMessage = $Result.DefaultSelection<Prisma.$AiChatMessagePayload>
+/**
+ * Model AiChatEscalation
+ * 
+ */
+export type AiChatEscalation = $Result.DefaultSelection<Prisma.$AiChatEscalationPayload>
 
 /**
  * Enums
@@ -424,6 +449,56 @@ export class PrismaClient<
     * ```
     */
   get invoice(): Prisma.InvoiceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clientProject`: Exposes CRUD operations for the **ClientProject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClientProjects
+    * const clientProjects = await prisma.clientProject.findMany()
+    * ```
+    */
+  get clientProject(): Prisma.ClientProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clientProjectHistory`: Exposes CRUD operations for the **ClientProjectHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClientProjectHistories
+    * const clientProjectHistories = await prisma.clientProjectHistory.findMany()
+    * ```
+    */
+  get clientProjectHistory(): Prisma.ClientProjectHistoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aiChatThread`: Exposes CRUD operations for the **AiChatThread** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AiChatThreads
+    * const aiChatThreads = await prisma.aiChatThread.findMany()
+    * ```
+    */
+  get aiChatThread(): Prisma.AiChatThreadDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aiChatMessage`: Exposes CRUD operations for the **AiChatMessage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AiChatMessages
+    * const aiChatMessages = await prisma.aiChatMessage.findMany()
+    * ```
+    */
+  get aiChatMessage(): Prisma.AiChatMessageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.aiChatEscalation`: Exposes CRUD operations for the **AiChatEscalation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AiChatEscalations
+    * const aiChatEscalations = await prisma.aiChatEscalation.findMany()
+    * ```
+    */
+  get aiChatEscalation(): Prisma.AiChatEscalationDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -482,8 +557,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.7.0
+   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
    */
   export type PrismaVersion = {
     client: string
@@ -880,7 +955,12 @@ export namespace Prisma {
     ServiceItem: 'ServiceItem',
     ServiceOption: 'ServiceOption',
     FollowUp: 'FollowUp',
-    Invoice: 'Invoice'
+    Invoice: 'Invoice',
+    ClientProject: 'ClientProject',
+    ClientProjectHistory: 'ClientProjectHistory',
+    AiChatThread: 'AiChatThread',
+    AiChatMessage: 'AiChatMessage',
+    AiChatEscalation: 'AiChatEscalation'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -899,7 +979,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project" | "projectType" | "workPackage" | "serviceItem" | "serviceOption" | "followUp" | "invoice"
+      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project" | "projectType" | "workPackage" | "serviceItem" | "serviceOption" | "followUp" | "invoice" | "clientProject" | "clientProjectHistory" | "aiChatThread" | "aiChatMessage" | "aiChatEscalation"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2161,6 +2241,376 @@ export namespace Prisma {
           }
         }
       }
+      ClientProject: {
+        payload: Prisma.$ClientProjectPayload<ExtArgs>
+        fields: Prisma.ClientProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClientProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClientProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.ClientProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClientProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          findMany: {
+            args: Prisma.ClientProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>[]
+          }
+          create: {
+            args: Prisma.ClientProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          createMany: {
+            args: Prisma.ClientProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClientProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>[]
+          }
+          delete: {
+            args: Prisma.ClientProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          update: {
+            args: Prisma.ClientProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClientProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClientProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClientProjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClientProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.ClientProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClientProject>
+          }
+          groupBy: {
+            args: Prisma.ClientProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClientProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      ClientProjectHistory: {
+        payload: Prisma.$ClientProjectHistoryPayload<ExtArgs>
+        fields: Prisma.ClientProjectHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClientProjectHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClientProjectHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.ClientProjectHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClientProjectHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.ClientProjectHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.ClientProjectHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.ClientProjectHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClientProjectHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.ClientProjectHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          update: {
+            args: Prisma.ClientProjectHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClientProjectHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClientProjectHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClientProjectHistoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClientProjectHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientProjectHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.ClientProjectHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClientProjectHistory>
+          }
+          groupBy: {
+            args: Prisma.ClientProjectHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClientProjectHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<ClientProjectHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      AiChatThread: {
+        payload: Prisma.$AiChatThreadPayload<ExtArgs>
+        fields: Prisma.AiChatThreadFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AiChatThreadFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AiChatThreadFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>
+          }
+          findFirst: {
+            args: Prisma.AiChatThreadFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AiChatThreadFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>
+          }
+          findMany: {
+            args: Prisma.AiChatThreadFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>[]
+          }
+          create: {
+            args: Prisma.AiChatThreadCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>
+          }
+          createMany: {
+            args: Prisma.AiChatThreadCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AiChatThreadCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>[]
+          }
+          delete: {
+            args: Prisma.AiChatThreadDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>
+          }
+          update: {
+            args: Prisma.AiChatThreadUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>
+          }
+          deleteMany: {
+            args: Prisma.AiChatThreadDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AiChatThreadUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AiChatThreadUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>[]
+          }
+          upsert: {
+            args: Prisma.AiChatThreadUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatThreadPayload>
+          }
+          aggregate: {
+            args: Prisma.AiChatThreadAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAiChatThread>
+          }
+          groupBy: {
+            args: Prisma.AiChatThreadGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AiChatThreadGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AiChatThreadCountArgs<ExtArgs>
+            result: $Utils.Optional<AiChatThreadCountAggregateOutputType> | number
+          }
+        }
+      }
+      AiChatMessage: {
+        payload: Prisma.$AiChatMessagePayload<ExtArgs>
+        fields: Prisma.AiChatMessageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AiChatMessageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AiChatMessageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>
+          }
+          findFirst: {
+            args: Prisma.AiChatMessageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AiChatMessageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>
+          }
+          findMany: {
+            args: Prisma.AiChatMessageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>[]
+          }
+          create: {
+            args: Prisma.AiChatMessageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>
+          }
+          createMany: {
+            args: Prisma.AiChatMessageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AiChatMessageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>[]
+          }
+          delete: {
+            args: Prisma.AiChatMessageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>
+          }
+          update: {
+            args: Prisma.AiChatMessageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>
+          }
+          deleteMany: {
+            args: Prisma.AiChatMessageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AiChatMessageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AiChatMessageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>[]
+          }
+          upsert: {
+            args: Prisma.AiChatMessageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatMessagePayload>
+          }
+          aggregate: {
+            args: Prisma.AiChatMessageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAiChatMessage>
+          }
+          groupBy: {
+            args: Prisma.AiChatMessageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AiChatMessageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AiChatMessageCountArgs<ExtArgs>
+            result: $Utils.Optional<AiChatMessageCountAggregateOutputType> | number
+          }
+        }
+      }
+      AiChatEscalation: {
+        payload: Prisma.$AiChatEscalationPayload<ExtArgs>
+        fields: Prisma.AiChatEscalationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AiChatEscalationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AiChatEscalationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>
+          }
+          findFirst: {
+            args: Prisma.AiChatEscalationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AiChatEscalationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>
+          }
+          findMany: {
+            args: Prisma.AiChatEscalationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>[]
+          }
+          create: {
+            args: Prisma.AiChatEscalationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>
+          }
+          createMany: {
+            args: Prisma.AiChatEscalationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AiChatEscalationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>[]
+          }
+          delete: {
+            args: Prisma.AiChatEscalationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>
+          }
+          update: {
+            args: Prisma.AiChatEscalationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>
+          }
+          deleteMany: {
+            args: Prisma.AiChatEscalationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AiChatEscalationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AiChatEscalationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>[]
+          }
+          upsert: {
+            args: Prisma.AiChatEscalationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AiChatEscalationPayload>
+          }
+          aggregate: {
+            args: Prisma.AiChatEscalationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAiChatEscalation>
+          }
+          groupBy: {
+            args: Prisma.AiChatEscalationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AiChatEscalationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AiChatEscalationCountArgs<ExtArgs>
+            result: $Utils.Optional<AiChatEscalationCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2262,6 +2712,11 @@ export namespace Prisma {
     serviceOption?: ServiceOptionOmit
     followUp?: FollowUpOmit
     invoice?: InvoiceOmit
+    clientProject?: ClientProjectOmit
+    clientProjectHistory?: ClientProjectHistoryOmit
+    aiChatThread?: AiChatThreadOmit
+    aiChatMessage?: AiChatMessageOmit
+    aiChatEscalation?: AiChatEscalationOmit
   }
 
   /* Types for Logging */
@@ -2360,6 +2815,7 @@ export namespace Prisma {
     certificates: number
     notifications: number
     invoices: number
+    clientProjects: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2367,6 +2823,7 @@ export namespace Prisma {
     certificates?: boolean | UserCountOutputTypeCountCertificatesArgs
     notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
     invoices?: boolean | UserCountOutputTypeCountInvoicesArgs
+    clientProjects?: boolean | UserCountOutputTypeCountClientProjectsArgs
   }
 
   // Custom InputTypes
@@ -2406,6 +2863,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountInvoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InvoiceWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountClientProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectWhereInput
   }
 
 
@@ -2579,6 +3043,68 @@ export namespace Prisma {
    */
   export type ServiceItemCountOutputTypeCountSuggestedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FollowUpWhereInput
+  }
+
+
+  /**
+   * Count Type ClientProjectCountOutputType
+   */
+
+  export type ClientProjectCountOutputType = {
+    history: number
+  }
+
+  export type ClientProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    history?: boolean | ClientProjectCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ClientProjectCountOutputType without action
+   */
+  export type ClientProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectCountOutputType
+     */
+    select?: ClientProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ClientProjectCountOutputType without action
+   */
+  export type ClientProjectCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectHistoryWhereInput
+  }
+
+
+  /**
+   * Count Type AiChatThreadCountOutputType
+   */
+
+  export type AiChatThreadCountOutputType = {
+    messages: number
+  }
+
+  export type AiChatThreadCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    messages?: boolean | AiChatThreadCountOutputTypeCountMessagesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AiChatThreadCountOutputType without action
+   */
+  export type AiChatThreadCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThreadCountOutputType
+     */
+    select?: AiChatThreadCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AiChatThreadCountOutputType without action
+   */
+  export type AiChatThreadCountOutputTypeCountMessagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AiChatMessageWhereInput
   }
 
 
@@ -2794,6 +3320,7 @@ export namespace Prisma {
     certificates?: boolean | User$certificatesArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     invoices?: boolean | User$invoicesArgs<ExtArgs>
+    clientProjects?: boolean | User$clientProjectsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2842,6 +3369,7 @@ export namespace Prisma {
     certificates?: boolean | User$certificatesArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     invoices?: boolean | User$invoicesArgs<ExtArgs>
+    clientProjects?: boolean | User$clientProjectsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2854,6 +3382,7 @@ export namespace Prisma {
       certificates: Prisma.$CertificatePayload<ExtArgs>[]
       notifications: Prisma.$NotificationPayload<ExtArgs>[]
       invoices: Prisma.$InvoicePayload<ExtArgs>[]
+      clientProjects: Prisma.$ClientProjectPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3264,6 +3793,7 @@ export namespace Prisma {
     certificates<T extends User$certificatesArgs<ExtArgs> = {}>(args?: Subset<T, User$certificatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     invoices<T extends User$invoicesArgs<ExtArgs> = {}>(args?: Subset<T, User$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    clientProjects<T extends User$clientProjectsArgs<ExtArgs> = {}>(args?: Subset<T, User$clientProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3784,6 +4314,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * User.clientProjects
+   */
+  export type User$clientProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    where?: ClientProjectWhereInput
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    cursor?: ClientProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
   }
 
   /**
@@ -21952,6 +22506,5545 @@ export namespace Prisma {
 
 
   /**
+   * Model ClientProject
+   */
+
+  export type AggregateClientProject = {
+    _count: ClientProjectCountAggregateOutputType | null
+    _avg: ClientProjectAvgAggregateOutputType | null
+    _sum: ClientProjectSumAggregateOutputType | null
+    _min: ClientProjectMinAggregateOutputType | null
+    _max: ClientProjectMaxAggregateOutputType | null
+  }
+
+  export type ClientProjectAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ClientProjectSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ClientProjectMinAggregateOutputType = {
+    id: number | null
+    clientId: string | null
+    name: string | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClientProjectMaxAggregateOutputType = {
+    id: number | null
+    clientId: string | null
+    name: string | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClientProjectCountAggregateOutputType = {
+    id: number
+    clientId: number
+    name: number
+    status: number
+    startDate: number
+    endDate: number
+    deletedAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ClientProjectAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ClientProjectSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ClientProjectMinAggregateInputType = {
+    id?: true
+    clientId?: true
+    name?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClientProjectMaxAggregateInputType = {
+    id?: true
+    clientId?: true
+    name?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClientProjectCountAggregateInputType = {
+    id?: true
+    clientId?: true
+    name?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ClientProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProject to aggregate.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClientProjects
+    **/
+    _count?: true | ClientProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClientProjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClientProjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClientProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClientProjectMaxAggregateInputType
+  }
+
+  export type GetClientProjectAggregateType<T extends ClientProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateClientProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClientProject[P]>
+      : GetScalarType<T[P], AggregateClientProject[P]>
+  }
+
+
+
+
+  export type ClientProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectWhereInput
+    orderBy?: ClientProjectOrderByWithAggregationInput | ClientProjectOrderByWithAggregationInput[]
+    by: ClientProjectScalarFieldEnum[] | ClientProjectScalarFieldEnum
+    having?: ClientProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClientProjectCountAggregateInputType | true
+    _avg?: ClientProjectAvgAggregateInputType
+    _sum?: ClientProjectSumAggregateInputType
+    _min?: ClientProjectMinAggregateInputType
+    _max?: ClientProjectMaxAggregateInputType
+  }
+
+  export type ClientProjectGroupByOutputType = {
+    id: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ClientProjectCountAggregateOutputType | null
+    _avg: ClientProjectAvgAggregateOutputType | null
+    _sum: ClientProjectSumAggregateOutputType | null
+    _min: ClientProjectMinAggregateOutputType | null
+    _max: ClientProjectMaxAggregateOutputType | null
+  }
+
+  type GetClientProjectGroupByPayload<T extends ClientProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClientProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClientProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClientProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], ClientProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClientProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+    history?: boolean | ClientProject$historyArgs<ExtArgs>
+    _count?: boolean | ClientProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProject"]>
+
+  export type ClientProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProject"]>
+
+  export type ClientProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProject"]>
+
+  export type ClientProjectSelectScalar = {
+    id?: boolean
+    clientId?: boolean
+    name?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ClientProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "name" | "status" | "startDate" | "endDate" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["clientProject"]>
+  export type ClientProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+    history?: boolean | ClientProject$historyArgs<ExtArgs>
+    _count?: boolean | ClientProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ClientProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClientProject"
+    objects: {
+      client: Prisma.$UserPayload<ExtArgs>
+      history: Prisma.$ClientProjectHistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      clientId: string
+      name: string
+      status: string
+      startDate: Date
+      endDate: Date | null
+      deletedAt: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["clientProject"]>
+    composites: {}
+  }
+
+  type ClientProjectGetPayload<S extends boolean | null | undefined | ClientProjectDefaultArgs> = $Result.GetResult<Prisma.$ClientProjectPayload, S>
+
+  type ClientProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClientProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClientProjectCountAggregateInputType | true
+    }
+
+  export interface ClientProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClientProject'], meta: { name: 'ClientProject' } }
+    /**
+     * Find zero or one ClientProject that matches the filter.
+     * @param {ClientProjectFindUniqueArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClientProjectFindUniqueArgs>(args: SelectSubset<T, ClientProjectFindUniqueArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClientProject that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClientProjectFindUniqueOrThrowArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClientProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, ClientProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectFindFirstArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClientProjectFindFirstArgs>(args?: SelectSubset<T, ClientProjectFindFirstArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectFindFirstOrThrowArgs} args - Arguments to find a ClientProject
+     * @example
+     * // Get one ClientProject
+     * const clientProject = await prisma.clientProject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClientProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, ClientProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClientProjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClientProjects
+     * const clientProjects = await prisma.clientProject.findMany()
+     * 
+     * // Get first 10 ClientProjects
+     * const clientProjects = await prisma.clientProject.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clientProjectWithIdOnly = await prisma.clientProject.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClientProjectFindManyArgs>(args?: SelectSubset<T, ClientProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClientProject.
+     * @param {ClientProjectCreateArgs} args - Arguments to create a ClientProject.
+     * @example
+     * // Create one ClientProject
+     * const ClientProject = await prisma.clientProject.create({
+     *   data: {
+     *     // ... data to create a ClientProject
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClientProjectCreateArgs>(args: SelectSubset<T, ClientProjectCreateArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClientProjects.
+     * @param {ClientProjectCreateManyArgs} args - Arguments to create many ClientProjects.
+     * @example
+     * // Create many ClientProjects
+     * const clientProject = await prisma.clientProject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClientProjectCreateManyArgs>(args?: SelectSubset<T, ClientProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClientProjects and returns the data saved in the database.
+     * @param {ClientProjectCreateManyAndReturnArgs} args - Arguments to create many ClientProjects.
+     * @example
+     * // Create many ClientProjects
+     * const clientProject = await prisma.clientProject.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClientProjects and only return the `id`
+     * const clientProjectWithIdOnly = await prisma.clientProject.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClientProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, ClientProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClientProject.
+     * @param {ClientProjectDeleteArgs} args - Arguments to delete one ClientProject.
+     * @example
+     * // Delete one ClientProject
+     * const ClientProject = await prisma.clientProject.delete({
+     *   where: {
+     *     // ... filter to delete one ClientProject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClientProjectDeleteArgs>(args: SelectSubset<T, ClientProjectDeleteArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClientProject.
+     * @param {ClientProjectUpdateArgs} args - Arguments to update one ClientProject.
+     * @example
+     * // Update one ClientProject
+     * const clientProject = await prisma.clientProject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClientProjectUpdateArgs>(args: SelectSubset<T, ClientProjectUpdateArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClientProjects.
+     * @param {ClientProjectDeleteManyArgs} args - Arguments to filter ClientProjects to delete.
+     * @example
+     * // Delete a few ClientProjects
+     * const { count } = await prisma.clientProject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClientProjectDeleteManyArgs>(args?: SelectSubset<T, ClientProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClientProjects
+     * const clientProject = await prisma.clientProject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClientProjectUpdateManyArgs>(args: SelectSubset<T, ClientProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjects and returns the data updated in the database.
+     * @param {ClientProjectUpdateManyAndReturnArgs} args - Arguments to update many ClientProjects.
+     * @example
+     * // Update many ClientProjects
+     * const clientProject = await prisma.clientProject.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClientProjects and only return the `id`
+     * const clientProjectWithIdOnly = await prisma.clientProject.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClientProjectUpdateManyAndReturnArgs>(args: SelectSubset<T, ClientProjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClientProject.
+     * @param {ClientProjectUpsertArgs} args - Arguments to update or create a ClientProject.
+     * @example
+     * // Update or create a ClientProject
+     * const clientProject = await prisma.clientProject.upsert({
+     *   create: {
+     *     // ... data to create a ClientProject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClientProject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClientProjectUpsertArgs>(args: SelectSubset<T, ClientProjectUpsertArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClientProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectCountArgs} args - Arguments to filter ClientProjects to count.
+     * @example
+     * // Count the number of ClientProjects
+     * const count = await prisma.clientProject.count({
+     *   where: {
+     *     // ... the filter for the ClientProjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClientProjectCountArgs>(
+      args?: Subset<T, ClientProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClientProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClientProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClientProjectAggregateArgs>(args: Subset<T, ClientProjectAggregateArgs>): Prisma.PrismaPromise<GetClientProjectAggregateType<T>>
+
+    /**
+     * Group by ClientProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClientProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClientProjectGroupByArgs['orderBy'] }
+        : { orderBy?: ClientProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClientProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClientProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClientProject model
+   */
+  readonly fields: ClientProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClientProject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClientProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    client<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    history<T extends ClientProject$historyArgs<ExtArgs> = {}>(args?: Subset<T, ClientProject$historyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClientProject model
+   */
+  interface ClientProjectFieldRefs {
+    readonly id: FieldRef<"ClientProject", 'Int'>
+    readonly clientId: FieldRef<"ClientProject", 'String'>
+    readonly name: FieldRef<"ClientProject", 'String'>
+    readonly status: FieldRef<"ClientProject", 'String'>
+    readonly startDate: FieldRef<"ClientProject", 'DateTime'>
+    readonly endDate: FieldRef<"ClientProject", 'DateTime'>
+    readonly deletedAt: FieldRef<"ClientProject", 'DateTime'>
+    readonly createdAt: FieldRef<"ClientProject", 'DateTime'>
+    readonly updatedAt: FieldRef<"ClientProject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClientProject findUnique
+   */
+  export type ClientProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject findUniqueOrThrow
+   */
+  export type ClientProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject findFirst
+   */
+  export type ClientProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjects.
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjects.
+     */
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject findFirstOrThrow
+   */
+  export type ClientProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProject to fetch.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjects.
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjects.
+     */
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject findMany
+   */
+  export type ClientProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjects to fetch.
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjects to fetch.
+     */
+    orderBy?: ClientProjectOrderByWithRelationInput | ClientProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClientProjects.
+     */
+    cursor?: ClientProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjects.
+     */
+    skip?: number
+    distinct?: ClientProjectScalarFieldEnum | ClientProjectScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject create
+   */
+  export type ClientProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ClientProject.
+     */
+    data: XOR<ClientProjectCreateInput, ClientProjectUncheckedCreateInput>
+  }
+
+  /**
+   * ClientProject createMany
+   */
+  export type ClientProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClientProjects.
+     */
+    data: ClientProjectCreateManyInput | ClientProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClientProject createManyAndReturn
+   */
+  export type ClientProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClientProjects.
+     */
+    data: ClientProjectCreateManyInput | ClientProjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProject update
+   */
+  export type ClientProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ClientProject.
+     */
+    data: XOR<ClientProjectUpdateInput, ClientProjectUncheckedUpdateInput>
+    /**
+     * Choose, which ClientProject to update.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject updateMany
+   */
+  export type ClientProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClientProjects.
+     */
+    data: XOR<ClientProjectUpdateManyMutationInput, ClientProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjects to update
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * Limit how many ClientProjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProject updateManyAndReturn
+   */
+  export type ClientProjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * The data used to update ClientProjects.
+     */
+    data: XOR<ClientProjectUpdateManyMutationInput, ClientProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjects to update
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * Limit how many ClientProjects to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProject upsert
+   */
+  export type ClientProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ClientProject to update in case it exists.
+     */
+    where: ClientProjectWhereUniqueInput
+    /**
+     * In case the ClientProject found by the `where` argument doesn't exist, create a new ClientProject with this data.
+     */
+    create: XOR<ClientProjectCreateInput, ClientProjectUncheckedCreateInput>
+    /**
+     * In case the ClientProject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClientProjectUpdateInput, ClientProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * ClientProject delete
+   */
+  export type ClientProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+    /**
+     * Filter which ClientProject to delete.
+     */
+    where: ClientProjectWhereUniqueInput
+  }
+
+  /**
+   * ClientProject deleteMany
+   */
+  export type ClientProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProjects to delete
+     */
+    where?: ClientProjectWhereInput
+    /**
+     * Limit how many ClientProjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProject.history
+   */
+  export type ClientProject$historyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    where?: ClientProjectHistoryWhereInput
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProject without action
+   */
+  export type ClientProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProject
+     */
+    select?: ClientProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProject
+     */
+    omit?: ClientProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ClientProjectHistory
+   */
+
+  export type AggregateClientProjectHistory = {
+    _count: ClientProjectHistoryCountAggregateOutputType | null
+    _avg: ClientProjectHistoryAvgAggregateOutputType | null
+    _sum: ClientProjectHistorySumAggregateOutputType | null
+    _min: ClientProjectHistoryMinAggregateOutputType | null
+    _max: ClientProjectHistoryMaxAggregateOutputType | null
+  }
+
+  export type ClientProjectHistoryAvgAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+  }
+
+  export type ClientProjectHistorySumAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+  }
+
+  export type ClientProjectHistoryMinAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type ClientProjectHistoryMaxAggregateOutputType = {
+    id: number | null
+    clientProjectId: number | null
+    status: string | null
+    startDate: Date | null
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type ClientProjectHistoryCountAggregateOutputType = {
+    id: number
+    clientProjectId: number
+    status: number
+    startDate: number
+    endDate: number
+    deletedAt: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ClientProjectHistoryAvgAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+  }
+
+  export type ClientProjectHistorySumAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+  }
+
+  export type ClientProjectHistoryMinAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+  }
+
+  export type ClientProjectHistoryMaxAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+  }
+
+  export type ClientProjectHistoryCountAggregateInputType = {
+    id?: true
+    clientProjectId?: true
+    status?: true
+    startDate?: true
+    endDate?: true
+    deletedAt?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ClientProjectHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProjectHistory to aggregate.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClientProjectHistories
+    **/
+    _count?: true | ClientProjectHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClientProjectHistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClientProjectHistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClientProjectHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClientProjectHistoryMaxAggregateInputType
+  }
+
+  export type GetClientProjectHistoryAggregateType<T extends ClientProjectHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateClientProjectHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClientProjectHistory[P]>
+      : GetScalarType<T[P], AggregateClientProjectHistory[P]>
+  }
+
+
+
+
+  export type ClientProjectHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientProjectHistoryWhereInput
+    orderBy?: ClientProjectHistoryOrderByWithAggregationInput | ClientProjectHistoryOrderByWithAggregationInput[]
+    by: ClientProjectHistoryScalarFieldEnum[] | ClientProjectHistoryScalarFieldEnum
+    having?: ClientProjectHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClientProjectHistoryCountAggregateInputType | true
+    _avg?: ClientProjectHistoryAvgAggregateInputType
+    _sum?: ClientProjectHistorySumAggregateInputType
+    _min?: ClientProjectHistoryMinAggregateInputType
+    _max?: ClientProjectHistoryMaxAggregateInputType
+  }
+
+  export type ClientProjectHistoryGroupByOutputType = {
+    id: number
+    clientProjectId: number
+    status: string
+    startDate: Date
+    endDate: Date | null
+    deletedAt: Date | null
+    createdAt: Date
+    _count: ClientProjectHistoryCountAggregateOutputType | null
+    _avg: ClientProjectHistoryAvgAggregateOutputType | null
+    _sum: ClientProjectHistorySumAggregateOutputType | null
+    _min: ClientProjectHistoryMinAggregateOutputType | null
+    _max: ClientProjectHistoryMaxAggregateOutputType | null
+  }
+
+  type GetClientProjectHistoryGroupByPayload<T extends ClientProjectHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClientProjectHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClientProjectHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClientProjectHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], ClientProjectHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClientProjectHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProjectHistory"]>
+
+  export type ClientProjectHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProjectHistory"]>
+
+  export type ClientProjectHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientProjectHistory"]>
+
+  export type ClientProjectHistorySelectScalar = {
+    id?: boolean
+    clientProjectId?: boolean
+    status?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    deletedAt?: boolean
+    createdAt?: boolean
+  }
+
+  export type ClientProjectHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientProjectId" | "status" | "startDate" | "endDate" | "deletedAt" | "createdAt", ExtArgs["result"]["clientProjectHistory"]>
+  export type ClientProjectHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }
+  export type ClientProjectHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientProject?: boolean | ClientProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $ClientProjectHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClientProjectHistory"
+    objects: {
+      clientProject: Prisma.$ClientProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      clientProjectId: number
+      status: string
+      startDate: Date
+      endDate: Date | null
+      deletedAt: Date | null
+      createdAt: Date
+    }, ExtArgs["result"]["clientProjectHistory"]>
+    composites: {}
+  }
+
+  type ClientProjectHistoryGetPayload<S extends boolean | null | undefined | ClientProjectHistoryDefaultArgs> = $Result.GetResult<Prisma.$ClientProjectHistoryPayload, S>
+
+  type ClientProjectHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClientProjectHistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClientProjectHistoryCountAggregateInputType | true
+    }
+
+  export interface ClientProjectHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClientProjectHistory'], meta: { name: 'ClientProjectHistory' } }
+    /**
+     * Find zero or one ClientProjectHistory that matches the filter.
+     * @param {ClientProjectHistoryFindUniqueArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClientProjectHistoryFindUniqueArgs>(args: SelectSubset<T, ClientProjectHistoryFindUniqueArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClientProjectHistory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClientProjectHistoryFindUniqueOrThrowArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClientProjectHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, ClientProjectHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProjectHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryFindFirstArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClientProjectHistoryFindFirstArgs>(args?: SelectSubset<T, ClientProjectHistoryFindFirstArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientProjectHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryFindFirstOrThrowArgs} args - Arguments to find a ClientProjectHistory
+     * @example
+     * // Get one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClientProjectHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, ClientProjectHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClientProjectHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClientProjectHistories
+     * const clientProjectHistories = await prisma.clientProjectHistory.findMany()
+     * 
+     * // Get first 10 ClientProjectHistories
+     * const clientProjectHistories = await prisma.clientProjectHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clientProjectHistoryWithIdOnly = await prisma.clientProjectHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClientProjectHistoryFindManyArgs>(args?: SelectSubset<T, ClientProjectHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClientProjectHistory.
+     * @param {ClientProjectHistoryCreateArgs} args - Arguments to create a ClientProjectHistory.
+     * @example
+     * // Create one ClientProjectHistory
+     * const ClientProjectHistory = await prisma.clientProjectHistory.create({
+     *   data: {
+     *     // ... data to create a ClientProjectHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClientProjectHistoryCreateArgs>(args: SelectSubset<T, ClientProjectHistoryCreateArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClientProjectHistories.
+     * @param {ClientProjectHistoryCreateManyArgs} args - Arguments to create many ClientProjectHistories.
+     * @example
+     * // Create many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClientProjectHistoryCreateManyArgs>(args?: SelectSubset<T, ClientProjectHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClientProjectHistories and returns the data saved in the database.
+     * @param {ClientProjectHistoryCreateManyAndReturnArgs} args - Arguments to create many ClientProjectHistories.
+     * @example
+     * // Create many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClientProjectHistories and only return the `id`
+     * const clientProjectHistoryWithIdOnly = await prisma.clientProjectHistory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClientProjectHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, ClientProjectHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClientProjectHistory.
+     * @param {ClientProjectHistoryDeleteArgs} args - Arguments to delete one ClientProjectHistory.
+     * @example
+     * // Delete one ClientProjectHistory
+     * const ClientProjectHistory = await prisma.clientProjectHistory.delete({
+     *   where: {
+     *     // ... filter to delete one ClientProjectHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClientProjectHistoryDeleteArgs>(args: SelectSubset<T, ClientProjectHistoryDeleteArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClientProjectHistory.
+     * @param {ClientProjectHistoryUpdateArgs} args - Arguments to update one ClientProjectHistory.
+     * @example
+     * // Update one ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClientProjectHistoryUpdateArgs>(args: SelectSubset<T, ClientProjectHistoryUpdateArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClientProjectHistories.
+     * @param {ClientProjectHistoryDeleteManyArgs} args - Arguments to filter ClientProjectHistories to delete.
+     * @example
+     * // Delete a few ClientProjectHistories
+     * const { count } = await prisma.clientProjectHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClientProjectHistoryDeleteManyArgs>(args?: SelectSubset<T, ClientProjectHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjectHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClientProjectHistoryUpdateManyArgs>(args: SelectSubset<T, ClientProjectHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientProjectHistories and returns the data updated in the database.
+     * @param {ClientProjectHistoryUpdateManyAndReturnArgs} args - Arguments to update many ClientProjectHistories.
+     * @example
+     * // Update many ClientProjectHistories
+     * const clientProjectHistory = await prisma.clientProjectHistory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClientProjectHistories and only return the `id`
+     * const clientProjectHistoryWithIdOnly = await prisma.clientProjectHistory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClientProjectHistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, ClientProjectHistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClientProjectHistory.
+     * @param {ClientProjectHistoryUpsertArgs} args - Arguments to update or create a ClientProjectHistory.
+     * @example
+     * // Update or create a ClientProjectHistory
+     * const clientProjectHistory = await prisma.clientProjectHistory.upsert({
+     *   create: {
+     *     // ... data to create a ClientProjectHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClientProjectHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClientProjectHistoryUpsertArgs>(args: SelectSubset<T, ClientProjectHistoryUpsertArgs<ExtArgs>>): Prisma__ClientProjectHistoryClient<$Result.GetResult<Prisma.$ClientProjectHistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClientProjectHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryCountArgs} args - Arguments to filter ClientProjectHistories to count.
+     * @example
+     * // Count the number of ClientProjectHistories
+     * const count = await prisma.clientProjectHistory.count({
+     *   where: {
+     *     // ... the filter for the ClientProjectHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClientProjectHistoryCountArgs>(
+      args?: Subset<T, ClientProjectHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClientProjectHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClientProjectHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClientProjectHistoryAggregateArgs>(args: Subset<T, ClientProjectHistoryAggregateArgs>): Prisma.PrismaPromise<GetClientProjectHistoryAggregateType<T>>
+
+    /**
+     * Group by ClientProjectHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientProjectHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClientProjectHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClientProjectHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: ClientProjectHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClientProjectHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClientProjectHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClientProjectHistory model
+   */
+  readonly fields: ClientProjectHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClientProjectHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClientProjectHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    clientProject<T extends ClientProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClientProjectDefaultArgs<ExtArgs>>): Prisma__ClientProjectClient<$Result.GetResult<Prisma.$ClientProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClientProjectHistory model
+   */
+  interface ClientProjectHistoryFieldRefs {
+    readonly id: FieldRef<"ClientProjectHistory", 'Int'>
+    readonly clientProjectId: FieldRef<"ClientProjectHistory", 'Int'>
+    readonly status: FieldRef<"ClientProjectHistory", 'String'>
+    readonly startDate: FieldRef<"ClientProjectHistory", 'DateTime'>
+    readonly endDate: FieldRef<"ClientProjectHistory", 'DateTime'>
+    readonly deletedAt: FieldRef<"ClientProjectHistory", 'DateTime'>
+    readonly createdAt: FieldRef<"ClientProjectHistory", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClientProjectHistory findUnique
+   */
+  export type ClientProjectHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory findUniqueOrThrow
+   */
+  export type ClientProjectHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory findFirst
+   */
+  export type ClientProjectHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjectHistories.
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjectHistories.
+     */
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProjectHistory findFirstOrThrow
+   */
+  export type ClientProjectHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistory to fetch.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientProjectHistories.
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientProjectHistories.
+     */
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProjectHistory findMany
+   */
+  export type ClientProjectHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientProjectHistories to fetch.
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientProjectHistories to fetch.
+     */
+    orderBy?: ClientProjectHistoryOrderByWithRelationInput | ClientProjectHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClientProjectHistories.
+     */
+    cursor?: ClientProjectHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientProjectHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientProjectHistories.
+     */
+    skip?: number
+    distinct?: ClientProjectHistoryScalarFieldEnum | ClientProjectHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ClientProjectHistory create
+   */
+  export type ClientProjectHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ClientProjectHistory.
+     */
+    data: XOR<ClientProjectHistoryCreateInput, ClientProjectHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * ClientProjectHistory createMany
+   */
+  export type ClientProjectHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClientProjectHistories.
+     */
+    data: ClientProjectHistoryCreateManyInput | ClientProjectHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClientProjectHistory createManyAndReturn
+   */
+  export type ClientProjectHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClientProjectHistories.
+     */
+    data: ClientProjectHistoryCreateManyInput | ClientProjectHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProjectHistory update
+   */
+  export type ClientProjectHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ClientProjectHistory.
+     */
+    data: XOR<ClientProjectHistoryUpdateInput, ClientProjectHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which ClientProjectHistory to update.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory updateMany
+   */
+  export type ClientProjectHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClientProjectHistories.
+     */
+    data: XOR<ClientProjectHistoryUpdateManyMutationInput, ClientProjectHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjectHistories to update
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * Limit how many ClientProjectHistories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProjectHistory updateManyAndReturn
+   */
+  export type ClientProjectHistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to update ClientProjectHistories.
+     */
+    data: XOR<ClientProjectHistoryUpdateManyMutationInput, ClientProjectHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientProjectHistories to update
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * Limit how many ClientProjectHistories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientProjectHistory upsert
+   */
+  export type ClientProjectHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ClientProjectHistory to update in case it exists.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+    /**
+     * In case the ClientProjectHistory found by the `where` argument doesn't exist, create a new ClientProjectHistory with this data.
+     */
+    create: XOR<ClientProjectHistoryCreateInput, ClientProjectHistoryUncheckedCreateInput>
+    /**
+     * In case the ClientProjectHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClientProjectHistoryUpdateInput, ClientProjectHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * ClientProjectHistory delete
+   */
+  export type ClientProjectHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+    /**
+     * Filter which ClientProjectHistory to delete.
+     */
+    where: ClientProjectHistoryWhereUniqueInput
+  }
+
+  /**
+   * ClientProjectHistory deleteMany
+   */
+  export type ClientProjectHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientProjectHistories to delete
+     */
+    where?: ClientProjectHistoryWhereInput
+    /**
+     * Limit how many ClientProjectHistories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientProjectHistory without action
+   */
+  export type ClientProjectHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientProjectHistory
+     */
+    select?: ClientProjectHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientProjectHistory
+     */
+    omit?: ClientProjectHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientProjectHistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AiChatThread
+   */
+
+  export type AggregateAiChatThread = {
+    _count: AiChatThreadCountAggregateOutputType | null
+    _min: AiChatThreadMinAggregateOutputType | null
+    _max: AiChatThreadMaxAggregateOutputType | null
+  }
+
+  export type AiChatThreadMinAggregateOutputType = {
+    id: string | null
+    sessionKey: string | null
+    isEscalated: boolean | null
+    createdAt: Date | null
+  }
+
+  export type AiChatThreadMaxAggregateOutputType = {
+    id: string | null
+    sessionKey: string | null
+    isEscalated: boolean | null
+    createdAt: Date | null
+  }
+
+  export type AiChatThreadCountAggregateOutputType = {
+    id: number
+    sessionKey: number
+    isEscalated: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type AiChatThreadMinAggregateInputType = {
+    id?: true
+    sessionKey?: true
+    isEscalated?: true
+    createdAt?: true
+  }
+
+  export type AiChatThreadMaxAggregateInputType = {
+    id?: true
+    sessionKey?: true
+    isEscalated?: true
+    createdAt?: true
+  }
+
+  export type AiChatThreadCountAggregateInputType = {
+    id?: true
+    sessionKey?: true
+    isEscalated?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type AiChatThreadAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AiChatThread to aggregate.
+     */
+    where?: AiChatThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatThreads to fetch.
+     */
+    orderBy?: AiChatThreadOrderByWithRelationInput | AiChatThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AiChatThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatThreads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AiChatThreads
+    **/
+    _count?: true | AiChatThreadCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AiChatThreadMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AiChatThreadMaxAggregateInputType
+  }
+
+  export type GetAiChatThreadAggregateType<T extends AiChatThreadAggregateArgs> = {
+        [P in keyof T & keyof AggregateAiChatThread]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAiChatThread[P]>
+      : GetScalarType<T[P], AggregateAiChatThread[P]>
+  }
+
+
+
+
+  export type AiChatThreadGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AiChatThreadWhereInput
+    orderBy?: AiChatThreadOrderByWithAggregationInput | AiChatThreadOrderByWithAggregationInput[]
+    by: AiChatThreadScalarFieldEnum[] | AiChatThreadScalarFieldEnum
+    having?: AiChatThreadScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AiChatThreadCountAggregateInputType | true
+    _min?: AiChatThreadMinAggregateInputType
+    _max?: AiChatThreadMaxAggregateInputType
+  }
+
+  export type AiChatThreadGroupByOutputType = {
+    id: string
+    sessionKey: string
+    isEscalated: boolean
+    createdAt: Date
+    _count: AiChatThreadCountAggregateOutputType | null
+    _min: AiChatThreadMinAggregateOutputType | null
+    _max: AiChatThreadMaxAggregateOutputType | null
+  }
+
+  type GetAiChatThreadGroupByPayload<T extends AiChatThreadGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AiChatThreadGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AiChatThreadGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AiChatThreadGroupByOutputType[P]>
+            : GetScalarType<T[P], AiChatThreadGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AiChatThreadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionKey?: boolean
+    isEscalated?: boolean
+    createdAt?: boolean
+    messages?: boolean | AiChatThread$messagesArgs<ExtArgs>
+    escalation?: boolean | AiChatThread$escalationArgs<ExtArgs>
+    _count?: boolean | AiChatThreadCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aiChatThread"]>
+
+  export type AiChatThreadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionKey?: boolean
+    isEscalated?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["aiChatThread"]>
+
+  export type AiChatThreadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionKey?: boolean
+    isEscalated?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["aiChatThread"]>
+
+  export type AiChatThreadSelectScalar = {
+    id?: boolean
+    sessionKey?: boolean
+    isEscalated?: boolean
+    createdAt?: boolean
+  }
+
+  export type AiChatThreadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionKey" | "isEscalated" | "createdAt", ExtArgs["result"]["aiChatThread"]>
+  export type AiChatThreadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    messages?: boolean | AiChatThread$messagesArgs<ExtArgs>
+    escalation?: boolean | AiChatThread$escalationArgs<ExtArgs>
+    _count?: boolean | AiChatThreadCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type AiChatThreadIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type AiChatThreadIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $AiChatThreadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AiChatThread"
+    objects: {
+      messages: Prisma.$AiChatMessagePayload<ExtArgs>[]
+      escalation: Prisma.$AiChatEscalationPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sessionKey: string
+      isEscalated: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["aiChatThread"]>
+    composites: {}
+  }
+
+  type AiChatThreadGetPayload<S extends boolean | null | undefined | AiChatThreadDefaultArgs> = $Result.GetResult<Prisma.$AiChatThreadPayload, S>
+
+  type AiChatThreadCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AiChatThreadFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AiChatThreadCountAggregateInputType | true
+    }
+
+  export interface AiChatThreadDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AiChatThread'], meta: { name: 'AiChatThread' } }
+    /**
+     * Find zero or one AiChatThread that matches the filter.
+     * @param {AiChatThreadFindUniqueArgs} args - Arguments to find a AiChatThread
+     * @example
+     * // Get one AiChatThread
+     * const aiChatThread = await prisma.aiChatThread.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AiChatThreadFindUniqueArgs>(args: SelectSubset<T, AiChatThreadFindUniqueArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AiChatThread that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AiChatThreadFindUniqueOrThrowArgs} args - Arguments to find a AiChatThread
+     * @example
+     * // Get one AiChatThread
+     * const aiChatThread = await prisma.aiChatThread.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AiChatThreadFindUniqueOrThrowArgs>(args: SelectSubset<T, AiChatThreadFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AiChatThread that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatThreadFindFirstArgs} args - Arguments to find a AiChatThread
+     * @example
+     * // Get one AiChatThread
+     * const aiChatThread = await prisma.aiChatThread.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AiChatThreadFindFirstArgs>(args?: SelectSubset<T, AiChatThreadFindFirstArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AiChatThread that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatThreadFindFirstOrThrowArgs} args - Arguments to find a AiChatThread
+     * @example
+     * // Get one AiChatThread
+     * const aiChatThread = await prisma.aiChatThread.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AiChatThreadFindFirstOrThrowArgs>(args?: SelectSubset<T, AiChatThreadFindFirstOrThrowArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AiChatThreads that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatThreadFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AiChatThreads
+     * const aiChatThreads = await prisma.aiChatThread.findMany()
+     * 
+     * // Get first 10 AiChatThreads
+     * const aiChatThreads = await prisma.aiChatThread.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aiChatThreadWithIdOnly = await prisma.aiChatThread.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AiChatThreadFindManyArgs>(args?: SelectSubset<T, AiChatThreadFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AiChatThread.
+     * @param {AiChatThreadCreateArgs} args - Arguments to create a AiChatThread.
+     * @example
+     * // Create one AiChatThread
+     * const AiChatThread = await prisma.aiChatThread.create({
+     *   data: {
+     *     // ... data to create a AiChatThread
+     *   }
+     * })
+     * 
+     */
+    create<T extends AiChatThreadCreateArgs>(args: SelectSubset<T, AiChatThreadCreateArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AiChatThreads.
+     * @param {AiChatThreadCreateManyArgs} args - Arguments to create many AiChatThreads.
+     * @example
+     * // Create many AiChatThreads
+     * const aiChatThread = await prisma.aiChatThread.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AiChatThreadCreateManyArgs>(args?: SelectSubset<T, AiChatThreadCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AiChatThreads and returns the data saved in the database.
+     * @param {AiChatThreadCreateManyAndReturnArgs} args - Arguments to create many AiChatThreads.
+     * @example
+     * // Create many AiChatThreads
+     * const aiChatThread = await prisma.aiChatThread.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AiChatThreads and only return the `id`
+     * const aiChatThreadWithIdOnly = await prisma.aiChatThread.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AiChatThreadCreateManyAndReturnArgs>(args?: SelectSubset<T, AiChatThreadCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AiChatThread.
+     * @param {AiChatThreadDeleteArgs} args - Arguments to delete one AiChatThread.
+     * @example
+     * // Delete one AiChatThread
+     * const AiChatThread = await prisma.aiChatThread.delete({
+     *   where: {
+     *     // ... filter to delete one AiChatThread
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AiChatThreadDeleteArgs>(args: SelectSubset<T, AiChatThreadDeleteArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AiChatThread.
+     * @param {AiChatThreadUpdateArgs} args - Arguments to update one AiChatThread.
+     * @example
+     * // Update one AiChatThread
+     * const aiChatThread = await prisma.aiChatThread.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AiChatThreadUpdateArgs>(args: SelectSubset<T, AiChatThreadUpdateArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AiChatThreads.
+     * @param {AiChatThreadDeleteManyArgs} args - Arguments to filter AiChatThreads to delete.
+     * @example
+     * // Delete a few AiChatThreads
+     * const { count } = await prisma.aiChatThread.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AiChatThreadDeleteManyArgs>(args?: SelectSubset<T, AiChatThreadDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AiChatThreads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatThreadUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AiChatThreads
+     * const aiChatThread = await prisma.aiChatThread.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AiChatThreadUpdateManyArgs>(args: SelectSubset<T, AiChatThreadUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AiChatThreads and returns the data updated in the database.
+     * @param {AiChatThreadUpdateManyAndReturnArgs} args - Arguments to update many AiChatThreads.
+     * @example
+     * // Update many AiChatThreads
+     * const aiChatThread = await prisma.aiChatThread.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AiChatThreads and only return the `id`
+     * const aiChatThreadWithIdOnly = await prisma.aiChatThread.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AiChatThreadUpdateManyAndReturnArgs>(args: SelectSubset<T, AiChatThreadUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AiChatThread.
+     * @param {AiChatThreadUpsertArgs} args - Arguments to update or create a AiChatThread.
+     * @example
+     * // Update or create a AiChatThread
+     * const aiChatThread = await prisma.aiChatThread.upsert({
+     *   create: {
+     *     // ... data to create a AiChatThread
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AiChatThread we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AiChatThreadUpsertArgs>(args: SelectSubset<T, AiChatThreadUpsertArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AiChatThreads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatThreadCountArgs} args - Arguments to filter AiChatThreads to count.
+     * @example
+     * // Count the number of AiChatThreads
+     * const count = await prisma.aiChatThread.count({
+     *   where: {
+     *     // ... the filter for the AiChatThreads we want to count
+     *   }
+     * })
+    **/
+    count<T extends AiChatThreadCountArgs>(
+      args?: Subset<T, AiChatThreadCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AiChatThreadCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AiChatThread.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatThreadAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AiChatThreadAggregateArgs>(args: Subset<T, AiChatThreadAggregateArgs>): Prisma.PrismaPromise<GetAiChatThreadAggregateType<T>>
+
+    /**
+     * Group by AiChatThread.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatThreadGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AiChatThreadGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AiChatThreadGroupByArgs['orderBy'] }
+        : { orderBy?: AiChatThreadGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AiChatThreadGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAiChatThreadGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AiChatThread model
+   */
+  readonly fields: AiChatThreadFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AiChatThread.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AiChatThreadClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    messages<T extends AiChatThread$messagesArgs<ExtArgs> = {}>(args?: Subset<T, AiChatThread$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    escalation<T extends AiChatThread$escalationArgs<ExtArgs> = {}>(args?: Subset<T, AiChatThread$escalationArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AiChatThread model
+   */
+  interface AiChatThreadFieldRefs {
+    readonly id: FieldRef<"AiChatThread", 'String'>
+    readonly sessionKey: FieldRef<"AiChatThread", 'String'>
+    readonly isEscalated: FieldRef<"AiChatThread", 'Boolean'>
+    readonly createdAt: FieldRef<"AiChatThread", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AiChatThread findUnique
+   */
+  export type AiChatThreadFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatThread to fetch.
+     */
+    where: AiChatThreadWhereUniqueInput
+  }
+
+  /**
+   * AiChatThread findUniqueOrThrow
+   */
+  export type AiChatThreadFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatThread to fetch.
+     */
+    where: AiChatThreadWhereUniqueInput
+  }
+
+  /**
+   * AiChatThread findFirst
+   */
+  export type AiChatThreadFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatThread to fetch.
+     */
+    where?: AiChatThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatThreads to fetch.
+     */
+    orderBy?: AiChatThreadOrderByWithRelationInput | AiChatThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AiChatThreads.
+     */
+    cursor?: AiChatThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatThreads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AiChatThreads.
+     */
+    distinct?: AiChatThreadScalarFieldEnum | AiChatThreadScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatThread findFirstOrThrow
+   */
+  export type AiChatThreadFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatThread to fetch.
+     */
+    where?: AiChatThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatThreads to fetch.
+     */
+    orderBy?: AiChatThreadOrderByWithRelationInput | AiChatThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AiChatThreads.
+     */
+    cursor?: AiChatThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatThreads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AiChatThreads.
+     */
+    distinct?: AiChatThreadScalarFieldEnum | AiChatThreadScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatThread findMany
+   */
+  export type AiChatThreadFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatThreads to fetch.
+     */
+    where?: AiChatThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatThreads to fetch.
+     */
+    orderBy?: AiChatThreadOrderByWithRelationInput | AiChatThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AiChatThreads.
+     */
+    cursor?: AiChatThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatThreads.
+     */
+    skip?: number
+    distinct?: AiChatThreadScalarFieldEnum | AiChatThreadScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatThread create
+   */
+  export type AiChatThreadCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AiChatThread.
+     */
+    data: XOR<AiChatThreadCreateInput, AiChatThreadUncheckedCreateInput>
+  }
+
+  /**
+   * AiChatThread createMany
+   */
+  export type AiChatThreadCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AiChatThreads.
+     */
+    data: AiChatThreadCreateManyInput | AiChatThreadCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AiChatThread createManyAndReturn
+   */
+  export type AiChatThreadCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * The data used to create many AiChatThreads.
+     */
+    data: AiChatThreadCreateManyInput | AiChatThreadCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AiChatThread update
+   */
+  export type AiChatThreadUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AiChatThread.
+     */
+    data: XOR<AiChatThreadUpdateInput, AiChatThreadUncheckedUpdateInput>
+    /**
+     * Choose, which AiChatThread to update.
+     */
+    where: AiChatThreadWhereUniqueInput
+  }
+
+  /**
+   * AiChatThread updateMany
+   */
+  export type AiChatThreadUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AiChatThreads.
+     */
+    data: XOR<AiChatThreadUpdateManyMutationInput, AiChatThreadUncheckedUpdateManyInput>
+    /**
+     * Filter which AiChatThreads to update
+     */
+    where?: AiChatThreadWhereInput
+    /**
+     * Limit how many AiChatThreads to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AiChatThread updateManyAndReturn
+   */
+  export type AiChatThreadUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * The data used to update AiChatThreads.
+     */
+    data: XOR<AiChatThreadUpdateManyMutationInput, AiChatThreadUncheckedUpdateManyInput>
+    /**
+     * Filter which AiChatThreads to update
+     */
+    where?: AiChatThreadWhereInput
+    /**
+     * Limit how many AiChatThreads to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AiChatThread upsert
+   */
+  export type AiChatThreadUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AiChatThread to update in case it exists.
+     */
+    where: AiChatThreadWhereUniqueInput
+    /**
+     * In case the AiChatThread found by the `where` argument doesn't exist, create a new AiChatThread with this data.
+     */
+    create: XOR<AiChatThreadCreateInput, AiChatThreadUncheckedCreateInput>
+    /**
+     * In case the AiChatThread was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AiChatThreadUpdateInput, AiChatThreadUncheckedUpdateInput>
+  }
+
+  /**
+   * AiChatThread delete
+   */
+  export type AiChatThreadDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+    /**
+     * Filter which AiChatThread to delete.
+     */
+    where: AiChatThreadWhereUniqueInput
+  }
+
+  /**
+   * AiChatThread deleteMany
+   */
+  export type AiChatThreadDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AiChatThreads to delete
+     */
+    where?: AiChatThreadWhereInput
+    /**
+     * Limit how many AiChatThreads to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AiChatThread.messages
+   */
+  export type AiChatThread$messagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    where?: AiChatMessageWhereInput
+    orderBy?: AiChatMessageOrderByWithRelationInput | AiChatMessageOrderByWithRelationInput[]
+    cursor?: AiChatMessageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AiChatMessageScalarFieldEnum | AiChatMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatThread.escalation
+   */
+  export type AiChatThread$escalationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    where?: AiChatEscalationWhereInput
+  }
+
+  /**
+   * AiChatThread without action
+   */
+  export type AiChatThreadDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatThread
+     */
+    select?: AiChatThreadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatThread
+     */
+    omit?: AiChatThreadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatThreadInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AiChatMessage
+   */
+
+  export type AggregateAiChatMessage = {
+    _count: AiChatMessageCountAggregateOutputType | null
+    _min: AiChatMessageMinAggregateOutputType | null
+    _max: AiChatMessageMaxAggregateOutputType | null
+  }
+
+  export type AiChatMessageMinAggregateOutputType = {
+    id: string | null
+    threadId: string | null
+    sender: string | null
+    content: string | null
+    createdAt: Date | null
+  }
+
+  export type AiChatMessageMaxAggregateOutputType = {
+    id: string | null
+    threadId: string | null
+    sender: string | null
+    content: string | null
+    createdAt: Date | null
+  }
+
+  export type AiChatMessageCountAggregateOutputType = {
+    id: number
+    threadId: number
+    sender: number
+    content: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type AiChatMessageMinAggregateInputType = {
+    id?: true
+    threadId?: true
+    sender?: true
+    content?: true
+    createdAt?: true
+  }
+
+  export type AiChatMessageMaxAggregateInputType = {
+    id?: true
+    threadId?: true
+    sender?: true
+    content?: true
+    createdAt?: true
+  }
+
+  export type AiChatMessageCountAggregateInputType = {
+    id?: true
+    threadId?: true
+    sender?: true
+    content?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type AiChatMessageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AiChatMessage to aggregate.
+     */
+    where?: AiChatMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatMessages to fetch.
+     */
+    orderBy?: AiChatMessageOrderByWithRelationInput | AiChatMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AiChatMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatMessages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AiChatMessages
+    **/
+    _count?: true | AiChatMessageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AiChatMessageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AiChatMessageMaxAggregateInputType
+  }
+
+  export type GetAiChatMessageAggregateType<T extends AiChatMessageAggregateArgs> = {
+        [P in keyof T & keyof AggregateAiChatMessage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAiChatMessage[P]>
+      : GetScalarType<T[P], AggregateAiChatMessage[P]>
+  }
+
+
+
+
+  export type AiChatMessageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AiChatMessageWhereInput
+    orderBy?: AiChatMessageOrderByWithAggregationInput | AiChatMessageOrderByWithAggregationInput[]
+    by: AiChatMessageScalarFieldEnum[] | AiChatMessageScalarFieldEnum
+    having?: AiChatMessageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AiChatMessageCountAggregateInputType | true
+    _min?: AiChatMessageMinAggregateInputType
+    _max?: AiChatMessageMaxAggregateInputType
+  }
+
+  export type AiChatMessageGroupByOutputType = {
+    id: string
+    threadId: string
+    sender: string
+    content: string
+    createdAt: Date
+    _count: AiChatMessageCountAggregateOutputType | null
+    _min: AiChatMessageMinAggregateOutputType | null
+    _max: AiChatMessageMaxAggregateOutputType | null
+  }
+
+  type GetAiChatMessageGroupByPayload<T extends AiChatMessageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AiChatMessageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AiChatMessageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AiChatMessageGroupByOutputType[P]>
+            : GetScalarType<T[P], AiChatMessageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AiChatMessageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    threadId?: boolean
+    sender?: boolean
+    content?: boolean
+    createdAt?: boolean
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aiChatMessage"]>
+
+  export type AiChatMessageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    threadId?: boolean
+    sender?: boolean
+    content?: boolean
+    createdAt?: boolean
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aiChatMessage"]>
+
+  export type AiChatMessageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    threadId?: boolean
+    sender?: boolean
+    content?: boolean
+    createdAt?: boolean
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aiChatMessage"]>
+
+  export type AiChatMessageSelectScalar = {
+    id?: boolean
+    threadId?: boolean
+    sender?: boolean
+    content?: boolean
+    createdAt?: boolean
+  }
+
+  export type AiChatMessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "threadId" | "sender" | "content" | "createdAt", ExtArgs["result"]["aiChatMessage"]>
+  export type AiChatMessageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }
+  export type AiChatMessageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }
+  export type AiChatMessageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }
+
+  export type $AiChatMessagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AiChatMessage"
+    objects: {
+      thread: Prisma.$AiChatThreadPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      threadId: string
+      sender: string
+      content: string
+      createdAt: Date
+    }, ExtArgs["result"]["aiChatMessage"]>
+    composites: {}
+  }
+
+  type AiChatMessageGetPayload<S extends boolean | null | undefined | AiChatMessageDefaultArgs> = $Result.GetResult<Prisma.$AiChatMessagePayload, S>
+
+  type AiChatMessageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AiChatMessageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AiChatMessageCountAggregateInputType | true
+    }
+
+  export interface AiChatMessageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AiChatMessage'], meta: { name: 'AiChatMessage' } }
+    /**
+     * Find zero or one AiChatMessage that matches the filter.
+     * @param {AiChatMessageFindUniqueArgs} args - Arguments to find a AiChatMessage
+     * @example
+     * // Get one AiChatMessage
+     * const aiChatMessage = await prisma.aiChatMessage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AiChatMessageFindUniqueArgs>(args: SelectSubset<T, AiChatMessageFindUniqueArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AiChatMessage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AiChatMessageFindUniqueOrThrowArgs} args - Arguments to find a AiChatMessage
+     * @example
+     * // Get one AiChatMessage
+     * const aiChatMessage = await prisma.aiChatMessage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AiChatMessageFindUniqueOrThrowArgs>(args: SelectSubset<T, AiChatMessageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AiChatMessage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatMessageFindFirstArgs} args - Arguments to find a AiChatMessage
+     * @example
+     * // Get one AiChatMessage
+     * const aiChatMessage = await prisma.aiChatMessage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AiChatMessageFindFirstArgs>(args?: SelectSubset<T, AiChatMessageFindFirstArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AiChatMessage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatMessageFindFirstOrThrowArgs} args - Arguments to find a AiChatMessage
+     * @example
+     * // Get one AiChatMessage
+     * const aiChatMessage = await prisma.aiChatMessage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AiChatMessageFindFirstOrThrowArgs>(args?: SelectSubset<T, AiChatMessageFindFirstOrThrowArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AiChatMessages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatMessageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AiChatMessages
+     * const aiChatMessages = await prisma.aiChatMessage.findMany()
+     * 
+     * // Get first 10 AiChatMessages
+     * const aiChatMessages = await prisma.aiChatMessage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aiChatMessageWithIdOnly = await prisma.aiChatMessage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AiChatMessageFindManyArgs>(args?: SelectSubset<T, AiChatMessageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AiChatMessage.
+     * @param {AiChatMessageCreateArgs} args - Arguments to create a AiChatMessage.
+     * @example
+     * // Create one AiChatMessage
+     * const AiChatMessage = await prisma.aiChatMessage.create({
+     *   data: {
+     *     // ... data to create a AiChatMessage
+     *   }
+     * })
+     * 
+     */
+    create<T extends AiChatMessageCreateArgs>(args: SelectSubset<T, AiChatMessageCreateArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AiChatMessages.
+     * @param {AiChatMessageCreateManyArgs} args - Arguments to create many AiChatMessages.
+     * @example
+     * // Create many AiChatMessages
+     * const aiChatMessage = await prisma.aiChatMessage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AiChatMessageCreateManyArgs>(args?: SelectSubset<T, AiChatMessageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AiChatMessages and returns the data saved in the database.
+     * @param {AiChatMessageCreateManyAndReturnArgs} args - Arguments to create many AiChatMessages.
+     * @example
+     * // Create many AiChatMessages
+     * const aiChatMessage = await prisma.aiChatMessage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AiChatMessages and only return the `id`
+     * const aiChatMessageWithIdOnly = await prisma.aiChatMessage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AiChatMessageCreateManyAndReturnArgs>(args?: SelectSubset<T, AiChatMessageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AiChatMessage.
+     * @param {AiChatMessageDeleteArgs} args - Arguments to delete one AiChatMessage.
+     * @example
+     * // Delete one AiChatMessage
+     * const AiChatMessage = await prisma.aiChatMessage.delete({
+     *   where: {
+     *     // ... filter to delete one AiChatMessage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AiChatMessageDeleteArgs>(args: SelectSubset<T, AiChatMessageDeleteArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AiChatMessage.
+     * @param {AiChatMessageUpdateArgs} args - Arguments to update one AiChatMessage.
+     * @example
+     * // Update one AiChatMessage
+     * const aiChatMessage = await prisma.aiChatMessage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AiChatMessageUpdateArgs>(args: SelectSubset<T, AiChatMessageUpdateArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AiChatMessages.
+     * @param {AiChatMessageDeleteManyArgs} args - Arguments to filter AiChatMessages to delete.
+     * @example
+     * // Delete a few AiChatMessages
+     * const { count } = await prisma.aiChatMessage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AiChatMessageDeleteManyArgs>(args?: SelectSubset<T, AiChatMessageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AiChatMessages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatMessageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AiChatMessages
+     * const aiChatMessage = await prisma.aiChatMessage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AiChatMessageUpdateManyArgs>(args: SelectSubset<T, AiChatMessageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AiChatMessages and returns the data updated in the database.
+     * @param {AiChatMessageUpdateManyAndReturnArgs} args - Arguments to update many AiChatMessages.
+     * @example
+     * // Update many AiChatMessages
+     * const aiChatMessage = await prisma.aiChatMessage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AiChatMessages and only return the `id`
+     * const aiChatMessageWithIdOnly = await prisma.aiChatMessage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AiChatMessageUpdateManyAndReturnArgs>(args: SelectSubset<T, AiChatMessageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AiChatMessage.
+     * @param {AiChatMessageUpsertArgs} args - Arguments to update or create a AiChatMessage.
+     * @example
+     * // Update or create a AiChatMessage
+     * const aiChatMessage = await prisma.aiChatMessage.upsert({
+     *   create: {
+     *     // ... data to create a AiChatMessage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AiChatMessage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AiChatMessageUpsertArgs>(args: SelectSubset<T, AiChatMessageUpsertArgs<ExtArgs>>): Prisma__AiChatMessageClient<$Result.GetResult<Prisma.$AiChatMessagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AiChatMessages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatMessageCountArgs} args - Arguments to filter AiChatMessages to count.
+     * @example
+     * // Count the number of AiChatMessages
+     * const count = await prisma.aiChatMessage.count({
+     *   where: {
+     *     // ... the filter for the AiChatMessages we want to count
+     *   }
+     * })
+    **/
+    count<T extends AiChatMessageCountArgs>(
+      args?: Subset<T, AiChatMessageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AiChatMessageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AiChatMessage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatMessageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AiChatMessageAggregateArgs>(args: Subset<T, AiChatMessageAggregateArgs>): Prisma.PrismaPromise<GetAiChatMessageAggregateType<T>>
+
+    /**
+     * Group by AiChatMessage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatMessageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AiChatMessageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AiChatMessageGroupByArgs['orderBy'] }
+        : { orderBy?: AiChatMessageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AiChatMessageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAiChatMessageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AiChatMessage model
+   */
+  readonly fields: AiChatMessageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AiChatMessage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AiChatMessageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    thread<T extends AiChatThreadDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AiChatThreadDefaultArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AiChatMessage model
+   */
+  interface AiChatMessageFieldRefs {
+    readonly id: FieldRef<"AiChatMessage", 'String'>
+    readonly threadId: FieldRef<"AiChatMessage", 'String'>
+    readonly sender: FieldRef<"AiChatMessage", 'String'>
+    readonly content: FieldRef<"AiChatMessage", 'String'>
+    readonly createdAt: FieldRef<"AiChatMessage", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AiChatMessage findUnique
+   */
+  export type AiChatMessageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatMessage to fetch.
+     */
+    where: AiChatMessageWhereUniqueInput
+  }
+
+  /**
+   * AiChatMessage findUniqueOrThrow
+   */
+  export type AiChatMessageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatMessage to fetch.
+     */
+    where: AiChatMessageWhereUniqueInput
+  }
+
+  /**
+   * AiChatMessage findFirst
+   */
+  export type AiChatMessageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatMessage to fetch.
+     */
+    where?: AiChatMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatMessages to fetch.
+     */
+    orderBy?: AiChatMessageOrderByWithRelationInput | AiChatMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AiChatMessages.
+     */
+    cursor?: AiChatMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatMessages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AiChatMessages.
+     */
+    distinct?: AiChatMessageScalarFieldEnum | AiChatMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatMessage findFirstOrThrow
+   */
+  export type AiChatMessageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatMessage to fetch.
+     */
+    where?: AiChatMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatMessages to fetch.
+     */
+    orderBy?: AiChatMessageOrderByWithRelationInput | AiChatMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AiChatMessages.
+     */
+    cursor?: AiChatMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatMessages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AiChatMessages.
+     */
+    distinct?: AiChatMessageScalarFieldEnum | AiChatMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatMessage findMany
+   */
+  export type AiChatMessageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatMessages to fetch.
+     */
+    where?: AiChatMessageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatMessages to fetch.
+     */
+    orderBy?: AiChatMessageOrderByWithRelationInput | AiChatMessageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AiChatMessages.
+     */
+    cursor?: AiChatMessageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatMessages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatMessages.
+     */
+    skip?: number
+    distinct?: AiChatMessageScalarFieldEnum | AiChatMessageScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatMessage create
+   */
+  export type AiChatMessageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AiChatMessage.
+     */
+    data: XOR<AiChatMessageCreateInput, AiChatMessageUncheckedCreateInput>
+  }
+
+  /**
+   * AiChatMessage createMany
+   */
+  export type AiChatMessageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AiChatMessages.
+     */
+    data: AiChatMessageCreateManyInput | AiChatMessageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AiChatMessage createManyAndReturn
+   */
+  export type AiChatMessageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * The data used to create many AiChatMessages.
+     */
+    data: AiChatMessageCreateManyInput | AiChatMessageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AiChatMessage update
+   */
+  export type AiChatMessageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AiChatMessage.
+     */
+    data: XOR<AiChatMessageUpdateInput, AiChatMessageUncheckedUpdateInput>
+    /**
+     * Choose, which AiChatMessage to update.
+     */
+    where: AiChatMessageWhereUniqueInput
+  }
+
+  /**
+   * AiChatMessage updateMany
+   */
+  export type AiChatMessageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AiChatMessages.
+     */
+    data: XOR<AiChatMessageUpdateManyMutationInput, AiChatMessageUncheckedUpdateManyInput>
+    /**
+     * Filter which AiChatMessages to update
+     */
+    where?: AiChatMessageWhereInput
+    /**
+     * Limit how many AiChatMessages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AiChatMessage updateManyAndReturn
+   */
+  export type AiChatMessageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * The data used to update AiChatMessages.
+     */
+    data: XOR<AiChatMessageUpdateManyMutationInput, AiChatMessageUncheckedUpdateManyInput>
+    /**
+     * Filter which AiChatMessages to update
+     */
+    where?: AiChatMessageWhereInput
+    /**
+     * Limit how many AiChatMessages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AiChatMessage upsert
+   */
+  export type AiChatMessageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AiChatMessage to update in case it exists.
+     */
+    where: AiChatMessageWhereUniqueInput
+    /**
+     * In case the AiChatMessage found by the `where` argument doesn't exist, create a new AiChatMessage with this data.
+     */
+    create: XOR<AiChatMessageCreateInput, AiChatMessageUncheckedCreateInput>
+    /**
+     * In case the AiChatMessage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AiChatMessageUpdateInput, AiChatMessageUncheckedUpdateInput>
+  }
+
+  /**
+   * AiChatMessage delete
+   */
+  export type AiChatMessageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+    /**
+     * Filter which AiChatMessage to delete.
+     */
+    where: AiChatMessageWhereUniqueInput
+  }
+
+  /**
+   * AiChatMessage deleteMany
+   */
+  export type AiChatMessageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AiChatMessages to delete
+     */
+    where?: AiChatMessageWhereInput
+    /**
+     * Limit how many AiChatMessages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AiChatMessage without action
+   */
+  export type AiChatMessageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatMessage
+     */
+    select?: AiChatMessageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatMessage
+     */
+    omit?: AiChatMessageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatMessageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AiChatEscalation
+   */
+
+  export type AggregateAiChatEscalation = {
+    _count: AiChatEscalationCountAggregateOutputType | null
+    _avg: AiChatEscalationAvgAggregateOutputType | null
+    _sum: AiChatEscalationSumAggregateOutputType | null
+    _min: AiChatEscalationMinAggregateOutputType | null
+    _max: AiChatEscalationMaxAggregateOutputType | null
+  }
+
+  export type AiChatEscalationAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type AiChatEscalationSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type AiChatEscalationMinAggregateOutputType = {
+    id: number | null
+    sessionKey: string | null
+    name: string | null
+    email: string | null
+    message: string | null
+    createdAt: Date | null
+  }
+
+  export type AiChatEscalationMaxAggregateOutputType = {
+    id: number | null
+    sessionKey: string | null
+    name: string | null
+    email: string | null
+    message: string | null
+    createdAt: Date | null
+  }
+
+  export type AiChatEscalationCountAggregateOutputType = {
+    id: number
+    sessionKey: number
+    name: number
+    email: number
+    message: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type AiChatEscalationAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type AiChatEscalationSumAggregateInputType = {
+    id?: true
+  }
+
+  export type AiChatEscalationMinAggregateInputType = {
+    id?: true
+    sessionKey?: true
+    name?: true
+    email?: true
+    message?: true
+    createdAt?: true
+  }
+
+  export type AiChatEscalationMaxAggregateInputType = {
+    id?: true
+    sessionKey?: true
+    name?: true
+    email?: true
+    message?: true
+    createdAt?: true
+  }
+
+  export type AiChatEscalationCountAggregateInputType = {
+    id?: true
+    sessionKey?: true
+    name?: true
+    email?: true
+    message?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type AiChatEscalationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AiChatEscalation to aggregate.
+     */
+    where?: AiChatEscalationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatEscalations to fetch.
+     */
+    orderBy?: AiChatEscalationOrderByWithRelationInput | AiChatEscalationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AiChatEscalationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatEscalations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatEscalations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AiChatEscalations
+    **/
+    _count?: true | AiChatEscalationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AiChatEscalationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AiChatEscalationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AiChatEscalationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AiChatEscalationMaxAggregateInputType
+  }
+
+  export type GetAiChatEscalationAggregateType<T extends AiChatEscalationAggregateArgs> = {
+        [P in keyof T & keyof AggregateAiChatEscalation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAiChatEscalation[P]>
+      : GetScalarType<T[P], AggregateAiChatEscalation[P]>
+  }
+
+
+
+
+  export type AiChatEscalationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AiChatEscalationWhereInput
+    orderBy?: AiChatEscalationOrderByWithAggregationInput | AiChatEscalationOrderByWithAggregationInput[]
+    by: AiChatEscalationScalarFieldEnum[] | AiChatEscalationScalarFieldEnum
+    having?: AiChatEscalationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AiChatEscalationCountAggregateInputType | true
+    _avg?: AiChatEscalationAvgAggregateInputType
+    _sum?: AiChatEscalationSumAggregateInputType
+    _min?: AiChatEscalationMinAggregateInputType
+    _max?: AiChatEscalationMaxAggregateInputType
+  }
+
+  export type AiChatEscalationGroupByOutputType = {
+    id: number
+    sessionKey: string
+    name: string | null
+    email: string
+    message: string | null
+    createdAt: Date
+    _count: AiChatEscalationCountAggregateOutputType | null
+    _avg: AiChatEscalationAvgAggregateOutputType | null
+    _sum: AiChatEscalationSumAggregateOutputType | null
+    _min: AiChatEscalationMinAggregateOutputType | null
+    _max: AiChatEscalationMaxAggregateOutputType | null
+  }
+
+  type GetAiChatEscalationGroupByPayload<T extends AiChatEscalationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AiChatEscalationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AiChatEscalationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AiChatEscalationGroupByOutputType[P]>
+            : GetScalarType<T[P], AiChatEscalationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AiChatEscalationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionKey?: boolean
+    name?: boolean
+    email?: boolean
+    message?: boolean
+    createdAt?: boolean
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aiChatEscalation"]>
+
+  export type AiChatEscalationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionKey?: boolean
+    name?: boolean
+    email?: boolean
+    message?: boolean
+    createdAt?: boolean
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aiChatEscalation"]>
+
+  export type AiChatEscalationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sessionKey?: boolean
+    name?: boolean
+    email?: boolean
+    message?: boolean
+    createdAt?: boolean
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["aiChatEscalation"]>
+
+  export type AiChatEscalationSelectScalar = {
+    id?: boolean
+    sessionKey?: boolean
+    name?: boolean
+    email?: boolean
+    message?: boolean
+    createdAt?: boolean
+  }
+
+  export type AiChatEscalationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionKey" | "name" | "email" | "message" | "createdAt", ExtArgs["result"]["aiChatEscalation"]>
+  export type AiChatEscalationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }
+  export type AiChatEscalationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }
+  export type AiChatEscalationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | AiChatThreadDefaultArgs<ExtArgs>
+  }
+
+  export type $AiChatEscalationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AiChatEscalation"
+    objects: {
+      thread: Prisma.$AiChatThreadPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      sessionKey: string
+      name: string | null
+      email: string
+      message: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["aiChatEscalation"]>
+    composites: {}
+  }
+
+  type AiChatEscalationGetPayload<S extends boolean | null | undefined | AiChatEscalationDefaultArgs> = $Result.GetResult<Prisma.$AiChatEscalationPayload, S>
+
+  type AiChatEscalationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AiChatEscalationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AiChatEscalationCountAggregateInputType | true
+    }
+
+  export interface AiChatEscalationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AiChatEscalation'], meta: { name: 'AiChatEscalation' } }
+    /**
+     * Find zero or one AiChatEscalation that matches the filter.
+     * @param {AiChatEscalationFindUniqueArgs} args - Arguments to find a AiChatEscalation
+     * @example
+     * // Get one AiChatEscalation
+     * const aiChatEscalation = await prisma.aiChatEscalation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AiChatEscalationFindUniqueArgs>(args: SelectSubset<T, AiChatEscalationFindUniqueArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AiChatEscalation that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AiChatEscalationFindUniqueOrThrowArgs} args - Arguments to find a AiChatEscalation
+     * @example
+     * // Get one AiChatEscalation
+     * const aiChatEscalation = await prisma.aiChatEscalation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AiChatEscalationFindUniqueOrThrowArgs>(args: SelectSubset<T, AiChatEscalationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AiChatEscalation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatEscalationFindFirstArgs} args - Arguments to find a AiChatEscalation
+     * @example
+     * // Get one AiChatEscalation
+     * const aiChatEscalation = await prisma.aiChatEscalation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AiChatEscalationFindFirstArgs>(args?: SelectSubset<T, AiChatEscalationFindFirstArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AiChatEscalation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatEscalationFindFirstOrThrowArgs} args - Arguments to find a AiChatEscalation
+     * @example
+     * // Get one AiChatEscalation
+     * const aiChatEscalation = await prisma.aiChatEscalation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AiChatEscalationFindFirstOrThrowArgs>(args?: SelectSubset<T, AiChatEscalationFindFirstOrThrowArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AiChatEscalations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatEscalationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AiChatEscalations
+     * const aiChatEscalations = await prisma.aiChatEscalation.findMany()
+     * 
+     * // Get first 10 AiChatEscalations
+     * const aiChatEscalations = await prisma.aiChatEscalation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const aiChatEscalationWithIdOnly = await prisma.aiChatEscalation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AiChatEscalationFindManyArgs>(args?: SelectSubset<T, AiChatEscalationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AiChatEscalation.
+     * @param {AiChatEscalationCreateArgs} args - Arguments to create a AiChatEscalation.
+     * @example
+     * // Create one AiChatEscalation
+     * const AiChatEscalation = await prisma.aiChatEscalation.create({
+     *   data: {
+     *     // ... data to create a AiChatEscalation
+     *   }
+     * })
+     * 
+     */
+    create<T extends AiChatEscalationCreateArgs>(args: SelectSubset<T, AiChatEscalationCreateArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AiChatEscalations.
+     * @param {AiChatEscalationCreateManyArgs} args - Arguments to create many AiChatEscalations.
+     * @example
+     * // Create many AiChatEscalations
+     * const aiChatEscalation = await prisma.aiChatEscalation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AiChatEscalationCreateManyArgs>(args?: SelectSubset<T, AiChatEscalationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AiChatEscalations and returns the data saved in the database.
+     * @param {AiChatEscalationCreateManyAndReturnArgs} args - Arguments to create many AiChatEscalations.
+     * @example
+     * // Create many AiChatEscalations
+     * const aiChatEscalation = await prisma.aiChatEscalation.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AiChatEscalations and only return the `id`
+     * const aiChatEscalationWithIdOnly = await prisma.aiChatEscalation.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AiChatEscalationCreateManyAndReturnArgs>(args?: SelectSubset<T, AiChatEscalationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AiChatEscalation.
+     * @param {AiChatEscalationDeleteArgs} args - Arguments to delete one AiChatEscalation.
+     * @example
+     * // Delete one AiChatEscalation
+     * const AiChatEscalation = await prisma.aiChatEscalation.delete({
+     *   where: {
+     *     // ... filter to delete one AiChatEscalation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AiChatEscalationDeleteArgs>(args: SelectSubset<T, AiChatEscalationDeleteArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AiChatEscalation.
+     * @param {AiChatEscalationUpdateArgs} args - Arguments to update one AiChatEscalation.
+     * @example
+     * // Update one AiChatEscalation
+     * const aiChatEscalation = await prisma.aiChatEscalation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AiChatEscalationUpdateArgs>(args: SelectSubset<T, AiChatEscalationUpdateArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AiChatEscalations.
+     * @param {AiChatEscalationDeleteManyArgs} args - Arguments to filter AiChatEscalations to delete.
+     * @example
+     * // Delete a few AiChatEscalations
+     * const { count } = await prisma.aiChatEscalation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AiChatEscalationDeleteManyArgs>(args?: SelectSubset<T, AiChatEscalationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AiChatEscalations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatEscalationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AiChatEscalations
+     * const aiChatEscalation = await prisma.aiChatEscalation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AiChatEscalationUpdateManyArgs>(args: SelectSubset<T, AiChatEscalationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AiChatEscalations and returns the data updated in the database.
+     * @param {AiChatEscalationUpdateManyAndReturnArgs} args - Arguments to update many AiChatEscalations.
+     * @example
+     * // Update many AiChatEscalations
+     * const aiChatEscalation = await prisma.aiChatEscalation.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AiChatEscalations and only return the `id`
+     * const aiChatEscalationWithIdOnly = await prisma.aiChatEscalation.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AiChatEscalationUpdateManyAndReturnArgs>(args: SelectSubset<T, AiChatEscalationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AiChatEscalation.
+     * @param {AiChatEscalationUpsertArgs} args - Arguments to update or create a AiChatEscalation.
+     * @example
+     * // Update or create a AiChatEscalation
+     * const aiChatEscalation = await prisma.aiChatEscalation.upsert({
+     *   create: {
+     *     // ... data to create a AiChatEscalation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AiChatEscalation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AiChatEscalationUpsertArgs>(args: SelectSubset<T, AiChatEscalationUpsertArgs<ExtArgs>>): Prisma__AiChatEscalationClient<$Result.GetResult<Prisma.$AiChatEscalationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AiChatEscalations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatEscalationCountArgs} args - Arguments to filter AiChatEscalations to count.
+     * @example
+     * // Count the number of AiChatEscalations
+     * const count = await prisma.aiChatEscalation.count({
+     *   where: {
+     *     // ... the filter for the AiChatEscalations we want to count
+     *   }
+     * })
+    **/
+    count<T extends AiChatEscalationCountArgs>(
+      args?: Subset<T, AiChatEscalationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AiChatEscalationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AiChatEscalation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatEscalationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AiChatEscalationAggregateArgs>(args: Subset<T, AiChatEscalationAggregateArgs>): Prisma.PrismaPromise<GetAiChatEscalationAggregateType<T>>
+
+    /**
+     * Group by AiChatEscalation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AiChatEscalationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AiChatEscalationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AiChatEscalationGroupByArgs['orderBy'] }
+        : { orderBy?: AiChatEscalationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AiChatEscalationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAiChatEscalationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AiChatEscalation model
+   */
+  readonly fields: AiChatEscalationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AiChatEscalation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AiChatEscalationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    thread<T extends AiChatThreadDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AiChatThreadDefaultArgs<ExtArgs>>): Prisma__AiChatThreadClient<$Result.GetResult<Prisma.$AiChatThreadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AiChatEscalation model
+   */
+  interface AiChatEscalationFieldRefs {
+    readonly id: FieldRef<"AiChatEscalation", 'Int'>
+    readonly sessionKey: FieldRef<"AiChatEscalation", 'String'>
+    readonly name: FieldRef<"AiChatEscalation", 'String'>
+    readonly email: FieldRef<"AiChatEscalation", 'String'>
+    readonly message: FieldRef<"AiChatEscalation", 'String'>
+    readonly createdAt: FieldRef<"AiChatEscalation", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AiChatEscalation findUnique
+   */
+  export type AiChatEscalationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatEscalation to fetch.
+     */
+    where: AiChatEscalationWhereUniqueInput
+  }
+
+  /**
+   * AiChatEscalation findUniqueOrThrow
+   */
+  export type AiChatEscalationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatEscalation to fetch.
+     */
+    where: AiChatEscalationWhereUniqueInput
+  }
+
+  /**
+   * AiChatEscalation findFirst
+   */
+  export type AiChatEscalationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatEscalation to fetch.
+     */
+    where?: AiChatEscalationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatEscalations to fetch.
+     */
+    orderBy?: AiChatEscalationOrderByWithRelationInput | AiChatEscalationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AiChatEscalations.
+     */
+    cursor?: AiChatEscalationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatEscalations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatEscalations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AiChatEscalations.
+     */
+    distinct?: AiChatEscalationScalarFieldEnum | AiChatEscalationScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatEscalation findFirstOrThrow
+   */
+  export type AiChatEscalationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatEscalation to fetch.
+     */
+    where?: AiChatEscalationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatEscalations to fetch.
+     */
+    orderBy?: AiChatEscalationOrderByWithRelationInput | AiChatEscalationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AiChatEscalations.
+     */
+    cursor?: AiChatEscalationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatEscalations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatEscalations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AiChatEscalations.
+     */
+    distinct?: AiChatEscalationScalarFieldEnum | AiChatEscalationScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatEscalation findMany
+   */
+  export type AiChatEscalationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * Filter, which AiChatEscalations to fetch.
+     */
+    where?: AiChatEscalationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AiChatEscalations to fetch.
+     */
+    orderBy?: AiChatEscalationOrderByWithRelationInput | AiChatEscalationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AiChatEscalations.
+     */
+    cursor?: AiChatEscalationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AiChatEscalations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AiChatEscalations.
+     */
+    skip?: number
+    distinct?: AiChatEscalationScalarFieldEnum | AiChatEscalationScalarFieldEnum[]
+  }
+
+  /**
+   * AiChatEscalation create
+   */
+  export type AiChatEscalationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AiChatEscalation.
+     */
+    data: XOR<AiChatEscalationCreateInput, AiChatEscalationUncheckedCreateInput>
+  }
+
+  /**
+   * AiChatEscalation createMany
+   */
+  export type AiChatEscalationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AiChatEscalations.
+     */
+    data: AiChatEscalationCreateManyInput | AiChatEscalationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AiChatEscalation createManyAndReturn
+   */
+  export type AiChatEscalationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * The data used to create many AiChatEscalations.
+     */
+    data: AiChatEscalationCreateManyInput | AiChatEscalationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AiChatEscalation update
+   */
+  export type AiChatEscalationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AiChatEscalation.
+     */
+    data: XOR<AiChatEscalationUpdateInput, AiChatEscalationUncheckedUpdateInput>
+    /**
+     * Choose, which AiChatEscalation to update.
+     */
+    where: AiChatEscalationWhereUniqueInput
+  }
+
+  /**
+   * AiChatEscalation updateMany
+   */
+  export type AiChatEscalationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AiChatEscalations.
+     */
+    data: XOR<AiChatEscalationUpdateManyMutationInput, AiChatEscalationUncheckedUpdateManyInput>
+    /**
+     * Filter which AiChatEscalations to update
+     */
+    where?: AiChatEscalationWhereInput
+    /**
+     * Limit how many AiChatEscalations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AiChatEscalation updateManyAndReturn
+   */
+  export type AiChatEscalationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * The data used to update AiChatEscalations.
+     */
+    data: XOR<AiChatEscalationUpdateManyMutationInput, AiChatEscalationUncheckedUpdateManyInput>
+    /**
+     * Filter which AiChatEscalations to update
+     */
+    where?: AiChatEscalationWhereInput
+    /**
+     * Limit how many AiChatEscalations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AiChatEscalation upsert
+   */
+  export type AiChatEscalationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AiChatEscalation to update in case it exists.
+     */
+    where: AiChatEscalationWhereUniqueInput
+    /**
+     * In case the AiChatEscalation found by the `where` argument doesn't exist, create a new AiChatEscalation with this data.
+     */
+    create: XOR<AiChatEscalationCreateInput, AiChatEscalationUncheckedCreateInput>
+    /**
+     * In case the AiChatEscalation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AiChatEscalationUpdateInput, AiChatEscalationUncheckedUpdateInput>
+  }
+
+  /**
+   * AiChatEscalation delete
+   */
+  export type AiChatEscalationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+    /**
+     * Filter which AiChatEscalation to delete.
+     */
+    where: AiChatEscalationWhereUniqueInput
+  }
+
+  /**
+   * AiChatEscalation deleteMany
+   */
+  export type AiChatEscalationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AiChatEscalations to delete
+     */
+    where?: AiChatEscalationWhereInput
+    /**
+     * Limit how many AiChatEscalations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AiChatEscalation without action
+   */
+  export type AiChatEscalationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AiChatEscalation
+     */
+    select?: AiChatEscalationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AiChatEscalation
+     */
+    omit?: AiChatEscalationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AiChatEscalationInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -22207,6 +28300,67 @@ export namespace Prisma {
   export type InvoiceScalarFieldEnum = (typeof InvoiceScalarFieldEnum)[keyof typeof InvoiceScalarFieldEnum]
 
 
+  export const ClientProjectScalarFieldEnum: {
+    id: 'id',
+    clientId: 'clientId',
+    name: 'name',
+    status: 'status',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    deletedAt: 'deletedAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ClientProjectScalarFieldEnum = (typeof ClientProjectScalarFieldEnum)[keyof typeof ClientProjectScalarFieldEnum]
+
+
+  export const ClientProjectHistoryScalarFieldEnum: {
+    id: 'id',
+    clientProjectId: 'clientProjectId',
+    status: 'status',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    deletedAt: 'deletedAt',
+    createdAt: 'createdAt'
+  };
+
+  export type ClientProjectHistoryScalarFieldEnum = (typeof ClientProjectHistoryScalarFieldEnum)[keyof typeof ClientProjectHistoryScalarFieldEnum]
+
+
+  export const AiChatThreadScalarFieldEnum: {
+    id: 'id',
+    sessionKey: 'sessionKey',
+    isEscalated: 'isEscalated',
+    createdAt: 'createdAt'
+  };
+
+  export type AiChatThreadScalarFieldEnum = (typeof AiChatThreadScalarFieldEnum)[keyof typeof AiChatThreadScalarFieldEnum]
+
+
+  export const AiChatMessageScalarFieldEnum: {
+    id: 'id',
+    threadId: 'threadId',
+    sender: 'sender',
+    content: 'content',
+    createdAt: 'createdAt'
+  };
+
+  export type AiChatMessageScalarFieldEnum = (typeof AiChatMessageScalarFieldEnum)[keyof typeof AiChatMessageScalarFieldEnum]
+
+
+  export const AiChatEscalationScalarFieldEnum: {
+    id: 'id',
+    sessionKey: 'sessionKey',
+    name: 'name',
+    email: 'email',
+    message: 'message',
+    createdAt: 'createdAt'
+  };
+
+  export type AiChatEscalationScalarFieldEnum = (typeof AiChatEscalationScalarFieldEnum)[keyof typeof AiChatEscalationScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -22348,6 +28502,7 @@ export namespace Prisma {
     certificates?: CertificateListRelationFilter
     notifications?: NotificationListRelationFilter
     invoices?: InvoiceListRelationFilter
+    clientProjects?: ClientProjectListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -22365,6 +28520,7 @@ export namespace Prisma {
     certificates?: CertificateOrderByRelationAggregateInput
     notifications?: NotificationOrderByRelationAggregateInput
     invoices?: InvoiceOrderByRelationAggregateInput
+    clientProjects?: ClientProjectOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -22385,6 +28541,7 @@ export namespace Prisma {
     certificates?: CertificateListRelationFilter
     notifications?: NotificationListRelationFilter
     invoices?: InvoiceListRelationFilter
+    clientProjects?: ClientProjectListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -23585,6 +29742,323 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Invoice"> | Date | string | null
   }
 
+  export type ClientProjectWhereInput = {
+    AND?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    OR?: ClientProjectWhereInput[]
+    NOT?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    id?: IntFilter<"ClientProject"> | number
+    clientId?: StringFilter<"ClientProject"> | string
+    name?: StringFilter<"ClientProject"> | string
+    status?: StringFilter<"ClientProject"> | string
+    startDate?: DateTimeFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientProject"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+    history?: ClientProjectHistoryListRelationFilter
+  }
+
+  export type ClientProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    client?: UserOrderByWithRelationInput
+    history?: ClientProjectHistoryOrderByRelationAggregateInput
+  }
+
+  export type ClientProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    OR?: ClientProjectWhereInput[]
+    NOT?: ClientProjectWhereInput | ClientProjectWhereInput[]
+    clientId?: StringFilter<"ClientProject"> | string
+    name?: StringFilter<"ClientProject"> | string
+    status?: StringFilter<"ClientProject"> | string
+    startDate?: DateTimeFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientProject"> | Date | string
+    client?: XOR<UserScalarRelationFilter, UserWhereInput>
+    history?: ClientProjectHistoryListRelationFilter
+  }, "id">
+
+  export type ClientProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ClientProjectCountOrderByAggregateInput
+    _avg?: ClientProjectAvgOrderByAggregateInput
+    _max?: ClientProjectMaxOrderByAggregateInput
+    _min?: ClientProjectMinOrderByAggregateInput
+    _sum?: ClientProjectSumOrderByAggregateInput
+  }
+
+  export type ClientProjectScalarWhereWithAggregatesInput = {
+    AND?: ClientProjectScalarWhereWithAggregatesInput | ClientProjectScalarWhereWithAggregatesInput[]
+    OR?: ClientProjectScalarWhereWithAggregatesInput[]
+    NOT?: ClientProjectScalarWhereWithAggregatesInput | ClientProjectScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ClientProject"> | number
+    clientId?: StringWithAggregatesFilter<"ClientProject"> | string
+    name?: StringWithAggregatesFilter<"ClientProject"> | string
+    status?: StringWithAggregatesFilter<"ClientProject"> | string
+    startDate?: DateTimeWithAggregatesFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ClientProject"> | Date | string
+  }
+
+  export type ClientProjectHistoryWhereInput = {
+    AND?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    OR?: ClientProjectHistoryWhereInput[]
+    NOT?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    id?: IntFilter<"ClientProjectHistory"> | number
+    clientProjectId?: IntFilter<"ClientProjectHistory"> | number
+    status?: StringFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    clientProject?: XOR<ClientProjectScalarRelationFilter, ClientProjectWhereInput>
+  }
+
+  export type ClientProjectHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    clientProject?: ClientProjectOrderByWithRelationInput
+  }
+
+  export type ClientProjectHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    OR?: ClientProjectHistoryWhereInput[]
+    NOT?: ClientProjectHistoryWhereInput | ClientProjectHistoryWhereInput[]
+    clientProjectId?: IntFilter<"ClientProjectHistory"> | number
+    status?: StringFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    clientProject?: XOR<ClientProjectScalarRelationFilter, ClientProjectWhereInput>
+  }, "id">
+
+  export type ClientProjectHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: ClientProjectHistoryCountOrderByAggregateInput
+    _avg?: ClientProjectHistoryAvgOrderByAggregateInput
+    _max?: ClientProjectHistoryMaxOrderByAggregateInput
+    _min?: ClientProjectHistoryMinOrderByAggregateInput
+    _sum?: ClientProjectHistorySumOrderByAggregateInput
+  }
+
+  export type ClientProjectHistoryScalarWhereWithAggregatesInput = {
+    AND?: ClientProjectHistoryScalarWhereWithAggregatesInput | ClientProjectHistoryScalarWhereWithAggregatesInput[]
+    OR?: ClientProjectHistoryScalarWhereWithAggregatesInput[]
+    NOT?: ClientProjectHistoryScalarWhereWithAggregatesInput | ClientProjectHistoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ClientProjectHistory"> | number
+    clientProjectId?: IntWithAggregatesFilter<"ClientProjectHistory"> | number
+    status?: StringWithAggregatesFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeWithAggregatesFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ClientProjectHistory"> | Date | string
+  }
+
+  export type AiChatThreadWhereInput = {
+    AND?: AiChatThreadWhereInput | AiChatThreadWhereInput[]
+    OR?: AiChatThreadWhereInput[]
+    NOT?: AiChatThreadWhereInput | AiChatThreadWhereInput[]
+    id?: StringFilter<"AiChatThread"> | string
+    sessionKey?: StringFilter<"AiChatThread"> | string
+    isEscalated?: BoolFilter<"AiChatThread"> | boolean
+    createdAt?: DateTimeFilter<"AiChatThread"> | Date | string
+    messages?: AiChatMessageListRelationFilter
+    escalation?: XOR<AiChatEscalationNullableScalarRelationFilter, AiChatEscalationWhereInput> | null
+  }
+
+  export type AiChatThreadOrderByWithRelationInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    isEscalated?: SortOrder
+    createdAt?: SortOrder
+    messages?: AiChatMessageOrderByRelationAggregateInput
+    escalation?: AiChatEscalationOrderByWithRelationInput
+  }
+
+  export type AiChatThreadWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    sessionKey?: string
+    AND?: AiChatThreadWhereInput | AiChatThreadWhereInput[]
+    OR?: AiChatThreadWhereInput[]
+    NOT?: AiChatThreadWhereInput | AiChatThreadWhereInput[]
+    isEscalated?: BoolFilter<"AiChatThread"> | boolean
+    createdAt?: DateTimeFilter<"AiChatThread"> | Date | string
+    messages?: AiChatMessageListRelationFilter
+    escalation?: XOR<AiChatEscalationNullableScalarRelationFilter, AiChatEscalationWhereInput> | null
+  }, "id" | "sessionKey">
+
+  export type AiChatThreadOrderByWithAggregationInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    isEscalated?: SortOrder
+    createdAt?: SortOrder
+    _count?: AiChatThreadCountOrderByAggregateInput
+    _max?: AiChatThreadMaxOrderByAggregateInput
+    _min?: AiChatThreadMinOrderByAggregateInput
+  }
+
+  export type AiChatThreadScalarWhereWithAggregatesInput = {
+    AND?: AiChatThreadScalarWhereWithAggregatesInput | AiChatThreadScalarWhereWithAggregatesInput[]
+    OR?: AiChatThreadScalarWhereWithAggregatesInput[]
+    NOT?: AiChatThreadScalarWhereWithAggregatesInput | AiChatThreadScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AiChatThread"> | string
+    sessionKey?: StringWithAggregatesFilter<"AiChatThread"> | string
+    isEscalated?: BoolWithAggregatesFilter<"AiChatThread"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"AiChatThread"> | Date | string
+  }
+
+  export type AiChatMessageWhereInput = {
+    AND?: AiChatMessageWhereInput | AiChatMessageWhereInput[]
+    OR?: AiChatMessageWhereInput[]
+    NOT?: AiChatMessageWhereInput | AiChatMessageWhereInput[]
+    id?: StringFilter<"AiChatMessage"> | string
+    threadId?: StringFilter<"AiChatMessage"> | string
+    sender?: StringFilter<"AiChatMessage"> | string
+    content?: StringFilter<"AiChatMessage"> | string
+    createdAt?: DateTimeFilter<"AiChatMessage"> | Date | string
+    thread?: XOR<AiChatThreadScalarRelationFilter, AiChatThreadWhereInput>
+  }
+
+  export type AiChatMessageOrderByWithRelationInput = {
+    id?: SortOrder
+    threadId?: SortOrder
+    sender?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    thread?: AiChatThreadOrderByWithRelationInput
+  }
+
+  export type AiChatMessageWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AiChatMessageWhereInput | AiChatMessageWhereInput[]
+    OR?: AiChatMessageWhereInput[]
+    NOT?: AiChatMessageWhereInput | AiChatMessageWhereInput[]
+    threadId?: StringFilter<"AiChatMessage"> | string
+    sender?: StringFilter<"AiChatMessage"> | string
+    content?: StringFilter<"AiChatMessage"> | string
+    createdAt?: DateTimeFilter<"AiChatMessage"> | Date | string
+    thread?: XOR<AiChatThreadScalarRelationFilter, AiChatThreadWhereInput>
+  }, "id">
+
+  export type AiChatMessageOrderByWithAggregationInput = {
+    id?: SortOrder
+    threadId?: SortOrder
+    sender?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    _count?: AiChatMessageCountOrderByAggregateInput
+    _max?: AiChatMessageMaxOrderByAggregateInput
+    _min?: AiChatMessageMinOrderByAggregateInput
+  }
+
+  export type AiChatMessageScalarWhereWithAggregatesInput = {
+    AND?: AiChatMessageScalarWhereWithAggregatesInput | AiChatMessageScalarWhereWithAggregatesInput[]
+    OR?: AiChatMessageScalarWhereWithAggregatesInput[]
+    NOT?: AiChatMessageScalarWhereWithAggregatesInput | AiChatMessageScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AiChatMessage"> | string
+    threadId?: StringWithAggregatesFilter<"AiChatMessage"> | string
+    sender?: StringWithAggregatesFilter<"AiChatMessage"> | string
+    content?: StringWithAggregatesFilter<"AiChatMessage"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AiChatMessage"> | Date | string
+  }
+
+  export type AiChatEscalationWhereInput = {
+    AND?: AiChatEscalationWhereInput | AiChatEscalationWhereInput[]
+    OR?: AiChatEscalationWhereInput[]
+    NOT?: AiChatEscalationWhereInput | AiChatEscalationWhereInput[]
+    id?: IntFilter<"AiChatEscalation"> | number
+    sessionKey?: StringFilter<"AiChatEscalation"> | string
+    name?: StringNullableFilter<"AiChatEscalation"> | string | null
+    email?: StringFilter<"AiChatEscalation"> | string
+    message?: StringNullableFilter<"AiChatEscalation"> | string | null
+    createdAt?: DateTimeFilter<"AiChatEscalation"> | Date | string
+    thread?: XOR<AiChatThreadScalarRelationFilter, AiChatThreadWhereInput>
+  }
+
+  export type AiChatEscalationOrderByWithRelationInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    name?: SortOrderInput | SortOrder
+    email?: SortOrder
+    message?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    thread?: AiChatThreadOrderByWithRelationInput
+  }
+
+  export type AiChatEscalationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    sessionKey?: string
+    AND?: AiChatEscalationWhereInput | AiChatEscalationWhereInput[]
+    OR?: AiChatEscalationWhereInput[]
+    NOT?: AiChatEscalationWhereInput | AiChatEscalationWhereInput[]
+    name?: StringNullableFilter<"AiChatEscalation"> | string | null
+    email?: StringFilter<"AiChatEscalation"> | string
+    message?: StringNullableFilter<"AiChatEscalation"> | string | null
+    createdAt?: DateTimeFilter<"AiChatEscalation"> | Date | string
+    thread?: XOR<AiChatThreadScalarRelationFilter, AiChatThreadWhereInput>
+  }, "id" | "sessionKey">
+
+  export type AiChatEscalationOrderByWithAggregationInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    name?: SortOrderInput | SortOrder
+    email?: SortOrder
+    message?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: AiChatEscalationCountOrderByAggregateInput
+    _avg?: AiChatEscalationAvgOrderByAggregateInput
+    _max?: AiChatEscalationMaxOrderByAggregateInput
+    _min?: AiChatEscalationMinOrderByAggregateInput
+    _sum?: AiChatEscalationSumOrderByAggregateInput
+  }
+
+  export type AiChatEscalationScalarWhereWithAggregatesInput = {
+    AND?: AiChatEscalationScalarWhereWithAggregatesInput | AiChatEscalationScalarWhereWithAggregatesInput[]
+    OR?: AiChatEscalationScalarWhereWithAggregatesInput[]
+    NOT?: AiChatEscalationScalarWhereWithAggregatesInput | AiChatEscalationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AiChatEscalation"> | number
+    sessionKey?: StringWithAggregatesFilter<"AiChatEscalation"> | string
+    name?: StringNullableWithAggregatesFilter<"AiChatEscalation"> | string | null
+    email?: StringWithAggregatesFilter<"AiChatEscalation"> | string
+    message?: StringNullableWithAggregatesFilter<"AiChatEscalation"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"AiChatEscalation"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -23600,6 +30074,7 @@ export namespace Prisma {
     certificates?: CertificateCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -23617,6 +30092,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserUpdateInput = {
@@ -23634,6 +30110,7 @@ export namespace Prisma {
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -23651,6 +30128,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -24910,6 +31388,327 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type ClientProjectCreateInput = {
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    client: UserCreateNestedOneWithoutClientProjectsInput
+    history?: ClientProjectHistoryCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectUncheckedCreateInput = {
+    id?: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: ClientProjectHistoryUncheckedCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: UserUpdateOneRequiredWithoutClientProjectsNestedInput
+    history?: ClientProjectHistoryUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectCreateManyInput = {
+    id?: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientProjectUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryCreateInput = {
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    clientProject: ClientProjectCreateNestedOneWithoutHistoryInput
+  }
+
+  export type ClientProjectHistoryUncheckedCreateInput = {
+    id?: number
+    clientProjectId: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUpdateInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clientProject?: ClientProjectUpdateOneRequiredWithoutHistoryNestedInput
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientProjectId?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryCreateManyInput = {
+    id?: number
+    clientProjectId: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUpdateManyMutationInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientProjectId?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatThreadCreateInput = {
+    id?: string
+    sessionKey: string
+    isEscalated?: boolean
+    createdAt?: Date | string
+    messages?: AiChatMessageCreateNestedManyWithoutThreadInput
+    escalation?: AiChatEscalationCreateNestedOneWithoutThreadInput
+  }
+
+  export type AiChatThreadUncheckedCreateInput = {
+    id?: string
+    sessionKey: string
+    isEscalated?: boolean
+    createdAt?: Date | string
+    messages?: AiChatMessageUncheckedCreateNestedManyWithoutThreadInput
+    escalation?: AiChatEscalationUncheckedCreateNestedOneWithoutThreadInput
+  }
+
+  export type AiChatThreadUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    messages?: AiChatMessageUpdateManyWithoutThreadNestedInput
+    escalation?: AiChatEscalationUpdateOneWithoutThreadNestedInput
+  }
+
+  export type AiChatThreadUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    messages?: AiChatMessageUncheckedUpdateManyWithoutThreadNestedInput
+    escalation?: AiChatEscalationUncheckedUpdateOneWithoutThreadNestedInput
+  }
+
+  export type AiChatThreadCreateManyInput = {
+    id?: string
+    sessionKey: string
+    isEscalated?: boolean
+    createdAt?: Date | string
+  }
+
+  export type AiChatThreadUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatThreadUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatMessageCreateInput = {
+    id?: string
+    sender: string
+    content: string
+    createdAt?: Date | string
+    thread: AiChatThreadCreateNestedOneWithoutMessagesInput
+  }
+
+  export type AiChatMessageUncheckedCreateInput = {
+    id?: string
+    threadId: string
+    sender: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type AiChatMessageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sender?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thread?: AiChatThreadUpdateOneRequiredWithoutMessagesNestedInput
+  }
+
+  export type AiChatMessageUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    threadId?: StringFieldUpdateOperationsInput | string
+    sender?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatMessageCreateManyInput = {
+    id?: string
+    threadId: string
+    sender: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type AiChatMessageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sender?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatMessageUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    threadId?: StringFieldUpdateOperationsInput | string
+    sender?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatEscalationCreateInput = {
+    name?: string | null
+    email: string
+    message?: string | null
+    createdAt?: Date | string
+    thread: AiChatThreadCreateNestedOneWithoutEscalationInput
+  }
+
+  export type AiChatEscalationUncheckedCreateInput = {
+    id?: number
+    sessionKey: string
+    name?: string | null
+    email: string
+    message?: string | null
+    createdAt?: Date | string
+  }
+
+  export type AiChatEscalationUpdateInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thread?: AiChatThreadUpdateOneRequiredWithoutEscalationNestedInput
+  }
+
+  export type AiChatEscalationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatEscalationCreateManyInput = {
+    id?: number
+    sessionKey: string
+    name?: string | null
+    email: string
+    message?: string | null
+    createdAt?: Date | string
+  }
+
+  export type AiChatEscalationUpdateManyMutationInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatEscalationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -24987,6 +31786,12 @@ export namespace Prisma {
     none?: InvoiceWhereInput
   }
 
+  export type ClientProjectListRelationFilter = {
+    every?: ClientProjectWhereInput
+    some?: ClientProjectWhereInput
+    none?: ClientProjectWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -25005,6 +31810,10 @@ export namespace Prisma {
   }
 
   export type InvoiceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClientProjectOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -26051,6 +32860,205 @@ export namespace Prisma {
     totalAmount?: SortOrder
   }
 
+  export type ClientProjectHistoryListRelationFilter = {
+    every?: ClientProjectHistoryWhereInput
+    some?: ClientProjectHistoryWhereInput
+    none?: ClientProjectHistoryWhereInput
+  }
+
+  export type ClientProjectHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClientProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientProjectAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ClientProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientProjectSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ClientProjectScalarRelationFilter = {
+    is?: ClientProjectWhereInput
+    isNot?: ClientProjectWhereInput
+  }
+
+  export type ClientProjectHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ClientProjectHistoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+  }
+
+  export type ClientProjectHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ClientProjectHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+    status?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    deletedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ClientProjectHistorySumOrderByAggregateInput = {
+    id?: SortOrder
+    clientProjectId?: SortOrder
+  }
+
+  export type AiChatMessageListRelationFilter = {
+    every?: AiChatMessageWhereInput
+    some?: AiChatMessageWhereInput
+    none?: AiChatMessageWhereInput
+  }
+
+  export type AiChatEscalationNullableScalarRelationFilter = {
+    is?: AiChatEscalationWhereInput | null
+    isNot?: AiChatEscalationWhereInput | null
+  }
+
+  export type AiChatMessageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AiChatThreadCountOrderByAggregateInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    isEscalated?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatThreadMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    isEscalated?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatThreadMinOrderByAggregateInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    isEscalated?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatThreadScalarRelationFilter = {
+    is?: AiChatThreadWhereInput
+    isNot?: AiChatThreadWhereInput
+  }
+
+  export type AiChatMessageCountOrderByAggregateInput = {
+    id?: SortOrder
+    threadId?: SortOrder
+    sender?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatMessageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    threadId?: SortOrder
+    sender?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatMessageMinOrderByAggregateInput = {
+    id?: SortOrder
+    threadId?: SortOrder
+    sender?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatEscalationCountOrderByAggregateInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    message?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatEscalationAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type AiChatEscalationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    message?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatEscalationMinOrderByAggregateInput = {
+    id?: SortOrder
+    sessionKey?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    message?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type AiChatEscalationSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type WarrantyCreateNestedManyWithoutClientInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -26079,6 +33087,13 @@ export namespace Prisma {
     connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
   }
 
+  export type ClientProjectCreateNestedManyWithoutClientInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+  }
+
   export type WarrantyUncheckedCreateNestedManyWithoutClientInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -26105,6 +33120,13 @@ export namespace Prisma {
     connectOrCreate?: InvoiceCreateOrConnectWithoutClientInput | InvoiceCreateOrConnectWithoutClientInput[]
     createMany?: InvoiceCreateManyClientInputEnvelope
     connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+  }
+
+  export type ClientProjectUncheckedCreateNestedManyWithoutClientInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -26183,6 +33205,20 @@ export namespace Prisma {
     deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
   }
 
+  export type ClientProjectUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    upsert?: ClientProjectUpsertWithWhereUniqueWithoutClientInput | ClientProjectUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    set?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    disconnect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    delete?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    update?: ClientProjectUpdateWithWhereUniqueWithoutClientInput | ClientProjectUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ClientProjectUpdateManyWithWhereWithoutClientInput | ClientProjectUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
+  }
+
   export type WarrantyUncheckedUpdateManyWithoutClientNestedInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -26237,6 +33273,20 @@ export namespace Prisma {
     update?: InvoiceUpdateWithWhereUniqueWithoutClientInput | InvoiceUpdateWithWhereUniqueWithoutClientInput[]
     updateMany?: InvoiceUpdateManyWithWhereWithoutClientInput | InvoiceUpdateManyWithWhereWithoutClientInput[]
     deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  }
+
+  export type ClientProjectUncheckedUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput> | ClientProjectCreateWithoutClientInput[] | ClientProjectUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutClientInput | ClientProjectCreateOrConnectWithoutClientInput[]
+    upsert?: ClientProjectUpsertWithWhereUniqueWithoutClientInput | ClientProjectUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ClientProjectCreateManyClientInputEnvelope
+    set?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    disconnect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    delete?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    connect?: ClientProjectWhereUniqueInput | ClientProjectWhereUniqueInput[]
+    update?: ClientProjectUpdateWithWhereUniqueWithoutClientInput | ClientProjectUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ClientProjectUpdateManyWithWhereWithoutClientInput | ClientProjectUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
   }
 
   export type ProjectCreateNestedOneWithoutReviewsInput = {
@@ -26747,6 +33797,178 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutInvoicesInput, UserUpdateWithoutInvoicesInput>, UserUncheckedUpdateWithoutInvoicesInput>
   }
 
+  export type UserCreateNestedOneWithoutClientProjectsInput = {
+    create?: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutClientProjectsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ClientProjectHistoryCreateNestedManyWithoutClientProjectInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+  }
+
+  export type ClientProjectHistoryUncheckedCreateNestedManyWithoutClientProjectInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutClientProjectsNestedInput = {
+    create?: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutClientProjectsInput
+    upsert?: UserUpsertWithoutClientProjectsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutClientProjectsInput, UserUpdateWithoutClientProjectsInput>, UserUncheckedUpdateWithoutClientProjectsInput>
+  }
+
+  export type ClientProjectHistoryUpdateManyWithoutClientProjectNestedInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    upsert?: ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    set?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    disconnect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    delete?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    update?: ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput[]
+    updateMany?: ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput | ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput[]
+    deleteMany?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectNestedInput = {
+    create?: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput> | ClientProjectHistoryCreateWithoutClientProjectInput[] | ClientProjectHistoryUncheckedCreateWithoutClientProjectInput[]
+    connectOrCreate?: ClientProjectHistoryCreateOrConnectWithoutClientProjectInput | ClientProjectHistoryCreateOrConnectWithoutClientProjectInput[]
+    upsert?: ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput[]
+    createMany?: ClientProjectHistoryCreateManyClientProjectInputEnvelope
+    set?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    disconnect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    delete?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    connect?: ClientProjectHistoryWhereUniqueInput | ClientProjectHistoryWhereUniqueInput[]
+    update?: ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput | ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput[]
+    updateMany?: ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput | ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput[]
+    deleteMany?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+  }
+
+  export type ClientProjectCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutHistoryInput
+    connect?: ClientProjectWhereUniqueInput
+  }
+
+  export type ClientProjectUpdateOneRequiredWithoutHistoryNestedInput = {
+    create?: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: ClientProjectCreateOrConnectWithoutHistoryInput
+    upsert?: ClientProjectUpsertWithoutHistoryInput
+    connect?: ClientProjectWhereUniqueInput
+    update?: XOR<XOR<ClientProjectUpdateToOneWithWhereWithoutHistoryInput, ClientProjectUpdateWithoutHistoryInput>, ClientProjectUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type AiChatMessageCreateNestedManyWithoutThreadInput = {
+    create?: XOR<AiChatMessageCreateWithoutThreadInput, AiChatMessageUncheckedCreateWithoutThreadInput> | AiChatMessageCreateWithoutThreadInput[] | AiChatMessageUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: AiChatMessageCreateOrConnectWithoutThreadInput | AiChatMessageCreateOrConnectWithoutThreadInput[]
+    createMany?: AiChatMessageCreateManyThreadInputEnvelope
+    connect?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+  }
+
+  export type AiChatEscalationCreateNestedOneWithoutThreadInput = {
+    create?: XOR<AiChatEscalationCreateWithoutThreadInput, AiChatEscalationUncheckedCreateWithoutThreadInput>
+    connectOrCreate?: AiChatEscalationCreateOrConnectWithoutThreadInput
+    connect?: AiChatEscalationWhereUniqueInput
+  }
+
+  export type AiChatMessageUncheckedCreateNestedManyWithoutThreadInput = {
+    create?: XOR<AiChatMessageCreateWithoutThreadInput, AiChatMessageUncheckedCreateWithoutThreadInput> | AiChatMessageCreateWithoutThreadInput[] | AiChatMessageUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: AiChatMessageCreateOrConnectWithoutThreadInput | AiChatMessageCreateOrConnectWithoutThreadInput[]
+    createMany?: AiChatMessageCreateManyThreadInputEnvelope
+    connect?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+  }
+
+  export type AiChatEscalationUncheckedCreateNestedOneWithoutThreadInput = {
+    create?: XOR<AiChatEscalationCreateWithoutThreadInput, AiChatEscalationUncheckedCreateWithoutThreadInput>
+    connectOrCreate?: AiChatEscalationCreateOrConnectWithoutThreadInput
+    connect?: AiChatEscalationWhereUniqueInput
+  }
+
+  export type AiChatMessageUpdateManyWithoutThreadNestedInput = {
+    create?: XOR<AiChatMessageCreateWithoutThreadInput, AiChatMessageUncheckedCreateWithoutThreadInput> | AiChatMessageCreateWithoutThreadInput[] | AiChatMessageUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: AiChatMessageCreateOrConnectWithoutThreadInput | AiChatMessageCreateOrConnectWithoutThreadInput[]
+    upsert?: AiChatMessageUpsertWithWhereUniqueWithoutThreadInput | AiChatMessageUpsertWithWhereUniqueWithoutThreadInput[]
+    createMany?: AiChatMessageCreateManyThreadInputEnvelope
+    set?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    disconnect?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    delete?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    connect?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    update?: AiChatMessageUpdateWithWhereUniqueWithoutThreadInput | AiChatMessageUpdateWithWhereUniqueWithoutThreadInput[]
+    updateMany?: AiChatMessageUpdateManyWithWhereWithoutThreadInput | AiChatMessageUpdateManyWithWhereWithoutThreadInput[]
+    deleteMany?: AiChatMessageScalarWhereInput | AiChatMessageScalarWhereInput[]
+  }
+
+  export type AiChatEscalationUpdateOneWithoutThreadNestedInput = {
+    create?: XOR<AiChatEscalationCreateWithoutThreadInput, AiChatEscalationUncheckedCreateWithoutThreadInput>
+    connectOrCreate?: AiChatEscalationCreateOrConnectWithoutThreadInput
+    upsert?: AiChatEscalationUpsertWithoutThreadInput
+    disconnect?: AiChatEscalationWhereInput | boolean
+    delete?: AiChatEscalationWhereInput | boolean
+    connect?: AiChatEscalationWhereUniqueInput
+    update?: XOR<XOR<AiChatEscalationUpdateToOneWithWhereWithoutThreadInput, AiChatEscalationUpdateWithoutThreadInput>, AiChatEscalationUncheckedUpdateWithoutThreadInput>
+  }
+
+  export type AiChatMessageUncheckedUpdateManyWithoutThreadNestedInput = {
+    create?: XOR<AiChatMessageCreateWithoutThreadInput, AiChatMessageUncheckedCreateWithoutThreadInput> | AiChatMessageCreateWithoutThreadInput[] | AiChatMessageUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: AiChatMessageCreateOrConnectWithoutThreadInput | AiChatMessageCreateOrConnectWithoutThreadInput[]
+    upsert?: AiChatMessageUpsertWithWhereUniqueWithoutThreadInput | AiChatMessageUpsertWithWhereUniqueWithoutThreadInput[]
+    createMany?: AiChatMessageCreateManyThreadInputEnvelope
+    set?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    disconnect?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    delete?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    connect?: AiChatMessageWhereUniqueInput | AiChatMessageWhereUniqueInput[]
+    update?: AiChatMessageUpdateWithWhereUniqueWithoutThreadInput | AiChatMessageUpdateWithWhereUniqueWithoutThreadInput[]
+    updateMany?: AiChatMessageUpdateManyWithWhereWithoutThreadInput | AiChatMessageUpdateManyWithWhereWithoutThreadInput[]
+    deleteMany?: AiChatMessageScalarWhereInput | AiChatMessageScalarWhereInput[]
+  }
+
+  export type AiChatEscalationUncheckedUpdateOneWithoutThreadNestedInput = {
+    create?: XOR<AiChatEscalationCreateWithoutThreadInput, AiChatEscalationUncheckedCreateWithoutThreadInput>
+    connectOrCreate?: AiChatEscalationCreateOrConnectWithoutThreadInput
+    upsert?: AiChatEscalationUpsertWithoutThreadInput
+    disconnect?: AiChatEscalationWhereInput | boolean
+    delete?: AiChatEscalationWhereInput | boolean
+    connect?: AiChatEscalationWhereUniqueInput
+    update?: XOR<XOR<AiChatEscalationUpdateToOneWithWhereWithoutThreadInput, AiChatEscalationUpdateWithoutThreadInput>, AiChatEscalationUncheckedUpdateWithoutThreadInput>
+  }
+
+  export type AiChatThreadCreateNestedOneWithoutMessagesInput = {
+    create?: XOR<AiChatThreadCreateWithoutMessagesInput, AiChatThreadUncheckedCreateWithoutMessagesInput>
+    connectOrCreate?: AiChatThreadCreateOrConnectWithoutMessagesInput
+    connect?: AiChatThreadWhereUniqueInput
+  }
+
+  export type AiChatThreadUpdateOneRequiredWithoutMessagesNestedInput = {
+    create?: XOR<AiChatThreadCreateWithoutMessagesInput, AiChatThreadUncheckedCreateWithoutMessagesInput>
+    connectOrCreate?: AiChatThreadCreateOrConnectWithoutMessagesInput
+    upsert?: AiChatThreadUpsertWithoutMessagesInput
+    connect?: AiChatThreadWhereUniqueInput
+    update?: XOR<XOR<AiChatThreadUpdateToOneWithWhereWithoutMessagesInput, AiChatThreadUpdateWithoutMessagesInput>, AiChatThreadUncheckedUpdateWithoutMessagesInput>
+  }
+
+  export type AiChatThreadCreateNestedOneWithoutEscalationInput = {
+    create?: XOR<AiChatThreadCreateWithoutEscalationInput, AiChatThreadUncheckedCreateWithoutEscalationInput>
+    connectOrCreate?: AiChatThreadCreateOrConnectWithoutEscalationInput
+    connect?: AiChatThreadWhereUniqueInput
+  }
+
+  export type AiChatThreadUpdateOneRequiredWithoutEscalationNestedInput = {
+    create?: XOR<AiChatThreadCreateWithoutEscalationInput, AiChatThreadUncheckedCreateWithoutEscalationInput>
+    connectOrCreate?: AiChatThreadCreateOrConnectWithoutEscalationInput
+    upsert?: AiChatThreadUpsertWithoutEscalationInput
+    connect?: AiChatThreadWhereUniqueInput
+    update?: XOR<XOR<AiChatThreadUpdateToOneWithWhereWithoutEscalationInput, AiChatThreadUpdateWithoutEscalationInput>, AiChatThreadUncheckedUpdateWithoutEscalationInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -27122,6 +34344,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ClientProjectCreateWithoutClientInput = {
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: ClientProjectHistoryCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectUncheckedCreateWithoutClientInput = {
+    id?: number
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: ClientProjectHistoryUncheckedCreateNestedManyWithoutClientProjectInput
+  }
+
+  export type ClientProjectCreateOrConnectWithoutClientInput = {
+    where: ClientProjectWhereUniqueInput
+    create: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput>
+  }
+
+  export type ClientProjectCreateManyClientInputEnvelope = {
+    data: ClientProjectCreateManyClientInput | ClientProjectCreateManyClientInput[]
+    skipDuplicates?: boolean
+  }
+
   export type WarrantyUpsertWithWhereUniqueWithoutClientInput = {
     where: WarrantyWhereUniqueInput
     update: XOR<WarrantyUpdateWithoutClientInput, WarrantyUncheckedUpdateWithoutClientInput>
@@ -27238,6 +34493,37 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"Invoice"> | Date | string | null
   }
 
+  export type ClientProjectUpsertWithWhereUniqueWithoutClientInput = {
+    where: ClientProjectWhereUniqueInput
+    update: XOR<ClientProjectUpdateWithoutClientInput, ClientProjectUncheckedUpdateWithoutClientInput>
+    create: XOR<ClientProjectCreateWithoutClientInput, ClientProjectUncheckedCreateWithoutClientInput>
+  }
+
+  export type ClientProjectUpdateWithWhereUniqueWithoutClientInput = {
+    where: ClientProjectWhereUniqueInput
+    data: XOR<ClientProjectUpdateWithoutClientInput, ClientProjectUncheckedUpdateWithoutClientInput>
+  }
+
+  export type ClientProjectUpdateManyWithWhereWithoutClientInput = {
+    where: ClientProjectScalarWhereInput
+    data: XOR<ClientProjectUpdateManyMutationInput, ClientProjectUncheckedUpdateManyWithoutClientInput>
+  }
+
+  export type ClientProjectScalarWhereInput = {
+    AND?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
+    OR?: ClientProjectScalarWhereInput[]
+    NOT?: ClientProjectScalarWhereInput | ClientProjectScalarWhereInput[]
+    id?: IntFilter<"ClientProject"> | number
+    clientId?: StringFilter<"ClientProject"> | string
+    name?: StringFilter<"ClientProject"> | string
+    status?: StringFilter<"ClientProject"> | string
+    startDate?: DateTimeFilter<"ClientProject"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProject"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientProject"> | Date | string
+  }
+
   export type ProjectCreateWithoutReviewsInput = {
     title: string
     slug: string
@@ -27350,6 +34636,7 @@ export namespace Prisma {
     certificates?: CertificateCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutWarrantiesInput = {
@@ -27366,6 +34653,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutWarrantiesInput = {
@@ -27398,6 +34686,7 @@ export namespace Prisma {
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutWarrantiesInput = {
@@ -27414,6 +34703,7 @@ export namespace Prisma {
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type UserCreateWithoutCertificatesInput = {
@@ -27430,6 +34720,7 @@ export namespace Prisma {
     warranties?: WarrantyCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutCertificatesInput = {
@@ -27446,6 +34737,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutCertificatesInput = {
@@ -27478,6 +34770,7 @@ export namespace Prisma {
     warranties?: WarrantyUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCertificatesInput = {
@@ -27494,6 +34787,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type UserCreateWithoutNotificationsInput = {
@@ -27510,6 +34804,7 @@ export namespace Prisma {
     warranties?: WarrantyCreateNestedManyWithoutClientInput
     certificates?: CertificateCreateNestedManyWithoutClientInput
     invoices?: InvoiceCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutNotificationsInput = {
@@ -27526,6 +34821,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutNotificationsInput = {
@@ -27558,6 +34854,7 @@ export namespace Prisma {
     warranties?: WarrantyUpdateManyWithoutClientNestedInput
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNotificationsInput = {
@@ -27574,6 +34871,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type MessageCreateWithoutChatSessionInput = {
@@ -28405,6 +35703,7 @@ export namespace Prisma {
     warranties?: WarrantyCreateNestedManyWithoutClientInput
     certificates?: CertificateCreateNestedManyWithoutClientInput
     notifications?: NotificationCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectCreateNestedManyWithoutClientInput
   }
 
   export type UserUncheckedCreateWithoutInvoicesInput = {
@@ -28421,6 +35720,7 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
     certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
+    clientProjects?: ClientProjectUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type UserCreateOrConnectWithoutInvoicesInput = {
@@ -28453,6 +35753,7 @@ export namespace Prisma {
     warranties?: WarrantyUpdateManyWithoutClientNestedInput
     certificates?: CertificateUpdateManyWithoutClientNestedInput
     notifications?: NotificationUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUpdateManyWithoutClientNestedInput
   }
 
   export type UserUncheckedUpdateWithoutInvoicesInput = {
@@ -28469,6 +35770,402 @@ export namespace Prisma {
     warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
     certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
+    clientProjects?: ClientProjectUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserCreateWithoutClientProjectsInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    warranties?: WarrantyCreateNestedManyWithoutClientInput
+    certificates?: CertificateCreateNestedManyWithoutClientInput
+    notifications?: NotificationCreateNestedManyWithoutClientInput
+    invoices?: InvoiceCreateNestedManyWithoutClientInput
+  }
+
+  export type UserUncheckedCreateWithoutClientProjectsInput = {
+    id?: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    name?: string | null
+    address?: string | null
+    phone?: string | null
+    lastLogin?: Date | string | null
+    isConfirmed?: boolean
+    isActive?: boolean
+    warranties?: WarrantyUncheckedCreateNestedManyWithoutClientInput
+    certificates?: CertificateUncheckedCreateNestedManyWithoutClientInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutClientInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutClientInput
+  }
+
+  export type UserCreateOrConnectWithoutClientProjectsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+  }
+
+  export type ClientProjectHistoryCreateWithoutClientProjectInput = {
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedCreateWithoutClientProjectInput = {
+    id?: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryCreateOrConnectWithoutClientProjectInput = {
+    where: ClientProjectHistoryWhereUniqueInput
+    create: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryCreateManyClientProjectInputEnvelope = {
+    data: ClientProjectHistoryCreateManyClientProjectInput | ClientProjectHistoryCreateManyClientProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutClientProjectsInput = {
+    update: XOR<UserUpdateWithoutClientProjectsInput, UserUncheckedUpdateWithoutClientProjectsInput>
+    create: XOR<UserCreateWithoutClientProjectsInput, UserUncheckedCreateWithoutClientProjectsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutClientProjectsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutClientProjectsInput, UserUncheckedUpdateWithoutClientProjectsInput>
+  }
+
+  export type UserUpdateWithoutClientProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    warranties?: WarrantyUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUpdateManyWithoutClientNestedInput
+    notifications?: NotificationUpdateManyWithoutClientNestedInput
+    invoices?: InvoiceUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutClientProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConfirmed?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    warranties?: WarrantyUncheckedUpdateManyWithoutClientNestedInput
+    certificates?: CertificateUncheckedUpdateManyWithoutClientNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutClientNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type ClientProjectHistoryUpsertWithWhereUniqueWithoutClientProjectInput = {
+    where: ClientProjectHistoryWhereUniqueInput
+    update: XOR<ClientProjectHistoryUpdateWithoutClientProjectInput, ClientProjectHistoryUncheckedUpdateWithoutClientProjectInput>
+    create: XOR<ClientProjectHistoryCreateWithoutClientProjectInput, ClientProjectHistoryUncheckedCreateWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryUpdateWithWhereUniqueWithoutClientProjectInput = {
+    where: ClientProjectHistoryWhereUniqueInput
+    data: XOR<ClientProjectHistoryUpdateWithoutClientProjectInput, ClientProjectHistoryUncheckedUpdateWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryUpdateManyWithWhereWithoutClientProjectInput = {
+    where: ClientProjectHistoryScalarWhereInput
+    data: XOR<ClientProjectHistoryUpdateManyMutationInput, ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectInput>
+  }
+
+  export type ClientProjectHistoryScalarWhereInput = {
+    AND?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+    OR?: ClientProjectHistoryScalarWhereInput[]
+    NOT?: ClientProjectHistoryScalarWhereInput | ClientProjectHistoryScalarWhereInput[]
+    id?: IntFilter<"ClientProjectHistory"> | number
+    clientProjectId?: IntFilter<"ClientProjectHistory"> | number
+    status?: StringFilter<"ClientProjectHistory"> | string
+    startDate?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+    endDate?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"ClientProjectHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"ClientProjectHistory"> | Date | string
+  }
+
+  export type ClientProjectCreateWithoutHistoryInput = {
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    client: UserCreateNestedOneWithoutClientProjectsInput
+  }
+
+  export type ClientProjectUncheckedCreateWithoutHistoryInput = {
+    id?: number
+    clientId: string
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientProjectCreateOrConnectWithoutHistoryInput = {
+    where: ClientProjectWhereUniqueInput
+    create: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type ClientProjectUpsertWithoutHistoryInput = {
+    update: XOR<ClientProjectUpdateWithoutHistoryInput, ClientProjectUncheckedUpdateWithoutHistoryInput>
+    create: XOR<ClientProjectCreateWithoutHistoryInput, ClientProjectUncheckedCreateWithoutHistoryInput>
+    where?: ClientProjectWhereInput
+  }
+
+  export type ClientProjectUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: ClientProjectWhereInput
+    data: XOR<ClientProjectUpdateWithoutHistoryInput, ClientProjectUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type ClientProjectUpdateWithoutHistoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: UserUpdateOneRequiredWithoutClientProjectsNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateWithoutHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatMessageCreateWithoutThreadInput = {
+    id?: string
+    sender: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type AiChatMessageUncheckedCreateWithoutThreadInput = {
+    id?: string
+    sender: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type AiChatMessageCreateOrConnectWithoutThreadInput = {
+    where: AiChatMessageWhereUniqueInput
+    create: XOR<AiChatMessageCreateWithoutThreadInput, AiChatMessageUncheckedCreateWithoutThreadInput>
+  }
+
+  export type AiChatMessageCreateManyThreadInputEnvelope = {
+    data: AiChatMessageCreateManyThreadInput | AiChatMessageCreateManyThreadInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AiChatEscalationCreateWithoutThreadInput = {
+    name?: string | null
+    email: string
+    message?: string | null
+    createdAt?: Date | string
+  }
+
+  export type AiChatEscalationUncheckedCreateWithoutThreadInput = {
+    id?: number
+    name?: string | null
+    email: string
+    message?: string | null
+    createdAt?: Date | string
+  }
+
+  export type AiChatEscalationCreateOrConnectWithoutThreadInput = {
+    where: AiChatEscalationWhereUniqueInput
+    create: XOR<AiChatEscalationCreateWithoutThreadInput, AiChatEscalationUncheckedCreateWithoutThreadInput>
+  }
+
+  export type AiChatMessageUpsertWithWhereUniqueWithoutThreadInput = {
+    where: AiChatMessageWhereUniqueInput
+    update: XOR<AiChatMessageUpdateWithoutThreadInput, AiChatMessageUncheckedUpdateWithoutThreadInput>
+    create: XOR<AiChatMessageCreateWithoutThreadInput, AiChatMessageUncheckedCreateWithoutThreadInput>
+  }
+
+  export type AiChatMessageUpdateWithWhereUniqueWithoutThreadInput = {
+    where: AiChatMessageWhereUniqueInput
+    data: XOR<AiChatMessageUpdateWithoutThreadInput, AiChatMessageUncheckedUpdateWithoutThreadInput>
+  }
+
+  export type AiChatMessageUpdateManyWithWhereWithoutThreadInput = {
+    where: AiChatMessageScalarWhereInput
+    data: XOR<AiChatMessageUpdateManyMutationInput, AiChatMessageUncheckedUpdateManyWithoutThreadInput>
+  }
+
+  export type AiChatMessageScalarWhereInput = {
+    AND?: AiChatMessageScalarWhereInput | AiChatMessageScalarWhereInput[]
+    OR?: AiChatMessageScalarWhereInput[]
+    NOT?: AiChatMessageScalarWhereInput | AiChatMessageScalarWhereInput[]
+    id?: StringFilter<"AiChatMessage"> | string
+    threadId?: StringFilter<"AiChatMessage"> | string
+    sender?: StringFilter<"AiChatMessage"> | string
+    content?: StringFilter<"AiChatMessage"> | string
+    createdAt?: DateTimeFilter<"AiChatMessage"> | Date | string
+  }
+
+  export type AiChatEscalationUpsertWithoutThreadInput = {
+    update: XOR<AiChatEscalationUpdateWithoutThreadInput, AiChatEscalationUncheckedUpdateWithoutThreadInput>
+    create: XOR<AiChatEscalationCreateWithoutThreadInput, AiChatEscalationUncheckedCreateWithoutThreadInput>
+    where?: AiChatEscalationWhereInput
+  }
+
+  export type AiChatEscalationUpdateToOneWithWhereWithoutThreadInput = {
+    where?: AiChatEscalationWhereInput
+    data: XOR<AiChatEscalationUpdateWithoutThreadInput, AiChatEscalationUncheckedUpdateWithoutThreadInput>
+  }
+
+  export type AiChatEscalationUpdateWithoutThreadInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatEscalationUncheckedUpdateWithoutThreadInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatThreadCreateWithoutMessagesInput = {
+    id?: string
+    sessionKey: string
+    isEscalated?: boolean
+    createdAt?: Date | string
+    escalation?: AiChatEscalationCreateNestedOneWithoutThreadInput
+  }
+
+  export type AiChatThreadUncheckedCreateWithoutMessagesInput = {
+    id?: string
+    sessionKey: string
+    isEscalated?: boolean
+    createdAt?: Date | string
+    escalation?: AiChatEscalationUncheckedCreateNestedOneWithoutThreadInput
+  }
+
+  export type AiChatThreadCreateOrConnectWithoutMessagesInput = {
+    where: AiChatThreadWhereUniqueInput
+    create: XOR<AiChatThreadCreateWithoutMessagesInput, AiChatThreadUncheckedCreateWithoutMessagesInput>
+  }
+
+  export type AiChatThreadUpsertWithoutMessagesInput = {
+    update: XOR<AiChatThreadUpdateWithoutMessagesInput, AiChatThreadUncheckedUpdateWithoutMessagesInput>
+    create: XOR<AiChatThreadCreateWithoutMessagesInput, AiChatThreadUncheckedCreateWithoutMessagesInput>
+    where?: AiChatThreadWhereInput
+  }
+
+  export type AiChatThreadUpdateToOneWithWhereWithoutMessagesInput = {
+    where?: AiChatThreadWhereInput
+    data: XOR<AiChatThreadUpdateWithoutMessagesInput, AiChatThreadUncheckedUpdateWithoutMessagesInput>
+  }
+
+  export type AiChatThreadUpdateWithoutMessagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    escalation?: AiChatEscalationUpdateOneWithoutThreadNestedInput
+  }
+
+  export type AiChatThreadUncheckedUpdateWithoutMessagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    escalation?: AiChatEscalationUncheckedUpdateOneWithoutThreadNestedInput
+  }
+
+  export type AiChatThreadCreateWithoutEscalationInput = {
+    id?: string
+    sessionKey: string
+    isEscalated?: boolean
+    createdAt?: Date | string
+    messages?: AiChatMessageCreateNestedManyWithoutThreadInput
+  }
+
+  export type AiChatThreadUncheckedCreateWithoutEscalationInput = {
+    id?: string
+    sessionKey: string
+    isEscalated?: boolean
+    createdAt?: Date | string
+    messages?: AiChatMessageUncheckedCreateNestedManyWithoutThreadInput
+  }
+
+  export type AiChatThreadCreateOrConnectWithoutEscalationInput = {
+    where: AiChatThreadWhereUniqueInput
+    create: XOR<AiChatThreadCreateWithoutEscalationInput, AiChatThreadUncheckedCreateWithoutEscalationInput>
+  }
+
+  export type AiChatThreadUpsertWithoutEscalationInput = {
+    update: XOR<AiChatThreadUpdateWithoutEscalationInput, AiChatThreadUncheckedUpdateWithoutEscalationInput>
+    create: XOR<AiChatThreadCreateWithoutEscalationInput, AiChatThreadUncheckedCreateWithoutEscalationInput>
+    where?: AiChatThreadWhereInput
+  }
+
+  export type AiChatThreadUpdateToOneWithWhereWithoutEscalationInput = {
+    where?: AiChatThreadWhereInput
+    data: XOR<AiChatThreadUpdateWithoutEscalationInput, AiChatThreadUncheckedUpdateWithoutEscalationInput>
+  }
+
+  export type AiChatThreadUpdateWithoutEscalationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    messages?: AiChatMessageUpdateManyWithoutThreadNestedInput
+  }
+
+  export type AiChatThreadUncheckedUpdateWithoutEscalationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionKey?: StringFieldUpdateOperationsInput | string
+    isEscalated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    messages?: AiChatMessageUncheckedUpdateManyWithoutThreadNestedInput
   }
 
   export type WarrantyCreateManyClientInput = {
@@ -28505,6 +36202,17 @@ export namespace Prisma {
     projectName: string
     createdAt?: Date | string
     deletedAt?: Date | string | null
+  }
+
+  export type ClientProjectCreateManyClientInput = {
+    id?: number
+    name: string
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type WarrantyUpdateWithoutClientInput = {
@@ -28609,6 +36317,40 @@ export namespace Prisma {
     projectName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ClientProjectUpdateWithoutClientInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: ClientProjectHistoryUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectNestedInput
+  }
+
+  export type ClientProjectUncheckedUpdateManyWithoutClientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MessageCreateManyChatSessionInput = {
@@ -28870,6 +36612,69 @@ export namespace Prisma {
     sourceId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClientProjectHistoryCreateManyClientProjectInput = {
+    id?: number
+    status: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type ClientProjectHistoryUpdateWithoutClientProjectInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateWithoutClientProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientProjectHistoryUncheckedUpdateManyWithoutClientProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatMessageCreateManyThreadInput = {
+    id?: string
+    sender: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type AiChatMessageUpdateWithoutThreadInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sender?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatMessageUncheckedUpdateWithoutThreadInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sender?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AiChatMessageUncheckedUpdateManyWithoutThreadInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sender?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

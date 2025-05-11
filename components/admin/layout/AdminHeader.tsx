@@ -3,21 +3,10 @@
 import Link from 'next/link'
 import { Menu, X, LogOut, Home, LayoutDashboard } from 'lucide-react'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { signOut } from 'next-auth/react'
 
 export default function AdminHeader() {
   const [open, setOpen] = useState(false)
-  const router = useRouter()
-
-  const handleLogout = async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST' })
-      router.push('/')
-    } catch (error) {
-      console.error('Logout failed:', error)
-      alert('Logout failed')
-    }
-  }
 
   return (
     <header className="bg-[var(--color-header-bg)] text-[var(--color-text-primary)] shadow-md z-50 relative">
@@ -47,7 +36,7 @@ export default function AdminHeader() {
           </a>
 
           <button
-            onClick={handleLogout}
+            onClick={() => signOut({ callbackUrl: '/login' })}
             className="flex items-center text-sm text-red-600 hover:underline"
           >
             <LogOut size={16} className="mr-1" /> Logout
@@ -76,10 +65,7 @@ export default function AdminHeader() {
           </a>
 
           <button
-            onClick={() => {
-              setOpen(false)
-              handleLogout()
-            }}
+            onClick={() => signOut({ callbackUrl: '/login' })}
             className="text-left text-sm text-red-600"
           >
             <LogOut size={16} className="inline mr-1" /> Logout
