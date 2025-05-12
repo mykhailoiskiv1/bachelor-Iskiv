@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const buttons = [
   { label: 'Gallery', href: '/projects', icon: GalleryHorizontalEnd },
-  { label: 'Calculator', href: '/calculator', icon: Calculator },
+  { label: 'Calculator', href: '/cost-calculator', icon: Calculator },
   { label: 'Blog', href: '/blog', icon: Newspaper },
 ];
 

@@ -309,3 +309,92 @@ model AiChatEscalation {
 
   thread AiChatThread @relation(fields: [sessionKey], references: [sessionKey])
 }
+
+model CalcCategory {
+  id            Int              @id @default(autoincrement())
+  name          String
+  slug          String           @unique
+  description   String?
+  isPopular     Boolean          @default(false)
+  projectTypeId Int?
+  projectType   CalcProjectType? @relation(fields: [projectTypeId], references: [id])
+
+  items CalcItem[]
+}
+
+model CalcItem {
+  id         Int          @id @default(autoincrement())
+  categoryId Int
+  category   CalcCategory @relation(fields: [categoryId], references: [id])
+
+  name        String
+  description String?
+  unitType    CalcUnitType
+  minPrice    Float
+  maxPrice    Float
+  baseMin     Float        @default(0)
+  baseMax     Float        @default(0)
+  vatIncluded Boolean      @default(true)
+  visible     Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  conditions CalcCondition[]
+}
+
+enum CalcUnitType {
+  M2
+  ITEM
+  HOUR
+  FIXED
+}
+
+model CalcSettings {
+  id                  Int   @id @default(1)
+  callOutThreshold    Float @default(250)
+  callOutFeeMin       Float @default(75)
+  callOutFeeMax       Float @default(120)
+  urgencyMultiplier   Float @default(1.15)
+  emergencyMultiplier Float @default(1.4)
+  projectTrigger      Float @default(10000)
+  projectFeePercent   Float @default(5)
+}
+
+model CalcRequest {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String
+  phone    String
+  postcode String
+
+  categorySlug String
+  data         Json
+
+  urgency     String
+  estimateMin Float
+  estimateMax Float
+
+  createdAt DateTime @default(now())
+}
+
+model CalcProjectType {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  categories CalcCategory[]
+}
+
+model CalcCondition {
+  id     Int      @id @default(autoincrement())
+  itemId Int
+  item   CalcItem @relation(fields: [itemId], references: [id])
+
+  label       String
+  description String?
+  multiplier  Float // Наприклад: 1.2 = +20%, 0.9 = -10%
+  isDefault   Boolean @default(false)
+}
