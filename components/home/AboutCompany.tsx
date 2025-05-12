@@ -32,7 +32,6 @@ export default function AboutCompany() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 text-left">
           {features.map(({ title, description, icon: Icon }) => (
             <div key={title} className="group pl-5 relative">
-              {/* Decorative vertical line */}
               <div className="absolute left-0 top-0 h-full w-[2px] bg-[var(--color-border)] group-hover:bg-[var(--color-accent)] transition-colors" />
               <Icon className="w-6 h-6 text-[var(--color-accent)] mb-4 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-1">

@@ -357,9 +357,81 @@ exports.Prisma.AiChatEscalationScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.CalcCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  isPopular: 'isPopular',
+  projectTypeId: 'projectTypeId'
+};
+
+exports.Prisma.CalcItemScalarFieldEnum = {
+  id: 'id',
+  categoryId: 'categoryId',
+  name: 'name',
+  description: 'description',
+  unitType: 'unitType',
+  minPrice: 'minPrice',
+  maxPrice: 'maxPrice',
+  baseMin: 'baseMin',
+  baseMax: 'baseMax',
+  vatIncluded: 'vatIncluded',
+  visible: 'visible',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CalcSettingsScalarFieldEnum = {
+  id: 'id',
+  callOutThreshold: 'callOutThreshold',
+  callOutFeeMin: 'callOutFeeMin',
+  callOutFeeMax: 'callOutFeeMax',
+  urgencyMultiplier: 'urgencyMultiplier',
+  emergencyMultiplier: 'emergencyMultiplier',
+  projectTrigger: 'projectTrigger',
+  projectFeePercent: 'projectFeePercent'
+};
+
+exports.Prisma.CalcRequestScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  postcode: 'postcode',
+  categorySlug: 'categorySlug',
+  data: 'data',
+  urgency: 'urgency',
+  estimateMin: 'estimateMin',
+  estimateMax: 'estimateMax',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CalcProjectTypeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  sortOrder: 'sortOrder',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CalcConditionScalarFieldEnum = {
+  id: 'id',
+  itemId: 'itemId',
+  label: 'label',
+  description: 'description',
+  multiplier: 'multiplier',
+  isDefault: 'isDefault'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -371,6 +443,12 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
 exports.Role = exports.$Enums.Role = {
   USER: 'USER',
   CLIENT: 'CLIENT',
@@ -381,6 +459,13 @@ exports.ReviewStatus = exports.$Enums.ReviewStatus = {
   PENDING: 'PENDING',
   APPROVED: 'APPROVED',
   REJECTED: 'REJECTED'
+};
+
+exports.CalcUnitType = exports.$Enums.CalcUnitType = {
+  M2: 'M2',
+  ITEM: 'ITEM',
+  HOUR: 'HOUR',
+  FIXED: 'FIXED'
 };
 
 exports.Prisma.ModelName = {
@@ -405,7 +490,13 @@ exports.Prisma.ModelName = {
   ClientProjectHistory: 'ClientProjectHistory',
   AiChatThread: 'AiChatThread',
   AiChatMessage: 'AiChatMessage',
-  AiChatEscalation: 'AiChatEscalation'
+  AiChatEscalation: 'AiChatEscalation',
+  CalcCategory: 'CalcCategory',
+  CalcItem: 'CalcItem',
+  CalcSettings: 'CalcSettings',
+  CalcRequest: 'CalcRequest',
+  CalcProjectType: 'CalcProjectType',
+  CalcCondition: 'CalcCondition'
 };
 
 /**

@@ -7,3 +7,5 @@ export * from './review';
 export * from './service';
 export * from './warranty';
 export * from './invoice';
+
+export type Step = 'contact' | 'category' | 'items' | 'urgency' | 'summary';

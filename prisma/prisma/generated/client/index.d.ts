@@ -123,6 +123,36 @@ export type AiChatMessage = $Result.DefaultSelection<Prisma.$AiChatMessagePayloa
  * 
  */
 export type AiChatEscalation = $Result.DefaultSelection<Prisma.$AiChatEscalationPayload>
+/**
+ * Model CalcCategory
+ * 
+ */
+export type CalcCategory = $Result.DefaultSelection<Prisma.$CalcCategoryPayload>
+/**
+ * Model CalcItem
+ * 
+ */
+export type CalcItem = $Result.DefaultSelection<Prisma.$CalcItemPayload>
+/**
+ * Model CalcSettings
+ * 
+ */
+export type CalcSettings = $Result.DefaultSelection<Prisma.$CalcSettingsPayload>
+/**
+ * Model CalcRequest
+ * 
+ */
+export type CalcRequest = $Result.DefaultSelection<Prisma.$CalcRequestPayload>
+/**
+ * Model CalcProjectType
+ * 
+ */
+export type CalcProjectType = $Result.DefaultSelection<Prisma.$CalcProjectTypePayload>
+/**
+ * Model CalcCondition
+ * 
+ */
+export type CalcCondition = $Result.DefaultSelection<Prisma.$CalcConditionPayload>
 
 /**
  * Enums
@@ -145,6 +175,16 @@ export const ReviewStatus: {
 
 export type ReviewStatus = (typeof ReviewStatus)[keyof typeof ReviewStatus]
 
+
+export const CalcUnitType: {
+  M2: 'M2',
+  ITEM: 'ITEM',
+  HOUR: 'HOUR',
+  FIXED: 'FIXED'
+};
+
+export type CalcUnitType = (typeof CalcUnitType)[keyof typeof CalcUnitType]
+
 }
 
 export type Role = $Enums.Role
@@ -154,6 +194,10 @@ export const Role: typeof $Enums.Role
 export type ReviewStatus = $Enums.ReviewStatus
 
 export const ReviewStatus: typeof $Enums.ReviewStatus
+
+export type CalcUnitType = $Enums.CalcUnitType
+
+export const CalcUnitType: typeof $Enums.CalcUnitType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -499,6 +543,66 @@ export class PrismaClient<
     * ```
     */
   get aiChatEscalation(): Prisma.AiChatEscalationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.calcCategory`: Exposes CRUD operations for the **CalcCategory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CalcCategories
+    * const calcCategories = await prisma.calcCategory.findMany()
+    * ```
+    */
+  get calcCategory(): Prisma.CalcCategoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.calcItem`: Exposes CRUD operations for the **CalcItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CalcItems
+    * const calcItems = await prisma.calcItem.findMany()
+    * ```
+    */
+  get calcItem(): Prisma.CalcItemDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.calcSettings`: Exposes CRUD operations for the **CalcSettings** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CalcSettings
+    * const calcSettings = await prisma.calcSettings.findMany()
+    * ```
+    */
+  get calcSettings(): Prisma.CalcSettingsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.calcRequest`: Exposes CRUD operations for the **CalcRequest** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CalcRequests
+    * const calcRequests = await prisma.calcRequest.findMany()
+    * ```
+    */
+  get calcRequest(): Prisma.CalcRequestDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.calcProjectType`: Exposes CRUD operations for the **CalcProjectType** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CalcProjectTypes
+    * const calcProjectTypes = await prisma.calcProjectType.findMany()
+    * ```
+    */
+  get calcProjectType(): Prisma.CalcProjectTypeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.calcCondition`: Exposes CRUD operations for the **CalcCondition** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CalcConditions
+    * const calcConditions = await prisma.calcCondition.findMany()
+    * ```
+    */
+  get calcCondition(): Prisma.CalcConditionDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -960,7 +1064,13 @@ export namespace Prisma {
     ClientProjectHistory: 'ClientProjectHistory',
     AiChatThread: 'AiChatThread',
     AiChatMessage: 'AiChatMessage',
-    AiChatEscalation: 'AiChatEscalation'
+    AiChatEscalation: 'AiChatEscalation',
+    CalcCategory: 'CalcCategory',
+    CalcItem: 'CalcItem',
+    CalcSettings: 'CalcSettings',
+    CalcRequest: 'CalcRequest',
+    CalcProjectType: 'CalcProjectType',
+    CalcCondition: 'CalcCondition'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -979,7 +1089,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project" | "projectType" | "workPackage" | "serviceItem" | "serviceOption" | "followUp" | "invoice" | "clientProject" | "clientProjectHistory" | "aiChatThread" | "aiChatMessage" | "aiChatEscalation"
+      modelProps: "user" | "review" | "service" | "warranty" | "certificate" | "notification" | "post" | "chatSession" | "message" | "knowledgeBase" | "project" | "projectType" | "workPackage" | "serviceItem" | "serviceOption" | "followUp" | "invoice" | "clientProject" | "clientProjectHistory" | "aiChatThread" | "aiChatMessage" | "aiChatEscalation" | "calcCategory" | "calcItem" | "calcSettings" | "calcRequest" | "calcProjectType" | "calcCondition"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2611,6 +2721,450 @@ export namespace Prisma {
           }
         }
       }
+      CalcCategory: {
+        payload: Prisma.$CalcCategoryPayload<ExtArgs>
+        fields: Prisma.CalcCategoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CalcCategoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CalcCategoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>
+          }
+          findFirst: {
+            args: Prisma.CalcCategoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CalcCategoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>
+          }
+          findMany: {
+            args: Prisma.CalcCategoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>[]
+          }
+          create: {
+            args: Prisma.CalcCategoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>
+          }
+          createMany: {
+            args: Prisma.CalcCategoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CalcCategoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>[]
+          }
+          delete: {
+            args: Prisma.CalcCategoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>
+          }
+          update: {
+            args: Prisma.CalcCategoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.CalcCategoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CalcCategoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CalcCategoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.CalcCategoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcCategoryPayload>
+          }
+          aggregate: {
+            args: Prisma.CalcCategoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCalcCategory>
+          }
+          groupBy: {
+            args: Prisma.CalcCategoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CalcCategoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CalcCategoryCountArgs<ExtArgs>
+            result: $Utils.Optional<CalcCategoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      CalcItem: {
+        payload: Prisma.$CalcItemPayload<ExtArgs>
+        fields: Prisma.CalcItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CalcItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CalcItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>
+          }
+          findFirst: {
+            args: Prisma.CalcItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CalcItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>
+          }
+          findMany: {
+            args: Prisma.CalcItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>[]
+          }
+          create: {
+            args: Prisma.CalcItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>
+          }
+          createMany: {
+            args: Prisma.CalcItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CalcItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>[]
+          }
+          delete: {
+            args: Prisma.CalcItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>
+          }
+          update: {
+            args: Prisma.CalcItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.CalcItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CalcItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CalcItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>[]
+          }
+          upsert: {
+            args: Prisma.CalcItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcItemPayload>
+          }
+          aggregate: {
+            args: Prisma.CalcItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCalcItem>
+          }
+          groupBy: {
+            args: Prisma.CalcItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CalcItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CalcItemCountArgs<ExtArgs>
+            result: $Utils.Optional<CalcItemCountAggregateOutputType> | number
+          }
+        }
+      }
+      CalcSettings: {
+        payload: Prisma.$CalcSettingsPayload<ExtArgs>
+        fields: Prisma.CalcSettingsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CalcSettingsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CalcSettingsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>
+          }
+          findFirst: {
+            args: Prisma.CalcSettingsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CalcSettingsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>
+          }
+          findMany: {
+            args: Prisma.CalcSettingsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>[]
+          }
+          create: {
+            args: Prisma.CalcSettingsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>
+          }
+          createMany: {
+            args: Prisma.CalcSettingsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CalcSettingsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>[]
+          }
+          delete: {
+            args: Prisma.CalcSettingsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>
+          }
+          update: {
+            args: Prisma.CalcSettingsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>
+          }
+          deleteMany: {
+            args: Prisma.CalcSettingsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CalcSettingsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CalcSettingsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>[]
+          }
+          upsert: {
+            args: Prisma.CalcSettingsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcSettingsPayload>
+          }
+          aggregate: {
+            args: Prisma.CalcSettingsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCalcSettings>
+          }
+          groupBy: {
+            args: Prisma.CalcSettingsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CalcSettingsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CalcSettingsCountArgs<ExtArgs>
+            result: $Utils.Optional<CalcSettingsCountAggregateOutputType> | number
+          }
+        }
+      }
+      CalcRequest: {
+        payload: Prisma.$CalcRequestPayload<ExtArgs>
+        fields: Prisma.CalcRequestFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CalcRequestFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CalcRequestFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>
+          }
+          findFirst: {
+            args: Prisma.CalcRequestFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CalcRequestFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>
+          }
+          findMany: {
+            args: Prisma.CalcRequestFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>[]
+          }
+          create: {
+            args: Prisma.CalcRequestCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>
+          }
+          createMany: {
+            args: Prisma.CalcRequestCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CalcRequestCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>[]
+          }
+          delete: {
+            args: Prisma.CalcRequestDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>
+          }
+          update: {
+            args: Prisma.CalcRequestUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>
+          }
+          deleteMany: {
+            args: Prisma.CalcRequestDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CalcRequestUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CalcRequestUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>[]
+          }
+          upsert: {
+            args: Prisma.CalcRequestUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcRequestPayload>
+          }
+          aggregate: {
+            args: Prisma.CalcRequestAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCalcRequest>
+          }
+          groupBy: {
+            args: Prisma.CalcRequestGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CalcRequestGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CalcRequestCountArgs<ExtArgs>
+            result: $Utils.Optional<CalcRequestCountAggregateOutputType> | number
+          }
+        }
+      }
+      CalcProjectType: {
+        payload: Prisma.$CalcProjectTypePayload<ExtArgs>
+        fields: Prisma.CalcProjectTypeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CalcProjectTypeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CalcProjectTypeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>
+          }
+          findFirst: {
+            args: Prisma.CalcProjectTypeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CalcProjectTypeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>
+          }
+          findMany: {
+            args: Prisma.CalcProjectTypeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>[]
+          }
+          create: {
+            args: Prisma.CalcProjectTypeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>
+          }
+          createMany: {
+            args: Prisma.CalcProjectTypeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CalcProjectTypeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>[]
+          }
+          delete: {
+            args: Prisma.CalcProjectTypeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>
+          }
+          update: {
+            args: Prisma.CalcProjectTypeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>
+          }
+          deleteMany: {
+            args: Prisma.CalcProjectTypeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CalcProjectTypeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CalcProjectTypeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>[]
+          }
+          upsert: {
+            args: Prisma.CalcProjectTypeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcProjectTypePayload>
+          }
+          aggregate: {
+            args: Prisma.CalcProjectTypeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCalcProjectType>
+          }
+          groupBy: {
+            args: Prisma.CalcProjectTypeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CalcProjectTypeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CalcProjectTypeCountArgs<ExtArgs>
+            result: $Utils.Optional<CalcProjectTypeCountAggregateOutputType> | number
+          }
+        }
+      }
+      CalcCondition: {
+        payload: Prisma.$CalcConditionPayload<ExtArgs>
+        fields: Prisma.CalcConditionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CalcConditionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CalcConditionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>
+          }
+          findFirst: {
+            args: Prisma.CalcConditionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CalcConditionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>
+          }
+          findMany: {
+            args: Prisma.CalcConditionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>[]
+          }
+          create: {
+            args: Prisma.CalcConditionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>
+          }
+          createMany: {
+            args: Prisma.CalcConditionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CalcConditionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>[]
+          }
+          delete: {
+            args: Prisma.CalcConditionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>
+          }
+          update: {
+            args: Prisma.CalcConditionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>
+          }
+          deleteMany: {
+            args: Prisma.CalcConditionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CalcConditionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CalcConditionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>[]
+          }
+          upsert: {
+            args: Prisma.CalcConditionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalcConditionPayload>
+          }
+          aggregate: {
+            args: Prisma.CalcConditionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCalcCondition>
+          }
+          groupBy: {
+            args: Prisma.CalcConditionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CalcConditionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CalcConditionCountArgs<ExtArgs>
+            result: $Utils.Optional<CalcConditionCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2717,6 +3271,12 @@ export namespace Prisma {
     aiChatThread?: AiChatThreadOmit
     aiChatMessage?: AiChatMessageOmit
     aiChatEscalation?: AiChatEscalationOmit
+    calcCategory?: CalcCategoryOmit
+    calcItem?: CalcItemOmit
+    calcSettings?: CalcSettingsOmit
+    calcRequest?: CalcRequestOmit
+    calcProjectType?: CalcProjectTypeOmit
+    calcCondition?: CalcConditionOmit
   }
 
   /* Types for Logging */
@@ -3105,6 +3665,99 @@ export namespace Prisma {
    */
   export type AiChatThreadCountOutputTypeCountMessagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AiChatMessageWhereInput
+  }
+
+
+  /**
+   * Count Type CalcCategoryCountOutputType
+   */
+
+  export type CalcCategoryCountOutputType = {
+    items: number
+  }
+
+  export type CalcCategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    items?: boolean | CalcCategoryCountOutputTypeCountItemsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CalcCategoryCountOutputType without action
+   */
+  export type CalcCategoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategoryCountOutputType
+     */
+    select?: CalcCategoryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CalcCategoryCountOutputType without action
+   */
+  export type CalcCategoryCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcItemWhereInput
+  }
+
+
+  /**
+   * Count Type CalcItemCountOutputType
+   */
+
+  export type CalcItemCountOutputType = {
+    conditions: number
+  }
+
+  export type CalcItemCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    conditions?: boolean | CalcItemCountOutputTypeCountConditionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CalcItemCountOutputType without action
+   */
+  export type CalcItemCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItemCountOutputType
+     */
+    select?: CalcItemCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CalcItemCountOutputType without action
+   */
+  export type CalcItemCountOutputTypeCountConditionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcConditionWhereInput
+  }
+
+
+  /**
+   * Count Type CalcProjectTypeCountOutputType
+   */
+
+  export type CalcProjectTypeCountOutputType = {
+    categories: number
+  }
+
+  export type CalcProjectTypeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categories?: boolean | CalcProjectTypeCountOutputTypeCountCategoriesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CalcProjectTypeCountOutputType without action
+   */
+  export type CalcProjectTypeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectTypeCountOutputType
+     */
+    select?: CalcProjectTypeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CalcProjectTypeCountOutputType without action
+   */
+  export type CalcProjectTypeCountOutputTypeCountCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcCategoryWhereInput
   }
 
 
@@ -28045,6 +28698,6851 @@ export namespace Prisma {
 
 
   /**
+   * Model CalcCategory
+   */
+
+  export type AggregateCalcCategory = {
+    _count: CalcCategoryCountAggregateOutputType | null
+    _avg: CalcCategoryAvgAggregateOutputType | null
+    _sum: CalcCategorySumAggregateOutputType | null
+    _min: CalcCategoryMinAggregateOutputType | null
+    _max: CalcCategoryMaxAggregateOutputType | null
+  }
+
+  export type CalcCategoryAvgAggregateOutputType = {
+    id: number | null
+    projectTypeId: number | null
+  }
+
+  export type CalcCategorySumAggregateOutputType = {
+    id: number | null
+    projectTypeId: number | null
+  }
+
+  export type CalcCategoryMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    slug: string | null
+    description: string | null
+    isPopular: boolean | null
+    projectTypeId: number | null
+  }
+
+  export type CalcCategoryMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    slug: string | null
+    description: string | null
+    isPopular: boolean | null
+    projectTypeId: number | null
+  }
+
+  export type CalcCategoryCountAggregateOutputType = {
+    id: number
+    name: number
+    slug: number
+    description: number
+    isPopular: number
+    projectTypeId: number
+    _all: number
+  }
+
+
+  export type CalcCategoryAvgAggregateInputType = {
+    id?: true
+    projectTypeId?: true
+  }
+
+  export type CalcCategorySumAggregateInputType = {
+    id?: true
+    projectTypeId?: true
+  }
+
+  export type CalcCategoryMinAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    isPopular?: true
+    projectTypeId?: true
+  }
+
+  export type CalcCategoryMaxAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    isPopular?: true
+    projectTypeId?: true
+  }
+
+  export type CalcCategoryCountAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    isPopular?: true
+    projectTypeId?: true
+    _all?: true
+  }
+
+  export type CalcCategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcCategory to aggregate.
+     */
+    where?: CalcCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcCategories to fetch.
+     */
+    orderBy?: CalcCategoryOrderByWithRelationInput | CalcCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CalcCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CalcCategories
+    **/
+    _count?: true | CalcCategoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CalcCategoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CalcCategorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CalcCategoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CalcCategoryMaxAggregateInputType
+  }
+
+  export type GetCalcCategoryAggregateType<T extends CalcCategoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateCalcCategory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCalcCategory[P]>
+      : GetScalarType<T[P], AggregateCalcCategory[P]>
+  }
+
+
+
+
+  export type CalcCategoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcCategoryWhereInput
+    orderBy?: CalcCategoryOrderByWithAggregationInput | CalcCategoryOrderByWithAggregationInput[]
+    by: CalcCategoryScalarFieldEnum[] | CalcCategoryScalarFieldEnum
+    having?: CalcCategoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CalcCategoryCountAggregateInputType | true
+    _avg?: CalcCategoryAvgAggregateInputType
+    _sum?: CalcCategorySumAggregateInputType
+    _min?: CalcCategoryMinAggregateInputType
+    _max?: CalcCategoryMaxAggregateInputType
+  }
+
+  export type CalcCategoryGroupByOutputType = {
+    id: number
+    name: string
+    slug: string
+    description: string | null
+    isPopular: boolean
+    projectTypeId: number | null
+    _count: CalcCategoryCountAggregateOutputType | null
+    _avg: CalcCategoryAvgAggregateOutputType | null
+    _sum: CalcCategorySumAggregateOutputType | null
+    _min: CalcCategoryMinAggregateOutputType | null
+    _max: CalcCategoryMaxAggregateOutputType | null
+  }
+
+  type GetCalcCategoryGroupByPayload<T extends CalcCategoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CalcCategoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CalcCategoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CalcCategoryGroupByOutputType[P]>
+            : GetScalarType<T[P], CalcCategoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CalcCategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    isPopular?: boolean
+    projectTypeId?: boolean
+    projectType?: boolean | CalcCategory$projectTypeArgs<ExtArgs>
+    items?: boolean | CalcCategory$itemsArgs<ExtArgs>
+    _count?: boolean | CalcCategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcCategory"]>
+
+  export type CalcCategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    isPopular?: boolean
+    projectTypeId?: boolean
+    projectType?: boolean | CalcCategory$projectTypeArgs<ExtArgs>
+  }, ExtArgs["result"]["calcCategory"]>
+
+  export type CalcCategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    isPopular?: boolean
+    projectTypeId?: boolean
+    projectType?: boolean | CalcCategory$projectTypeArgs<ExtArgs>
+  }, ExtArgs["result"]["calcCategory"]>
+
+  export type CalcCategorySelectScalar = {
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    isPopular?: boolean
+    projectTypeId?: boolean
+  }
+
+  export type CalcCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "description" | "isPopular" | "projectTypeId", ExtArgs["result"]["calcCategory"]>
+  export type CalcCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projectType?: boolean | CalcCategory$projectTypeArgs<ExtArgs>
+    items?: boolean | CalcCategory$itemsArgs<ExtArgs>
+    _count?: boolean | CalcCategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CalcCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projectType?: boolean | CalcCategory$projectTypeArgs<ExtArgs>
+  }
+  export type CalcCategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projectType?: boolean | CalcCategory$projectTypeArgs<ExtArgs>
+  }
+
+  export type $CalcCategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CalcCategory"
+    objects: {
+      projectType: Prisma.$CalcProjectTypePayload<ExtArgs> | null
+      items: Prisma.$CalcItemPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      slug: string
+      description: string | null
+      isPopular: boolean
+      projectTypeId: number | null
+    }, ExtArgs["result"]["calcCategory"]>
+    composites: {}
+  }
+
+  type CalcCategoryGetPayload<S extends boolean | null | undefined | CalcCategoryDefaultArgs> = $Result.GetResult<Prisma.$CalcCategoryPayload, S>
+
+  type CalcCategoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CalcCategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CalcCategoryCountAggregateInputType | true
+    }
+
+  export interface CalcCategoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CalcCategory'], meta: { name: 'CalcCategory' } }
+    /**
+     * Find zero or one CalcCategory that matches the filter.
+     * @param {CalcCategoryFindUniqueArgs} args - Arguments to find a CalcCategory
+     * @example
+     * // Get one CalcCategory
+     * const calcCategory = await prisma.calcCategory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CalcCategoryFindUniqueArgs>(args: SelectSubset<T, CalcCategoryFindUniqueArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CalcCategory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CalcCategoryFindUniqueOrThrowArgs} args - Arguments to find a CalcCategory
+     * @example
+     * // Get one CalcCategory
+     * const calcCategory = await prisma.calcCategory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CalcCategoryFindUniqueOrThrowArgs>(args: SelectSubset<T, CalcCategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcCategory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcCategoryFindFirstArgs} args - Arguments to find a CalcCategory
+     * @example
+     * // Get one CalcCategory
+     * const calcCategory = await prisma.calcCategory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CalcCategoryFindFirstArgs>(args?: SelectSubset<T, CalcCategoryFindFirstArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcCategory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcCategoryFindFirstOrThrowArgs} args - Arguments to find a CalcCategory
+     * @example
+     * // Get one CalcCategory
+     * const calcCategory = await prisma.calcCategory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CalcCategoryFindFirstOrThrowArgs>(args?: SelectSubset<T, CalcCategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CalcCategories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcCategoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CalcCategories
+     * const calcCategories = await prisma.calcCategory.findMany()
+     * 
+     * // Get first 10 CalcCategories
+     * const calcCategories = await prisma.calcCategory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const calcCategoryWithIdOnly = await prisma.calcCategory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CalcCategoryFindManyArgs>(args?: SelectSubset<T, CalcCategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CalcCategory.
+     * @param {CalcCategoryCreateArgs} args - Arguments to create a CalcCategory.
+     * @example
+     * // Create one CalcCategory
+     * const CalcCategory = await prisma.calcCategory.create({
+     *   data: {
+     *     // ... data to create a CalcCategory
+     *   }
+     * })
+     * 
+     */
+    create<T extends CalcCategoryCreateArgs>(args: SelectSubset<T, CalcCategoryCreateArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CalcCategories.
+     * @param {CalcCategoryCreateManyArgs} args - Arguments to create many CalcCategories.
+     * @example
+     * // Create many CalcCategories
+     * const calcCategory = await prisma.calcCategory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CalcCategoryCreateManyArgs>(args?: SelectSubset<T, CalcCategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CalcCategories and returns the data saved in the database.
+     * @param {CalcCategoryCreateManyAndReturnArgs} args - Arguments to create many CalcCategories.
+     * @example
+     * // Create many CalcCategories
+     * const calcCategory = await prisma.calcCategory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CalcCategories and only return the `id`
+     * const calcCategoryWithIdOnly = await prisma.calcCategory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CalcCategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, CalcCategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CalcCategory.
+     * @param {CalcCategoryDeleteArgs} args - Arguments to delete one CalcCategory.
+     * @example
+     * // Delete one CalcCategory
+     * const CalcCategory = await prisma.calcCategory.delete({
+     *   where: {
+     *     // ... filter to delete one CalcCategory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CalcCategoryDeleteArgs>(args: SelectSubset<T, CalcCategoryDeleteArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CalcCategory.
+     * @param {CalcCategoryUpdateArgs} args - Arguments to update one CalcCategory.
+     * @example
+     * // Update one CalcCategory
+     * const calcCategory = await prisma.calcCategory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CalcCategoryUpdateArgs>(args: SelectSubset<T, CalcCategoryUpdateArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CalcCategories.
+     * @param {CalcCategoryDeleteManyArgs} args - Arguments to filter CalcCategories to delete.
+     * @example
+     * // Delete a few CalcCategories
+     * const { count } = await prisma.calcCategory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CalcCategoryDeleteManyArgs>(args?: SelectSubset<T, CalcCategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcCategoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CalcCategories
+     * const calcCategory = await prisma.calcCategory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CalcCategoryUpdateManyArgs>(args: SelectSubset<T, CalcCategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcCategories and returns the data updated in the database.
+     * @param {CalcCategoryUpdateManyAndReturnArgs} args - Arguments to update many CalcCategories.
+     * @example
+     * // Update many CalcCategories
+     * const calcCategory = await prisma.calcCategory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CalcCategories and only return the `id`
+     * const calcCategoryWithIdOnly = await prisma.calcCategory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CalcCategoryUpdateManyAndReturnArgs>(args: SelectSubset<T, CalcCategoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CalcCategory.
+     * @param {CalcCategoryUpsertArgs} args - Arguments to update or create a CalcCategory.
+     * @example
+     * // Update or create a CalcCategory
+     * const calcCategory = await prisma.calcCategory.upsert({
+     *   create: {
+     *     // ... data to create a CalcCategory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CalcCategory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CalcCategoryUpsertArgs>(args: SelectSubset<T, CalcCategoryUpsertArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CalcCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcCategoryCountArgs} args - Arguments to filter CalcCategories to count.
+     * @example
+     * // Count the number of CalcCategories
+     * const count = await prisma.calcCategory.count({
+     *   where: {
+     *     // ... the filter for the CalcCategories we want to count
+     *   }
+     * })
+    **/
+    count<T extends CalcCategoryCountArgs>(
+      args?: Subset<T, CalcCategoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CalcCategoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CalcCategory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcCategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CalcCategoryAggregateArgs>(args: Subset<T, CalcCategoryAggregateArgs>): Prisma.PrismaPromise<GetCalcCategoryAggregateType<T>>
+
+    /**
+     * Group by CalcCategory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcCategoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CalcCategoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CalcCategoryGroupByArgs['orderBy'] }
+        : { orderBy?: CalcCategoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CalcCategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalcCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CalcCategory model
+   */
+  readonly fields: CalcCategoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CalcCategory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CalcCategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    projectType<T extends CalcCategory$projectTypeArgs<ExtArgs> = {}>(args?: Subset<T, CalcCategory$projectTypeArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    items<T extends CalcCategory$itemsArgs<ExtArgs> = {}>(args?: Subset<T, CalcCategory$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CalcCategory model
+   */
+  interface CalcCategoryFieldRefs {
+    readonly id: FieldRef<"CalcCategory", 'Int'>
+    readonly name: FieldRef<"CalcCategory", 'String'>
+    readonly slug: FieldRef<"CalcCategory", 'String'>
+    readonly description: FieldRef<"CalcCategory", 'String'>
+    readonly isPopular: FieldRef<"CalcCategory", 'Boolean'>
+    readonly projectTypeId: FieldRef<"CalcCategory", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CalcCategory findUnique
+   */
+  export type CalcCategoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCategory to fetch.
+     */
+    where: CalcCategoryWhereUniqueInput
+  }
+
+  /**
+   * CalcCategory findUniqueOrThrow
+   */
+  export type CalcCategoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCategory to fetch.
+     */
+    where: CalcCategoryWhereUniqueInput
+  }
+
+  /**
+   * CalcCategory findFirst
+   */
+  export type CalcCategoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCategory to fetch.
+     */
+    where?: CalcCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcCategories to fetch.
+     */
+    orderBy?: CalcCategoryOrderByWithRelationInput | CalcCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcCategories.
+     */
+    cursor?: CalcCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcCategories.
+     */
+    distinct?: CalcCategoryScalarFieldEnum | CalcCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * CalcCategory findFirstOrThrow
+   */
+  export type CalcCategoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCategory to fetch.
+     */
+    where?: CalcCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcCategories to fetch.
+     */
+    orderBy?: CalcCategoryOrderByWithRelationInput | CalcCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcCategories.
+     */
+    cursor?: CalcCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcCategories.
+     */
+    distinct?: CalcCategoryScalarFieldEnum | CalcCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * CalcCategory findMany
+   */
+  export type CalcCategoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCategories to fetch.
+     */
+    where?: CalcCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcCategories to fetch.
+     */
+    orderBy?: CalcCategoryOrderByWithRelationInput | CalcCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CalcCategories.
+     */
+    cursor?: CalcCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcCategories.
+     */
+    skip?: number
+    distinct?: CalcCategoryScalarFieldEnum | CalcCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * CalcCategory create
+   */
+  export type CalcCategoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CalcCategory.
+     */
+    data: XOR<CalcCategoryCreateInput, CalcCategoryUncheckedCreateInput>
+  }
+
+  /**
+   * CalcCategory createMany
+   */
+  export type CalcCategoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CalcCategories.
+     */
+    data: CalcCategoryCreateManyInput | CalcCategoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcCategory createManyAndReturn
+   */
+  export type CalcCategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many CalcCategories.
+     */
+    data: CalcCategoryCreateManyInput | CalcCategoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CalcCategory update
+   */
+  export type CalcCategoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CalcCategory.
+     */
+    data: XOR<CalcCategoryUpdateInput, CalcCategoryUncheckedUpdateInput>
+    /**
+     * Choose, which CalcCategory to update.
+     */
+    where: CalcCategoryWhereUniqueInput
+  }
+
+  /**
+   * CalcCategory updateMany
+   */
+  export type CalcCategoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CalcCategories.
+     */
+    data: XOR<CalcCategoryUpdateManyMutationInput, CalcCategoryUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcCategories to update
+     */
+    where?: CalcCategoryWhereInput
+    /**
+     * Limit how many CalcCategories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcCategory updateManyAndReturn
+   */
+  export type CalcCategoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * The data used to update CalcCategories.
+     */
+    data: XOR<CalcCategoryUpdateManyMutationInput, CalcCategoryUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcCategories to update
+     */
+    where?: CalcCategoryWhereInput
+    /**
+     * Limit how many CalcCategories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CalcCategory upsert
+   */
+  export type CalcCategoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CalcCategory to update in case it exists.
+     */
+    where: CalcCategoryWhereUniqueInput
+    /**
+     * In case the CalcCategory found by the `where` argument doesn't exist, create a new CalcCategory with this data.
+     */
+    create: XOR<CalcCategoryCreateInput, CalcCategoryUncheckedCreateInput>
+    /**
+     * In case the CalcCategory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CalcCategoryUpdateInput, CalcCategoryUncheckedUpdateInput>
+  }
+
+  /**
+   * CalcCategory delete
+   */
+  export type CalcCategoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    /**
+     * Filter which CalcCategory to delete.
+     */
+    where: CalcCategoryWhereUniqueInput
+  }
+
+  /**
+   * CalcCategory deleteMany
+   */
+  export type CalcCategoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcCategories to delete
+     */
+    where?: CalcCategoryWhereInput
+    /**
+     * Limit how many CalcCategories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcCategory.projectType
+   */
+  export type CalcCategory$projectTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    where?: CalcProjectTypeWhereInput
+  }
+
+  /**
+   * CalcCategory.items
+   */
+  export type CalcCategory$itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    where?: CalcItemWhereInput
+    orderBy?: CalcItemOrderByWithRelationInput | CalcItemOrderByWithRelationInput[]
+    cursor?: CalcItemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CalcItemScalarFieldEnum | CalcItemScalarFieldEnum[]
+  }
+
+  /**
+   * CalcCategory without action
+   */
+  export type CalcCategoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CalcItem
+   */
+
+  export type AggregateCalcItem = {
+    _count: CalcItemCountAggregateOutputType | null
+    _avg: CalcItemAvgAggregateOutputType | null
+    _sum: CalcItemSumAggregateOutputType | null
+    _min: CalcItemMinAggregateOutputType | null
+    _max: CalcItemMaxAggregateOutputType | null
+  }
+
+  export type CalcItemAvgAggregateOutputType = {
+    id: number | null
+    categoryId: number | null
+    minPrice: number | null
+    maxPrice: number | null
+    baseMin: number | null
+    baseMax: number | null
+  }
+
+  export type CalcItemSumAggregateOutputType = {
+    id: number | null
+    categoryId: number | null
+    minPrice: number | null
+    maxPrice: number | null
+    baseMin: number | null
+    baseMax: number | null
+  }
+
+  export type CalcItemMinAggregateOutputType = {
+    id: number | null
+    categoryId: number | null
+    name: string | null
+    description: string | null
+    unitType: $Enums.CalcUnitType | null
+    minPrice: number | null
+    maxPrice: number | null
+    baseMin: number | null
+    baseMax: number | null
+    vatIncluded: boolean | null
+    visible: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CalcItemMaxAggregateOutputType = {
+    id: number | null
+    categoryId: number | null
+    name: string | null
+    description: string | null
+    unitType: $Enums.CalcUnitType | null
+    minPrice: number | null
+    maxPrice: number | null
+    baseMin: number | null
+    baseMax: number | null
+    vatIncluded: boolean | null
+    visible: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CalcItemCountAggregateOutputType = {
+    id: number
+    categoryId: number
+    name: number
+    description: number
+    unitType: number
+    minPrice: number
+    maxPrice: number
+    baseMin: number
+    baseMax: number
+    vatIncluded: number
+    visible: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CalcItemAvgAggregateInputType = {
+    id?: true
+    categoryId?: true
+    minPrice?: true
+    maxPrice?: true
+    baseMin?: true
+    baseMax?: true
+  }
+
+  export type CalcItemSumAggregateInputType = {
+    id?: true
+    categoryId?: true
+    minPrice?: true
+    maxPrice?: true
+    baseMin?: true
+    baseMax?: true
+  }
+
+  export type CalcItemMinAggregateInputType = {
+    id?: true
+    categoryId?: true
+    name?: true
+    description?: true
+    unitType?: true
+    minPrice?: true
+    maxPrice?: true
+    baseMin?: true
+    baseMax?: true
+    vatIncluded?: true
+    visible?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CalcItemMaxAggregateInputType = {
+    id?: true
+    categoryId?: true
+    name?: true
+    description?: true
+    unitType?: true
+    minPrice?: true
+    maxPrice?: true
+    baseMin?: true
+    baseMax?: true
+    vatIncluded?: true
+    visible?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CalcItemCountAggregateInputType = {
+    id?: true
+    categoryId?: true
+    name?: true
+    description?: true
+    unitType?: true
+    minPrice?: true
+    maxPrice?: true
+    baseMin?: true
+    baseMax?: true
+    vatIncluded?: true
+    visible?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CalcItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcItem to aggregate.
+     */
+    where?: CalcItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcItems to fetch.
+     */
+    orderBy?: CalcItemOrderByWithRelationInput | CalcItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CalcItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CalcItems
+    **/
+    _count?: true | CalcItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CalcItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CalcItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CalcItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CalcItemMaxAggregateInputType
+  }
+
+  export type GetCalcItemAggregateType<T extends CalcItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateCalcItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCalcItem[P]>
+      : GetScalarType<T[P], AggregateCalcItem[P]>
+  }
+
+
+
+
+  export type CalcItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcItemWhereInput
+    orderBy?: CalcItemOrderByWithAggregationInput | CalcItemOrderByWithAggregationInput[]
+    by: CalcItemScalarFieldEnum[] | CalcItemScalarFieldEnum
+    having?: CalcItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CalcItemCountAggregateInputType | true
+    _avg?: CalcItemAvgAggregateInputType
+    _sum?: CalcItemSumAggregateInputType
+    _min?: CalcItemMinAggregateInputType
+    _max?: CalcItemMaxAggregateInputType
+  }
+
+  export type CalcItemGroupByOutputType = {
+    id: number
+    categoryId: number
+    name: string
+    description: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin: number
+    baseMax: number
+    vatIncluded: boolean
+    visible: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: CalcItemCountAggregateOutputType | null
+    _avg: CalcItemAvgAggregateOutputType | null
+    _sum: CalcItemSumAggregateOutputType | null
+    _min: CalcItemMinAggregateOutputType | null
+    _max: CalcItemMaxAggregateOutputType | null
+  }
+
+  type GetCalcItemGroupByPayload<T extends CalcItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CalcItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CalcItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CalcItemGroupByOutputType[P]>
+            : GetScalarType<T[P], CalcItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CalcItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    categoryId?: boolean
+    name?: boolean
+    description?: boolean
+    unitType?: boolean
+    minPrice?: boolean
+    maxPrice?: boolean
+    baseMin?: boolean
+    baseMax?: boolean
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    category?: boolean | CalcCategoryDefaultArgs<ExtArgs>
+    conditions?: boolean | CalcItem$conditionsArgs<ExtArgs>
+    _count?: boolean | CalcItemCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcItem"]>
+
+  export type CalcItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    categoryId?: boolean
+    name?: boolean
+    description?: boolean
+    unitType?: boolean
+    minPrice?: boolean
+    maxPrice?: boolean
+    baseMin?: boolean
+    baseMax?: boolean
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    category?: boolean | CalcCategoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcItem"]>
+
+  export type CalcItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    categoryId?: boolean
+    name?: boolean
+    description?: boolean
+    unitType?: boolean
+    minPrice?: boolean
+    maxPrice?: boolean
+    baseMin?: boolean
+    baseMax?: boolean
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    category?: boolean | CalcCategoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcItem"]>
+
+  export type CalcItemSelectScalar = {
+    id?: boolean
+    categoryId?: boolean
+    name?: boolean
+    description?: boolean
+    unitType?: boolean
+    minPrice?: boolean
+    maxPrice?: boolean
+    baseMin?: boolean
+    baseMax?: boolean
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CalcItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "categoryId" | "name" | "description" | "unitType" | "minPrice" | "maxPrice" | "baseMin" | "baseMax" | "vatIncluded" | "visible" | "createdAt" | "updatedAt", ExtArgs["result"]["calcItem"]>
+  export type CalcItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | CalcCategoryDefaultArgs<ExtArgs>
+    conditions?: boolean | CalcItem$conditionsArgs<ExtArgs>
+    _count?: boolean | CalcItemCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CalcItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | CalcCategoryDefaultArgs<ExtArgs>
+  }
+  export type CalcItemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | CalcCategoryDefaultArgs<ExtArgs>
+  }
+
+  export type $CalcItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CalcItem"
+    objects: {
+      category: Prisma.$CalcCategoryPayload<ExtArgs>
+      conditions: Prisma.$CalcConditionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      categoryId: number
+      name: string
+      description: string | null
+      unitType: $Enums.CalcUnitType
+      minPrice: number
+      maxPrice: number
+      baseMin: number
+      baseMax: number
+      vatIncluded: boolean
+      visible: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["calcItem"]>
+    composites: {}
+  }
+
+  type CalcItemGetPayload<S extends boolean | null | undefined | CalcItemDefaultArgs> = $Result.GetResult<Prisma.$CalcItemPayload, S>
+
+  type CalcItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CalcItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CalcItemCountAggregateInputType | true
+    }
+
+  export interface CalcItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CalcItem'], meta: { name: 'CalcItem' } }
+    /**
+     * Find zero or one CalcItem that matches the filter.
+     * @param {CalcItemFindUniqueArgs} args - Arguments to find a CalcItem
+     * @example
+     * // Get one CalcItem
+     * const calcItem = await prisma.calcItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CalcItemFindUniqueArgs>(args: SelectSubset<T, CalcItemFindUniqueArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CalcItem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CalcItemFindUniqueOrThrowArgs} args - Arguments to find a CalcItem
+     * @example
+     * // Get one CalcItem
+     * const calcItem = await prisma.calcItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CalcItemFindUniqueOrThrowArgs>(args: SelectSubset<T, CalcItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcItemFindFirstArgs} args - Arguments to find a CalcItem
+     * @example
+     * // Get one CalcItem
+     * const calcItem = await prisma.calcItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CalcItemFindFirstArgs>(args?: SelectSubset<T, CalcItemFindFirstArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcItemFindFirstOrThrowArgs} args - Arguments to find a CalcItem
+     * @example
+     * // Get one CalcItem
+     * const calcItem = await prisma.calcItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CalcItemFindFirstOrThrowArgs>(args?: SelectSubset<T, CalcItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CalcItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CalcItems
+     * const calcItems = await prisma.calcItem.findMany()
+     * 
+     * // Get first 10 CalcItems
+     * const calcItems = await prisma.calcItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const calcItemWithIdOnly = await prisma.calcItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CalcItemFindManyArgs>(args?: SelectSubset<T, CalcItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CalcItem.
+     * @param {CalcItemCreateArgs} args - Arguments to create a CalcItem.
+     * @example
+     * // Create one CalcItem
+     * const CalcItem = await prisma.calcItem.create({
+     *   data: {
+     *     // ... data to create a CalcItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends CalcItemCreateArgs>(args: SelectSubset<T, CalcItemCreateArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CalcItems.
+     * @param {CalcItemCreateManyArgs} args - Arguments to create many CalcItems.
+     * @example
+     * // Create many CalcItems
+     * const calcItem = await prisma.calcItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CalcItemCreateManyArgs>(args?: SelectSubset<T, CalcItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CalcItems and returns the data saved in the database.
+     * @param {CalcItemCreateManyAndReturnArgs} args - Arguments to create many CalcItems.
+     * @example
+     * // Create many CalcItems
+     * const calcItem = await prisma.calcItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CalcItems and only return the `id`
+     * const calcItemWithIdOnly = await prisma.calcItem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CalcItemCreateManyAndReturnArgs>(args?: SelectSubset<T, CalcItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CalcItem.
+     * @param {CalcItemDeleteArgs} args - Arguments to delete one CalcItem.
+     * @example
+     * // Delete one CalcItem
+     * const CalcItem = await prisma.calcItem.delete({
+     *   where: {
+     *     // ... filter to delete one CalcItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CalcItemDeleteArgs>(args: SelectSubset<T, CalcItemDeleteArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CalcItem.
+     * @param {CalcItemUpdateArgs} args - Arguments to update one CalcItem.
+     * @example
+     * // Update one CalcItem
+     * const calcItem = await prisma.calcItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CalcItemUpdateArgs>(args: SelectSubset<T, CalcItemUpdateArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CalcItems.
+     * @param {CalcItemDeleteManyArgs} args - Arguments to filter CalcItems to delete.
+     * @example
+     * // Delete a few CalcItems
+     * const { count } = await prisma.calcItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CalcItemDeleteManyArgs>(args?: SelectSubset<T, CalcItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CalcItems
+     * const calcItem = await prisma.calcItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CalcItemUpdateManyArgs>(args: SelectSubset<T, CalcItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcItems and returns the data updated in the database.
+     * @param {CalcItemUpdateManyAndReturnArgs} args - Arguments to update many CalcItems.
+     * @example
+     * // Update many CalcItems
+     * const calcItem = await prisma.calcItem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CalcItems and only return the `id`
+     * const calcItemWithIdOnly = await prisma.calcItem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CalcItemUpdateManyAndReturnArgs>(args: SelectSubset<T, CalcItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CalcItem.
+     * @param {CalcItemUpsertArgs} args - Arguments to update or create a CalcItem.
+     * @example
+     * // Update or create a CalcItem
+     * const calcItem = await prisma.calcItem.upsert({
+     *   create: {
+     *     // ... data to create a CalcItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CalcItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CalcItemUpsertArgs>(args: SelectSubset<T, CalcItemUpsertArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CalcItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcItemCountArgs} args - Arguments to filter CalcItems to count.
+     * @example
+     * // Count the number of CalcItems
+     * const count = await prisma.calcItem.count({
+     *   where: {
+     *     // ... the filter for the CalcItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends CalcItemCountArgs>(
+      args?: Subset<T, CalcItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CalcItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CalcItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CalcItemAggregateArgs>(args: Subset<T, CalcItemAggregateArgs>): Prisma.PrismaPromise<GetCalcItemAggregateType<T>>
+
+    /**
+     * Group by CalcItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CalcItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CalcItemGroupByArgs['orderBy'] }
+        : { orderBy?: CalcItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CalcItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalcItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CalcItem model
+   */
+  readonly fields: CalcItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CalcItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CalcItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    category<T extends CalcCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CalcCategoryDefaultArgs<ExtArgs>>): Prisma__CalcCategoryClient<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    conditions<T extends CalcItem$conditionsArgs<ExtArgs> = {}>(args?: Subset<T, CalcItem$conditionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CalcItem model
+   */
+  interface CalcItemFieldRefs {
+    readonly id: FieldRef<"CalcItem", 'Int'>
+    readonly categoryId: FieldRef<"CalcItem", 'Int'>
+    readonly name: FieldRef<"CalcItem", 'String'>
+    readonly description: FieldRef<"CalcItem", 'String'>
+    readonly unitType: FieldRef<"CalcItem", 'CalcUnitType'>
+    readonly minPrice: FieldRef<"CalcItem", 'Float'>
+    readonly maxPrice: FieldRef<"CalcItem", 'Float'>
+    readonly baseMin: FieldRef<"CalcItem", 'Float'>
+    readonly baseMax: FieldRef<"CalcItem", 'Float'>
+    readonly vatIncluded: FieldRef<"CalcItem", 'Boolean'>
+    readonly visible: FieldRef<"CalcItem", 'Boolean'>
+    readonly createdAt: FieldRef<"CalcItem", 'DateTime'>
+    readonly updatedAt: FieldRef<"CalcItem", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CalcItem findUnique
+   */
+  export type CalcItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcItem to fetch.
+     */
+    where: CalcItemWhereUniqueInput
+  }
+
+  /**
+   * CalcItem findUniqueOrThrow
+   */
+  export type CalcItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcItem to fetch.
+     */
+    where: CalcItemWhereUniqueInput
+  }
+
+  /**
+   * CalcItem findFirst
+   */
+  export type CalcItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcItem to fetch.
+     */
+    where?: CalcItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcItems to fetch.
+     */
+    orderBy?: CalcItemOrderByWithRelationInput | CalcItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcItems.
+     */
+    cursor?: CalcItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcItems.
+     */
+    distinct?: CalcItemScalarFieldEnum | CalcItemScalarFieldEnum[]
+  }
+
+  /**
+   * CalcItem findFirstOrThrow
+   */
+  export type CalcItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcItem to fetch.
+     */
+    where?: CalcItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcItems to fetch.
+     */
+    orderBy?: CalcItemOrderByWithRelationInput | CalcItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcItems.
+     */
+    cursor?: CalcItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcItems.
+     */
+    distinct?: CalcItemScalarFieldEnum | CalcItemScalarFieldEnum[]
+  }
+
+  /**
+   * CalcItem findMany
+   */
+  export type CalcItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcItems to fetch.
+     */
+    where?: CalcItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcItems to fetch.
+     */
+    orderBy?: CalcItemOrderByWithRelationInput | CalcItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CalcItems.
+     */
+    cursor?: CalcItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcItems.
+     */
+    skip?: number
+    distinct?: CalcItemScalarFieldEnum | CalcItemScalarFieldEnum[]
+  }
+
+  /**
+   * CalcItem create
+   */
+  export type CalcItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CalcItem.
+     */
+    data: XOR<CalcItemCreateInput, CalcItemUncheckedCreateInput>
+  }
+
+  /**
+   * CalcItem createMany
+   */
+  export type CalcItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CalcItems.
+     */
+    data: CalcItemCreateManyInput | CalcItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcItem createManyAndReturn
+   */
+  export type CalcItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * The data used to create many CalcItems.
+     */
+    data: CalcItemCreateManyInput | CalcItemCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CalcItem update
+   */
+  export type CalcItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CalcItem.
+     */
+    data: XOR<CalcItemUpdateInput, CalcItemUncheckedUpdateInput>
+    /**
+     * Choose, which CalcItem to update.
+     */
+    where: CalcItemWhereUniqueInput
+  }
+
+  /**
+   * CalcItem updateMany
+   */
+  export type CalcItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CalcItems.
+     */
+    data: XOR<CalcItemUpdateManyMutationInput, CalcItemUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcItems to update
+     */
+    where?: CalcItemWhereInput
+    /**
+     * Limit how many CalcItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcItem updateManyAndReturn
+   */
+  export type CalcItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * The data used to update CalcItems.
+     */
+    data: XOR<CalcItemUpdateManyMutationInput, CalcItemUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcItems to update
+     */
+    where?: CalcItemWhereInput
+    /**
+     * Limit how many CalcItems to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CalcItem upsert
+   */
+  export type CalcItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CalcItem to update in case it exists.
+     */
+    where: CalcItemWhereUniqueInput
+    /**
+     * In case the CalcItem found by the `where` argument doesn't exist, create a new CalcItem with this data.
+     */
+    create: XOR<CalcItemCreateInput, CalcItemUncheckedCreateInput>
+    /**
+     * In case the CalcItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CalcItemUpdateInput, CalcItemUncheckedUpdateInput>
+  }
+
+  /**
+   * CalcItem delete
+   */
+  export type CalcItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+    /**
+     * Filter which CalcItem to delete.
+     */
+    where: CalcItemWhereUniqueInput
+  }
+
+  /**
+   * CalcItem deleteMany
+   */
+  export type CalcItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcItems to delete
+     */
+    where?: CalcItemWhereInput
+    /**
+     * Limit how many CalcItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcItem.conditions
+   */
+  export type CalcItem$conditionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    where?: CalcConditionWhereInput
+    orderBy?: CalcConditionOrderByWithRelationInput | CalcConditionOrderByWithRelationInput[]
+    cursor?: CalcConditionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CalcConditionScalarFieldEnum | CalcConditionScalarFieldEnum[]
+  }
+
+  /**
+   * CalcItem without action
+   */
+  export type CalcItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcItem
+     */
+    select?: CalcItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcItem
+     */
+    omit?: CalcItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcItemInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CalcSettings
+   */
+
+  export type AggregateCalcSettings = {
+    _count: CalcSettingsCountAggregateOutputType | null
+    _avg: CalcSettingsAvgAggregateOutputType | null
+    _sum: CalcSettingsSumAggregateOutputType | null
+    _min: CalcSettingsMinAggregateOutputType | null
+    _max: CalcSettingsMaxAggregateOutputType | null
+  }
+
+  export type CalcSettingsAvgAggregateOutputType = {
+    id: number | null
+    callOutThreshold: number | null
+    callOutFeeMin: number | null
+    callOutFeeMax: number | null
+    urgencyMultiplier: number | null
+    emergencyMultiplier: number | null
+    projectTrigger: number | null
+    projectFeePercent: number | null
+  }
+
+  export type CalcSettingsSumAggregateOutputType = {
+    id: number | null
+    callOutThreshold: number | null
+    callOutFeeMin: number | null
+    callOutFeeMax: number | null
+    urgencyMultiplier: number | null
+    emergencyMultiplier: number | null
+    projectTrigger: number | null
+    projectFeePercent: number | null
+  }
+
+  export type CalcSettingsMinAggregateOutputType = {
+    id: number | null
+    callOutThreshold: number | null
+    callOutFeeMin: number | null
+    callOutFeeMax: number | null
+    urgencyMultiplier: number | null
+    emergencyMultiplier: number | null
+    projectTrigger: number | null
+    projectFeePercent: number | null
+  }
+
+  export type CalcSettingsMaxAggregateOutputType = {
+    id: number | null
+    callOutThreshold: number | null
+    callOutFeeMin: number | null
+    callOutFeeMax: number | null
+    urgencyMultiplier: number | null
+    emergencyMultiplier: number | null
+    projectTrigger: number | null
+    projectFeePercent: number | null
+  }
+
+  export type CalcSettingsCountAggregateOutputType = {
+    id: number
+    callOutThreshold: number
+    callOutFeeMin: number
+    callOutFeeMax: number
+    urgencyMultiplier: number
+    emergencyMultiplier: number
+    projectTrigger: number
+    projectFeePercent: number
+    _all: number
+  }
+
+
+  export type CalcSettingsAvgAggregateInputType = {
+    id?: true
+    callOutThreshold?: true
+    callOutFeeMin?: true
+    callOutFeeMax?: true
+    urgencyMultiplier?: true
+    emergencyMultiplier?: true
+    projectTrigger?: true
+    projectFeePercent?: true
+  }
+
+  export type CalcSettingsSumAggregateInputType = {
+    id?: true
+    callOutThreshold?: true
+    callOutFeeMin?: true
+    callOutFeeMax?: true
+    urgencyMultiplier?: true
+    emergencyMultiplier?: true
+    projectTrigger?: true
+    projectFeePercent?: true
+  }
+
+  export type CalcSettingsMinAggregateInputType = {
+    id?: true
+    callOutThreshold?: true
+    callOutFeeMin?: true
+    callOutFeeMax?: true
+    urgencyMultiplier?: true
+    emergencyMultiplier?: true
+    projectTrigger?: true
+    projectFeePercent?: true
+  }
+
+  export type CalcSettingsMaxAggregateInputType = {
+    id?: true
+    callOutThreshold?: true
+    callOutFeeMin?: true
+    callOutFeeMax?: true
+    urgencyMultiplier?: true
+    emergencyMultiplier?: true
+    projectTrigger?: true
+    projectFeePercent?: true
+  }
+
+  export type CalcSettingsCountAggregateInputType = {
+    id?: true
+    callOutThreshold?: true
+    callOutFeeMin?: true
+    callOutFeeMax?: true
+    urgencyMultiplier?: true
+    emergencyMultiplier?: true
+    projectTrigger?: true
+    projectFeePercent?: true
+    _all?: true
+  }
+
+  export type CalcSettingsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcSettings to aggregate.
+     */
+    where?: CalcSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcSettings to fetch.
+     */
+    orderBy?: CalcSettingsOrderByWithRelationInput | CalcSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CalcSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CalcSettings
+    **/
+    _count?: true | CalcSettingsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CalcSettingsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CalcSettingsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CalcSettingsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CalcSettingsMaxAggregateInputType
+  }
+
+  export type GetCalcSettingsAggregateType<T extends CalcSettingsAggregateArgs> = {
+        [P in keyof T & keyof AggregateCalcSettings]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCalcSettings[P]>
+      : GetScalarType<T[P], AggregateCalcSettings[P]>
+  }
+
+
+
+
+  export type CalcSettingsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcSettingsWhereInput
+    orderBy?: CalcSettingsOrderByWithAggregationInput | CalcSettingsOrderByWithAggregationInput[]
+    by: CalcSettingsScalarFieldEnum[] | CalcSettingsScalarFieldEnum
+    having?: CalcSettingsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CalcSettingsCountAggregateInputType | true
+    _avg?: CalcSettingsAvgAggregateInputType
+    _sum?: CalcSettingsSumAggregateInputType
+    _min?: CalcSettingsMinAggregateInputType
+    _max?: CalcSettingsMaxAggregateInputType
+  }
+
+  export type CalcSettingsGroupByOutputType = {
+    id: number
+    callOutThreshold: number
+    callOutFeeMin: number
+    callOutFeeMax: number
+    urgencyMultiplier: number
+    emergencyMultiplier: number
+    projectTrigger: number
+    projectFeePercent: number
+    _count: CalcSettingsCountAggregateOutputType | null
+    _avg: CalcSettingsAvgAggregateOutputType | null
+    _sum: CalcSettingsSumAggregateOutputType | null
+    _min: CalcSettingsMinAggregateOutputType | null
+    _max: CalcSettingsMaxAggregateOutputType | null
+  }
+
+  type GetCalcSettingsGroupByPayload<T extends CalcSettingsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CalcSettingsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CalcSettingsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CalcSettingsGroupByOutputType[P]>
+            : GetScalarType<T[P], CalcSettingsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CalcSettingsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    callOutThreshold?: boolean
+    callOutFeeMin?: boolean
+    callOutFeeMax?: boolean
+    urgencyMultiplier?: boolean
+    emergencyMultiplier?: boolean
+    projectTrigger?: boolean
+    projectFeePercent?: boolean
+  }, ExtArgs["result"]["calcSettings"]>
+
+  export type CalcSettingsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    callOutThreshold?: boolean
+    callOutFeeMin?: boolean
+    callOutFeeMax?: boolean
+    urgencyMultiplier?: boolean
+    emergencyMultiplier?: boolean
+    projectTrigger?: boolean
+    projectFeePercent?: boolean
+  }, ExtArgs["result"]["calcSettings"]>
+
+  export type CalcSettingsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    callOutThreshold?: boolean
+    callOutFeeMin?: boolean
+    callOutFeeMax?: boolean
+    urgencyMultiplier?: boolean
+    emergencyMultiplier?: boolean
+    projectTrigger?: boolean
+    projectFeePercent?: boolean
+  }, ExtArgs["result"]["calcSettings"]>
+
+  export type CalcSettingsSelectScalar = {
+    id?: boolean
+    callOutThreshold?: boolean
+    callOutFeeMin?: boolean
+    callOutFeeMax?: boolean
+    urgencyMultiplier?: boolean
+    emergencyMultiplier?: boolean
+    projectTrigger?: boolean
+    projectFeePercent?: boolean
+  }
+
+  export type CalcSettingsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "callOutThreshold" | "callOutFeeMin" | "callOutFeeMax" | "urgencyMultiplier" | "emergencyMultiplier" | "projectTrigger" | "projectFeePercent", ExtArgs["result"]["calcSettings"]>
+
+  export type $CalcSettingsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CalcSettings"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      callOutThreshold: number
+      callOutFeeMin: number
+      callOutFeeMax: number
+      urgencyMultiplier: number
+      emergencyMultiplier: number
+      projectTrigger: number
+      projectFeePercent: number
+    }, ExtArgs["result"]["calcSettings"]>
+    composites: {}
+  }
+
+  type CalcSettingsGetPayload<S extends boolean | null | undefined | CalcSettingsDefaultArgs> = $Result.GetResult<Prisma.$CalcSettingsPayload, S>
+
+  type CalcSettingsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CalcSettingsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CalcSettingsCountAggregateInputType | true
+    }
+
+  export interface CalcSettingsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CalcSettings'], meta: { name: 'CalcSettings' } }
+    /**
+     * Find zero or one CalcSettings that matches the filter.
+     * @param {CalcSettingsFindUniqueArgs} args - Arguments to find a CalcSettings
+     * @example
+     * // Get one CalcSettings
+     * const calcSettings = await prisma.calcSettings.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CalcSettingsFindUniqueArgs>(args: SelectSubset<T, CalcSettingsFindUniqueArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CalcSettings that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CalcSettingsFindUniqueOrThrowArgs} args - Arguments to find a CalcSettings
+     * @example
+     * // Get one CalcSettings
+     * const calcSettings = await prisma.calcSettings.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CalcSettingsFindUniqueOrThrowArgs>(args: SelectSubset<T, CalcSettingsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcSettings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcSettingsFindFirstArgs} args - Arguments to find a CalcSettings
+     * @example
+     * // Get one CalcSettings
+     * const calcSettings = await prisma.calcSettings.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CalcSettingsFindFirstArgs>(args?: SelectSubset<T, CalcSettingsFindFirstArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcSettings that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcSettingsFindFirstOrThrowArgs} args - Arguments to find a CalcSettings
+     * @example
+     * // Get one CalcSettings
+     * const calcSettings = await prisma.calcSettings.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CalcSettingsFindFirstOrThrowArgs>(args?: SelectSubset<T, CalcSettingsFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CalcSettings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcSettingsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CalcSettings
+     * const calcSettings = await prisma.calcSettings.findMany()
+     * 
+     * // Get first 10 CalcSettings
+     * const calcSettings = await prisma.calcSettings.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const calcSettingsWithIdOnly = await prisma.calcSettings.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CalcSettingsFindManyArgs>(args?: SelectSubset<T, CalcSettingsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CalcSettings.
+     * @param {CalcSettingsCreateArgs} args - Arguments to create a CalcSettings.
+     * @example
+     * // Create one CalcSettings
+     * const CalcSettings = await prisma.calcSettings.create({
+     *   data: {
+     *     // ... data to create a CalcSettings
+     *   }
+     * })
+     * 
+     */
+    create<T extends CalcSettingsCreateArgs>(args: SelectSubset<T, CalcSettingsCreateArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CalcSettings.
+     * @param {CalcSettingsCreateManyArgs} args - Arguments to create many CalcSettings.
+     * @example
+     * // Create many CalcSettings
+     * const calcSettings = await prisma.calcSettings.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CalcSettingsCreateManyArgs>(args?: SelectSubset<T, CalcSettingsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CalcSettings and returns the data saved in the database.
+     * @param {CalcSettingsCreateManyAndReturnArgs} args - Arguments to create many CalcSettings.
+     * @example
+     * // Create many CalcSettings
+     * const calcSettings = await prisma.calcSettings.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CalcSettings and only return the `id`
+     * const calcSettingsWithIdOnly = await prisma.calcSettings.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CalcSettingsCreateManyAndReturnArgs>(args?: SelectSubset<T, CalcSettingsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CalcSettings.
+     * @param {CalcSettingsDeleteArgs} args - Arguments to delete one CalcSettings.
+     * @example
+     * // Delete one CalcSettings
+     * const CalcSettings = await prisma.calcSettings.delete({
+     *   where: {
+     *     // ... filter to delete one CalcSettings
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CalcSettingsDeleteArgs>(args: SelectSubset<T, CalcSettingsDeleteArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CalcSettings.
+     * @param {CalcSettingsUpdateArgs} args - Arguments to update one CalcSettings.
+     * @example
+     * // Update one CalcSettings
+     * const calcSettings = await prisma.calcSettings.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CalcSettingsUpdateArgs>(args: SelectSubset<T, CalcSettingsUpdateArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CalcSettings.
+     * @param {CalcSettingsDeleteManyArgs} args - Arguments to filter CalcSettings to delete.
+     * @example
+     * // Delete a few CalcSettings
+     * const { count } = await prisma.calcSettings.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CalcSettingsDeleteManyArgs>(args?: SelectSubset<T, CalcSettingsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcSettingsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CalcSettings
+     * const calcSettings = await prisma.calcSettings.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CalcSettingsUpdateManyArgs>(args: SelectSubset<T, CalcSettingsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcSettings and returns the data updated in the database.
+     * @param {CalcSettingsUpdateManyAndReturnArgs} args - Arguments to update many CalcSettings.
+     * @example
+     * // Update many CalcSettings
+     * const calcSettings = await prisma.calcSettings.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CalcSettings and only return the `id`
+     * const calcSettingsWithIdOnly = await prisma.calcSettings.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CalcSettingsUpdateManyAndReturnArgs>(args: SelectSubset<T, CalcSettingsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CalcSettings.
+     * @param {CalcSettingsUpsertArgs} args - Arguments to update or create a CalcSettings.
+     * @example
+     * // Update or create a CalcSettings
+     * const calcSettings = await prisma.calcSettings.upsert({
+     *   create: {
+     *     // ... data to create a CalcSettings
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CalcSettings we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CalcSettingsUpsertArgs>(args: SelectSubset<T, CalcSettingsUpsertArgs<ExtArgs>>): Prisma__CalcSettingsClient<$Result.GetResult<Prisma.$CalcSettingsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CalcSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcSettingsCountArgs} args - Arguments to filter CalcSettings to count.
+     * @example
+     * // Count the number of CalcSettings
+     * const count = await prisma.calcSettings.count({
+     *   where: {
+     *     // ... the filter for the CalcSettings we want to count
+     *   }
+     * })
+    **/
+    count<T extends CalcSettingsCountArgs>(
+      args?: Subset<T, CalcSettingsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CalcSettingsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CalcSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcSettingsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CalcSettingsAggregateArgs>(args: Subset<T, CalcSettingsAggregateArgs>): Prisma.PrismaPromise<GetCalcSettingsAggregateType<T>>
+
+    /**
+     * Group by CalcSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcSettingsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CalcSettingsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CalcSettingsGroupByArgs['orderBy'] }
+        : { orderBy?: CalcSettingsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CalcSettingsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalcSettingsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CalcSettings model
+   */
+  readonly fields: CalcSettingsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CalcSettings.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CalcSettingsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CalcSettings model
+   */
+  interface CalcSettingsFieldRefs {
+    readonly id: FieldRef<"CalcSettings", 'Int'>
+    readonly callOutThreshold: FieldRef<"CalcSettings", 'Float'>
+    readonly callOutFeeMin: FieldRef<"CalcSettings", 'Float'>
+    readonly callOutFeeMax: FieldRef<"CalcSettings", 'Float'>
+    readonly urgencyMultiplier: FieldRef<"CalcSettings", 'Float'>
+    readonly emergencyMultiplier: FieldRef<"CalcSettings", 'Float'>
+    readonly projectTrigger: FieldRef<"CalcSettings", 'Float'>
+    readonly projectFeePercent: FieldRef<"CalcSettings", 'Float'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CalcSettings findUnique
+   */
+  export type CalcSettingsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcSettings to fetch.
+     */
+    where: CalcSettingsWhereUniqueInput
+  }
+
+  /**
+   * CalcSettings findUniqueOrThrow
+   */
+  export type CalcSettingsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcSettings to fetch.
+     */
+    where: CalcSettingsWhereUniqueInput
+  }
+
+  /**
+   * CalcSettings findFirst
+   */
+  export type CalcSettingsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcSettings to fetch.
+     */
+    where?: CalcSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcSettings to fetch.
+     */
+    orderBy?: CalcSettingsOrderByWithRelationInput | CalcSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcSettings.
+     */
+    cursor?: CalcSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcSettings.
+     */
+    distinct?: CalcSettingsScalarFieldEnum | CalcSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * CalcSettings findFirstOrThrow
+   */
+  export type CalcSettingsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcSettings to fetch.
+     */
+    where?: CalcSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcSettings to fetch.
+     */
+    orderBy?: CalcSettingsOrderByWithRelationInput | CalcSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcSettings.
+     */
+    cursor?: CalcSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcSettings.
+     */
+    distinct?: CalcSettingsScalarFieldEnum | CalcSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * CalcSettings findMany
+   */
+  export type CalcSettingsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcSettings to fetch.
+     */
+    where?: CalcSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcSettings to fetch.
+     */
+    orderBy?: CalcSettingsOrderByWithRelationInput | CalcSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CalcSettings.
+     */
+    cursor?: CalcSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcSettings.
+     */
+    skip?: number
+    distinct?: CalcSettingsScalarFieldEnum | CalcSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * CalcSettings create
+   */
+  export type CalcSettingsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a CalcSettings.
+     */
+    data?: XOR<CalcSettingsCreateInput, CalcSettingsUncheckedCreateInput>
+  }
+
+  /**
+   * CalcSettings createMany
+   */
+  export type CalcSettingsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CalcSettings.
+     */
+    data: CalcSettingsCreateManyInput | CalcSettingsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcSettings createManyAndReturn
+   */
+  export type CalcSettingsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * The data used to create many CalcSettings.
+     */
+    data: CalcSettingsCreateManyInput | CalcSettingsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcSettings update
+   */
+  export type CalcSettingsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a CalcSettings.
+     */
+    data: XOR<CalcSettingsUpdateInput, CalcSettingsUncheckedUpdateInput>
+    /**
+     * Choose, which CalcSettings to update.
+     */
+    where: CalcSettingsWhereUniqueInput
+  }
+
+  /**
+   * CalcSettings updateMany
+   */
+  export type CalcSettingsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CalcSettings.
+     */
+    data: XOR<CalcSettingsUpdateManyMutationInput, CalcSettingsUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcSettings to update
+     */
+    where?: CalcSettingsWhereInput
+    /**
+     * Limit how many CalcSettings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcSettings updateManyAndReturn
+   */
+  export type CalcSettingsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * The data used to update CalcSettings.
+     */
+    data: XOR<CalcSettingsUpdateManyMutationInput, CalcSettingsUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcSettings to update
+     */
+    where?: CalcSettingsWhereInput
+    /**
+     * Limit how many CalcSettings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcSettings upsert
+   */
+  export type CalcSettingsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the CalcSettings to update in case it exists.
+     */
+    where: CalcSettingsWhereUniqueInput
+    /**
+     * In case the CalcSettings found by the `where` argument doesn't exist, create a new CalcSettings with this data.
+     */
+    create: XOR<CalcSettingsCreateInput, CalcSettingsUncheckedCreateInput>
+    /**
+     * In case the CalcSettings was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CalcSettingsUpdateInput, CalcSettingsUncheckedUpdateInput>
+  }
+
+  /**
+   * CalcSettings delete
+   */
+  export type CalcSettingsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+    /**
+     * Filter which CalcSettings to delete.
+     */
+    where: CalcSettingsWhereUniqueInput
+  }
+
+  /**
+   * CalcSettings deleteMany
+   */
+  export type CalcSettingsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcSettings to delete
+     */
+    where?: CalcSettingsWhereInput
+    /**
+     * Limit how many CalcSettings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcSettings without action
+   */
+  export type CalcSettingsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcSettings
+     */
+    select?: CalcSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcSettings
+     */
+    omit?: CalcSettingsOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CalcRequest
+   */
+
+  export type AggregateCalcRequest = {
+    _count: CalcRequestCountAggregateOutputType | null
+    _avg: CalcRequestAvgAggregateOutputType | null
+    _sum: CalcRequestSumAggregateOutputType | null
+    _min: CalcRequestMinAggregateOutputType | null
+    _max: CalcRequestMaxAggregateOutputType | null
+  }
+
+  export type CalcRequestAvgAggregateOutputType = {
+    id: number | null
+    estimateMin: number | null
+    estimateMax: number | null
+  }
+
+  export type CalcRequestSumAggregateOutputType = {
+    id: number | null
+    estimateMin: number | null
+    estimateMax: number | null
+  }
+
+  export type CalcRequestMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    email: string | null
+    phone: string | null
+    postcode: string | null
+    categorySlug: string | null
+    urgency: string | null
+    estimateMin: number | null
+    estimateMax: number | null
+    createdAt: Date | null
+  }
+
+  export type CalcRequestMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    email: string | null
+    phone: string | null
+    postcode: string | null
+    categorySlug: string | null
+    urgency: string | null
+    estimateMin: number | null
+    estimateMax: number | null
+    createdAt: Date | null
+  }
+
+  export type CalcRequestCountAggregateOutputType = {
+    id: number
+    name: number
+    email: number
+    phone: number
+    postcode: number
+    categorySlug: number
+    data: number
+    urgency: number
+    estimateMin: number
+    estimateMax: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type CalcRequestAvgAggregateInputType = {
+    id?: true
+    estimateMin?: true
+    estimateMax?: true
+  }
+
+  export type CalcRequestSumAggregateInputType = {
+    id?: true
+    estimateMin?: true
+    estimateMax?: true
+  }
+
+  export type CalcRequestMinAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    phone?: true
+    postcode?: true
+    categorySlug?: true
+    urgency?: true
+    estimateMin?: true
+    estimateMax?: true
+    createdAt?: true
+  }
+
+  export type CalcRequestMaxAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    phone?: true
+    postcode?: true
+    categorySlug?: true
+    urgency?: true
+    estimateMin?: true
+    estimateMax?: true
+    createdAt?: true
+  }
+
+  export type CalcRequestCountAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    phone?: true
+    postcode?: true
+    categorySlug?: true
+    data?: true
+    urgency?: true
+    estimateMin?: true
+    estimateMax?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type CalcRequestAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcRequest to aggregate.
+     */
+    where?: CalcRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcRequests to fetch.
+     */
+    orderBy?: CalcRequestOrderByWithRelationInput | CalcRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CalcRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcRequests.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CalcRequests
+    **/
+    _count?: true | CalcRequestCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CalcRequestAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CalcRequestSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CalcRequestMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CalcRequestMaxAggregateInputType
+  }
+
+  export type GetCalcRequestAggregateType<T extends CalcRequestAggregateArgs> = {
+        [P in keyof T & keyof AggregateCalcRequest]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCalcRequest[P]>
+      : GetScalarType<T[P], AggregateCalcRequest[P]>
+  }
+
+
+
+
+  export type CalcRequestGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcRequestWhereInput
+    orderBy?: CalcRequestOrderByWithAggregationInput | CalcRequestOrderByWithAggregationInput[]
+    by: CalcRequestScalarFieldEnum[] | CalcRequestScalarFieldEnum
+    having?: CalcRequestScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CalcRequestCountAggregateInputType | true
+    _avg?: CalcRequestAvgAggregateInputType
+    _sum?: CalcRequestSumAggregateInputType
+    _min?: CalcRequestMinAggregateInputType
+    _max?: CalcRequestMaxAggregateInputType
+  }
+
+  export type CalcRequestGroupByOutputType = {
+    id: number
+    name: string
+    email: string
+    phone: string
+    postcode: string
+    categorySlug: string
+    data: JsonValue
+    urgency: string
+    estimateMin: number
+    estimateMax: number
+    createdAt: Date
+    _count: CalcRequestCountAggregateOutputType | null
+    _avg: CalcRequestAvgAggregateOutputType | null
+    _sum: CalcRequestSumAggregateOutputType | null
+    _min: CalcRequestMinAggregateOutputType | null
+    _max: CalcRequestMaxAggregateOutputType | null
+  }
+
+  type GetCalcRequestGroupByPayload<T extends CalcRequestGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CalcRequestGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CalcRequestGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CalcRequestGroupByOutputType[P]>
+            : GetScalarType<T[P], CalcRequestGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CalcRequestSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    postcode?: boolean
+    categorySlug?: boolean
+    data?: boolean
+    urgency?: boolean
+    estimateMin?: boolean
+    estimateMax?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["calcRequest"]>
+
+  export type CalcRequestSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    postcode?: boolean
+    categorySlug?: boolean
+    data?: boolean
+    urgency?: boolean
+    estimateMin?: boolean
+    estimateMax?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["calcRequest"]>
+
+  export type CalcRequestSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    postcode?: boolean
+    categorySlug?: boolean
+    data?: boolean
+    urgency?: boolean
+    estimateMin?: boolean
+    estimateMax?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["calcRequest"]>
+
+  export type CalcRequestSelectScalar = {
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    postcode?: boolean
+    categorySlug?: boolean
+    data?: boolean
+    urgency?: boolean
+    estimateMin?: boolean
+    estimateMax?: boolean
+    createdAt?: boolean
+  }
+
+  export type CalcRequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "postcode" | "categorySlug" | "data" | "urgency" | "estimateMin" | "estimateMax" | "createdAt", ExtArgs["result"]["calcRequest"]>
+
+  export type $CalcRequestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CalcRequest"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      email: string
+      phone: string
+      postcode: string
+      categorySlug: string
+      data: Prisma.JsonValue
+      urgency: string
+      estimateMin: number
+      estimateMax: number
+      createdAt: Date
+    }, ExtArgs["result"]["calcRequest"]>
+    composites: {}
+  }
+
+  type CalcRequestGetPayload<S extends boolean | null | undefined | CalcRequestDefaultArgs> = $Result.GetResult<Prisma.$CalcRequestPayload, S>
+
+  type CalcRequestCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CalcRequestFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CalcRequestCountAggregateInputType | true
+    }
+
+  export interface CalcRequestDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CalcRequest'], meta: { name: 'CalcRequest' } }
+    /**
+     * Find zero or one CalcRequest that matches the filter.
+     * @param {CalcRequestFindUniqueArgs} args - Arguments to find a CalcRequest
+     * @example
+     * // Get one CalcRequest
+     * const calcRequest = await prisma.calcRequest.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CalcRequestFindUniqueArgs>(args: SelectSubset<T, CalcRequestFindUniqueArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CalcRequest that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CalcRequestFindUniqueOrThrowArgs} args - Arguments to find a CalcRequest
+     * @example
+     * // Get one CalcRequest
+     * const calcRequest = await prisma.calcRequest.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CalcRequestFindUniqueOrThrowArgs>(args: SelectSubset<T, CalcRequestFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcRequest that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcRequestFindFirstArgs} args - Arguments to find a CalcRequest
+     * @example
+     * // Get one CalcRequest
+     * const calcRequest = await prisma.calcRequest.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CalcRequestFindFirstArgs>(args?: SelectSubset<T, CalcRequestFindFirstArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcRequest that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcRequestFindFirstOrThrowArgs} args - Arguments to find a CalcRequest
+     * @example
+     * // Get one CalcRequest
+     * const calcRequest = await prisma.calcRequest.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CalcRequestFindFirstOrThrowArgs>(args?: SelectSubset<T, CalcRequestFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CalcRequests that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcRequestFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CalcRequests
+     * const calcRequests = await prisma.calcRequest.findMany()
+     * 
+     * // Get first 10 CalcRequests
+     * const calcRequests = await prisma.calcRequest.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const calcRequestWithIdOnly = await prisma.calcRequest.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CalcRequestFindManyArgs>(args?: SelectSubset<T, CalcRequestFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CalcRequest.
+     * @param {CalcRequestCreateArgs} args - Arguments to create a CalcRequest.
+     * @example
+     * // Create one CalcRequest
+     * const CalcRequest = await prisma.calcRequest.create({
+     *   data: {
+     *     // ... data to create a CalcRequest
+     *   }
+     * })
+     * 
+     */
+    create<T extends CalcRequestCreateArgs>(args: SelectSubset<T, CalcRequestCreateArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CalcRequests.
+     * @param {CalcRequestCreateManyArgs} args - Arguments to create many CalcRequests.
+     * @example
+     * // Create many CalcRequests
+     * const calcRequest = await prisma.calcRequest.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CalcRequestCreateManyArgs>(args?: SelectSubset<T, CalcRequestCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CalcRequests and returns the data saved in the database.
+     * @param {CalcRequestCreateManyAndReturnArgs} args - Arguments to create many CalcRequests.
+     * @example
+     * // Create many CalcRequests
+     * const calcRequest = await prisma.calcRequest.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CalcRequests and only return the `id`
+     * const calcRequestWithIdOnly = await prisma.calcRequest.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CalcRequestCreateManyAndReturnArgs>(args?: SelectSubset<T, CalcRequestCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CalcRequest.
+     * @param {CalcRequestDeleteArgs} args - Arguments to delete one CalcRequest.
+     * @example
+     * // Delete one CalcRequest
+     * const CalcRequest = await prisma.calcRequest.delete({
+     *   where: {
+     *     // ... filter to delete one CalcRequest
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CalcRequestDeleteArgs>(args: SelectSubset<T, CalcRequestDeleteArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CalcRequest.
+     * @param {CalcRequestUpdateArgs} args - Arguments to update one CalcRequest.
+     * @example
+     * // Update one CalcRequest
+     * const calcRequest = await prisma.calcRequest.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CalcRequestUpdateArgs>(args: SelectSubset<T, CalcRequestUpdateArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CalcRequests.
+     * @param {CalcRequestDeleteManyArgs} args - Arguments to filter CalcRequests to delete.
+     * @example
+     * // Delete a few CalcRequests
+     * const { count } = await prisma.calcRequest.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CalcRequestDeleteManyArgs>(args?: SelectSubset<T, CalcRequestDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcRequests.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcRequestUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CalcRequests
+     * const calcRequest = await prisma.calcRequest.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CalcRequestUpdateManyArgs>(args: SelectSubset<T, CalcRequestUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcRequests and returns the data updated in the database.
+     * @param {CalcRequestUpdateManyAndReturnArgs} args - Arguments to update many CalcRequests.
+     * @example
+     * // Update many CalcRequests
+     * const calcRequest = await prisma.calcRequest.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CalcRequests and only return the `id`
+     * const calcRequestWithIdOnly = await prisma.calcRequest.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CalcRequestUpdateManyAndReturnArgs>(args: SelectSubset<T, CalcRequestUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CalcRequest.
+     * @param {CalcRequestUpsertArgs} args - Arguments to update or create a CalcRequest.
+     * @example
+     * // Update or create a CalcRequest
+     * const calcRequest = await prisma.calcRequest.upsert({
+     *   create: {
+     *     // ... data to create a CalcRequest
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CalcRequest we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CalcRequestUpsertArgs>(args: SelectSubset<T, CalcRequestUpsertArgs<ExtArgs>>): Prisma__CalcRequestClient<$Result.GetResult<Prisma.$CalcRequestPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CalcRequests.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcRequestCountArgs} args - Arguments to filter CalcRequests to count.
+     * @example
+     * // Count the number of CalcRequests
+     * const count = await prisma.calcRequest.count({
+     *   where: {
+     *     // ... the filter for the CalcRequests we want to count
+     *   }
+     * })
+    **/
+    count<T extends CalcRequestCountArgs>(
+      args?: Subset<T, CalcRequestCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CalcRequestCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CalcRequest.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcRequestAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CalcRequestAggregateArgs>(args: Subset<T, CalcRequestAggregateArgs>): Prisma.PrismaPromise<GetCalcRequestAggregateType<T>>
+
+    /**
+     * Group by CalcRequest.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcRequestGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CalcRequestGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CalcRequestGroupByArgs['orderBy'] }
+        : { orderBy?: CalcRequestGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CalcRequestGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalcRequestGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CalcRequest model
+   */
+  readonly fields: CalcRequestFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CalcRequest.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CalcRequestClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CalcRequest model
+   */
+  interface CalcRequestFieldRefs {
+    readonly id: FieldRef<"CalcRequest", 'Int'>
+    readonly name: FieldRef<"CalcRequest", 'String'>
+    readonly email: FieldRef<"CalcRequest", 'String'>
+    readonly phone: FieldRef<"CalcRequest", 'String'>
+    readonly postcode: FieldRef<"CalcRequest", 'String'>
+    readonly categorySlug: FieldRef<"CalcRequest", 'String'>
+    readonly data: FieldRef<"CalcRequest", 'Json'>
+    readonly urgency: FieldRef<"CalcRequest", 'String'>
+    readonly estimateMin: FieldRef<"CalcRequest", 'Float'>
+    readonly estimateMax: FieldRef<"CalcRequest", 'Float'>
+    readonly createdAt: FieldRef<"CalcRequest", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CalcRequest findUnique
+   */
+  export type CalcRequestFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcRequest to fetch.
+     */
+    where: CalcRequestWhereUniqueInput
+  }
+
+  /**
+   * CalcRequest findUniqueOrThrow
+   */
+  export type CalcRequestFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcRequest to fetch.
+     */
+    where: CalcRequestWhereUniqueInput
+  }
+
+  /**
+   * CalcRequest findFirst
+   */
+  export type CalcRequestFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcRequest to fetch.
+     */
+    where?: CalcRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcRequests to fetch.
+     */
+    orderBy?: CalcRequestOrderByWithRelationInput | CalcRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcRequests.
+     */
+    cursor?: CalcRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcRequests.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcRequests.
+     */
+    distinct?: CalcRequestScalarFieldEnum | CalcRequestScalarFieldEnum[]
+  }
+
+  /**
+   * CalcRequest findFirstOrThrow
+   */
+  export type CalcRequestFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcRequest to fetch.
+     */
+    where?: CalcRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcRequests to fetch.
+     */
+    orderBy?: CalcRequestOrderByWithRelationInput | CalcRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcRequests.
+     */
+    cursor?: CalcRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcRequests.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcRequests.
+     */
+    distinct?: CalcRequestScalarFieldEnum | CalcRequestScalarFieldEnum[]
+  }
+
+  /**
+   * CalcRequest findMany
+   */
+  export type CalcRequestFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * Filter, which CalcRequests to fetch.
+     */
+    where?: CalcRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcRequests to fetch.
+     */
+    orderBy?: CalcRequestOrderByWithRelationInput | CalcRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CalcRequests.
+     */
+    cursor?: CalcRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcRequests.
+     */
+    skip?: number
+    distinct?: CalcRequestScalarFieldEnum | CalcRequestScalarFieldEnum[]
+  }
+
+  /**
+   * CalcRequest create
+   */
+  export type CalcRequestCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * The data needed to create a CalcRequest.
+     */
+    data: XOR<CalcRequestCreateInput, CalcRequestUncheckedCreateInput>
+  }
+
+  /**
+   * CalcRequest createMany
+   */
+  export type CalcRequestCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CalcRequests.
+     */
+    data: CalcRequestCreateManyInput | CalcRequestCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcRequest createManyAndReturn
+   */
+  export type CalcRequestCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * The data used to create many CalcRequests.
+     */
+    data: CalcRequestCreateManyInput | CalcRequestCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcRequest update
+   */
+  export type CalcRequestUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * The data needed to update a CalcRequest.
+     */
+    data: XOR<CalcRequestUpdateInput, CalcRequestUncheckedUpdateInput>
+    /**
+     * Choose, which CalcRequest to update.
+     */
+    where: CalcRequestWhereUniqueInput
+  }
+
+  /**
+   * CalcRequest updateMany
+   */
+  export type CalcRequestUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CalcRequests.
+     */
+    data: XOR<CalcRequestUpdateManyMutationInput, CalcRequestUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcRequests to update
+     */
+    where?: CalcRequestWhereInput
+    /**
+     * Limit how many CalcRequests to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcRequest updateManyAndReturn
+   */
+  export type CalcRequestUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * The data used to update CalcRequests.
+     */
+    data: XOR<CalcRequestUpdateManyMutationInput, CalcRequestUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcRequests to update
+     */
+    where?: CalcRequestWhereInput
+    /**
+     * Limit how many CalcRequests to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcRequest upsert
+   */
+  export type CalcRequestUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * The filter to search for the CalcRequest to update in case it exists.
+     */
+    where: CalcRequestWhereUniqueInput
+    /**
+     * In case the CalcRequest found by the `where` argument doesn't exist, create a new CalcRequest with this data.
+     */
+    create: XOR<CalcRequestCreateInput, CalcRequestUncheckedCreateInput>
+    /**
+     * In case the CalcRequest was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CalcRequestUpdateInput, CalcRequestUncheckedUpdateInput>
+  }
+
+  /**
+   * CalcRequest delete
+   */
+  export type CalcRequestDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+    /**
+     * Filter which CalcRequest to delete.
+     */
+    where: CalcRequestWhereUniqueInput
+  }
+
+  /**
+   * CalcRequest deleteMany
+   */
+  export type CalcRequestDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcRequests to delete
+     */
+    where?: CalcRequestWhereInput
+    /**
+     * Limit how many CalcRequests to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcRequest without action
+   */
+  export type CalcRequestDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcRequest
+     */
+    select?: CalcRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcRequest
+     */
+    omit?: CalcRequestOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CalcProjectType
+   */
+
+  export type AggregateCalcProjectType = {
+    _count: CalcProjectTypeCountAggregateOutputType | null
+    _avg: CalcProjectTypeAvgAggregateOutputType | null
+    _sum: CalcProjectTypeSumAggregateOutputType | null
+    _min: CalcProjectTypeMinAggregateOutputType | null
+    _max: CalcProjectTypeMaxAggregateOutputType | null
+  }
+
+  export type CalcProjectTypeAvgAggregateOutputType = {
+    id: number | null
+    sortOrder: number | null
+  }
+
+  export type CalcProjectTypeSumAggregateOutputType = {
+    id: number | null
+    sortOrder: number | null
+  }
+
+  export type CalcProjectTypeMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    slug: string | null
+    description: string | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type CalcProjectTypeMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    slug: string | null
+    description: string | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type CalcProjectTypeCountAggregateOutputType = {
+    id: number
+    name: number
+    slug: number
+    description: number
+    sortOrder: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type CalcProjectTypeAvgAggregateInputType = {
+    id?: true
+    sortOrder?: true
+  }
+
+  export type CalcProjectTypeSumAggregateInputType = {
+    id?: true
+    sortOrder?: true
+  }
+
+  export type CalcProjectTypeMinAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type CalcProjectTypeMaxAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type CalcProjectTypeCountAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    description?: true
+    sortOrder?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type CalcProjectTypeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcProjectType to aggregate.
+     */
+    where?: CalcProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcProjectTypes to fetch.
+     */
+    orderBy?: CalcProjectTypeOrderByWithRelationInput | CalcProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CalcProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcProjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CalcProjectTypes
+    **/
+    _count?: true | CalcProjectTypeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CalcProjectTypeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CalcProjectTypeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CalcProjectTypeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CalcProjectTypeMaxAggregateInputType
+  }
+
+  export type GetCalcProjectTypeAggregateType<T extends CalcProjectTypeAggregateArgs> = {
+        [P in keyof T & keyof AggregateCalcProjectType]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCalcProjectType[P]>
+      : GetScalarType<T[P], AggregateCalcProjectType[P]>
+  }
+
+
+
+
+  export type CalcProjectTypeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcProjectTypeWhereInput
+    orderBy?: CalcProjectTypeOrderByWithAggregationInput | CalcProjectTypeOrderByWithAggregationInput[]
+    by: CalcProjectTypeScalarFieldEnum[] | CalcProjectTypeScalarFieldEnum
+    having?: CalcProjectTypeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CalcProjectTypeCountAggregateInputType | true
+    _avg?: CalcProjectTypeAvgAggregateInputType
+    _sum?: CalcProjectTypeSumAggregateInputType
+    _min?: CalcProjectTypeMinAggregateInputType
+    _max?: CalcProjectTypeMaxAggregateInputType
+  }
+
+  export type CalcProjectTypeGroupByOutputType = {
+    id: number
+    name: string
+    slug: string
+    description: string | null
+    sortOrder: number
+    createdAt: Date
+    _count: CalcProjectTypeCountAggregateOutputType | null
+    _avg: CalcProjectTypeAvgAggregateOutputType | null
+    _sum: CalcProjectTypeSumAggregateOutputType | null
+    _min: CalcProjectTypeMinAggregateOutputType | null
+    _max: CalcProjectTypeMaxAggregateOutputType | null
+  }
+
+  type GetCalcProjectTypeGroupByPayload<T extends CalcProjectTypeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CalcProjectTypeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CalcProjectTypeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CalcProjectTypeGroupByOutputType[P]>
+            : GetScalarType<T[P], CalcProjectTypeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CalcProjectTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    categories?: boolean | CalcProjectType$categoriesArgs<ExtArgs>
+    _count?: boolean | CalcProjectTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcProjectType"]>
+
+  export type CalcProjectTypeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["calcProjectType"]>
+
+  export type CalcProjectTypeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["calcProjectType"]>
+
+  export type CalcProjectTypeSelectScalar = {
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    description?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+  }
+
+  export type CalcProjectTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "description" | "sortOrder" | "createdAt", ExtArgs["result"]["calcProjectType"]>
+  export type CalcProjectTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categories?: boolean | CalcProjectType$categoriesArgs<ExtArgs>
+    _count?: boolean | CalcProjectTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CalcProjectTypeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CalcProjectTypeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $CalcProjectTypePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CalcProjectType"
+    objects: {
+      categories: Prisma.$CalcCategoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      slug: string
+      description: string | null
+      sortOrder: number
+      createdAt: Date
+    }, ExtArgs["result"]["calcProjectType"]>
+    composites: {}
+  }
+
+  type CalcProjectTypeGetPayload<S extends boolean | null | undefined | CalcProjectTypeDefaultArgs> = $Result.GetResult<Prisma.$CalcProjectTypePayload, S>
+
+  type CalcProjectTypeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CalcProjectTypeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CalcProjectTypeCountAggregateInputType | true
+    }
+
+  export interface CalcProjectTypeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CalcProjectType'], meta: { name: 'CalcProjectType' } }
+    /**
+     * Find zero or one CalcProjectType that matches the filter.
+     * @param {CalcProjectTypeFindUniqueArgs} args - Arguments to find a CalcProjectType
+     * @example
+     * // Get one CalcProjectType
+     * const calcProjectType = await prisma.calcProjectType.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CalcProjectTypeFindUniqueArgs>(args: SelectSubset<T, CalcProjectTypeFindUniqueArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CalcProjectType that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CalcProjectTypeFindUniqueOrThrowArgs} args - Arguments to find a CalcProjectType
+     * @example
+     * // Get one CalcProjectType
+     * const calcProjectType = await prisma.calcProjectType.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CalcProjectTypeFindUniqueOrThrowArgs>(args: SelectSubset<T, CalcProjectTypeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcProjectType that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcProjectTypeFindFirstArgs} args - Arguments to find a CalcProjectType
+     * @example
+     * // Get one CalcProjectType
+     * const calcProjectType = await prisma.calcProjectType.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CalcProjectTypeFindFirstArgs>(args?: SelectSubset<T, CalcProjectTypeFindFirstArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcProjectType that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcProjectTypeFindFirstOrThrowArgs} args - Arguments to find a CalcProjectType
+     * @example
+     * // Get one CalcProjectType
+     * const calcProjectType = await prisma.calcProjectType.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CalcProjectTypeFindFirstOrThrowArgs>(args?: SelectSubset<T, CalcProjectTypeFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CalcProjectTypes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcProjectTypeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CalcProjectTypes
+     * const calcProjectTypes = await prisma.calcProjectType.findMany()
+     * 
+     * // Get first 10 CalcProjectTypes
+     * const calcProjectTypes = await prisma.calcProjectType.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const calcProjectTypeWithIdOnly = await prisma.calcProjectType.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CalcProjectTypeFindManyArgs>(args?: SelectSubset<T, CalcProjectTypeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CalcProjectType.
+     * @param {CalcProjectTypeCreateArgs} args - Arguments to create a CalcProjectType.
+     * @example
+     * // Create one CalcProjectType
+     * const CalcProjectType = await prisma.calcProjectType.create({
+     *   data: {
+     *     // ... data to create a CalcProjectType
+     *   }
+     * })
+     * 
+     */
+    create<T extends CalcProjectTypeCreateArgs>(args: SelectSubset<T, CalcProjectTypeCreateArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CalcProjectTypes.
+     * @param {CalcProjectTypeCreateManyArgs} args - Arguments to create many CalcProjectTypes.
+     * @example
+     * // Create many CalcProjectTypes
+     * const calcProjectType = await prisma.calcProjectType.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CalcProjectTypeCreateManyArgs>(args?: SelectSubset<T, CalcProjectTypeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CalcProjectTypes and returns the data saved in the database.
+     * @param {CalcProjectTypeCreateManyAndReturnArgs} args - Arguments to create many CalcProjectTypes.
+     * @example
+     * // Create many CalcProjectTypes
+     * const calcProjectType = await prisma.calcProjectType.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CalcProjectTypes and only return the `id`
+     * const calcProjectTypeWithIdOnly = await prisma.calcProjectType.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CalcProjectTypeCreateManyAndReturnArgs>(args?: SelectSubset<T, CalcProjectTypeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CalcProjectType.
+     * @param {CalcProjectTypeDeleteArgs} args - Arguments to delete one CalcProjectType.
+     * @example
+     * // Delete one CalcProjectType
+     * const CalcProjectType = await prisma.calcProjectType.delete({
+     *   where: {
+     *     // ... filter to delete one CalcProjectType
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CalcProjectTypeDeleteArgs>(args: SelectSubset<T, CalcProjectTypeDeleteArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CalcProjectType.
+     * @param {CalcProjectTypeUpdateArgs} args - Arguments to update one CalcProjectType.
+     * @example
+     * // Update one CalcProjectType
+     * const calcProjectType = await prisma.calcProjectType.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CalcProjectTypeUpdateArgs>(args: SelectSubset<T, CalcProjectTypeUpdateArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CalcProjectTypes.
+     * @param {CalcProjectTypeDeleteManyArgs} args - Arguments to filter CalcProjectTypes to delete.
+     * @example
+     * // Delete a few CalcProjectTypes
+     * const { count } = await prisma.calcProjectType.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CalcProjectTypeDeleteManyArgs>(args?: SelectSubset<T, CalcProjectTypeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcProjectTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcProjectTypeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CalcProjectTypes
+     * const calcProjectType = await prisma.calcProjectType.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CalcProjectTypeUpdateManyArgs>(args: SelectSubset<T, CalcProjectTypeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcProjectTypes and returns the data updated in the database.
+     * @param {CalcProjectTypeUpdateManyAndReturnArgs} args - Arguments to update many CalcProjectTypes.
+     * @example
+     * // Update many CalcProjectTypes
+     * const calcProjectType = await prisma.calcProjectType.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CalcProjectTypes and only return the `id`
+     * const calcProjectTypeWithIdOnly = await prisma.calcProjectType.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CalcProjectTypeUpdateManyAndReturnArgs>(args: SelectSubset<T, CalcProjectTypeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CalcProjectType.
+     * @param {CalcProjectTypeUpsertArgs} args - Arguments to update or create a CalcProjectType.
+     * @example
+     * // Update or create a CalcProjectType
+     * const calcProjectType = await prisma.calcProjectType.upsert({
+     *   create: {
+     *     // ... data to create a CalcProjectType
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CalcProjectType we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CalcProjectTypeUpsertArgs>(args: SelectSubset<T, CalcProjectTypeUpsertArgs<ExtArgs>>): Prisma__CalcProjectTypeClient<$Result.GetResult<Prisma.$CalcProjectTypePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CalcProjectTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcProjectTypeCountArgs} args - Arguments to filter CalcProjectTypes to count.
+     * @example
+     * // Count the number of CalcProjectTypes
+     * const count = await prisma.calcProjectType.count({
+     *   where: {
+     *     // ... the filter for the CalcProjectTypes we want to count
+     *   }
+     * })
+    **/
+    count<T extends CalcProjectTypeCountArgs>(
+      args?: Subset<T, CalcProjectTypeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CalcProjectTypeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CalcProjectType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcProjectTypeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CalcProjectTypeAggregateArgs>(args: Subset<T, CalcProjectTypeAggregateArgs>): Prisma.PrismaPromise<GetCalcProjectTypeAggregateType<T>>
+
+    /**
+     * Group by CalcProjectType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcProjectTypeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CalcProjectTypeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CalcProjectTypeGroupByArgs['orderBy'] }
+        : { orderBy?: CalcProjectTypeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CalcProjectTypeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalcProjectTypeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CalcProjectType model
+   */
+  readonly fields: CalcProjectTypeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CalcProjectType.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CalcProjectTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    categories<T extends CalcProjectType$categoriesArgs<ExtArgs> = {}>(args?: Subset<T, CalcProjectType$categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CalcProjectType model
+   */
+  interface CalcProjectTypeFieldRefs {
+    readonly id: FieldRef<"CalcProjectType", 'Int'>
+    readonly name: FieldRef<"CalcProjectType", 'String'>
+    readonly slug: FieldRef<"CalcProjectType", 'String'>
+    readonly description: FieldRef<"CalcProjectType", 'String'>
+    readonly sortOrder: FieldRef<"CalcProjectType", 'Int'>
+    readonly createdAt: FieldRef<"CalcProjectType", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CalcProjectType findUnique
+   */
+  export type CalcProjectTypeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcProjectType to fetch.
+     */
+    where: CalcProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * CalcProjectType findUniqueOrThrow
+   */
+  export type CalcProjectTypeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcProjectType to fetch.
+     */
+    where: CalcProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * CalcProjectType findFirst
+   */
+  export type CalcProjectTypeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcProjectType to fetch.
+     */
+    where?: CalcProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcProjectTypes to fetch.
+     */
+    orderBy?: CalcProjectTypeOrderByWithRelationInput | CalcProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcProjectTypes.
+     */
+    cursor?: CalcProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcProjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcProjectTypes.
+     */
+    distinct?: CalcProjectTypeScalarFieldEnum | CalcProjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * CalcProjectType findFirstOrThrow
+   */
+  export type CalcProjectTypeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcProjectType to fetch.
+     */
+    where?: CalcProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcProjectTypes to fetch.
+     */
+    orderBy?: CalcProjectTypeOrderByWithRelationInput | CalcProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcProjectTypes.
+     */
+    cursor?: CalcProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcProjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcProjectTypes.
+     */
+    distinct?: CalcProjectTypeScalarFieldEnum | CalcProjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * CalcProjectType findMany
+   */
+  export type CalcProjectTypeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcProjectTypes to fetch.
+     */
+    where?: CalcProjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcProjectTypes to fetch.
+     */
+    orderBy?: CalcProjectTypeOrderByWithRelationInput | CalcProjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CalcProjectTypes.
+     */
+    cursor?: CalcProjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcProjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcProjectTypes.
+     */
+    skip?: number
+    distinct?: CalcProjectTypeScalarFieldEnum | CalcProjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * CalcProjectType create
+   */
+  export type CalcProjectTypeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CalcProjectType.
+     */
+    data: XOR<CalcProjectTypeCreateInput, CalcProjectTypeUncheckedCreateInput>
+  }
+
+  /**
+   * CalcProjectType createMany
+   */
+  export type CalcProjectTypeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CalcProjectTypes.
+     */
+    data: CalcProjectTypeCreateManyInput | CalcProjectTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcProjectType createManyAndReturn
+   */
+  export type CalcProjectTypeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * The data used to create many CalcProjectTypes.
+     */
+    data: CalcProjectTypeCreateManyInput | CalcProjectTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcProjectType update
+   */
+  export type CalcProjectTypeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CalcProjectType.
+     */
+    data: XOR<CalcProjectTypeUpdateInput, CalcProjectTypeUncheckedUpdateInput>
+    /**
+     * Choose, which CalcProjectType to update.
+     */
+    where: CalcProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * CalcProjectType updateMany
+   */
+  export type CalcProjectTypeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CalcProjectTypes.
+     */
+    data: XOR<CalcProjectTypeUpdateManyMutationInput, CalcProjectTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcProjectTypes to update
+     */
+    where?: CalcProjectTypeWhereInput
+    /**
+     * Limit how many CalcProjectTypes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcProjectType updateManyAndReturn
+   */
+  export type CalcProjectTypeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * The data used to update CalcProjectTypes.
+     */
+    data: XOR<CalcProjectTypeUpdateManyMutationInput, CalcProjectTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcProjectTypes to update
+     */
+    where?: CalcProjectTypeWhereInput
+    /**
+     * Limit how many CalcProjectTypes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcProjectType upsert
+   */
+  export type CalcProjectTypeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CalcProjectType to update in case it exists.
+     */
+    where: CalcProjectTypeWhereUniqueInput
+    /**
+     * In case the CalcProjectType found by the `where` argument doesn't exist, create a new CalcProjectType with this data.
+     */
+    create: XOR<CalcProjectTypeCreateInput, CalcProjectTypeUncheckedCreateInput>
+    /**
+     * In case the CalcProjectType was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CalcProjectTypeUpdateInput, CalcProjectTypeUncheckedUpdateInput>
+  }
+
+  /**
+   * CalcProjectType delete
+   */
+  export type CalcProjectTypeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter which CalcProjectType to delete.
+     */
+    where: CalcProjectTypeWhereUniqueInput
+  }
+
+  /**
+   * CalcProjectType deleteMany
+   */
+  export type CalcProjectTypeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcProjectTypes to delete
+     */
+    where?: CalcProjectTypeWhereInput
+    /**
+     * Limit how many CalcProjectTypes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcProjectType.categories
+   */
+  export type CalcProjectType$categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCategory
+     */
+    select?: CalcCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCategory
+     */
+    omit?: CalcCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcCategoryInclude<ExtArgs> | null
+    where?: CalcCategoryWhereInput
+    orderBy?: CalcCategoryOrderByWithRelationInput | CalcCategoryOrderByWithRelationInput[]
+    cursor?: CalcCategoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CalcCategoryScalarFieldEnum | CalcCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * CalcProjectType without action
+   */
+  export type CalcProjectTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcProjectType
+     */
+    select?: CalcProjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcProjectType
+     */
+    omit?: CalcProjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcProjectTypeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CalcCondition
+   */
+
+  export type AggregateCalcCondition = {
+    _count: CalcConditionCountAggregateOutputType | null
+    _avg: CalcConditionAvgAggregateOutputType | null
+    _sum: CalcConditionSumAggregateOutputType | null
+    _min: CalcConditionMinAggregateOutputType | null
+    _max: CalcConditionMaxAggregateOutputType | null
+  }
+
+  export type CalcConditionAvgAggregateOutputType = {
+    id: number | null
+    itemId: number | null
+    multiplier: number | null
+  }
+
+  export type CalcConditionSumAggregateOutputType = {
+    id: number | null
+    itemId: number | null
+    multiplier: number | null
+  }
+
+  export type CalcConditionMinAggregateOutputType = {
+    id: number | null
+    itemId: number | null
+    label: string | null
+    description: string | null
+    multiplier: number | null
+    isDefault: boolean | null
+  }
+
+  export type CalcConditionMaxAggregateOutputType = {
+    id: number | null
+    itemId: number | null
+    label: string | null
+    description: string | null
+    multiplier: number | null
+    isDefault: boolean | null
+  }
+
+  export type CalcConditionCountAggregateOutputType = {
+    id: number
+    itemId: number
+    label: number
+    description: number
+    multiplier: number
+    isDefault: number
+    _all: number
+  }
+
+
+  export type CalcConditionAvgAggregateInputType = {
+    id?: true
+    itemId?: true
+    multiplier?: true
+  }
+
+  export type CalcConditionSumAggregateInputType = {
+    id?: true
+    itemId?: true
+    multiplier?: true
+  }
+
+  export type CalcConditionMinAggregateInputType = {
+    id?: true
+    itemId?: true
+    label?: true
+    description?: true
+    multiplier?: true
+    isDefault?: true
+  }
+
+  export type CalcConditionMaxAggregateInputType = {
+    id?: true
+    itemId?: true
+    label?: true
+    description?: true
+    multiplier?: true
+    isDefault?: true
+  }
+
+  export type CalcConditionCountAggregateInputType = {
+    id?: true
+    itemId?: true
+    label?: true
+    description?: true
+    multiplier?: true
+    isDefault?: true
+    _all?: true
+  }
+
+  export type CalcConditionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcCondition to aggregate.
+     */
+    where?: CalcConditionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcConditions to fetch.
+     */
+    orderBy?: CalcConditionOrderByWithRelationInput | CalcConditionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CalcConditionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcConditions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcConditions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CalcConditions
+    **/
+    _count?: true | CalcConditionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CalcConditionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CalcConditionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CalcConditionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CalcConditionMaxAggregateInputType
+  }
+
+  export type GetCalcConditionAggregateType<T extends CalcConditionAggregateArgs> = {
+        [P in keyof T & keyof AggregateCalcCondition]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCalcCondition[P]>
+      : GetScalarType<T[P], AggregateCalcCondition[P]>
+  }
+
+
+
+
+  export type CalcConditionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalcConditionWhereInput
+    orderBy?: CalcConditionOrderByWithAggregationInput | CalcConditionOrderByWithAggregationInput[]
+    by: CalcConditionScalarFieldEnum[] | CalcConditionScalarFieldEnum
+    having?: CalcConditionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CalcConditionCountAggregateInputType | true
+    _avg?: CalcConditionAvgAggregateInputType
+    _sum?: CalcConditionSumAggregateInputType
+    _min?: CalcConditionMinAggregateInputType
+    _max?: CalcConditionMaxAggregateInputType
+  }
+
+  export type CalcConditionGroupByOutputType = {
+    id: number
+    itemId: number
+    label: string
+    description: string | null
+    multiplier: number
+    isDefault: boolean
+    _count: CalcConditionCountAggregateOutputType | null
+    _avg: CalcConditionAvgAggregateOutputType | null
+    _sum: CalcConditionSumAggregateOutputType | null
+    _min: CalcConditionMinAggregateOutputType | null
+    _max: CalcConditionMaxAggregateOutputType | null
+  }
+
+  type GetCalcConditionGroupByPayload<T extends CalcConditionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CalcConditionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CalcConditionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CalcConditionGroupByOutputType[P]>
+            : GetScalarType<T[P], CalcConditionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CalcConditionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    itemId?: boolean
+    label?: boolean
+    description?: boolean
+    multiplier?: boolean
+    isDefault?: boolean
+    item?: boolean | CalcItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcCondition"]>
+
+  export type CalcConditionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    itemId?: boolean
+    label?: boolean
+    description?: boolean
+    multiplier?: boolean
+    isDefault?: boolean
+    item?: boolean | CalcItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcCondition"]>
+
+  export type CalcConditionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    itemId?: boolean
+    label?: boolean
+    description?: boolean
+    multiplier?: boolean
+    isDefault?: boolean
+    item?: boolean | CalcItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["calcCondition"]>
+
+  export type CalcConditionSelectScalar = {
+    id?: boolean
+    itemId?: boolean
+    label?: boolean
+    description?: boolean
+    multiplier?: boolean
+    isDefault?: boolean
+  }
+
+  export type CalcConditionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "itemId" | "label" | "description" | "multiplier" | "isDefault", ExtArgs["result"]["calcCondition"]>
+  export type CalcConditionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item?: boolean | CalcItemDefaultArgs<ExtArgs>
+  }
+  export type CalcConditionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item?: boolean | CalcItemDefaultArgs<ExtArgs>
+  }
+  export type CalcConditionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item?: boolean | CalcItemDefaultArgs<ExtArgs>
+  }
+
+  export type $CalcConditionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CalcCondition"
+    objects: {
+      item: Prisma.$CalcItemPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      itemId: number
+      label: string
+      description: string | null
+      multiplier: number
+      isDefault: boolean
+    }, ExtArgs["result"]["calcCondition"]>
+    composites: {}
+  }
+
+  type CalcConditionGetPayload<S extends boolean | null | undefined | CalcConditionDefaultArgs> = $Result.GetResult<Prisma.$CalcConditionPayload, S>
+
+  type CalcConditionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CalcConditionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CalcConditionCountAggregateInputType | true
+    }
+
+  export interface CalcConditionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CalcCondition'], meta: { name: 'CalcCondition' } }
+    /**
+     * Find zero or one CalcCondition that matches the filter.
+     * @param {CalcConditionFindUniqueArgs} args - Arguments to find a CalcCondition
+     * @example
+     * // Get one CalcCondition
+     * const calcCondition = await prisma.calcCondition.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CalcConditionFindUniqueArgs>(args: SelectSubset<T, CalcConditionFindUniqueArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CalcCondition that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CalcConditionFindUniqueOrThrowArgs} args - Arguments to find a CalcCondition
+     * @example
+     * // Get one CalcCondition
+     * const calcCondition = await prisma.calcCondition.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CalcConditionFindUniqueOrThrowArgs>(args: SelectSubset<T, CalcConditionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcCondition that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcConditionFindFirstArgs} args - Arguments to find a CalcCondition
+     * @example
+     * // Get one CalcCondition
+     * const calcCondition = await prisma.calcCondition.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CalcConditionFindFirstArgs>(args?: SelectSubset<T, CalcConditionFindFirstArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CalcCondition that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcConditionFindFirstOrThrowArgs} args - Arguments to find a CalcCondition
+     * @example
+     * // Get one CalcCondition
+     * const calcCondition = await prisma.calcCondition.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CalcConditionFindFirstOrThrowArgs>(args?: SelectSubset<T, CalcConditionFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CalcConditions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcConditionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CalcConditions
+     * const calcConditions = await prisma.calcCondition.findMany()
+     * 
+     * // Get first 10 CalcConditions
+     * const calcConditions = await prisma.calcCondition.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const calcConditionWithIdOnly = await prisma.calcCondition.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CalcConditionFindManyArgs>(args?: SelectSubset<T, CalcConditionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CalcCondition.
+     * @param {CalcConditionCreateArgs} args - Arguments to create a CalcCondition.
+     * @example
+     * // Create one CalcCondition
+     * const CalcCondition = await prisma.calcCondition.create({
+     *   data: {
+     *     // ... data to create a CalcCondition
+     *   }
+     * })
+     * 
+     */
+    create<T extends CalcConditionCreateArgs>(args: SelectSubset<T, CalcConditionCreateArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CalcConditions.
+     * @param {CalcConditionCreateManyArgs} args - Arguments to create many CalcConditions.
+     * @example
+     * // Create many CalcConditions
+     * const calcCondition = await prisma.calcCondition.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CalcConditionCreateManyArgs>(args?: SelectSubset<T, CalcConditionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CalcConditions and returns the data saved in the database.
+     * @param {CalcConditionCreateManyAndReturnArgs} args - Arguments to create many CalcConditions.
+     * @example
+     * // Create many CalcConditions
+     * const calcCondition = await prisma.calcCondition.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CalcConditions and only return the `id`
+     * const calcConditionWithIdOnly = await prisma.calcCondition.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CalcConditionCreateManyAndReturnArgs>(args?: SelectSubset<T, CalcConditionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CalcCondition.
+     * @param {CalcConditionDeleteArgs} args - Arguments to delete one CalcCondition.
+     * @example
+     * // Delete one CalcCondition
+     * const CalcCondition = await prisma.calcCondition.delete({
+     *   where: {
+     *     // ... filter to delete one CalcCondition
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CalcConditionDeleteArgs>(args: SelectSubset<T, CalcConditionDeleteArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CalcCondition.
+     * @param {CalcConditionUpdateArgs} args - Arguments to update one CalcCondition.
+     * @example
+     * // Update one CalcCondition
+     * const calcCondition = await prisma.calcCondition.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CalcConditionUpdateArgs>(args: SelectSubset<T, CalcConditionUpdateArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CalcConditions.
+     * @param {CalcConditionDeleteManyArgs} args - Arguments to filter CalcConditions to delete.
+     * @example
+     * // Delete a few CalcConditions
+     * const { count } = await prisma.calcCondition.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CalcConditionDeleteManyArgs>(args?: SelectSubset<T, CalcConditionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcConditions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcConditionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CalcConditions
+     * const calcCondition = await prisma.calcCondition.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CalcConditionUpdateManyArgs>(args: SelectSubset<T, CalcConditionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CalcConditions and returns the data updated in the database.
+     * @param {CalcConditionUpdateManyAndReturnArgs} args - Arguments to update many CalcConditions.
+     * @example
+     * // Update many CalcConditions
+     * const calcCondition = await prisma.calcCondition.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CalcConditions and only return the `id`
+     * const calcConditionWithIdOnly = await prisma.calcCondition.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CalcConditionUpdateManyAndReturnArgs>(args: SelectSubset<T, CalcConditionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CalcCondition.
+     * @param {CalcConditionUpsertArgs} args - Arguments to update or create a CalcCondition.
+     * @example
+     * // Update or create a CalcCondition
+     * const calcCondition = await prisma.calcCondition.upsert({
+     *   create: {
+     *     // ... data to create a CalcCondition
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CalcCondition we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CalcConditionUpsertArgs>(args: SelectSubset<T, CalcConditionUpsertArgs<ExtArgs>>): Prisma__CalcConditionClient<$Result.GetResult<Prisma.$CalcConditionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CalcConditions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcConditionCountArgs} args - Arguments to filter CalcConditions to count.
+     * @example
+     * // Count the number of CalcConditions
+     * const count = await prisma.calcCondition.count({
+     *   where: {
+     *     // ... the filter for the CalcConditions we want to count
+     *   }
+     * })
+    **/
+    count<T extends CalcConditionCountArgs>(
+      args?: Subset<T, CalcConditionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CalcConditionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CalcCondition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcConditionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CalcConditionAggregateArgs>(args: Subset<T, CalcConditionAggregateArgs>): Prisma.PrismaPromise<GetCalcConditionAggregateType<T>>
+
+    /**
+     * Group by CalcCondition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalcConditionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CalcConditionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CalcConditionGroupByArgs['orderBy'] }
+        : { orderBy?: CalcConditionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CalcConditionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalcConditionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CalcCondition model
+   */
+  readonly fields: CalcConditionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CalcCondition.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CalcConditionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    item<T extends CalcItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CalcItemDefaultArgs<ExtArgs>>): Prisma__CalcItemClient<$Result.GetResult<Prisma.$CalcItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CalcCondition model
+   */
+  interface CalcConditionFieldRefs {
+    readonly id: FieldRef<"CalcCondition", 'Int'>
+    readonly itemId: FieldRef<"CalcCondition", 'Int'>
+    readonly label: FieldRef<"CalcCondition", 'String'>
+    readonly description: FieldRef<"CalcCondition", 'String'>
+    readonly multiplier: FieldRef<"CalcCondition", 'Float'>
+    readonly isDefault: FieldRef<"CalcCondition", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CalcCondition findUnique
+   */
+  export type CalcConditionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCondition to fetch.
+     */
+    where: CalcConditionWhereUniqueInput
+  }
+
+  /**
+   * CalcCondition findUniqueOrThrow
+   */
+  export type CalcConditionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCondition to fetch.
+     */
+    where: CalcConditionWhereUniqueInput
+  }
+
+  /**
+   * CalcCondition findFirst
+   */
+  export type CalcConditionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCondition to fetch.
+     */
+    where?: CalcConditionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcConditions to fetch.
+     */
+    orderBy?: CalcConditionOrderByWithRelationInput | CalcConditionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcConditions.
+     */
+    cursor?: CalcConditionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcConditions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcConditions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcConditions.
+     */
+    distinct?: CalcConditionScalarFieldEnum | CalcConditionScalarFieldEnum[]
+  }
+
+  /**
+   * CalcCondition findFirstOrThrow
+   */
+  export type CalcConditionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcCondition to fetch.
+     */
+    where?: CalcConditionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcConditions to fetch.
+     */
+    orderBy?: CalcConditionOrderByWithRelationInput | CalcConditionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CalcConditions.
+     */
+    cursor?: CalcConditionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcConditions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcConditions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CalcConditions.
+     */
+    distinct?: CalcConditionScalarFieldEnum | CalcConditionScalarFieldEnum[]
+  }
+
+  /**
+   * CalcCondition findMany
+   */
+  export type CalcConditionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * Filter, which CalcConditions to fetch.
+     */
+    where?: CalcConditionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CalcConditions to fetch.
+     */
+    orderBy?: CalcConditionOrderByWithRelationInput | CalcConditionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CalcConditions.
+     */
+    cursor?: CalcConditionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CalcConditions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CalcConditions.
+     */
+    skip?: number
+    distinct?: CalcConditionScalarFieldEnum | CalcConditionScalarFieldEnum[]
+  }
+
+  /**
+   * CalcCondition create
+   */
+  export type CalcConditionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CalcCondition.
+     */
+    data: XOR<CalcConditionCreateInput, CalcConditionUncheckedCreateInput>
+  }
+
+  /**
+   * CalcCondition createMany
+   */
+  export type CalcConditionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CalcConditions.
+     */
+    data: CalcConditionCreateManyInput | CalcConditionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CalcCondition createManyAndReturn
+   */
+  export type CalcConditionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * The data used to create many CalcConditions.
+     */
+    data: CalcConditionCreateManyInput | CalcConditionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CalcCondition update
+   */
+  export type CalcConditionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CalcCondition.
+     */
+    data: XOR<CalcConditionUpdateInput, CalcConditionUncheckedUpdateInput>
+    /**
+     * Choose, which CalcCondition to update.
+     */
+    where: CalcConditionWhereUniqueInput
+  }
+
+  /**
+   * CalcCondition updateMany
+   */
+  export type CalcConditionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CalcConditions.
+     */
+    data: XOR<CalcConditionUpdateManyMutationInput, CalcConditionUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcConditions to update
+     */
+    where?: CalcConditionWhereInput
+    /**
+     * Limit how many CalcConditions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcCondition updateManyAndReturn
+   */
+  export type CalcConditionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * The data used to update CalcConditions.
+     */
+    data: XOR<CalcConditionUpdateManyMutationInput, CalcConditionUncheckedUpdateManyInput>
+    /**
+     * Filter which CalcConditions to update
+     */
+    where?: CalcConditionWhereInput
+    /**
+     * Limit how many CalcConditions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CalcCondition upsert
+   */
+  export type CalcConditionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CalcCondition to update in case it exists.
+     */
+    where: CalcConditionWhereUniqueInput
+    /**
+     * In case the CalcCondition found by the `where` argument doesn't exist, create a new CalcCondition with this data.
+     */
+    create: XOR<CalcConditionCreateInput, CalcConditionUncheckedCreateInput>
+    /**
+     * In case the CalcCondition was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CalcConditionUpdateInput, CalcConditionUncheckedUpdateInput>
+  }
+
+  /**
+   * CalcCondition delete
+   */
+  export type CalcConditionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+    /**
+     * Filter which CalcCondition to delete.
+     */
+    where: CalcConditionWhereUniqueInput
+  }
+
+  /**
+   * CalcCondition deleteMany
+   */
+  export type CalcConditionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CalcConditions to delete
+     */
+    where?: CalcConditionWhereInput
+    /**
+     * Limit how many CalcConditions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CalcCondition without action
+   */
+  export type CalcConditionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CalcCondition
+     */
+    select?: CalcConditionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CalcCondition
+     */
+    omit?: CalcConditionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CalcConditionInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -28361,12 +35859,105 @@ export namespace Prisma {
   export type AiChatEscalationScalarFieldEnum = (typeof AiChatEscalationScalarFieldEnum)[keyof typeof AiChatEscalationScalarFieldEnum]
 
 
+  export const CalcCategoryScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    description: 'description',
+    isPopular: 'isPopular',
+    projectTypeId: 'projectTypeId'
+  };
+
+  export type CalcCategoryScalarFieldEnum = (typeof CalcCategoryScalarFieldEnum)[keyof typeof CalcCategoryScalarFieldEnum]
+
+
+  export const CalcItemScalarFieldEnum: {
+    id: 'id',
+    categoryId: 'categoryId',
+    name: 'name',
+    description: 'description',
+    unitType: 'unitType',
+    minPrice: 'minPrice',
+    maxPrice: 'maxPrice',
+    baseMin: 'baseMin',
+    baseMax: 'baseMax',
+    vatIncluded: 'vatIncluded',
+    visible: 'visible',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CalcItemScalarFieldEnum = (typeof CalcItemScalarFieldEnum)[keyof typeof CalcItemScalarFieldEnum]
+
+
+  export const CalcSettingsScalarFieldEnum: {
+    id: 'id',
+    callOutThreshold: 'callOutThreshold',
+    callOutFeeMin: 'callOutFeeMin',
+    callOutFeeMax: 'callOutFeeMax',
+    urgencyMultiplier: 'urgencyMultiplier',
+    emergencyMultiplier: 'emergencyMultiplier',
+    projectTrigger: 'projectTrigger',
+    projectFeePercent: 'projectFeePercent'
+  };
+
+  export type CalcSettingsScalarFieldEnum = (typeof CalcSettingsScalarFieldEnum)[keyof typeof CalcSettingsScalarFieldEnum]
+
+
+  export const CalcRequestScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    phone: 'phone',
+    postcode: 'postcode',
+    categorySlug: 'categorySlug',
+    data: 'data',
+    urgency: 'urgency',
+    estimateMin: 'estimateMin',
+    estimateMax: 'estimateMax',
+    createdAt: 'createdAt'
+  };
+
+  export type CalcRequestScalarFieldEnum = (typeof CalcRequestScalarFieldEnum)[keyof typeof CalcRequestScalarFieldEnum]
+
+
+  export const CalcProjectTypeScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    description: 'description',
+    sortOrder: 'sortOrder',
+    createdAt: 'createdAt'
+  };
+
+  export type CalcProjectTypeScalarFieldEnum = (typeof CalcProjectTypeScalarFieldEnum)[keyof typeof CalcProjectTypeScalarFieldEnum]
+
+
+  export const CalcConditionScalarFieldEnum: {
+    id: 'id',
+    itemId: 'itemId',
+    label: 'label',
+    description: 'description',
+    multiplier: 'multiplier',
+    isDefault: 'isDefault'
+  };
+
+  export type CalcConditionScalarFieldEnum = (typeof CalcConditionScalarFieldEnum)[keyof typeof CalcConditionScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -28383,6 +35974,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -28478,6 +36078,34 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CalcUnitType'
+   */
+  export type EnumCalcUnitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CalcUnitType'>
+    
+
+
+  /**
+   * Reference to a field of type 'CalcUnitType[]'
+   */
+  export type ListEnumCalcUnitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CalcUnitType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
   /**
    * Deep Input Types
@@ -30057,6 +37685,448 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"AiChatEscalation"> | string
     message?: StringNullableWithAggregatesFilter<"AiChatEscalation"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"AiChatEscalation"> | Date | string
+  }
+
+  export type CalcCategoryWhereInput = {
+    AND?: CalcCategoryWhereInput | CalcCategoryWhereInput[]
+    OR?: CalcCategoryWhereInput[]
+    NOT?: CalcCategoryWhereInput | CalcCategoryWhereInput[]
+    id?: IntFilter<"CalcCategory"> | number
+    name?: StringFilter<"CalcCategory"> | string
+    slug?: StringFilter<"CalcCategory"> | string
+    description?: StringNullableFilter<"CalcCategory"> | string | null
+    isPopular?: BoolFilter<"CalcCategory"> | boolean
+    projectTypeId?: IntNullableFilter<"CalcCategory"> | number | null
+    projectType?: XOR<CalcProjectTypeNullableScalarRelationFilter, CalcProjectTypeWhereInput> | null
+    items?: CalcItemListRelationFilter
+  }
+
+  export type CalcCategoryOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrderInput | SortOrder
+    isPopular?: SortOrder
+    projectTypeId?: SortOrderInput | SortOrder
+    projectType?: CalcProjectTypeOrderByWithRelationInput
+    items?: CalcItemOrderByRelationAggregateInput
+  }
+
+  export type CalcCategoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    slug?: string
+    AND?: CalcCategoryWhereInput | CalcCategoryWhereInput[]
+    OR?: CalcCategoryWhereInput[]
+    NOT?: CalcCategoryWhereInput | CalcCategoryWhereInput[]
+    name?: StringFilter<"CalcCategory"> | string
+    description?: StringNullableFilter<"CalcCategory"> | string | null
+    isPopular?: BoolFilter<"CalcCategory"> | boolean
+    projectTypeId?: IntNullableFilter<"CalcCategory"> | number | null
+    projectType?: XOR<CalcProjectTypeNullableScalarRelationFilter, CalcProjectTypeWhereInput> | null
+    items?: CalcItemListRelationFilter
+  }, "id" | "slug">
+
+  export type CalcCategoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrderInput | SortOrder
+    isPopular?: SortOrder
+    projectTypeId?: SortOrderInput | SortOrder
+    _count?: CalcCategoryCountOrderByAggregateInput
+    _avg?: CalcCategoryAvgOrderByAggregateInput
+    _max?: CalcCategoryMaxOrderByAggregateInput
+    _min?: CalcCategoryMinOrderByAggregateInput
+    _sum?: CalcCategorySumOrderByAggregateInput
+  }
+
+  export type CalcCategoryScalarWhereWithAggregatesInput = {
+    AND?: CalcCategoryScalarWhereWithAggregatesInput | CalcCategoryScalarWhereWithAggregatesInput[]
+    OR?: CalcCategoryScalarWhereWithAggregatesInput[]
+    NOT?: CalcCategoryScalarWhereWithAggregatesInput | CalcCategoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CalcCategory"> | number
+    name?: StringWithAggregatesFilter<"CalcCategory"> | string
+    slug?: StringWithAggregatesFilter<"CalcCategory"> | string
+    description?: StringNullableWithAggregatesFilter<"CalcCategory"> | string | null
+    isPopular?: BoolWithAggregatesFilter<"CalcCategory"> | boolean
+    projectTypeId?: IntNullableWithAggregatesFilter<"CalcCategory"> | number | null
+  }
+
+  export type CalcItemWhereInput = {
+    AND?: CalcItemWhereInput | CalcItemWhereInput[]
+    OR?: CalcItemWhereInput[]
+    NOT?: CalcItemWhereInput | CalcItemWhereInput[]
+    id?: IntFilter<"CalcItem"> | number
+    categoryId?: IntFilter<"CalcItem"> | number
+    name?: StringFilter<"CalcItem"> | string
+    description?: StringNullableFilter<"CalcItem"> | string | null
+    unitType?: EnumCalcUnitTypeFilter<"CalcItem"> | $Enums.CalcUnitType
+    minPrice?: FloatFilter<"CalcItem"> | number
+    maxPrice?: FloatFilter<"CalcItem"> | number
+    baseMin?: FloatFilter<"CalcItem"> | number
+    baseMax?: FloatFilter<"CalcItem"> | number
+    vatIncluded?: BoolFilter<"CalcItem"> | boolean
+    visible?: BoolFilter<"CalcItem"> | boolean
+    createdAt?: DateTimeFilter<"CalcItem"> | Date | string
+    updatedAt?: DateTimeFilter<"CalcItem"> | Date | string
+    category?: XOR<CalcCategoryScalarRelationFilter, CalcCategoryWhereInput>
+    conditions?: CalcConditionListRelationFilter
+  }
+
+  export type CalcItemOrderByWithRelationInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    unitType?: SortOrder
+    minPrice?: SortOrder
+    maxPrice?: SortOrder
+    baseMin?: SortOrder
+    baseMax?: SortOrder
+    vatIncluded?: SortOrder
+    visible?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    category?: CalcCategoryOrderByWithRelationInput
+    conditions?: CalcConditionOrderByRelationAggregateInput
+  }
+
+  export type CalcItemWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CalcItemWhereInput | CalcItemWhereInput[]
+    OR?: CalcItemWhereInput[]
+    NOT?: CalcItemWhereInput | CalcItemWhereInput[]
+    categoryId?: IntFilter<"CalcItem"> | number
+    name?: StringFilter<"CalcItem"> | string
+    description?: StringNullableFilter<"CalcItem"> | string | null
+    unitType?: EnumCalcUnitTypeFilter<"CalcItem"> | $Enums.CalcUnitType
+    minPrice?: FloatFilter<"CalcItem"> | number
+    maxPrice?: FloatFilter<"CalcItem"> | number
+    baseMin?: FloatFilter<"CalcItem"> | number
+    baseMax?: FloatFilter<"CalcItem"> | number
+    vatIncluded?: BoolFilter<"CalcItem"> | boolean
+    visible?: BoolFilter<"CalcItem"> | boolean
+    createdAt?: DateTimeFilter<"CalcItem"> | Date | string
+    updatedAt?: DateTimeFilter<"CalcItem"> | Date | string
+    category?: XOR<CalcCategoryScalarRelationFilter, CalcCategoryWhereInput>
+    conditions?: CalcConditionListRelationFilter
+  }, "id">
+
+  export type CalcItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    unitType?: SortOrder
+    minPrice?: SortOrder
+    maxPrice?: SortOrder
+    baseMin?: SortOrder
+    baseMax?: SortOrder
+    vatIncluded?: SortOrder
+    visible?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CalcItemCountOrderByAggregateInput
+    _avg?: CalcItemAvgOrderByAggregateInput
+    _max?: CalcItemMaxOrderByAggregateInput
+    _min?: CalcItemMinOrderByAggregateInput
+    _sum?: CalcItemSumOrderByAggregateInput
+  }
+
+  export type CalcItemScalarWhereWithAggregatesInput = {
+    AND?: CalcItemScalarWhereWithAggregatesInput | CalcItemScalarWhereWithAggregatesInput[]
+    OR?: CalcItemScalarWhereWithAggregatesInput[]
+    NOT?: CalcItemScalarWhereWithAggregatesInput | CalcItemScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CalcItem"> | number
+    categoryId?: IntWithAggregatesFilter<"CalcItem"> | number
+    name?: StringWithAggregatesFilter<"CalcItem"> | string
+    description?: StringNullableWithAggregatesFilter<"CalcItem"> | string | null
+    unitType?: EnumCalcUnitTypeWithAggregatesFilter<"CalcItem"> | $Enums.CalcUnitType
+    minPrice?: FloatWithAggregatesFilter<"CalcItem"> | number
+    maxPrice?: FloatWithAggregatesFilter<"CalcItem"> | number
+    baseMin?: FloatWithAggregatesFilter<"CalcItem"> | number
+    baseMax?: FloatWithAggregatesFilter<"CalcItem"> | number
+    vatIncluded?: BoolWithAggregatesFilter<"CalcItem"> | boolean
+    visible?: BoolWithAggregatesFilter<"CalcItem"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"CalcItem"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CalcItem"> | Date | string
+  }
+
+  export type CalcSettingsWhereInput = {
+    AND?: CalcSettingsWhereInput | CalcSettingsWhereInput[]
+    OR?: CalcSettingsWhereInput[]
+    NOT?: CalcSettingsWhereInput | CalcSettingsWhereInput[]
+    id?: IntFilter<"CalcSettings"> | number
+    callOutThreshold?: FloatFilter<"CalcSettings"> | number
+    callOutFeeMin?: FloatFilter<"CalcSettings"> | number
+    callOutFeeMax?: FloatFilter<"CalcSettings"> | number
+    urgencyMultiplier?: FloatFilter<"CalcSettings"> | number
+    emergencyMultiplier?: FloatFilter<"CalcSettings"> | number
+    projectTrigger?: FloatFilter<"CalcSettings"> | number
+    projectFeePercent?: FloatFilter<"CalcSettings"> | number
+  }
+
+  export type CalcSettingsOrderByWithRelationInput = {
+    id?: SortOrder
+    callOutThreshold?: SortOrder
+    callOutFeeMin?: SortOrder
+    callOutFeeMax?: SortOrder
+    urgencyMultiplier?: SortOrder
+    emergencyMultiplier?: SortOrder
+    projectTrigger?: SortOrder
+    projectFeePercent?: SortOrder
+  }
+
+  export type CalcSettingsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CalcSettingsWhereInput | CalcSettingsWhereInput[]
+    OR?: CalcSettingsWhereInput[]
+    NOT?: CalcSettingsWhereInput | CalcSettingsWhereInput[]
+    callOutThreshold?: FloatFilter<"CalcSettings"> | number
+    callOutFeeMin?: FloatFilter<"CalcSettings"> | number
+    callOutFeeMax?: FloatFilter<"CalcSettings"> | number
+    urgencyMultiplier?: FloatFilter<"CalcSettings"> | number
+    emergencyMultiplier?: FloatFilter<"CalcSettings"> | number
+    projectTrigger?: FloatFilter<"CalcSettings"> | number
+    projectFeePercent?: FloatFilter<"CalcSettings"> | number
+  }, "id">
+
+  export type CalcSettingsOrderByWithAggregationInput = {
+    id?: SortOrder
+    callOutThreshold?: SortOrder
+    callOutFeeMin?: SortOrder
+    callOutFeeMax?: SortOrder
+    urgencyMultiplier?: SortOrder
+    emergencyMultiplier?: SortOrder
+    projectTrigger?: SortOrder
+    projectFeePercent?: SortOrder
+    _count?: CalcSettingsCountOrderByAggregateInput
+    _avg?: CalcSettingsAvgOrderByAggregateInput
+    _max?: CalcSettingsMaxOrderByAggregateInput
+    _min?: CalcSettingsMinOrderByAggregateInput
+    _sum?: CalcSettingsSumOrderByAggregateInput
+  }
+
+  export type CalcSettingsScalarWhereWithAggregatesInput = {
+    AND?: CalcSettingsScalarWhereWithAggregatesInput | CalcSettingsScalarWhereWithAggregatesInput[]
+    OR?: CalcSettingsScalarWhereWithAggregatesInput[]
+    NOT?: CalcSettingsScalarWhereWithAggregatesInput | CalcSettingsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CalcSettings"> | number
+    callOutThreshold?: FloatWithAggregatesFilter<"CalcSettings"> | number
+    callOutFeeMin?: FloatWithAggregatesFilter<"CalcSettings"> | number
+    callOutFeeMax?: FloatWithAggregatesFilter<"CalcSettings"> | number
+    urgencyMultiplier?: FloatWithAggregatesFilter<"CalcSettings"> | number
+    emergencyMultiplier?: FloatWithAggregatesFilter<"CalcSettings"> | number
+    projectTrigger?: FloatWithAggregatesFilter<"CalcSettings"> | number
+    projectFeePercent?: FloatWithAggregatesFilter<"CalcSettings"> | number
+  }
+
+  export type CalcRequestWhereInput = {
+    AND?: CalcRequestWhereInput | CalcRequestWhereInput[]
+    OR?: CalcRequestWhereInput[]
+    NOT?: CalcRequestWhereInput | CalcRequestWhereInput[]
+    id?: IntFilter<"CalcRequest"> | number
+    name?: StringFilter<"CalcRequest"> | string
+    email?: StringFilter<"CalcRequest"> | string
+    phone?: StringFilter<"CalcRequest"> | string
+    postcode?: StringFilter<"CalcRequest"> | string
+    categorySlug?: StringFilter<"CalcRequest"> | string
+    data?: JsonFilter<"CalcRequest">
+    urgency?: StringFilter<"CalcRequest"> | string
+    estimateMin?: FloatFilter<"CalcRequest"> | number
+    estimateMax?: FloatFilter<"CalcRequest"> | number
+    createdAt?: DateTimeFilter<"CalcRequest"> | Date | string
+  }
+
+  export type CalcRequestOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    postcode?: SortOrder
+    categorySlug?: SortOrder
+    data?: SortOrder
+    urgency?: SortOrder
+    estimateMin?: SortOrder
+    estimateMax?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CalcRequestWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CalcRequestWhereInput | CalcRequestWhereInput[]
+    OR?: CalcRequestWhereInput[]
+    NOT?: CalcRequestWhereInput | CalcRequestWhereInput[]
+    name?: StringFilter<"CalcRequest"> | string
+    email?: StringFilter<"CalcRequest"> | string
+    phone?: StringFilter<"CalcRequest"> | string
+    postcode?: StringFilter<"CalcRequest"> | string
+    categorySlug?: StringFilter<"CalcRequest"> | string
+    data?: JsonFilter<"CalcRequest">
+    urgency?: StringFilter<"CalcRequest"> | string
+    estimateMin?: FloatFilter<"CalcRequest"> | number
+    estimateMax?: FloatFilter<"CalcRequest"> | number
+    createdAt?: DateTimeFilter<"CalcRequest"> | Date | string
+  }, "id">
+
+  export type CalcRequestOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    postcode?: SortOrder
+    categorySlug?: SortOrder
+    data?: SortOrder
+    urgency?: SortOrder
+    estimateMin?: SortOrder
+    estimateMax?: SortOrder
+    createdAt?: SortOrder
+    _count?: CalcRequestCountOrderByAggregateInput
+    _avg?: CalcRequestAvgOrderByAggregateInput
+    _max?: CalcRequestMaxOrderByAggregateInput
+    _min?: CalcRequestMinOrderByAggregateInput
+    _sum?: CalcRequestSumOrderByAggregateInput
+  }
+
+  export type CalcRequestScalarWhereWithAggregatesInput = {
+    AND?: CalcRequestScalarWhereWithAggregatesInput | CalcRequestScalarWhereWithAggregatesInput[]
+    OR?: CalcRequestScalarWhereWithAggregatesInput[]
+    NOT?: CalcRequestScalarWhereWithAggregatesInput | CalcRequestScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CalcRequest"> | number
+    name?: StringWithAggregatesFilter<"CalcRequest"> | string
+    email?: StringWithAggregatesFilter<"CalcRequest"> | string
+    phone?: StringWithAggregatesFilter<"CalcRequest"> | string
+    postcode?: StringWithAggregatesFilter<"CalcRequest"> | string
+    categorySlug?: StringWithAggregatesFilter<"CalcRequest"> | string
+    data?: JsonWithAggregatesFilter<"CalcRequest">
+    urgency?: StringWithAggregatesFilter<"CalcRequest"> | string
+    estimateMin?: FloatWithAggregatesFilter<"CalcRequest"> | number
+    estimateMax?: FloatWithAggregatesFilter<"CalcRequest"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"CalcRequest"> | Date | string
+  }
+
+  export type CalcProjectTypeWhereInput = {
+    AND?: CalcProjectTypeWhereInput | CalcProjectTypeWhereInput[]
+    OR?: CalcProjectTypeWhereInput[]
+    NOT?: CalcProjectTypeWhereInput | CalcProjectTypeWhereInput[]
+    id?: IntFilter<"CalcProjectType"> | number
+    name?: StringFilter<"CalcProjectType"> | string
+    slug?: StringFilter<"CalcProjectType"> | string
+    description?: StringNullableFilter<"CalcProjectType"> | string | null
+    sortOrder?: IntFilter<"CalcProjectType"> | number
+    createdAt?: DateTimeFilter<"CalcProjectType"> | Date | string
+    categories?: CalcCategoryListRelationFilter
+  }
+
+  export type CalcProjectTypeOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrderInput | SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    categories?: CalcCategoryOrderByRelationAggregateInput
+  }
+
+  export type CalcProjectTypeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    slug?: string
+    AND?: CalcProjectTypeWhereInput | CalcProjectTypeWhereInput[]
+    OR?: CalcProjectTypeWhereInput[]
+    NOT?: CalcProjectTypeWhereInput | CalcProjectTypeWhereInput[]
+    name?: StringFilter<"CalcProjectType"> | string
+    description?: StringNullableFilter<"CalcProjectType"> | string | null
+    sortOrder?: IntFilter<"CalcProjectType"> | number
+    createdAt?: DateTimeFilter<"CalcProjectType"> | Date | string
+    categories?: CalcCategoryListRelationFilter
+  }, "id" | "slug">
+
+  export type CalcProjectTypeOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrderInput | SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    _count?: CalcProjectTypeCountOrderByAggregateInput
+    _avg?: CalcProjectTypeAvgOrderByAggregateInput
+    _max?: CalcProjectTypeMaxOrderByAggregateInput
+    _min?: CalcProjectTypeMinOrderByAggregateInput
+    _sum?: CalcProjectTypeSumOrderByAggregateInput
+  }
+
+  export type CalcProjectTypeScalarWhereWithAggregatesInput = {
+    AND?: CalcProjectTypeScalarWhereWithAggregatesInput | CalcProjectTypeScalarWhereWithAggregatesInput[]
+    OR?: CalcProjectTypeScalarWhereWithAggregatesInput[]
+    NOT?: CalcProjectTypeScalarWhereWithAggregatesInput | CalcProjectTypeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CalcProjectType"> | number
+    name?: StringWithAggregatesFilter<"CalcProjectType"> | string
+    slug?: StringWithAggregatesFilter<"CalcProjectType"> | string
+    description?: StringNullableWithAggregatesFilter<"CalcProjectType"> | string | null
+    sortOrder?: IntWithAggregatesFilter<"CalcProjectType"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"CalcProjectType"> | Date | string
+  }
+
+  export type CalcConditionWhereInput = {
+    AND?: CalcConditionWhereInput | CalcConditionWhereInput[]
+    OR?: CalcConditionWhereInput[]
+    NOT?: CalcConditionWhereInput | CalcConditionWhereInput[]
+    id?: IntFilter<"CalcCondition"> | number
+    itemId?: IntFilter<"CalcCondition"> | number
+    label?: StringFilter<"CalcCondition"> | string
+    description?: StringNullableFilter<"CalcCondition"> | string | null
+    multiplier?: FloatFilter<"CalcCondition"> | number
+    isDefault?: BoolFilter<"CalcCondition"> | boolean
+    item?: XOR<CalcItemScalarRelationFilter, CalcItemWhereInput>
+  }
+
+  export type CalcConditionOrderByWithRelationInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    label?: SortOrder
+    description?: SortOrderInput | SortOrder
+    multiplier?: SortOrder
+    isDefault?: SortOrder
+    item?: CalcItemOrderByWithRelationInput
+  }
+
+  export type CalcConditionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CalcConditionWhereInput | CalcConditionWhereInput[]
+    OR?: CalcConditionWhereInput[]
+    NOT?: CalcConditionWhereInput | CalcConditionWhereInput[]
+    itemId?: IntFilter<"CalcCondition"> | number
+    label?: StringFilter<"CalcCondition"> | string
+    description?: StringNullableFilter<"CalcCondition"> | string | null
+    multiplier?: FloatFilter<"CalcCondition"> | number
+    isDefault?: BoolFilter<"CalcCondition"> | boolean
+    item?: XOR<CalcItemScalarRelationFilter, CalcItemWhereInput>
+  }, "id">
+
+  export type CalcConditionOrderByWithAggregationInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    label?: SortOrder
+    description?: SortOrderInput | SortOrder
+    multiplier?: SortOrder
+    isDefault?: SortOrder
+    _count?: CalcConditionCountOrderByAggregateInput
+    _avg?: CalcConditionAvgOrderByAggregateInput
+    _max?: CalcConditionMaxOrderByAggregateInput
+    _min?: CalcConditionMinOrderByAggregateInput
+    _sum?: CalcConditionSumOrderByAggregateInput
+  }
+
+  export type CalcConditionScalarWhereWithAggregatesInput = {
+    AND?: CalcConditionScalarWhereWithAggregatesInput | CalcConditionScalarWhereWithAggregatesInput[]
+    OR?: CalcConditionScalarWhereWithAggregatesInput[]
+    NOT?: CalcConditionScalarWhereWithAggregatesInput | CalcConditionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CalcCondition"> | number
+    itemId?: IntWithAggregatesFilter<"CalcCondition"> | number
+    label?: StringWithAggregatesFilter<"CalcCondition"> | string
+    description?: StringNullableWithAggregatesFilter<"CalcCondition"> | string | null
+    multiplier?: FloatWithAggregatesFilter<"CalcCondition"> | number
+    isDefault?: BoolWithAggregatesFilter<"CalcCondition"> | boolean
   }
 
   export type UserCreateInput = {
@@ -31709,6 +39779,476 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type CalcCategoryCreateInput = {
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+    projectType?: CalcProjectTypeCreateNestedOneWithoutCategoriesInput
+    items?: CalcItemCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CalcCategoryUncheckedCreateInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+    projectTypeId?: number | null
+    items?: CalcItemUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CalcCategoryUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+    projectType?: CalcProjectTypeUpdateOneWithoutCategoriesNestedInput
+    items?: CalcItemUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CalcCategoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+    projectTypeId?: NullableIntFieldUpdateOperationsInput | number | null
+    items?: CalcItemUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CalcCategoryCreateManyInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+    projectTypeId?: number | null
+  }
+
+  export type CalcCategoryUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CalcCategoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+    projectTypeId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CalcItemCreateInput = {
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    category: CalcCategoryCreateNestedOneWithoutItemsInput
+    conditions?: CalcConditionCreateNestedManyWithoutItemInput
+  }
+
+  export type CalcItemUncheckedCreateInput = {
+    id?: number
+    categoryId: number
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    conditions?: CalcConditionUncheckedCreateNestedManyWithoutItemInput
+  }
+
+  export type CalcItemUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: CalcCategoryUpdateOneRequiredWithoutItemsNestedInput
+    conditions?: CalcConditionUpdateManyWithoutItemNestedInput
+  }
+
+  export type CalcItemUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    categoryId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conditions?: CalcConditionUncheckedUpdateManyWithoutItemNestedInput
+  }
+
+  export type CalcItemCreateManyInput = {
+    id?: number
+    categoryId: number
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CalcItemUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcItemUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    categoryId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcSettingsCreateInput = {
+    id?: number
+    callOutThreshold?: number
+    callOutFeeMin?: number
+    callOutFeeMax?: number
+    urgencyMultiplier?: number
+    emergencyMultiplier?: number
+    projectTrigger?: number
+    projectFeePercent?: number
+  }
+
+  export type CalcSettingsUncheckedCreateInput = {
+    id?: number
+    callOutThreshold?: number
+    callOutFeeMin?: number
+    callOutFeeMax?: number
+    urgencyMultiplier?: number
+    emergencyMultiplier?: number
+    projectTrigger?: number
+    projectFeePercent?: number
+  }
+
+  export type CalcSettingsUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    callOutThreshold?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMin?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMax?: FloatFieldUpdateOperationsInput | number
+    urgencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    emergencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    projectTrigger?: FloatFieldUpdateOperationsInput | number
+    projectFeePercent?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type CalcSettingsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    callOutThreshold?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMin?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMax?: FloatFieldUpdateOperationsInput | number
+    urgencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    emergencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    projectTrigger?: FloatFieldUpdateOperationsInput | number
+    projectFeePercent?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type CalcSettingsCreateManyInput = {
+    id?: number
+    callOutThreshold?: number
+    callOutFeeMin?: number
+    callOutFeeMax?: number
+    urgencyMultiplier?: number
+    emergencyMultiplier?: number
+    projectTrigger?: number
+    projectFeePercent?: number
+  }
+
+  export type CalcSettingsUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    callOutThreshold?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMin?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMax?: FloatFieldUpdateOperationsInput | number
+    urgencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    emergencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    projectTrigger?: FloatFieldUpdateOperationsInput | number
+    projectFeePercent?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type CalcSettingsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    callOutThreshold?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMin?: FloatFieldUpdateOperationsInput | number
+    callOutFeeMax?: FloatFieldUpdateOperationsInput | number
+    urgencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    emergencyMultiplier?: FloatFieldUpdateOperationsInput | number
+    projectTrigger?: FloatFieldUpdateOperationsInput | number
+    projectFeePercent?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type CalcRequestCreateInput = {
+    name: string
+    email: string
+    phone: string
+    postcode: string
+    categorySlug: string
+    data: JsonNullValueInput | InputJsonValue
+    urgency: string
+    estimateMin: number
+    estimateMax: number
+    createdAt?: Date | string
+  }
+
+  export type CalcRequestUncheckedCreateInput = {
+    id?: number
+    name: string
+    email: string
+    phone: string
+    postcode: string
+    categorySlug: string
+    data: JsonNullValueInput | InputJsonValue
+    urgency: string
+    estimateMin: number
+    estimateMax: number
+    createdAt?: Date | string
+  }
+
+  export type CalcRequestUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    postcode?: StringFieldUpdateOperationsInput | string
+    categorySlug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    urgency?: StringFieldUpdateOperationsInput | string
+    estimateMin?: FloatFieldUpdateOperationsInput | number
+    estimateMax?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcRequestUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    postcode?: StringFieldUpdateOperationsInput | string
+    categorySlug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    urgency?: StringFieldUpdateOperationsInput | string
+    estimateMin?: FloatFieldUpdateOperationsInput | number
+    estimateMax?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcRequestCreateManyInput = {
+    id?: number
+    name: string
+    email: string
+    phone: string
+    postcode: string
+    categorySlug: string
+    data: JsonNullValueInput | InputJsonValue
+    urgency: string
+    estimateMin: number
+    estimateMax: number
+    createdAt?: Date | string
+  }
+
+  export type CalcRequestUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    postcode?: StringFieldUpdateOperationsInput | string
+    categorySlug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    urgency?: StringFieldUpdateOperationsInput | string
+    estimateMin?: FloatFieldUpdateOperationsInput | number
+    estimateMax?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcRequestUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    postcode?: StringFieldUpdateOperationsInput | string
+    categorySlug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    urgency?: StringFieldUpdateOperationsInput | string
+    estimateMin?: FloatFieldUpdateOperationsInput | number
+    estimateMax?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcProjectTypeCreateInput = {
+    name: string
+    slug: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    categories?: CalcCategoryCreateNestedManyWithoutProjectTypeInput
+  }
+
+  export type CalcProjectTypeUncheckedCreateInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+    categories?: CalcCategoryUncheckedCreateNestedManyWithoutProjectTypeInput
+  }
+
+  export type CalcProjectTypeUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categories?: CalcCategoryUpdateManyWithoutProjectTypeNestedInput
+  }
+
+  export type CalcProjectTypeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categories?: CalcCategoryUncheckedUpdateManyWithoutProjectTypeNestedInput
+  }
+
+  export type CalcProjectTypeCreateManyInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type CalcProjectTypeUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcProjectTypeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcConditionCreateInput = {
+    label: string
+    description?: string | null
+    multiplier: number
+    isDefault?: boolean
+    item: CalcItemCreateNestedOneWithoutConditionsInput
+  }
+
+  export type CalcConditionUncheckedCreateInput = {
+    id?: number
+    itemId: number
+    label: string
+    description?: string | null
+    multiplier: number
+    isDefault?: boolean
+  }
+
+  export type CalcConditionUpdateInput = {
+    label?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    multiplier?: FloatFieldUpdateOperationsInput | number
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    item?: CalcItemUpdateOneRequiredWithoutConditionsNestedInput
+  }
+
+  export type CalcConditionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    itemId?: IntFieldUpdateOperationsInput | number
+    label?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    multiplier?: FloatFieldUpdateOperationsInput | number
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CalcConditionCreateManyInput = {
+    id?: number
+    itemId: number
+    label: string
+    description?: string | null
+    multiplier: number
+    isDefault?: boolean
+  }
+
+  export type CalcConditionUpdateManyMutationInput = {
+    label?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    multiplier?: FloatFieldUpdateOperationsInput | number
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CalcConditionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    itemId?: IntFieldUpdateOperationsInput | number
+    label?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    multiplier?: FloatFieldUpdateOperationsInput | number
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -33059,6 +41599,403 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type CalcProjectTypeNullableScalarRelationFilter = {
+    is?: CalcProjectTypeWhereInput | null
+    isNot?: CalcProjectTypeWhereInput | null
+  }
+
+  export type CalcItemListRelationFilter = {
+    every?: CalcItemWhereInput
+    some?: CalcItemWhereInput
+    none?: CalcItemWhereInput
+  }
+
+  export type CalcItemOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CalcCategoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    isPopular?: SortOrder
+    projectTypeId?: SortOrder
+  }
+
+  export type CalcCategoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+  }
+
+  export type CalcCategoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    isPopular?: SortOrder
+    projectTypeId?: SortOrder
+  }
+
+  export type CalcCategoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    isPopular?: SortOrder
+    projectTypeId?: SortOrder
+  }
+
+  export type CalcCategorySumOrderByAggregateInput = {
+    id?: SortOrder
+    projectTypeId?: SortOrder
+  }
+
+  export type EnumCalcUnitTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CalcUnitType | EnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCalcUnitTypeFilter<$PrismaModel> | $Enums.CalcUnitType
+  }
+
+  export type CalcCategoryScalarRelationFilter = {
+    is?: CalcCategoryWhereInput
+    isNot?: CalcCategoryWhereInput
+  }
+
+  export type CalcConditionListRelationFilter = {
+    every?: CalcConditionWhereInput
+    some?: CalcConditionWhereInput
+    none?: CalcConditionWhereInput
+  }
+
+  export type CalcConditionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CalcItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    unitType?: SortOrder
+    minPrice?: SortOrder
+    maxPrice?: SortOrder
+    baseMin?: SortOrder
+    baseMax?: SortOrder
+    vatIncluded?: SortOrder
+    visible?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CalcItemAvgOrderByAggregateInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+    minPrice?: SortOrder
+    maxPrice?: SortOrder
+    baseMin?: SortOrder
+    baseMax?: SortOrder
+  }
+
+  export type CalcItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    unitType?: SortOrder
+    minPrice?: SortOrder
+    maxPrice?: SortOrder
+    baseMin?: SortOrder
+    baseMax?: SortOrder
+    vatIncluded?: SortOrder
+    visible?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CalcItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    unitType?: SortOrder
+    minPrice?: SortOrder
+    maxPrice?: SortOrder
+    baseMin?: SortOrder
+    baseMax?: SortOrder
+    vatIncluded?: SortOrder
+    visible?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CalcItemSumOrderByAggregateInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+    minPrice?: SortOrder
+    maxPrice?: SortOrder
+    baseMin?: SortOrder
+    baseMax?: SortOrder
+  }
+
+  export type EnumCalcUnitTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CalcUnitType | EnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCalcUnitTypeWithAggregatesFilter<$PrismaModel> | $Enums.CalcUnitType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCalcUnitTypeFilter<$PrismaModel>
+    _max?: NestedEnumCalcUnitTypeFilter<$PrismaModel>
+  }
+
+  export type CalcSettingsCountOrderByAggregateInput = {
+    id?: SortOrder
+    callOutThreshold?: SortOrder
+    callOutFeeMin?: SortOrder
+    callOutFeeMax?: SortOrder
+    urgencyMultiplier?: SortOrder
+    emergencyMultiplier?: SortOrder
+    projectTrigger?: SortOrder
+    projectFeePercent?: SortOrder
+  }
+
+  export type CalcSettingsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    callOutThreshold?: SortOrder
+    callOutFeeMin?: SortOrder
+    callOutFeeMax?: SortOrder
+    urgencyMultiplier?: SortOrder
+    emergencyMultiplier?: SortOrder
+    projectTrigger?: SortOrder
+    projectFeePercent?: SortOrder
+  }
+
+  export type CalcSettingsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    callOutThreshold?: SortOrder
+    callOutFeeMin?: SortOrder
+    callOutFeeMax?: SortOrder
+    urgencyMultiplier?: SortOrder
+    emergencyMultiplier?: SortOrder
+    projectTrigger?: SortOrder
+    projectFeePercent?: SortOrder
+  }
+
+  export type CalcSettingsMinOrderByAggregateInput = {
+    id?: SortOrder
+    callOutThreshold?: SortOrder
+    callOutFeeMin?: SortOrder
+    callOutFeeMax?: SortOrder
+    urgencyMultiplier?: SortOrder
+    emergencyMultiplier?: SortOrder
+    projectTrigger?: SortOrder
+    projectFeePercent?: SortOrder
+  }
+
+  export type CalcSettingsSumOrderByAggregateInput = {
+    id?: SortOrder
+    callOutThreshold?: SortOrder
+    callOutFeeMin?: SortOrder
+    callOutFeeMax?: SortOrder
+    urgencyMultiplier?: SortOrder
+    emergencyMultiplier?: SortOrder
+    projectTrigger?: SortOrder
+    projectFeePercent?: SortOrder
+  }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type CalcRequestCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    postcode?: SortOrder
+    categorySlug?: SortOrder
+    data?: SortOrder
+    urgency?: SortOrder
+    estimateMin?: SortOrder
+    estimateMax?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CalcRequestAvgOrderByAggregateInput = {
+    id?: SortOrder
+    estimateMin?: SortOrder
+    estimateMax?: SortOrder
+  }
+
+  export type CalcRequestMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    postcode?: SortOrder
+    categorySlug?: SortOrder
+    urgency?: SortOrder
+    estimateMin?: SortOrder
+    estimateMax?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CalcRequestMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    postcode?: SortOrder
+    categorySlug?: SortOrder
+    urgency?: SortOrder
+    estimateMin?: SortOrder
+    estimateMax?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CalcRequestSumOrderByAggregateInput = {
+    id?: SortOrder
+    estimateMin?: SortOrder
+    estimateMax?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type CalcCategoryListRelationFilter = {
+    every?: CalcCategoryWhereInput
+    some?: CalcCategoryWhereInput
+    none?: CalcCategoryWhereInput
+  }
+
+  export type CalcCategoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CalcProjectTypeCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CalcProjectTypeAvgOrderByAggregateInput = {
+    id?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type CalcProjectTypeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CalcProjectTypeMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    description?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CalcProjectTypeSumOrderByAggregateInput = {
+    id?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type CalcItemScalarRelationFilter = {
+    is?: CalcItemWhereInput
+    isNot?: CalcItemWhereInput
+  }
+
+  export type CalcConditionCountOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    label?: SortOrder
+    description?: SortOrder
+    multiplier?: SortOrder
+    isDefault?: SortOrder
+  }
+
+  export type CalcConditionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    multiplier?: SortOrder
+  }
+
+  export type CalcConditionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    label?: SortOrder
+    description?: SortOrder
+    multiplier?: SortOrder
+    isDefault?: SortOrder
+  }
+
+  export type CalcConditionMinOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    label?: SortOrder
+    description?: SortOrder
+    multiplier?: SortOrder
+    isDefault?: SortOrder
+  }
+
+  export type CalcConditionSumOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    multiplier?: SortOrder
+  }
+
   export type WarrantyCreateNestedManyWithoutClientInput = {
     create?: XOR<WarrantyCreateWithoutClientInput, WarrantyUncheckedCreateWithoutClientInput> | WarrantyCreateWithoutClientInput[] | WarrantyUncheckedCreateWithoutClientInput[]
     connectOrCreate?: WarrantyCreateOrConnectWithoutClientInput | WarrantyCreateOrConnectWithoutClientInput[]
@@ -33969,6 +42906,180 @@ export namespace Prisma {
     update?: XOR<XOR<AiChatThreadUpdateToOneWithWhereWithoutEscalationInput, AiChatThreadUpdateWithoutEscalationInput>, AiChatThreadUncheckedUpdateWithoutEscalationInput>
   }
 
+  export type CalcProjectTypeCreateNestedOneWithoutCategoriesInput = {
+    create?: XOR<CalcProjectTypeCreateWithoutCategoriesInput, CalcProjectTypeUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: CalcProjectTypeCreateOrConnectWithoutCategoriesInput
+    connect?: CalcProjectTypeWhereUniqueInput
+  }
+
+  export type CalcItemCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<CalcItemCreateWithoutCategoryInput, CalcItemUncheckedCreateWithoutCategoryInput> | CalcItemCreateWithoutCategoryInput[] | CalcItemUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: CalcItemCreateOrConnectWithoutCategoryInput | CalcItemCreateOrConnectWithoutCategoryInput[]
+    createMany?: CalcItemCreateManyCategoryInputEnvelope
+    connect?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+  }
+
+  export type CalcItemUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<CalcItemCreateWithoutCategoryInput, CalcItemUncheckedCreateWithoutCategoryInput> | CalcItemCreateWithoutCategoryInput[] | CalcItemUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: CalcItemCreateOrConnectWithoutCategoryInput | CalcItemCreateOrConnectWithoutCategoryInput[]
+    createMany?: CalcItemCreateManyCategoryInputEnvelope
+    connect?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+  }
+
+  export type CalcProjectTypeUpdateOneWithoutCategoriesNestedInput = {
+    create?: XOR<CalcProjectTypeCreateWithoutCategoriesInput, CalcProjectTypeUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: CalcProjectTypeCreateOrConnectWithoutCategoriesInput
+    upsert?: CalcProjectTypeUpsertWithoutCategoriesInput
+    disconnect?: CalcProjectTypeWhereInput | boolean
+    delete?: CalcProjectTypeWhereInput | boolean
+    connect?: CalcProjectTypeWhereUniqueInput
+    update?: XOR<XOR<CalcProjectTypeUpdateToOneWithWhereWithoutCategoriesInput, CalcProjectTypeUpdateWithoutCategoriesInput>, CalcProjectTypeUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type CalcItemUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<CalcItemCreateWithoutCategoryInput, CalcItemUncheckedCreateWithoutCategoryInput> | CalcItemCreateWithoutCategoryInput[] | CalcItemUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: CalcItemCreateOrConnectWithoutCategoryInput | CalcItemCreateOrConnectWithoutCategoryInput[]
+    upsert?: CalcItemUpsertWithWhereUniqueWithoutCategoryInput | CalcItemUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: CalcItemCreateManyCategoryInputEnvelope
+    set?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    disconnect?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    delete?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    connect?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    update?: CalcItemUpdateWithWhereUniqueWithoutCategoryInput | CalcItemUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: CalcItemUpdateManyWithWhereWithoutCategoryInput | CalcItemUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: CalcItemScalarWhereInput | CalcItemScalarWhereInput[]
+  }
+
+  export type CalcItemUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<CalcItemCreateWithoutCategoryInput, CalcItemUncheckedCreateWithoutCategoryInput> | CalcItemCreateWithoutCategoryInput[] | CalcItemUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: CalcItemCreateOrConnectWithoutCategoryInput | CalcItemCreateOrConnectWithoutCategoryInput[]
+    upsert?: CalcItemUpsertWithWhereUniqueWithoutCategoryInput | CalcItemUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: CalcItemCreateManyCategoryInputEnvelope
+    set?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    disconnect?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    delete?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    connect?: CalcItemWhereUniqueInput | CalcItemWhereUniqueInput[]
+    update?: CalcItemUpdateWithWhereUniqueWithoutCategoryInput | CalcItemUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: CalcItemUpdateManyWithWhereWithoutCategoryInput | CalcItemUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: CalcItemScalarWhereInput | CalcItemScalarWhereInput[]
+  }
+
+  export type CalcCategoryCreateNestedOneWithoutItemsInput = {
+    create?: XOR<CalcCategoryCreateWithoutItemsInput, CalcCategoryUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: CalcCategoryCreateOrConnectWithoutItemsInput
+    connect?: CalcCategoryWhereUniqueInput
+  }
+
+  export type CalcConditionCreateNestedManyWithoutItemInput = {
+    create?: XOR<CalcConditionCreateWithoutItemInput, CalcConditionUncheckedCreateWithoutItemInput> | CalcConditionCreateWithoutItemInput[] | CalcConditionUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: CalcConditionCreateOrConnectWithoutItemInput | CalcConditionCreateOrConnectWithoutItemInput[]
+    createMany?: CalcConditionCreateManyItemInputEnvelope
+    connect?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+  }
+
+  export type CalcConditionUncheckedCreateNestedManyWithoutItemInput = {
+    create?: XOR<CalcConditionCreateWithoutItemInput, CalcConditionUncheckedCreateWithoutItemInput> | CalcConditionCreateWithoutItemInput[] | CalcConditionUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: CalcConditionCreateOrConnectWithoutItemInput | CalcConditionCreateOrConnectWithoutItemInput[]
+    createMany?: CalcConditionCreateManyItemInputEnvelope
+    connect?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+  }
+
+  export type EnumCalcUnitTypeFieldUpdateOperationsInput = {
+    set?: $Enums.CalcUnitType
+  }
+
+  export type CalcCategoryUpdateOneRequiredWithoutItemsNestedInput = {
+    create?: XOR<CalcCategoryCreateWithoutItemsInput, CalcCategoryUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: CalcCategoryCreateOrConnectWithoutItemsInput
+    upsert?: CalcCategoryUpsertWithoutItemsInput
+    connect?: CalcCategoryWhereUniqueInput
+    update?: XOR<XOR<CalcCategoryUpdateToOneWithWhereWithoutItemsInput, CalcCategoryUpdateWithoutItemsInput>, CalcCategoryUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type CalcConditionUpdateManyWithoutItemNestedInput = {
+    create?: XOR<CalcConditionCreateWithoutItemInput, CalcConditionUncheckedCreateWithoutItemInput> | CalcConditionCreateWithoutItemInput[] | CalcConditionUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: CalcConditionCreateOrConnectWithoutItemInput | CalcConditionCreateOrConnectWithoutItemInput[]
+    upsert?: CalcConditionUpsertWithWhereUniqueWithoutItemInput | CalcConditionUpsertWithWhereUniqueWithoutItemInput[]
+    createMany?: CalcConditionCreateManyItemInputEnvelope
+    set?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    disconnect?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    delete?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    connect?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    update?: CalcConditionUpdateWithWhereUniqueWithoutItemInput | CalcConditionUpdateWithWhereUniqueWithoutItemInput[]
+    updateMany?: CalcConditionUpdateManyWithWhereWithoutItemInput | CalcConditionUpdateManyWithWhereWithoutItemInput[]
+    deleteMany?: CalcConditionScalarWhereInput | CalcConditionScalarWhereInput[]
+  }
+
+  export type CalcConditionUncheckedUpdateManyWithoutItemNestedInput = {
+    create?: XOR<CalcConditionCreateWithoutItemInput, CalcConditionUncheckedCreateWithoutItemInput> | CalcConditionCreateWithoutItemInput[] | CalcConditionUncheckedCreateWithoutItemInput[]
+    connectOrCreate?: CalcConditionCreateOrConnectWithoutItemInput | CalcConditionCreateOrConnectWithoutItemInput[]
+    upsert?: CalcConditionUpsertWithWhereUniqueWithoutItemInput | CalcConditionUpsertWithWhereUniqueWithoutItemInput[]
+    createMany?: CalcConditionCreateManyItemInputEnvelope
+    set?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    disconnect?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    delete?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    connect?: CalcConditionWhereUniqueInput | CalcConditionWhereUniqueInput[]
+    update?: CalcConditionUpdateWithWhereUniqueWithoutItemInput | CalcConditionUpdateWithWhereUniqueWithoutItemInput[]
+    updateMany?: CalcConditionUpdateManyWithWhereWithoutItemInput | CalcConditionUpdateManyWithWhereWithoutItemInput[]
+    deleteMany?: CalcConditionScalarWhereInput | CalcConditionScalarWhereInput[]
+  }
+
+  export type CalcCategoryCreateNestedManyWithoutProjectTypeInput = {
+    create?: XOR<CalcCategoryCreateWithoutProjectTypeInput, CalcCategoryUncheckedCreateWithoutProjectTypeInput> | CalcCategoryCreateWithoutProjectTypeInput[] | CalcCategoryUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: CalcCategoryCreateOrConnectWithoutProjectTypeInput | CalcCategoryCreateOrConnectWithoutProjectTypeInput[]
+    createMany?: CalcCategoryCreateManyProjectTypeInputEnvelope
+    connect?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+  }
+
+  export type CalcCategoryUncheckedCreateNestedManyWithoutProjectTypeInput = {
+    create?: XOR<CalcCategoryCreateWithoutProjectTypeInput, CalcCategoryUncheckedCreateWithoutProjectTypeInput> | CalcCategoryCreateWithoutProjectTypeInput[] | CalcCategoryUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: CalcCategoryCreateOrConnectWithoutProjectTypeInput | CalcCategoryCreateOrConnectWithoutProjectTypeInput[]
+    createMany?: CalcCategoryCreateManyProjectTypeInputEnvelope
+    connect?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+  }
+
+  export type CalcCategoryUpdateManyWithoutProjectTypeNestedInput = {
+    create?: XOR<CalcCategoryCreateWithoutProjectTypeInput, CalcCategoryUncheckedCreateWithoutProjectTypeInput> | CalcCategoryCreateWithoutProjectTypeInput[] | CalcCategoryUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: CalcCategoryCreateOrConnectWithoutProjectTypeInput | CalcCategoryCreateOrConnectWithoutProjectTypeInput[]
+    upsert?: CalcCategoryUpsertWithWhereUniqueWithoutProjectTypeInput | CalcCategoryUpsertWithWhereUniqueWithoutProjectTypeInput[]
+    createMany?: CalcCategoryCreateManyProjectTypeInputEnvelope
+    set?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    disconnect?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    delete?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    connect?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    update?: CalcCategoryUpdateWithWhereUniqueWithoutProjectTypeInput | CalcCategoryUpdateWithWhereUniqueWithoutProjectTypeInput[]
+    updateMany?: CalcCategoryUpdateManyWithWhereWithoutProjectTypeInput | CalcCategoryUpdateManyWithWhereWithoutProjectTypeInput[]
+    deleteMany?: CalcCategoryScalarWhereInput | CalcCategoryScalarWhereInput[]
+  }
+
+  export type CalcCategoryUncheckedUpdateManyWithoutProjectTypeNestedInput = {
+    create?: XOR<CalcCategoryCreateWithoutProjectTypeInput, CalcCategoryUncheckedCreateWithoutProjectTypeInput> | CalcCategoryCreateWithoutProjectTypeInput[] | CalcCategoryUncheckedCreateWithoutProjectTypeInput[]
+    connectOrCreate?: CalcCategoryCreateOrConnectWithoutProjectTypeInput | CalcCategoryCreateOrConnectWithoutProjectTypeInput[]
+    upsert?: CalcCategoryUpsertWithWhereUniqueWithoutProjectTypeInput | CalcCategoryUpsertWithWhereUniqueWithoutProjectTypeInput[]
+    createMany?: CalcCategoryCreateManyProjectTypeInputEnvelope
+    set?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    disconnect?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    delete?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    connect?: CalcCategoryWhereUniqueInput | CalcCategoryWhereUniqueInput[]
+    update?: CalcCategoryUpdateWithWhereUniqueWithoutProjectTypeInput | CalcCategoryUpdateWithWhereUniqueWithoutProjectTypeInput[]
+    updateMany?: CalcCategoryUpdateManyWithWhereWithoutProjectTypeInput | CalcCategoryUpdateManyWithWhereWithoutProjectTypeInput[]
+    deleteMany?: CalcCategoryScalarWhereInput | CalcCategoryScalarWhereInput[]
+  }
+
+  export type CalcItemCreateNestedOneWithoutConditionsInput = {
+    create?: XOR<CalcItemCreateWithoutConditionsInput, CalcItemUncheckedCreateWithoutConditionsInput>
+    connectOrCreate?: CalcItemCreateOrConnectWithoutConditionsInput
+    connect?: CalcItemWhereUniqueInput
+  }
+
+  export type CalcItemUpdateOneRequiredWithoutConditionsNestedInput = {
+    create?: XOR<CalcItemCreateWithoutConditionsInput, CalcItemUncheckedCreateWithoutConditionsInput>
+    connectOrCreate?: CalcItemCreateOrConnectWithoutConditionsInput
+    upsert?: CalcItemUpsertWithoutConditionsInput
+    connect?: CalcItemWhereUniqueInput
+    update?: XOR<XOR<CalcItemUpdateToOneWithWhereWithoutConditionsInput, CalcItemUpdateWithoutConditionsInput>, CalcItemUncheckedUpdateWithoutConditionsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -34234,6 +43345,46 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCalcUnitTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CalcUnitType | EnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCalcUnitTypeFilter<$PrismaModel> | $Enums.CalcUnitType
+  }
+
+  export type NestedEnumCalcUnitTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CalcUnitType | EnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CalcUnitType[] | ListEnumCalcUnitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCalcUnitTypeWithAggregatesFilter<$PrismaModel> | $Enums.CalcUnitType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCalcUnitTypeFilter<$PrismaModel>
+    _max?: NestedEnumCalcUnitTypeFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type WarrantyCreateWithoutClientInput = {
@@ -36168,6 +45319,368 @@ export namespace Prisma {
     messages?: AiChatMessageUncheckedUpdateManyWithoutThreadNestedInput
   }
 
+  export type CalcProjectTypeCreateWithoutCategoriesInput = {
+    name: string
+    slug: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type CalcProjectTypeUncheckedCreateWithoutCategoriesInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type CalcProjectTypeCreateOrConnectWithoutCategoriesInput = {
+    where: CalcProjectTypeWhereUniqueInput
+    create: XOR<CalcProjectTypeCreateWithoutCategoriesInput, CalcProjectTypeUncheckedCreateWithoutCategoriesInput>
+  }
+
+  export type CalcItemCreateWithoutCategoryInput = {
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    conditions?: CalcConditionCreateNestedManyWithoutItemInput
+  }
+
+  export type CalcItemUncheckedCreateWithoutCategoryInput = {
+    id?: number
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    conditions?: CalcConditionUncheckedCreateNestedManyWithoutItemInput
+  }
+
+  export type CalcItemCreateOrConnectWithoutCategoryInput = {
+    where: CalcItemWhereUniqueInput
+    create: XOR<CalcItemCreateWithoutCategoryInput, CalcItemUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type CalcItemCreateManyCategoryInputEnvelope = {
+    data: CalcItemCreateManyCategoryInput | CalcItemCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CalcProjectTypeUpsertWithoutCategoriesInput = {
+    update: XOR<CalcProjectTypeUpdateWithoutCategoriesInput, CalcProjectTypeUncheckedUpdateWithoutCategoriesInput>
+    create: XOR<CalcProjectTypeCreateWithoutCategoriesInput, CalcProjectTypeUncheckedCreateWithoutCategoriesInput>
+    where?: CalcProjectTypeWhereInput
+  }
+
+  export type CalcProjectTypeUpdateToOneWithWhereWithoutCategoriesInput = {
+    where?: CalcProjectTypeWhereInput
+    data: XOR<CalcProjectTypeUpdateWithoutCategoriesInput, CalcProjectTypeUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type CalcProjectTypeUpdateWithoutCategoriesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcProjectTypeUncheckedUpdateWithoutCategoriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcItemUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: CalcItemWhereUniqueInput
+    update: XOR<CalcItemUpdateWithoutCategoryInput, CalcItemUncheckedUpdateWithoutCategoryInput>
+    create: XOR<CalcItemCreateWithoutCategoryInput, CalcItemUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type CalcItemUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: CalcItemWhereUniqueInput
+    data: XOR<CalcItemUpdateWithoutCategoryInput, CalcItemUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type CalcItemUpdateManyWithWhereWithoutCategoryInput = {
+    where: CalcItemScalarWhereInput
+    data: XOR<CalcItemUpdateManyMutationInput, CalcItemUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type CalcItemScalarWhereInput = {
+    AND?: CalcItemScalarWhereInput | CalcItemScalarWhereInput[]
+    OR?: CalcItemScalarWhereInput[]
+    NOT?: CalcItemScalarWhereInput | CalcItemScalarWhereInput[]
+    id?: IntFilter<"CalcItem"> | number
+    categoryId?: IntFilter<"CalcItem"> | number
+    name?: StringFilter<"CalcItem"> | string
+    description?: StringNullableFilter<"CalcItem"> | string | null
+    unitType?: EnumCalcUnitTypeFilter<"CalcItem"> | $Enums.CalcUnitType
+    minPrice?: FloatFilter<"CalcItem"> | number
+    maxPrice?: FloatFilter<"CalcItem"> | number
+    baseMin?: FloatFilter<"CalcItem"> | number
+    baseMax?: FloatFilter<"CalcItem"> | number
+    vatIncluded?: BoolFilter<"CalcItem"> | boolean
+    visible?: BoolFilter<"CalcItem"> | boolean
+    createdAt?: DateTimeFilter<"CalcItem"> | Date | string
+    updatedAt?: DateTimeFilter<"CalcItem"> | Date | string
+  }
+
+  export type CalcCategoryCreateWithoutItemsInput = {
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+    projectType?: CalcProjectTypeCreateNestedOneWithoutCategoriesInput
+  }
+
+  export type CalcCategoryUncheckedCreateWithoutItemsInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+    projectTypeId?: number | null
+  }
+
+  export type CalcCategoryCreateOrConnectWithoutItemsInput = {
+    where: CalcCategoryWhereUniqueInput
+    create: XOR<CalcCategoryCreateWithoutItemsInput, CalcCategoryUncheckedCreateWithoutItemsInput>
+  }
+
+  export type CalcConditionCreateWithoutItemInput = {
+    label: string
+    description?: string | null
+    multiplier: number
+    isDefault?: boolean
+  }
+
+  export type CalcConditionUncheckedCreateWithoutItemInput = {
+    id?: number
+    label: string
+    description?: string | null
+    multiplier: number
+    isDefault?: boolean
+  }
+
+  export type CalcConditionCreateOrConnectWithoutItemInput = {
+    where: CalcConditionWhereUniqueInput
+    create: XOR<CalcConditionCreateWithoutItemInput, CalcConditionUncheckedCreateWithoutItemInput>
+  }
+
+  export type CalcConditionCreateManyItemInputEnvelope = {
+    data: CalcConditionCreateManyItemInput | CalcConditionCreateManyItemInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CalcCategoryUpsertWithoutItemsInput = {
+    update: XOR<CalcCategoryUpdateWithoutItemsInput, CalcCategoryUncheckedUpdateWithoutItemsInput>
+    create: XOR<CalcCategoryCreateWithoutItemsInput, CalcCategoryUncheckedCreateWithoutItemsInput>
+    where?: CalcCategoryWhereInput
+  }
+
+  export type CalcCategoryUpdateToOneWithWhereWithoutItemsInput = {
+    where?: CalcCategoryWhereInput
+    data: XOR<CalcCategoryUpdateWithoutItemsInput, CalcCategoryUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type CalcCategoryUpdateWithoutItemsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+    projectType?: CalcProjectTypeUpdateOneWithoutCategoriesNestedInput
+  }
+
+  export type CalcCategoryUncheckedUpdateWithoutItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+    projectTypeId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CalcConditionUpsertWithWhereUniqueWithoutItemInput = {
+    where: CalcConditionWhereUniqueInput
+    update: XOR<CalcConditionUpdateWithoutItemInput, CalcConditionUncheckedUpdateWithoutItemInput>
+    create: XOR<CalcConditionCreateWithoutItemInput, CalcConditionUncheckedCreateWithoutItemInput>
+  }
+
+  export type CalcConditionUpdateWithWhereUniqueWithoutItemInput = {
+    where: CalcConditionWhereUniqueInput
+    data: XOR<CalcConditionUpdateWithoutItemInput, CalcConditionUncheckedUpdateWithoutItemInput>
+  }
+
+  export type CalcConditionUpdateManyWithWhereWithoutItemInput = {
+    where: CalcConditionScalarWhereInput
+    data: XOR<CalcConditionUpdateManyMutationInput, CalcConditionUncheckedUpdateManyWithoutItemInput>
+  }
+
+  export type CalcConditionScalarWhereInput = {
+    AND?: CalcConditionScalarWhereInput | CalcConditionScalarWhereInput[]
+    OR?: CalcConditionScalarWhereInput[]
+    NOT?: CalcConditionScalarWhereInput | CalcConditionScalarWhereInput[]
+    id?: IntFilter<"CalcCondition"> | number
+    itemId?: IntFilter<"CalcCondition"> | number
+    label?: StringFilter<"CalcCondition"> | string
+    description?: StringNullableFilter<"CalcCondition"> | string | null
+    multiplier?: FloatFilter<"CalcCondition"> | number
+    isDefault?: BoolFilter<"CalcCondition"> | boolean
+  }
+
+  export type CalcCategoryCreateWithoutProjectTypeInput = {
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+    items?: CalcItemCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CalcCategoryUncheckedCreateWithoutProjectTypeInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+    items?: CalcItemUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type CalcCategoryCreateOrConnectWithoutProjectTypeInput = {
+    where: CalcCategoryWhereUniqueInput
+    create: XOR<CalcCategoryCreateWithoutProjectTypeInput, CalcCategoryUncheckedCreateWithoutProjectTypeInput>
+  }
+
+  export type CalcCategoryCreateManyProjectTypeInputEnvelope = {
+    data: CalcCategoryCreateManyProjectTypeInput | CalcCategoryCreateManyProjectTypeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CalcCategoryUpsertWithWhereUniqueWithoutProjectTypeInput = {
+    where: CalcCategoryWhereUniqueInput
+    update: XOR<CalcCategoryUpdateWithoutProjectTypeInput, CalcCategoryUncheckedUpdateWithoutProjectTypeInput>
+    create: XOR<CalcCategoryCreateWithoutProjectTypeInput, CalcCategoryUncheckedCreateWithoutProjectTypeInput>
+  }
+
+  export type CalcCategoryUpdateWithWhereUniqueWithoutProjectTypeInput = {
+    where: CalcCategoryWhereUniqueInput
+    data: XOR<CalcCategoryUpdateWithoutProjectTypeInput, CalcCategoryUncheckedUpdateWithoutProjectTypeInput>
+  }
+
+  export type CalcCategoryUpdateManyWithWhereWithoutProjectTypeInput = {
+    where: CalcCategoryScalarWhereInput
+    data: XOR<CalcCategoryUpdateManyMutationInput, CalcCategoryUncheckedUpdateManyWithoutProjectTypeInput>
+  }
+
+  export type CalcCategoryScalarWhereInput = {
+    AND?: CalcCategoryScalarWhereInput | CalcCategoryScalarWhereInput[]
+    OR?: CalcCategoryScalarWhereInput[]
+    NOT?: CalcCategoryScalarWhereInput | CalcCategoryScalarWhereInput[]
+    id?: IntFilter<"CalcCategory"> | number
+    name?: StringFilter<"CalcCategory"> | string
+    slug?: StringFilter<"CalcCategory"> | string
+    description?: StringNullableFilter<"CalcCategory"> | string | null
+    isPopular?: BoolFilter<"CalcCategory"> | boolean
+    projectTypeId?: IntNullableFilter<"CalcCategory"> | number | null
+  }
+
+  export type CalcItemCreateWithoutConditionsInput = {
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    category: CalcCategoryCreateNestedOneWithoutItemsInput
+  }
+
+  export type CalcItemUncheckedCreateWithoutConditionsInput = {
+    id?: number
+    categoryId: number
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CalcItemCreateOrConnectWithoutConditionsInput = {
+    where: CalcItemWhereUniqueInput
+    create: XOR<CalcItemCreateWithoutConditionsInput, CalcItemUncheckedCreateWithoutConditionsInput>
+  }
+
+  export type CalcItemUpsertWithoutConditionsInput = {
+    update: XOR<CalcItemUpdateWithoutConditionsInput, CalcItemUncheckedUpdateWithoutConditionsInput>
+    create: XOR<CalcItemCreateWithoutConditionsInput, CalcItemUncheckedCreateWithoutConditionsInput>
+    where?: CalcItemWhereInput
+  }
+
+  export type CalcItemUpdateToOneWithWhereWithoutConditionsInput = {
+    where?: CalcItemWhereInput
+    data: XOR<CalcItemUpdateWithoutConditionsInput, CalcItemUncheckedUpdateWithoutConditionsInput>
+  }
+
+  export type CalcItemUpdateWithoutConditionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: CalcCategoryUpdateOneRequiredWithoutItemsNestedInput
+  }
+
+  export type CalcItemUncheckedUpdateWithoutConditionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    categoryId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type WarrantyCreateManyClientInput = {
     id?: number
     projectId?: number | null
@@ -36675,6 +46188,131 @@ export namespace Prisma {
     sender?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcItemCreateManyCategoryInput = {
+    id?: number
+    name: string
+    description?: string | null
+    unitType: $Enums.CalcUnitType
+    minPrice: number
+    maxPrice: number
+    baseMin?: number
+    baseMax?: number
+    vatIncluded?: boolean
+    visible?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CalcItemUpdateWithoutCategoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conditions?: CalcConditionUpdateManyWithoutItemNestedInput
+  }
+
+  export type CalcItemUncheckedUpdateWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conditions?: CalcConditionUncheckedUpdateManyWithoutItemNestedInput
+  }
+
+  export type CalcItemUncheckedUpdateManyWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    unitType?: EnumCalcUnitTypeFieldUpdateOperationsInput | $Enums.CalcUnitType
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxPrice?: FloatFieldUpdateOperationsInput | number
+    baseMin?: FloatFieldUpdateOperationsInput | number
+    baseMax?: FloatFieldUpdateOperationsInput | number
+    vatIncluded?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CalcConditionCreateManyItemInput = {
+    id?: number
+    label: string
+    description?: string | null
+    multiplier: number
+    isDefault?: boolean
+  }
+
+  export type CalcConditionUpdateWithoutItemInput = {
+    label?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    multiplier?: FloatFieldUpdateOperationsInput | number
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CalcConditionUncheckedUpdateWithoutItemInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    label?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    multiplier?: FloatFieldUpdateOperationsInput | number
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CalcConditionUncheckedUpdateManyWithoutItemInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    label?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    multiplier?: FloatFieldUpdateOperationsInput | number
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CalcCategoryCreateManyProjectTypeInput = {
+    id?: number
+    name: string
+    slug: string
+    description?: string | null
+    isPopular?: boolean
+  }
+
+  export type CalcCategoryUpdateWithoutProjectTypeInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+    items?: CalcItemUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CalcCategoryUncheckedUpdateWithoutProjectTypeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
+    items?: CalcItemUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type CalcCategoryUncheckedUpdateManyWithoutProjectTypeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isPopular?: BoolFieldUpdateOperationsInput | boolean
   }
 
 
