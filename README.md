@@ -1,8 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interactive Construction Website – Bachelor Thesis Project
 
-## Getting Started
+This is a [Next.js](https://nextjs.org) project developed as part of a bachelor's thesis on the topic:
 
-First, run the development server:
+**"Development of an Interactive Website for a Construction Company with Research on Methods and Technologies for Implementing Modern Features Using React and Next.js"**
+
+Author: **Mykhailo Iskiv**  
+Supervisor: **V.V. Koldovskyi, PhD in Economics, Associate Professor, Competence Manager at SoftServe**  
+University: **IT Step University**
+
+---
+
+## 🚀 Project Overview
+
+The project addresses the dependency of UK construction companies on third-party platforms like Checkatrade and MyBuilder. It proposes a **fully autonomous web solution** that includes:
+
+- Gallery of completed projects (with lazy loading)
+- AI-powered hybrid chatbot (OpenAI API)
+- Service cost calculator
+- Admin panel with full CMS
+- SEO optimization (SSG, metadata, sitemap, etc.)
+- Blog with multimedia support
+- Secure client area (projects, documents, certificates)
+
+**Stack:** Next.js 15+, React, Tailwind CSS, PostgreSQL, OpenAI API, Google Cloud Storage
+
+---
+
+## 🛠 Getting Started
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +40,26 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To start editing, open the file:  
+```bash
+app/page.tsx
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧐 Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [PostgreSQL Docs](https://www.postgresql.org/docs/)
+- [OpenAI API](https://platform.openai.com/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is best deployed on **[Vercel](https://vercel.com)**, which offers seamless integration with Next.js.  
+See [deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for more.
