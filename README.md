@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org) project developed as part of a bachelor'
 
 **"Development of an Interactive Website for a Construction Company with Research on Methods and Technologies for Implementing Modern Features Using React and Next.js"**
 
-Author: **Mykhailo Iskiv**  
+Author: **Mykhailo Iskiv 4CS-42**  
 Supervisor: **V.V. Koldovskyi, PhD in Economics, Associate Professor, Competence Manager at SoftServe**  
 University: **IT Step University**
 
