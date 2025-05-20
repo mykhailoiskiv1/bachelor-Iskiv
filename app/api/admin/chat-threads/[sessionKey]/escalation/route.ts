@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET(
   req: Request,
-  context: { params: Promise<{ sessionKey: string }> } // 👈 Підкреслюємо, що params — Promise
+  context: { params: Promise<{ sessionKey: string }> } 
 ) {
-  const { sessionKey } = await context.params; // ✅ треба await
+  const { sessionKey } = await context.params;
 
   const contact = await prisma.aiChatEscalation.findUnique({
     where: { sessionKey },

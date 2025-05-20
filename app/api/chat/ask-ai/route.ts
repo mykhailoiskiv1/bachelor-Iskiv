@@ -87,7 +87,6 @@ export async function POST(req: NextRequest) {
   let escalated = false;
   let noticeText = '';
 
-  // ✅ If GPT triggered function_call
   if (fnCall?.name === 'escalate') {
     try {
       const args = JSON.parse(fnCall.arguments!);
@@ -111,7 +110,6 @@ export async function POST(req: NextRequest) {
     } catch {}
   }
 
-  // ✅ Fallback: якщо GPT не викликав function_call, але написав щось підозріле
   if (!escalated && /we.*(contact|reach out|get back|schedule)/i.test(aiAnswer)) {
     escalated = true;
     noticeText = 'You’ve been transferred to a human agent. Please leave your contact info.';
@@ -129,10 +127,9 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    aiAnswer = ''; // не дублювати GPT відповідь, SYSTEM вже сказав головне
+    aiAnswer = '';
   }
 
-  // 🧠 Зберегти відповідь AI (якщо не ескалація system-only)
   if (!escalated && aiAnswer) {
     await prisma.aiChatMessage.create({
       data: { threadId: thread.id, sender: 'AI', content: aiAnswer },
